@@ -34,19 +34,19 @@
 
             # Engineering
             CMChiefEngineer: [1, 1]
-#            CMOrdnanceTech: [3, 3]
+            CMOrdnanceTech: [3, 3]
             CMMaintTech: [3, 3]
 
             # Medical
             CMCMO: [1, 1]
             CMDoctor: [4, 6]
             CMNurse: [4, 6]
-#            CMResearcher: [2, 2]
+            CMResearcher: [2, 2]
 
             # Requisition
             CMQuartermaster: [1, 1]
             CMCargoTech: [4, 4]
-#            CMMessTech: [1, 1]
+            CMMessTech: [1, 1]
 
             # Marines
             CMSquadLeader: [4, 4]
