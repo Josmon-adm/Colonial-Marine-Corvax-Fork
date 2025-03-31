@@ -10,6 +10,8 @@
     buildSpecial: true
     powerNet: ground
     minimapColor: '#6C6767D8'
+    resinAllowed: true
+    unweedable: false
 
 - type: entity
   parent:
@@ -291,3 +293,4 @@
     medevac: false
     OB: false
     supplyDrop: false
+    unweedable: true
