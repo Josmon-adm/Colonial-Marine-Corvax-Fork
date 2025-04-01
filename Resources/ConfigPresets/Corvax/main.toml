@@ -91,3 +91,15 @@ preload = false
 
 [rmc]
 admin_fax_area_map = "Maps/_CCM14/operational_headquarters.yml"
+
+[gateway]
+generator_enabled = false
+
+[accessibility]
+screen_shake_intensity = 1
+
+[events]
+enabled = false
+
+[build]
+engine_version = "248.0.3-source-gen-debug" #and remember to remove it next update...xd

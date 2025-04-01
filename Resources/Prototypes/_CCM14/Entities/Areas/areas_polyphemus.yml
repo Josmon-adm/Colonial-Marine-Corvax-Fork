@@ -10,8 +10,7 @@
     buildSpecial: true
     powerNet: ground
     minimapColor: '#6C6767D8'
-    resinAllowed: true
-    unweedable: false
+    landingZone: false
 
 - type: entity
   parent:
@@ -372,4 +371,5 @@
     medevac: false
     OB: false
     supplyDrop: false
-    unweedable: true
+    landingZone: true
+    linkedLz: dropship_lz1
