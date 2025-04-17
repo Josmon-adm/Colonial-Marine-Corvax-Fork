@@ -5,3 +5,4 @@ cm-access-colony-research = Колония научный
 cm-access-colony-brig = Колония охранный
 cm-access-colony-medbay = Колония медицинский
 cm-access-colony-command = Колония командный
+rmc-access-colony-armory = Colony Armory

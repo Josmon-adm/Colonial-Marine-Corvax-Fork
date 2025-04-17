@@ -1,5 +1,8 @@
 ent-RMCCommunicationsTower = стационарная телекоммуникационная вышка TC-3T
     .desc = Стационарная высокомощная телекоммуникационная вышка TC-3T. Используется для организации субпространственных линий коммуникации между планетарными и экстрапланетарными локациями. Дополнительные частоты связи должны быть запрограммированы с помощью мультитула.
+ent-RMCCommunicationsTowerOn = { ent-RMCCommunicationsTower }
+    .suffix = On, UNMC, Colony, WeYa
+    .desc = { ent-RMCCommunicationsTower.desc }
 ent-RMCSpawnerCommunicationsTowerBase = статические коммуникации
     .desc = { ent-MarkerBase.desc }
 ent-RMCSpawnerCommunicationsTowerOne = { ent-RMCSpawnerCommunicationsTowerBase }

@@ -1,6 +1,6 @@
-﻿rmc-repairable-need-blowtorch = Вам нужен более мощный сварочный аппарат!
-rmc-repairable-not-damaged = {CAPITALIZE( $target )} не нуждается в ремонте.
-rmc-repairable-too-damaged = {CAPITALIZE(THE($target))} получила слишком сильные структурные повреждения, чтобы их можно было восстановить.
+rmc-repairable-need-blowtorch = Вам нужен более мощный сварочный аппарат!
+rmc-repairable-not-damaged = { CAPITALIZE($target) } не нуждается в ремонте.
+rmc-repairable-too-damaged = { CAPITALIZE(THE($target)) } получила слишком сильные структурные повреждения, чтобы их можно было восстановить.
 rmc-repairable-not-trained = Вы не обучены ремонту { $target }...
 rmc-repairable-start-self = Вы начинаете ремонтировать { $target }
 rmc-repairable-start-others = { $user } начинает ремонтировать { $target }

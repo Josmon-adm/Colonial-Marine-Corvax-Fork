@@ -1,1 +1,1 @@
-﻿materials-metal = металл
+materials-metal = металл

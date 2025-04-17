@@ -1,5 +1,5 @@
-ent-RMCEffectEmoteBase = { "" }
-    .desc = { "" }
+ent-RMCEffectEmoteBase = { ent-RMCBaseEffect }
+    .desc = { ent-RMCBaseEffect.desc }
 ent-RMCEffectFistbump = { ent-RMCEffectEmoteBase }
     .desc = { ent-RMCEffectEmoteBase.desc }
 ent-RMCEffectHighfive = { ent-RMCEffectEmoteBase }

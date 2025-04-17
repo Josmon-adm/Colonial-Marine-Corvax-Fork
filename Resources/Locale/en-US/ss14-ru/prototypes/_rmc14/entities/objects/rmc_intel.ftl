@@ -21,3 +21,6 @@ ent-RMCComputerIntel = intel computer
     .desc = An UNMC Intel Computer for data cataloguing and distribution.
 ent-RMCIntelTechTree = intel tech tree
     .desc = { "" }
+ent-RMCIntelDebug = { ent-RMCIntelPaperScrap }
+    .suffix = DEBUG, DO NOT MAP
+    .desc = { ent-RMCIntelPaperScrap.desc }

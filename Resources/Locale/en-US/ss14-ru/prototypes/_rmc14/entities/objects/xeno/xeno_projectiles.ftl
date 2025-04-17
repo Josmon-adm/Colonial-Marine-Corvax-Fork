@@ -26,3 +26,5 @@ ent-XenoSpitProjectilePraetorianWarden = { ent-XenoSpitProjectile }
     .desc = { ent-XenoSpitProjectile.desc }
 ent-XenoAcidBallProjectile = acid ball
     .desc = A small, pulsating ball of gas.
+ent-XenoOppressorTailHook = tail hook
+    .desc = { ent-XenoBaseProjectile.desc }

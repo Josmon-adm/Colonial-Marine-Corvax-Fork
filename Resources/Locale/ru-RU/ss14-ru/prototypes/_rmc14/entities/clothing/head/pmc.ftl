@@ -16,3 +16,7 @@ ent-ArmorHelmetPMCRiot = шлем RC6
     .desc = Стандартный шлем ОПЗ Riot-Control-6 имеет странную конструкцию, в нём по умолчанию отсутствует забрало (имеются крепления). Чёткий белый узор и красная эмблема являются синонимом угнетения по всему кольцу.
 ent-ArmorHelmetPMCKutjevo = шлем Кутьево
     .desc = Стандартный шлем, выдаваемый рабочим Кутьево. Содержит небольшой ремешок для хранения мелких предметов, таких как ручка, масло или даже фотография любимого человека.
+ent-RMCArmorHelmetPMCKutjevoSecurity = We-Ya corporate security helmet
+    .desc = A basic skull-helm worn by corporate security assets. This variant comes with a wider brim to protect the user from the harsh climate of the desert.
+ent-RMCArmorHelmetPMCKutjevoMedical = We-Ya corporate medic helmet
+    .desc = A basic skull-helm worn by corporate security assets. This variant comes with a wider brim to protect the user from the harsh climate of the desert and has a medical cross across the front.

@@ -1,9 +1,8 @@
-﻿rmc-rangefinder = Дальномер
+rmc-rangefinder = Дальномер
 rmc-rangefinder-header = [bold]УПРОЩЁННЫЕ КООРДИНАТЫ ЦЕЛИ[/bold]
-rmc-rangefinder-longitude = [font size=28]ДОЛГОТА : { $x} ,[/font]
+rmc-rangefinder-longitude = [font size=28]ДОЛГОТА : { $x } ,[/font]
 rmc-rangefinder-latitude = [font size=28]ШИРОТА : { $y }[/font]
-rmc-rangefinder-examine = {CAPITALIZE( $item )} показывает: ДОЛГОТА { $x }, ШИРОТА { $y }
-
+rmc-rangefinder-examine = { CAPITALIZE($item) } показывает: ДОЛГОТА { $x }, ШИРОТА { $y }
 rmc-laser-designator-out-of-range = Вы не можете видеть так далеко!
 rmc-laser-designator-already-targeting = Вы уже нацелились на что-то!
 rmc-laser-designator-not-surface = НЕДОПУСТИМАЯ ЦЕЛЬ: цель должна находиться на поверхности.

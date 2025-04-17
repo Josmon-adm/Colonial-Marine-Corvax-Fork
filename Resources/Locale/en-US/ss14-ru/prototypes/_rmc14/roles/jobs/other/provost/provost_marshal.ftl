@@ -5,4 +5,4 @@ ent-RMCRandomHumanoidProvostMarshal = provost ghost role marshal
     .suffix = Role, Admin, Low Law Understanding or Lower Rank
     .desc = { "" }
 ent-RMCIDCardProvostMarshal = provost marshal ID card
-    .desc = { ent-CMIDCardGold.desc }
+    .desc = Issued to members of the Provost Office.

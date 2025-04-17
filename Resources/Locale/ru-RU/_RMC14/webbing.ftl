@@ -1,1 +1,1 @@
-﻿rmc-webbing-cannot-wear-with-webbing = Это нельзя носить с разгрузкой!
+rmc-webbing-cannot-wear-with-webbing = Это нельзя носить с разгрузкой!

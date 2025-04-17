@@ -1,4 +1,4 @@
-ent-RMCEncryptionKeyBureau = bureau encryption Key
+ent-RMCEncryptionKeyBureau = bureau encryption key
     .desc = { ent-CMEncryptionKey.desc }
-ent-RMCEncryptionKeyFreelancer = freelancer encryption Key
+ent-RMCEncryptionKeyDukes = duke encryption key
     .desc = { ent-CMEncryptionKey.desc }

@@ -44,3 +44,6 @@ ent-CMAutopsy = We-Ya Brand Automatic Autopsy System(TM)
     .desc = Putting the FUN back in Autopsy.  This little gadget performs an entire autopsy of whatever strange life form you've found in about 30 seconds.
 ent-CMBoneGel = bottle of bone gel
     .desc = A container for bone gel that often needs to be refilled from a specialized machine.
+ent-RMCBoneGelEmpty = { ent-CMBoneGel }
+    .suffix = Empty
+    .desc = { ent-CMBoneGel.desc }

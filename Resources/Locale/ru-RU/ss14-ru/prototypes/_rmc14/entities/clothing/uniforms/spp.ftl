@@ -1,5 +1,11 @@
 ent-CMJumpsuitSPP = полевая форма СПН
     .desc = Комплект формы СПН, массово выпускаемый для вооруженных сил Социалистических Прогрессивных Народов.
+ent-RMCJumpsuitSPPWebbing = { ent-CMJumpsuitSPP }
+    .desc = { ent-CMJumpsuitSPP.desc }
+ent-RMCJumpsuitSPPWebbingVestBlack = { ent-CMJumpsuitSPP }
+    .desc = { ent-CMJumpsuitSPP.desc }
+ent-RMCJumpsuitSPPWebbingTools = { ent-CMJumpsuitSPP }
+    .desc = { ent-CMJumpsuitSPP.desc }
 ent-CMJumpsuitSPPMedic = полевая форма медика СПН
     .desc = Комплект формы медика СПН, массово выпускаемый для вооруженных сил Социалистических Прогрессивных Народов.
 ent-CMJumpsuitSPPEngi = полевая форма инженера СПН

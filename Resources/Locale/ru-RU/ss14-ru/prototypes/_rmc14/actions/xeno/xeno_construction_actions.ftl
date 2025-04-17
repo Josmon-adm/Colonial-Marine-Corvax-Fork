@@ -22,3 +22,5 @@ ent-ActionXenoFruitPlantLesser = Посадить смоляной фрук (50)
     .desc = Посадите на сорняки смоляной фрукт за счёт здоровья и плазмы.
 ent-ActionXenoDigTunnel = Прорыть туннель (200)
     .desc = Проройте туннель для быстрого перемещения по улью.
+ent-ActionLesserDronePlantWeeds = Plant Weeds (75)
+    .desc = Plant a weed node that will spread more weeds.

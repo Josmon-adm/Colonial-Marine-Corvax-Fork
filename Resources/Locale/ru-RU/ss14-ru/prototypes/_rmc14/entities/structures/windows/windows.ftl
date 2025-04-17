@@ -1,3 +1,5 @@
+ent-CMBaseWindowIndestructible = { ent-CMBaseStructureCorrodible }
+    .desc = { ent-CMBaseStructureCorrodible.desc }
 ent-CMBaseWindow = { ent-CMBaseStructureCorrodible }
     .desc = { ent-CMBaseStructureCorrodible.desc }
 ent-CMWindowReinforcedAlmayerHull = корпусное окно

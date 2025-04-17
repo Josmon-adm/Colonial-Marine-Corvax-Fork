@@ -1,6 +1,6 @@
 ent-RMCFlashlightBase = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
-ent-RMCBoxFlashlightsEmpty = box of flashlights
+ent-RMCBoxFlashlightsEmpty = box of flashlights (x8)
     .desc = A box of flashlights to brighten your day!
 ent-RMCBoxFlashlights = { ent-RMCBoxFlashlightsEmpty }
     .suffix = Filled

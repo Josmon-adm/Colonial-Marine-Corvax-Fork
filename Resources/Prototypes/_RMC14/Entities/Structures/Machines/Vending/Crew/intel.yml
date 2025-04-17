@@ -62,7 +62,8 @@
       - id: RMCPouchAutoinjector
         points: 15
         recommended: true
-      - id: RMCPouchMachete
+      - id: RMCPouchMacheteFilled
+        name: machete pouch (Full)
         points: 10
     - name: Utilities
       entries:
@@ -127,8 +128,11 @@
       takeOne: CMArmor
       entries:
       - id: RMCArmorXM4
-      - id: CMArmorM3Light
-      - id: CMCoatOfficer
+      - id: RMCArmorM3LightVariants
+    - name: Jacket
+      choices: { CMCoat: 1 }
+      entries:
+      - id: RMCCoatService
     - name: Backpack
       choices: { CMBag: 1 }
       entries:
@@ -142,6 +146,9 @@
       entries:
       - id: RMCArmorHelmetM12Intel
         recommended: true
+    - name: Hat
+      choices: { CMHat: 1 }
+      entries:
       - id: RMCHeadBeretGreen
       - id: CMHeadBeretTan
       - id: CMHeadCapOfficer
@@ -154,7 +161,9 @@
       - id: RMCBeltHolsterPistol
       - id: RMCBeltHolsterSMG
       - id: RMCBeltHolsterRevolver
+      - id: RMCM276ShotgunShellLoadingRig
       - id: CMBeltUtilityFilled
+        name: M276 pattern toolbelt rig (Full)
         recommended: true
     - name: Pouches
       choices: { CMPouches: 2 }
@@ -168,15 +177,15 @@
       - id: RMCPouchFirstAidPills
         name: first-aid pouch (pill packets)
       - id: RMCPouchFlareFilled
-        name: flare pouch (full)
-      #- id: TODO RMC14 Fuel Tank Strap Pouch
+        name: flare pouch (Full)
+      - id: RMCPouchFuelTank
       - id: RMCPouchGeneralLarge
       - id: RMCPouchMagazinePistolLarge
       - id: RMCPouchMagazine
       - id: RMCPouchShotgun
       - id: RMCPouchPistol
       - id: RMCPouchToolsFill
-        name: tools pouch (full)
+        name: tools pouch (Full)
         recommended: true
       #- id: RMCPouchSling # TODO RMC14 Sling Pouch
     - name: Accessories
@@ -235,11 +244,11 @@
         amount: 24
     - name: Sidearms
       entries:
-      - id: RMCWeaponPistolM77
+      - id: RMCWeaponPistolM77Empty
         amount: 4
-      - id: RMCWeaponRevolverM44
+      - id: RMCWeaponRevolverM44Empty
         amount: 4
-      - id: CMWeaponPistolM1984
+      - id: CMWeaponPistolM1984Empty
         amount: 4
     - name: Sidearm Ammunition
       entries:

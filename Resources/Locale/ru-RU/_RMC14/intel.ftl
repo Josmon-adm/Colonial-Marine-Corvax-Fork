@@ -1,5 +1,5 @@
-﻿rmc-intel-suffix = { $baseName } ( {$number} )
-rmc-intel-unlocked = { $baseName } ( {$unlocked} )
+rmc-intel-suffix = { $baseName } ( { $number } )
+rmc-intel-unlocked = { $baseName } ( { $unlocked } )
 rmc-intel-serial-name = { $baseName } #{ $serial }
 rmc-intel-serial-examine = Серийный номер: { $serial }.
 rmc-intel-announcement = ТЕХ. ДОКЛАД: { $points } очков доступно.
@@ -13,3 +13,9 @@ rmc-intel-clue-folder = { $intel } в локации { $area }.
 rmc-intel-clue-technical-manual = { $intel } в локации { $area }.
 rmc-intel-clue-experimental-device = Найти { $intel } в локации { $area }.
 rmc-intel-not-intel-jumpsuit = Вы не можете носить это, не надев форму офицера разведки ККМП.
+rmc-intel-survivor-pickup =
+    You have no use for the { $thing }.
+    Focus on getting out alive first.
+rmc-intel-survivor-read =
+    You have no need to read the { $thing }.
+    Focus on getting out alive first.

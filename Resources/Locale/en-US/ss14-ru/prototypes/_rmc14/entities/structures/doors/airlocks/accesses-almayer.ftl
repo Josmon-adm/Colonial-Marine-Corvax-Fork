@@ -1,9 +1,6 @@
-ent-CMAirlockRequisitionsLocked = { ent-CMAirlockEngineer }
+ent-CMAirlockRequisitionsLocked = requisitions bay
     .suffix = Requisitions, Locked
-    .desc = { ent-CMAirlockEngineer.desc }
-ent-CMAirlockGlassRequisitionsLocked = { ent-CMAirlockGlassEngineer }
-    .suffix = Requisitions, Locked, Glass
-    .desc = { ent-CMAirlockGlassEngineer.desc }
+    .desc = { ent-CMAirlockPrep.desc }
 ent-CMAirlockMaintRequisitionsLocked = { ent-CMAirlockMaint }
     .suffix = Requisitions, Locked, Maint
     .desc = { ent-CMAirlockMaint.desc }

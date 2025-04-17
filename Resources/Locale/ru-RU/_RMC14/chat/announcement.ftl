@@ -34,3 +34,9 @@ rmc-announcement-emergency-dropship-crash = [font size=14][bold][color=#CECECE]�
 rmc-announcement-delta = [color=#CECECE][font size=16][bold]АКТИВИРОВАНЫ СИСТЕМЫ САМОУНИЧТОЖЕНИЯ[/bold][/font][/color][color=red][font size=16][bold]
     
     ОПАСНОСТЬ, АКТИВИРОВАНА СИСТЕМА АВАРИЙНОГО УНИЧТОЖЕНИЯ. ПРОЙДИТЕ В КАМЕРУ САМОУНИЧТОЖЕНИЯ ДЛЯ УСТАНОВКИ УПРАВЛЯЮЩЕГО СТЕРЖНЯ.[/bold][/font][/color]
+rmc-announcement-general-quarters = ATTENTION! GENERAL QUARTERS. ALL HANDS, MAN YOUR BATTLESTATIONS.
+rmc-announcement-dropship-hijack = Unscheduled dropship departure detected from operational area. Hijack likely. Shutting down autopilot.
+rmc-announcement-dropship-hijack-hive = The Queen has commanded the metal bird to depart for the metal hive in the sky! Rejoice!
+rmc-announcement-ares-command = [color=#CECECE][font size=16][bold]ARES v3.2[/bold][/font][/color][color=red][font size=16]
+    
+    { $message }[/font][/color]

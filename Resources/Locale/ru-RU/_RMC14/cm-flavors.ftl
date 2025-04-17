@@ -1,1 +1,1 @@
-﻿flavor-base-bobda = по-шотландски
+flavor-base-bobda = по-шотландски

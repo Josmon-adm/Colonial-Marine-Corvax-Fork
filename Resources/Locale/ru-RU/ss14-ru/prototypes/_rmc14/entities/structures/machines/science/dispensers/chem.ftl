@@ -1,3 +1,5 @@
+ent-RMCDispenserBase = { "" }
+    .desc = { "" }
 ent-RMCChemDispenserBase = раздатчик химикатов
     .desc = Сложная машина для смешивания элементов в химические вещества. Продукт компании Ве-Я.
 ent-RMCChemDispenserGround = { ent-RMCChemDispenserBase }

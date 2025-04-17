@@ -44,6 +44,6 @@ cm-wounds-brackets-translators-note = { "{ }" } = Не обработано
 cm-wounds-failed-unskilled = Вы не знаете как использовать { $treater }!
 cm-wounds-failed-not-enough = Вам не хватает { $treater }!
 cm-wounds-open-cut = { $target } вскрыт, вам понадобится нечто большее, чем { $treater }!
-cm-wounds-cannot-treat = { $treater} не может лечить такие раны!
+cm-wounds-cannot-treat = { $treater } не может лечить такие раны!
 cm-wounds-already-treated = Раны { $target } уже были обработаны!
 cm-wounds-start-fumbling = Вы начинаете возиться с { $name }.

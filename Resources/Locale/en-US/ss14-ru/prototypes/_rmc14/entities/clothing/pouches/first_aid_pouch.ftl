@@ -1,0 +1,17 @@
+ent-RMCPouchFirstAid = first-aid pouch
+    .desc = It contains, by default, autoinjectors. But it may also hold ointments, bandages, and pill packets.
+ent-RMCPouchFirstAidInjectors = { ent-RMCPouchFirstAid }
+    .suffix = Injectors
+    .desc = { ent-RMCPouchFirstAid.desc }
+ent-RMCPouchFirstAidSplintsGauzeOintment = { ent-RMCPouchFirstAid }
+    .suffix = Splints, Gauze, Ointment
+    .desc = { ent-RMCPouchFirstAid.desc }
+ent-RMCPouchFirstAidPills = { ent-RMCPouchFirstAid }
+    .suffix = Pills
+    .desc = { ent-RMCPouchFirstAid.desc }
+ent-RMCPouchFirstAidERT = { ent-RMCPouchFirstAid }
+    .desc = It can contain autoinjectors, ointments, and bandages. This one has some extra stuff.
+    .suffix = ERT
+ent-RMCPouchFirstAidERTFill = { ent-RMCPouchFirstAidERT }
+    .suffix = ERT, Filled
+    .desc = { ent-RMCPouchFirstAidERT.desc }

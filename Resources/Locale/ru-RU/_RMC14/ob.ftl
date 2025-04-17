@@ -1,5 +1,6 @@
-﻿rmc-ob-fuel-instructions = Потребность боеголовки в топливе:
-  { $requirements }
+rmc-ob-fuel-instructions =
+    Потребность боеголовки в топливе:
+    { $requirements }
 rmc-ob-fuel-requirement = { $warhead }: { $fuel } топливных блоков.
 rmc-ob-warning-one = Небо вспыхивает огнём к { $direction } от вас!
 rmc-ob-warning-above-one = Небо над вами вспыхивает огнём!

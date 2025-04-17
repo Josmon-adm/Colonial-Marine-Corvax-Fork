@@ -92,19 +92,20 @@
       prefix: cm-job-prefix-commanding-officer
     - type: CommendationGiver
     - type: ViewIntelObjectives
+    - type: CommandAccent
 
 - type: startingGear
   id: CMGearCommandingOfficer
   equipment:
     jumpsuit: CMJumpsuitBO
-    belt: RMCMatebaBeltFilled
     shoes: CMShoesLaceupCommander
     head: CMHeadBeretCO
     outerClothing: RMCCoatService
-    id: CMIDCardCommandingOfficer
     ears: CMHeadsetSeniorCommand
     pocket1: RMCPouchCommand
     pocket2: RMCPouchGeneralLarge
+  inhand:
+    - RMCMatebaCustomizationCase
 
 - type: entity
   parent: CMSpawnPointJobBase

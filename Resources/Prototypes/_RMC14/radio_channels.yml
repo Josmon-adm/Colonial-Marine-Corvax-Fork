@@ -176,7 +176,7 @@
 - type: radioChannel
   id: Provost
   name: chat-radio-provost
-  keycode: "п" #CCM
+  keycode: "r"
   frequency: 1473
   color: "#9b0612"
   longRange: true
@@ -185,7 +185,7 @@
 - type: radioChannel
   id: Hivemind
   name: chat-radio-hivemind
-  keycode: "у" #CCM
+  keycode: "ё" #CCM
   frequency: 426
   color: "#8b36a6"
   longRange: true

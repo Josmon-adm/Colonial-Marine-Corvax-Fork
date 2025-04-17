@@ -6,5 +6,7 @@ ent-RMCHeadsetDistressWeYa = корпоративная гарнитура Ве-
     .desc = Гарнитура, обычно используемая персоналом корпорации Ве-Я.
 ent-RMCHeadsetDistressPMC = гарнитура ЧВК
     .desc = Специальная гарнитура, используемая персоналом корпорации.
+ent-RMCHeadsetDistressDukes = Duke's Dozen headset
+    .desc = A special headset used by small groups of trained operatives. Or terrorists.
 ent-RMCHeadsetDistressFreelancer = гарнитура фрилансеров
     .desc = Специальная гарнитура, используемая небольшими группами подготовленных оперативников. Или террористов.

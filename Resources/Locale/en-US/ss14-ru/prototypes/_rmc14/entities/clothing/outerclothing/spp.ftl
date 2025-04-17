@@ -1,12 +1,12 @@
-ent-RMCArmorSPP = SPP UM5 personal armor
+ent-RMCArmorSPP = UM5 personal armor
     .desc = Standard body armor of the SPP military, the UM5 (Union Medium MK5) is a medium body armor, roughly on par with the M3 pattern body armor in service with the UNMC, specialized towards ballistics protection. Unlike the M3, however, the plate has a heavier neckplate. This has earned many UN members to refer to SPP soldiers as 'tin men'.
-ent-RMCArmorSPPSupport = SPP UL6 personal armor
-    .desc = Standard body armor of the SPP military, the UM5 (Union Medium MK5) is a medium body armor, roughly on par with the M3 pattern body armor in service with the UNMC, specialized towards ballistics protection. Unlike the M3, however, the plate has a heavier neckplate. This has earned many UN members to refer to SPP soldiers as 'tin men'.
+ent-RMCArmorSPPSupport = UL6 personal armor
+    .desc = Standard body armor of the SPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the UNMC, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility.
 ent-RMCArmorSPPSupportSynth = SPP UL6 synthetic personal armor
     .desc = Modified variant of the UL6 personel armor system intended to be useable by Synthetic units. Offers no protection but very little movement impairment.
 ent-RMCArmorSPPCommando = SPP UM5CU personal armor
     .desc = A modification of the UM5, designed for stealth operations.
-ent-RMCArmorSPPHeavy = SPP UH7 heavy plated armor
+ent-RMCArmorSPPHeavy = UH7 heavy plated armor
     .desc = An extremely heavy-duty set of body armor in service with the SPP military, the UH7 (Union Heavy MK7) is known for having powerful ballistic protection, alongside a noticeable neck guard, fortified in order to allow the wearer to endure the stresses of the bulky helmet.
 ent-RMCCoatSPP = SPP UL4 officer jacket
     .desc = A lightweight jacket, issued to officers of the SPP's military. Slightly protective from incoming damage, best off with proper armor however.

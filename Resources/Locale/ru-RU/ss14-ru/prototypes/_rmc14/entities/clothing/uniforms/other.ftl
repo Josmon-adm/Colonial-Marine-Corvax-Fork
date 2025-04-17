@@ -26,3 +26,7 @@ ent-RMCJumpsuitFreelancer = полевая форма фрилансера
     .desc = Комплект одежды свободного покроя, идеально подходящей для неофициального наёмника. Пахнет порохом, яблочным пирогом и покрыт пятнами жира и сакэ.
 ent-RMCJumpsuitCivilian = серая утилитарная форма
     .desc = Стильный серый комбинезон - стандартная форма для гражданского вспомогательного персонала.
+ent-RMCJumpsuitKutjevoJumper = kutjevo jumper
+    .desc = A heavy-duty jumpsuit worn by the workers on Kutjevo.
+ent-RMCJumpsuitKutjevoDrysuit = kutjevo drysuit
+    .desc = A heavy-duty drysuit worn by the workers on Kutjevo.

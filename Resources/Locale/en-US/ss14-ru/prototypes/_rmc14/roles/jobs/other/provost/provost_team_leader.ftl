@@ -5,4 +5,4 @@ ent-RMCRandomHumanoidProvostTeamLeader = provost ghost role team leader
     .suffix = Role, Player
     .desc = { "" }
 ent-RMCIDCardProvostTeamLeader = provost team leader ID card
-    .desc = { ent-CMIDCardGold.desc }
+    .desc = Issued to members of the Provost Office.

@@ -5,4 +5,4 @@ ent-RMCRandomHumanoidProvostDeputyMarshal = provost ghost role deputy marshal
     .suffix = Role, Whitelisted COs
     .desc = { "" }
 ent-RMCIDCardProvostDeputyMarshal = provost deputy marshal ID card
-    .desc = { ent-CMIDCardGold.desc }
+    .desc = Issued to members of the Provost Office.

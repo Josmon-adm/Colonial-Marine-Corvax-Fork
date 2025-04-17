@@ -1,7 +1,7 @@
 ent-RMCPrefabBase = prefabricated structure
-    .desc = This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UA ballistics vests, UNMC and SPP uniforms. The loose walls roll with each gust of wind.
+    .desc = This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UN ballistics vests, UNMC and SPP uniforms. The loose walls roll with each gust of wind.
 ent-RMCPrefabBaseTop = prefabricated structure
-    .desc = This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UA ballistics vests, UNMC and SPP uniforms. The loose walls roll with each gust of wind.
+    .desc = This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UN ballistics vests, UNMC and SPP uniforms. The loose walls roll with each gust of wind.
 ent-RMCPrefabBlueBase = { ent-RMCPrefabBase }
     .suffix = Blue, Base
     .desc = { ent-RMCPrefabBase.desc }

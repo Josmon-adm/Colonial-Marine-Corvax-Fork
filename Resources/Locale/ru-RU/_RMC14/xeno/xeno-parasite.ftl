@@ -5,21 +5,15 @@ rmc-xeno-infect-success = Паразит врезается и срывает { 
 rmc-xeno-infect-fail = Паразит врезается в { $clothing } { $target }!
 rmc-xeno-failed-parasite-dead = Мертвое дитя не может заразить!
 rmc-xeno-cant-throw = Мы не можем бросить { $target }!
-
 rmc-xeno-parasite-dead = { CAPITALIZE($parasite) } не двигается.
 rmc-xeno-parasite-announce-infect = Мы чувствуем, что { $xeno } заразил носителя в локации { $location }!
-
-rmc-xeno-parasite-player-pickup = {CAPITALIZE($parasite)} может справиться сама!
+rmc-xeno-parasite-player-pickup = { CAPITALIZE($parasite) } может справиться сама!
 rmc-xeno-parasite-nonplayer-pull = Если мы потянем { $parasite }, это может ей повредить!
-
 rmc-xeno-parasite-ai-active = Она бодрствует.
 rmc-xeno-parasite-ai-idle = Она отдыхает.
 rmc-xeno-parasite-ai-dying = [color=red]Она должна вернуться в безопасное место![/color]
-
 rmc-xeno-parasite-ai-eaten = { CAPITALIZE($parasite) } яростно поедается другими паразитами-каннибалами!
-
 rmc-xeno-parasite-ghost-carrier-none = У { $xeno } нет хранящихся паразитов!
 rmc-xeno-parasite-ghost-carrier-reserved = { CAPITALIZE($xeno) } зарезервировала остальных паразитов для себя.
-rmc-xeno-parasite-ghost-carrier-dead = {CAPITALIZE($xeno)} погибает, и все её паразиты вместе с ней.
-
+rmc-xeno-parasite-ghost-carrier-dead = { CAPITALIZE($xeno) } погибает, и все её паразиты вместе с ней.
 rmc-xeno-parasite-carrier-death = Щебечущая масса крошечных инопланетян пытается убежать от { $xeno }!

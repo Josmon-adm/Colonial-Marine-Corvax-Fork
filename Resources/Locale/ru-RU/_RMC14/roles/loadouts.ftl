@@ -1,7 +1,8 @@
-﻿rmc-loadout-group-backpack = Рюкзак
+rmc-loadout-group-backpack = Рюкзак
 rmc-loadout-group-eyewear = Очки
 rmc-loadout-group-masks = Маски и шарфы
 rmc-loadout-group-headwear = Головные уборы
+rmc-loadout-group-helmet-garbs = Helmet accessories
 rmc-loadout-group-paperwork = Бюрократия
 rmc-loadout-group-plushies = Плюшки
 rmc-loadout-group-weapons = Оружие
@@ -12,5 +13,5 @@ rmc-loadout-group-foods-packaged = Еда (снеки)
 rmc-loadout-group-foods-healthy = Еда (полезное)
 rmc-loadout-group-role-specific = Особые для роли
 rmc-loadout-group-pins = Значки
-
+rmc-loadout-group-role-specific-ID = Commanding Officer (ID)
 loadout-group-points-insufficient = У вас недостаточно очков!

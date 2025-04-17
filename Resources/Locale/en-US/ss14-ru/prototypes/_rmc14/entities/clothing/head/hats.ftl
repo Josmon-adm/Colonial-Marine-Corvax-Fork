@@ -85,3 +85,5 @@ ent-RMCHeadBeretSquadFoxtrot = { ent-RMCHeadBeretSquadAlpha }
 ent-RMCHeadBeretSquadIntel = { ent-RMCHeadBeretSquadAlpha }
     .desc = Looks more intellegent than the person wearing it.
     .suffix = Intel
+ent-RMCProvostCommandBeret = UNMC provost command beret
+    .desc = A beret with the UNMC Military Police insignia emblazoned on it.

@@ -8,3 +8,7 @@ ent-RMCJumpsuitVeteranPMCCorporate = униформа корпоративной
     .desc = Бронированная униформа, которую носят сотрудники корпоративной охраны Ве-Я. Этот вариант обычно носят те, кого называют головорезами.
 ent-RMCJumpsuitVeteranPMCCorporateLead = униформа корпоративной охраны Ве-Я
     .desc = Бронированная униформа, которую носят сотрудники корпоративной охраны Ве-Я. Этот вариант обычно носит лидер «отряда головорезов», как их называют в народе.
+ent-RMCJumpsuitVeteranPMCKutjevo = We-Ya corporate security uniform
+    .desc = An armored uniform worn by We-Ya corporate security members. This variant is more breathable for use in hot, dry environments.
+ent-RMCJumpsuitVeteranPMCKutjevoLead = We-Ya corporate security uniform
+    .desc = An armored uniform worn by We-Ya corporate security members. This variant is more breathable for use in hot, dry environments and has gold armbands denoting the team leader

@@ -8,6 +8,6 @@ no-eorg-popup-close-button-wait =
     Кнопка закрытия активируется через { $time } { $time ->
         [one] секунду
         [few] секунды
-        *[other] секунд
+       *[other] секунд
     }.
 no-eorg-popup-skip-checkbox = Не показывать снова.

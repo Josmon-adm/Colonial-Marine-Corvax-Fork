@@ -1,9 +1,13 @@
 ent-RMCBinoculars = бинокль
     .desc = Армейский бинокль.
+ent-RMCBinocularsCiv = binoculars
+    .desc = A pair of binoculars.
 ent-RMCRangefinder = дальномер
     .desc = Бинокль с функцией дальномера. Кликните по тайлу, чтобы узнать его координаты.
 ent-RMCLaserDesignator = лазерный целеуказатель
     .desc = Лазерный целеуказатель с двумя режимами работы: дальномер и подсветка целей ИК-лазером для ударов с воздуха. Кликните по плитке, чтобы навестись на цель.
+ent-RMCLaserDesignatorSpotter = spotter's laser designator
+    .desc = A specially-designed laser designator, issued to USCM spotters, with two modes: target marking for CAS with IR laser and rangefinding. Click a tile to target something. Additionally, a trained spotter can laze targets for a USCM marksman, increasing the speed of target acquisition. A targeting beam will connect the binoculars to the target, but it may inherit the user's cloak, if possible.
 ent-RMCLaserDesignatorScout = лазерный целеуказатель скаута
     .desc = Улучшенный лазерный целеуказатель, выдаваемый скаутам ККМП, с двумя режимами работы: дальномер и подсветка целей ИК-лазером для ударов с воздуха. Кликните по плитке, чтобы навестись на цель.
 ent-RMCRangefinderTarget = лазер

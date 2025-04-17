@@ -1,5 +1,7 @@
 ent-CMJumpsuitMP = military police jumpsuit
     .desc = Standard-issue Military Police uniform. It has shards of light Kevlar to help protect against stabbing weapons and bullets.
+ent-RMCJumpsuitMPCorporate = corporate security officer's jumpsuit
+    .desc = It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection.
 ent-CMJumpsuitWarden = military warden uniform
     .desc = Standard-issue Military Warden uniform. It has shards of light Kevlar to help protect against stabbing weapons and bullets.
 ent-CMJumpsuitWardenBlue = blue warden uniform

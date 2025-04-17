@@ -8,6 +8,6 @@ cm-job-description-militarywarden = Присматривайте за бриго
 cm-job-prefix-militarywarden = ВН
 CMJobMilitaryWarden = Военный надзиратель
 cm-job-name-militarypolice = Офицер военной полиции
-cm-job-description-militarypolice =  Обеспечивайте соблюдение закона КМП. Задерживайте нарушителей. Следите за безопасностью корабельного персонала.
+cm-job-description-militarypolice = Обеспечивайте соблюдение закона КМП. Задерживайте нарушителей. Следите за безопасностью корабельного персонала.
 cm-job-prefix-militarypolice = ВП
 CMJobMilitaryPolice = Офицер военной полиции

@@ -1,5 +1,6 @@
 defaultWindowTitle: Corvax - Colonial Marines
 windowIconSet: /Textures/_CCM14/Logo/icon
 splashLogo: /Textures/_CCM14/Logo/load_logo.png
+multiWindow: true
 
 # PJB PLEASE

@@ -1,2 +1,2 @@
 ent-RMCHeadsetProvost = UNMC provost headset
-    .desc = { ent-CMHeadset.desc }
+    .desc = { ent-RMCHeadsetShip.desc }

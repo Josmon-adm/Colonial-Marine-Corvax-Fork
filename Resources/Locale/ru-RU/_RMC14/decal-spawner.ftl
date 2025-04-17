@@ -1,1 +1,1 @@
-﻿show-non-cm-decals = Показать не-КМ
+show-non-cm-decals = Показать не-КМ

@@ -15,6 +15,8 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -59,8 +61,11 @@ public sealed class AttachableHolderSystem : EntitySystem
         SubscribeLocalEvent<AttachableHolderComponent, GotEquippedHandEvent>(RelayEvent);
         SubscribeLocalEvent<AttachableHolderComponent, GotUnequippedHandEvent>(RelayEvent);
         SubscribeLocalEvent<AttachableHolderComponent, GunRefreshModifiersEvent>(RelayEvent,
-            after: new[] { typeof(WieldableSystem) });
+            after: new[] { typeof(SharedWieldableSystem) });
+        SubscribeLocalEvent<AttachableHolderComponent, BeforeRangedInteractEvent>(OnAttachableHolderBeforeRangedInteract,
+            before: [typeof(SharedStorageSystem)]);
         SubscribeLocalEvent<AttachableHolderComponent, InteractUsingEvent>(OnAttachableHolderInteractUsing);
+        SubscribeLocalEvent<AttachableHolderComponent, AfterInteractEvent>(OnAttachableHolderAfterInteract);
         SubscribeLocalEvent<AttachableHolderComponent, ActivateInWorldEvent>(OnAttachableHolderInteractInWorld,
             before: new [] { typeof(CMGunSystem) });
         SubscribeLocalEvent<AttachableHolderComponent, ItemWieldedEvent>(OnHolderWielded);
@@ -80,6 +85,7 @@ public sealed class AttachableHolderSystem : EntitySystem
         SubscribeLocalEvent<AttachableHolderComponent, GetFireModesEvent>(RelayEvent);
         SubscribeLocalEvent<AttachableHolderComponent, GetDamageFalloffEvent>(RelayEvent);
         SubscribeLocalEvent<AttachableHolderComponent, GetWeaponAccuracyEvent>(RelayEvent);
+        SubscribeLocalEvent<AttachableHolderComponent, DroppedEvent>(RelayEvent);
 
 
         CommandBinds.Builder
@@ -157,6 +163,25 @@ public sealed class AttachableHolderSystem : EntitySystem
         Dirty(holder);
     }
 
+    private void OnAttachableHolderBeforeRangedInteract(Entity<AttachableHolderComponent> holder, ref BeforeRangedInteractEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (holder.Comp.SupercedingAttachable is not { } attachable)
+            return;
+
+        var afterInteractEvent = new BeforeRangedInteractEvent(args.User,
+            attachable,
+            args.Target,
+            args.ClickLocation,
+            args.CanReach);
+        RaiseLocalEvent(attachable, afterInteractEvent);
+
+        if (afterInteractEvent.Handled)
+            args.Handled = true;
+    }
+
     private void OnAttachableHolderInteractUsing(Entity<AttachableHolderComponent> holder, ref InteractUsingEvent args)
     {
         if (CanAttach(holder, args.Used))
@@ -186,6 +211,25 @@ public sealed class AttachableHolderSystem : EntitySystem
             args.ClickLocation,
             true);
         RaiseLocalEvent(args.Used, afterInteractEvent);
+
+        if (afterInteractEvent.Handled)
+            args.Handled = true;
+    }
+
+    private void OnAttachableHolderAfterInteract(Entity<AttachableHolderComponent> holder, ref AfterInteractEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (holder.Comp.SupercedingAttachable is not { } attachable)
+            return;
+
+        var afterInteractEvent = new AfterInteractEvent(args.User,
+            attachable,
+            args.Target,
+            args.ClickLocation,
+            args.CanReach);
+        RaiseLocalEvent(attachable, afterInteractEvent);
 
         if (afterInteractEvent.Handled)
             args.Handled = true;

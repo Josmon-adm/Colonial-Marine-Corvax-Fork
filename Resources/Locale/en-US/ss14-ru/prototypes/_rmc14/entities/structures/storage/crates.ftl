@@ -1,9 +1,5 @@
 ent-RMCCrateBase = crate
     .desc = A rectangular metal crate.
-ent-RMCCrateLarge = supply crate
-    .desc = A hefty wooden crate.
-ent-RMCCrateWeldable = { ent-RMCCrateBase }
-    .desc = { ent-RMCCrateBase.desc }
 ent-RMCCrateAlpha = alpha squad crate
     .desc = A crate with alpha squad's symbol on it.
 ent-RMCCrateBravo = bravo squad crate

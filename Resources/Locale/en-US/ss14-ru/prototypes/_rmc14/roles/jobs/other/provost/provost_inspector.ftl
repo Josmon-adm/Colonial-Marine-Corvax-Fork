@@ -5,4 +5,4 @@ ent-RMCRandomHumanoidProvostInspector = provost ghost role inspector
     .suffix = Role, Player, Medium Law Understanding
     .desc = { "" }
 ent-RMCIDCardProvostInspector = provost inspector ID card
-    .desc = { ent-CMIDCardGold.desc }
+    .desc = Issued to members of the Provost Office.

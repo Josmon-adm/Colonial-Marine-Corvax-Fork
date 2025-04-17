@@ -1,1 +1,1 @@
-﻿rmc-window-knock-others = { $user } стучит в { $target }
+rmc-window-knock-others = { $user } стучит в { $target }

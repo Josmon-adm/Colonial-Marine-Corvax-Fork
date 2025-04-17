@@ -28,3 +28,5 @@ ent-RMCM54CMK2Case = M54C assault rifle MK2 case
     .desc = A gun case containing the M54C assault rifle MK2.
 ent-RMCM42A2ShotgunCase = M42A2 pump shotgun case
     .desc = A gun case containing the M42A2 pump shotgun.
+ent-RMCM79Case = M79 grenade launcher case
+    .desc = A gun case containing the M79 grenade launcher. Comes with three different grenade packets

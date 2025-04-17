@@ -1,4 +1,4 @@
-﻿rmc-suicide = Самоубийство
+rmc-suicide = Самоубийство
 rmc-suicide-start-self = Вы засовываете ствол в рот, готовые спустить курок.
 rmc-suicide-start-others = { $user } засовываете ствол в свой рот, готовые спустить курок.
 rmc-suicide-cancel-self = Вы решили, что жизнь стоит того, чтобы её прожить.

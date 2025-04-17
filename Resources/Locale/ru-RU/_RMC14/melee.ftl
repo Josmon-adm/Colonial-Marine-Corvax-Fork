@@ -1,1 +1,1 @@
-﻿cm-knife = Нож
+cm-knife = Нож

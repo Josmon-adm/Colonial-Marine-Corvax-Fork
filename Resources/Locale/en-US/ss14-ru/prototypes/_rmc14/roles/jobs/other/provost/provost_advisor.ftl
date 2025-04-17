@@ -5,4 +5,4 @@ ent-RMCRandomHumanoidProvostAdvisor = provost ghost role advisor
     .suffix = Role, Player, Low Law Understanding
     .desc = { "" }
 ent-RMCIDCardProvostAdvisor = provost advisor ID card
-    .desc = { ent-CMIDCardGold.desc }
+    .desc = Issued to members of the Provost Office.

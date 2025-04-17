@@ -4,3 +4,5 @@ ent-RMCTileFireGreen = { ent-RMCTileFire }
     .desc = { ent-RMCTileFire.desc }
 ent-RMCTileFireOB = { ent-RMCTileFire }
     .desc = { ent-RMCTileFire.desc }
+ent-RMCTileFireLaser = { ent-RMCTileFire }
+    .desc = { ent-RMCTileFire.desc }

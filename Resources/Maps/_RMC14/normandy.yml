@@ -1,6 +1,17 @@
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 248.0.3
+  forkId: ""
+  forkVersion: ""
+  time: 03/31/2025 16:53:34
+  entityCount: 193
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
 tilemap:
   0: Space
   1: CMShuttleTileInvisible
@@ -19,6 +30,8 @@ entities:
     components:
     - type: MetaData
       name: Нормандия
+    - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -1225,6 +1238,20 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,7.5
       parent: 1
+- proto: RMCEngineAttachmentPoint
+  entities:
+  - uid: 192
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5,-4
+      parent: 1
+  - uid: 193
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4,-4
+      parent: 1
 - proto: RMCNanoMed
   entities:
   - uid: 189
@@ -1232,15 +1259,11 @@ entities:
     - type: Transform
       pos: -3.5,-2.5
       parent: 1
-    - type: Physics
-      bodyType: Static
   - uid: 190
     components:
     - type: Transform
       pos: 2.5,-2.5
       parent: 1
-    - type: Physics
-      bodyType: Static
 - proto: RMCRotaryPhone
   entities:
   - uid: 188
@@ -1250,25 +1273,23 @@ entities:
     - type: Transform
       pos: 0.71875,8.754028
       parent: 1
-    - type: Physics
-      canCollide: False
     - type: Fixtures
       fixtures: {}
 - proto: RMCSurveillanceCameraAlmayer
   entities:
+  - uid: 90
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3,4.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
   - uid: 191
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -2.9375,-3.4219418
-      parent: 1
-    - type: Fixtures
-      fixtures: {}
-  - uid: 192
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.90625,4.4530582
+      pos: -3,-3.5
       parent: 1
     - type: Fixtures
       fixtures: {}
