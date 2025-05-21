@@ -27,10 +27,12 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Storage;
+using Content.Shared.GameTicking;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._RMC14.Marines.Squads;
 
@@ -95,10 +97,10 @@ public sealed class SquadSystem : EntitySystem
         SubscribeLocalEvent<SquadLeaderComponent, EntityTerminatingEvent>(OnSquadLeaderTerminating);
         SubscribeLocalEvent<SquadLeaderComponent, GetMarineIconEvent>(OnSquadLeaderGetMarineIcon, after: [typeof(SharedMarineSystem)]);
 
-        SubscribeLocalEvent<SquadLeaderHeadsetComponent, EncryptionChannelsChangedEvent>(OnSquadLeaderHeadsetChannelsChanged);
+        SubscribeLocalEvent<SquadLeaderHeadsetComponent, EncryptionChannelsChangedEvent>(OnSquadLeaderHeadsetChannelsChanged, before: [typeof(SharedHeadsetSystem)]);
         SubscribeLocalEvent<SquadLeaderHeadsetComponent, EntityTerminatingEvent>(OnSquadLeaderHeadsetTerminating);
 
-        SubscribeLocalEvent<AssignSquadComponent, MapInitEvent>(OnAssignSquadMapInit);
+        SubscribeLocalEvent<AssignSquadComponent, PlayerSpawnCompleteEvent>(OnAssignSquadPlayerSpawnComplete);
 
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
@@ -261,7 +263,7 @@ public sealed class SquadSystem : EntitySystem
         }
     }
 
-    private void OnAssignSquadMapInit(Entity<AssignSquadComponent> ent, ref MapInitEvent args)
+    private void OnAssignSquadPlayerSpawnComplete(Entity<AssignSquadComponent> ent, ref PlayerSpawnCompleteEvent args)
     {
         var query = EntityQueryEnumerator<SquadTeamComponent>();
         while (query.MoveNext(out var uid, out var comp))
@@ -269,7 +271,7 @@ public sealed class SquadSystem : EntitySystem
             if (!_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, uid))
                 continue;
 
-            AssignSquad(ent, (uid, comp), null);
+            AssignSquad(ent, (uid, comp), args.JobId);
         }
     }
 
@@ -507,6 +509,12 @@ public sealed class SquadSystem : EntitySystem
 
     public void UpdateSquadTitle(EntityUid marine)
     {
+        if (TryComp<SquadNameOverrideComponent>(marine, out var overrideComp))
+        {
+            MarineSetTitle(marine, Loc.GetString(overrideComp.Name));
+            return;
+        }
+
         var ev = new GetMarineSquadNameEvent();
         RaiseLocalEvent(marine, ref ev);
 
@@ -567,7 +575,7 @@ public sealed class SquadSystem : EntitySystem
         return member.Comp.Squad is { } memberSquad && memberSquad == squad;
     }
 
-    public void PromoteSquadLeader(Entity<SquadMemberComponent?> toPromote, EntityUid user)
+    public void PromoteSquadLeader(Entity<SquadMemberComponent?> toPromote, EntityUid user, SpriteSpecifier.Rsi icon)
     {
         if (HasComp<SquadLeaderComponent>(toPromote))
             return;
@@ -617,6 +625,7 @@ public sealed class SquadSystem : EntitySystem
         }
 
         var newLeader = EnsureComp<SquadLeaderComponent>(toPromote);
+        newLeader.Icon = icon;
         if (!EnsureComp(toPromote, out MarineOrdersComponent orders))
         {
             orders.Intrinsic = false;

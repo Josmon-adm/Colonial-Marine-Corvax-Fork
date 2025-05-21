@@ -13,7 +13,7 @@
   - !type:DepartmentTimeRequirement
     department: CMSquad
     time: 10800 # 3 hours
-# CCM14 role timers [add/end] 
+# CCM14 role timers [add/end]
   ranks:
     RMCRankSecondLT: []
   startingGear: CMGearPilotGunship
@@ -22,12 +22,6 @@
   supervisors: cm-job-supervisors-aso
   accessGroups:
   - Pilot
-  minimapIcon:
-    sprite: _RMC14/Interface/map_blips.rsi
-    state: gp
-  minimapBackground:
-   sprite: _RMC14/Interface/map_blips.rsi
-   state: background_command
   roleWeight: 0.25
   special:
   - !type:AddComponentSpecial
@@ -51,6 +45,13 @@
     - type: JobPrefix
       prefix: cm-job-prefix-gunship-pilot
     - type: ViewIntelObjectives
+    - type: TacticalMapIcon
+      icon:
+        sprite: _RMC14/Interface/map_blips.rsi
+        state: gp
+      background:
+        sprite: _RMC14/Interface/map_blips.rsi
+        state: background_command
 
 - type: startingGear
   id: CMGearPilotGunship
