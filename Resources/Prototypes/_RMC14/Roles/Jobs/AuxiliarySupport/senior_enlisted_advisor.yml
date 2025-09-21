@@ -39,7 +39,6 @@
     RMCRankGunnerySergeant: []
   startingGear: CMGearSeniorEnlistedAdvisor
   icon: "CMJobIconSEA"
-  requireAdminNotify: true
   joinNotifyCrew: true
   latejoinArrivalSound:
     path: /Audio/_RMC14/Announcements/ARES/attention_jingle.ogg

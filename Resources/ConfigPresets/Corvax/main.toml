@@ -108,7 +108,7 @@ screen_shake_intensity = 1
 enabled = false
 
 [build]
-engine_version = "264.0.1-fix-physics" #and remember to remove it next update...xd
+engine_version = "264.0.2-fix-physics" #and remember to remove it next update...xd
 
 [movement]
 mob_pushing = true
