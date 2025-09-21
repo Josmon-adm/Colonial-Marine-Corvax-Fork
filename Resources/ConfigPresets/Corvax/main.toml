@@ -1,4 +1,4 @@
-﻿[net]
+[net]
 tickrate = 30
 max_connections = 1024
 
