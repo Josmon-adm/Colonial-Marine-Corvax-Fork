@@ -132,6 +132,8 @@
     OB: true
     supplyDrop: true
     linkedLz: dropship_lz1
+    paradropping: true
+    weatherEnabled: true
 
 - type: entity
   parent:
@@ -152,6 +154,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: true
 
 - type: entity
   parent:
@@ -172,6 +176,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: true
 
 - type: entity
   parent:
@@ -192,6 +198,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -212,6 +220,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -225,13 +235,15 @@
   - type: Area
     minimapColor: '#6C6767D8'
     CAS: true
-    fulton: true
-    mortarPlacement: true
+    fulton: false
+    mortarPlacement: false
     mortarFire: true
     lasing: true
     medevac: true
     OB: true
-    supplyDrop: true
+    supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -252,6 +264,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -272,6 +286,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -295,3 +311,5 @@
     supplyDrop: false
     landingZone: true
     linkedLz: dropship_lz1
+    paradropping: false
+    weatherEnabled: true

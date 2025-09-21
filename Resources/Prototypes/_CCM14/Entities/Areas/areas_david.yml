@@ -9,6 +9,7 @@
     sprite: _CCM14/Areas/areas_david.rsi
     state: david
   - type: Area
+    weatherEnabled: false
     powerNet: david
     hijackEvacuationArea: false
     hijackEvacuationWeight: 0

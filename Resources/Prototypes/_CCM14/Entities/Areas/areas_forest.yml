@@ -130,6 +130,8 @@
     medevac: true
     OB: true
     supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -150,6 +152,8 @@
     medevac: true
     OB: true
     supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -170,6 +174,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: true
 
 - type: entity
   parent:
@@ -190,6 +196,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: true
 
 - type: entity
   parent:
@@ -210,6 +218,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: false
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -231,6 +241,8 @@
     OB: true
     supplyDrop: true
     linkedLz: dropship_lz1
+    paradropping: false
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -251,6 +263,8 @@
     medevac: true
     OB: true
     supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
 
 - type: entity
   parent:
@@ -271,6 +285,8 @@
     medevac: true
     OB: true
     supplyDrop: true
+    paradropping: true
+    weatherEnabled: true
 
 - type: entity
   parent:
@@ -294,3 +310,5 @@
     supplyDrop: false
     landingZone: true
     linkedLz: dropship_lz1
+    paradropping: false
+    weatherEnabled: false
