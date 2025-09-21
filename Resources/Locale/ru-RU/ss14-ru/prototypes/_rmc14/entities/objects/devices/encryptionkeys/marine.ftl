@@ -16,3 +16,5 @@ ent-CMEncryptionKeySOF = ключ радиошифрования ССО
     .desc = { ent-CMEncryptionKey.desc }
 ent-RMCEncryptionKeyFORECON = ключ радиошифрования силовой разведки
     .desc = { ent-CMEncryptionKey.desc }
+ent-RMCEncryptionKeySunRiders = sun riders encryption key
+    .desc = { ent-CMEncryptionKey.desc }

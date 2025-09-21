@@ -1,6 +1,5 @@
-ent-RMCSpawnPointSurvivorSecurity = точка появления выживший сотрудник безопасности
-    .desc = { ent-CMSpawnPointJobBase.desc }
-ent-RMCSurvivorPresetSecurity = шаблон роли колониального сотрудник безопасности
+
+ent-RMCSurvivorPresetSecurity = security colonist preset
     .desc = { ent-RMCSurvivorPresetCivilian.desc }
-ent-RMCRandomHumanoidSurvivorSecurity = сотрудник безопасности роль призрака
+ent-RMCRandomHumanoidSurvivorSecurity = security colonist ghost role
     .desc = { ent-MarkerBase.desc }

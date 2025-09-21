@@ -1,3 +1,4 @@
+
 ent-CMAirlockCommandLocked = { ent-CMAirlockCommand }
     .suffix = Командный, Закрыто
     .desc = { ent-CMAirlockCommand.desc }

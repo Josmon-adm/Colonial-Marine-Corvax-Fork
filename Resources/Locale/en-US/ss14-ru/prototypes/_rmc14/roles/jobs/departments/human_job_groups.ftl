@@ -8,3 +8,7 @@ ent-CMJobsDropship = { "" }
     .desc = { "" }
 ent-CMJobsDropshipPilot = { "" }
     .desc = { "" }
+ent-RMCJobsCorporate = { "" }
+    .desc = { "" }
+ent-RMCJobsSurvivor = { "" }
+    .desc = { "" }

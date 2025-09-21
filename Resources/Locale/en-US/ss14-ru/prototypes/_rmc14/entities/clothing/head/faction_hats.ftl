@@ -26,3 +26,5 @@ ent-RMCHeadCapQuartermaster = UNMC quartermaster cap
     .desc = It's a fancy hat for a not-so-fancy military supply clerk.
 ent-RMCHeadBeretQuartermaster = UNMC quartermaster beret
     .desc = A beret with the sergeant insignia emblazoned on it. It symbolizes hard work and shady business.
+ent-RMCHeadUNMCHeadset = UNMC headset
+    .desc = A headset typically found in use by radio-operators and officers. This one appears to be malfunctioning.

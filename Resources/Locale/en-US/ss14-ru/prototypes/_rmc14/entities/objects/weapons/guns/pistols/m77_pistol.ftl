@@ -1,5 +1,5 @@
 ent-RMCWeaponPistolM77 = M77 combat pistol
-    .desc = Standard issue Marine firearm. Also found in the hands of We-Ya PMC teams. Fires 9mm armor shredding rounds and is capable of 3-round burst.
+    .desc = Standard issue UNMC firearm. Also found in the hands of We-Ya PMC teams. Fires 9mm armor shredding rounds and is capable of 3-round burst.
 ent-RMCWeaponPistolM77Empty = { ent-RMCWeaponPistolM77 }
     .suffix = Empty
     .desc = { ent-RMCWeaponPistolM77.desc }

@@ -53,10 +53,13 @@ cm-xeno-fortify-cant-headbutt = Мы не можем совершить Удар
 cm-xeno-fortify-cant-rest = Мы не можем отдыхать пока мы в Укреплении!
 cm-xeno-fortify-cant-tail-sweep = Мы не можем совершить Взмах хвостом пока мы в Укреплении!
 cm-xeno-fortify-cant-toggle-crest = Мы не можем опустить гребень пока мы в Укреплении!
+# Leap
+cm-xeno-leap-blocked = We cannot do that while squeezing and scuttling!
 # Headbutt
 rmc-xeno-headbutt-too-far = Мы не можем совершить Удар головой с такой дистанции пока наш гребень опущен!
 # Leap
 cm-xeno-leap-cancelled = Мы отменяем наш Прыжок!
+rmc-xeno-weeds-blocked = We can't do that here.
 # Plant weeds
 cm-xeno-weeds-source-already-here = Здесь уже есть смоляной узел!
 # Corrosive acid
@@ -66,6 +69,7 @@ rmc-xeno-acid-structure-unmeltable = Мы можем плавить только
 # Paralyzing Slash
 cm-xeno-paralyzing-slash-activate = Наш следующий удар когтями введёт нейротоксин!
 cm-xeno-paralyzing-slash-expire = Мы ждали слишком долго, наш удар когтями больше не вводит нейротоксин!
+cm-xeno-paralyzing-slash-immune = { $target } shrugs off the neurotoxin!
 cm-xeno-paralyzing-slash-hit = Мы ввели нейротоксин с атакой, { $target } вот-вот парализует и рухнет!
 # Crippling Strike
 cm-xeno-crippling-strike-activate = Наш следующий удар когтями введёт нейротоксин!
@@ -318,4 +322,11 @@ rmc-xeno-eviscerate-windup-self = We begin digging in for a massive strike!
 rmc-xeno-eviscerate-windup = { $xeno } begins digging in for a massive strike!
 rmc-xeno-eviscerate-windup-small-self = We begin digging in for a strike!
 rmc-xeno-eviscerate-windup-small = { $xeno } begins digging in for a strike!
+# Fling
+rmc-xeno-fling-too-big = { CAPITALIZE(THE($target)) } is too big for us to fling!
+# Gut
+rmc-gut-start-self = We plunge our claws into the body of this unfortunate host, starting to tear them in half!
+rmc-gut-start-others = { $user } plunges their claws into the body of { $target }, starting to tear them in half!
+rmc-gut-finish-self = We tear this pathetic host in half!!
+rmc-gut-finish-others = { $user } tears { $target } in half!!
 rmc-xeno-soak-end-others = { CAPITALIZE($xeno) } приходит в ярость, получив достаточно урона!

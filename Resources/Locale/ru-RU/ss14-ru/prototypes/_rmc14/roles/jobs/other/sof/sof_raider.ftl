@@ -3,3 +3,5 @@ ent-RMCRandomHumanoidMarineRaider = ССО ККМП роль призрака
     .desc = { "" }
 ent-RMCDogtagMarineRaider = жетон ССО ККМП
     .desc = { ent-CMIDCardStandardDogtag.desc }
+ent-RMCDogtagMarineRaiderHidden = { ent-RMCIDCardStandardDogtagHidden }
+    .desc = { ent-RMCIDCardStandardDogtagHidden.desc }

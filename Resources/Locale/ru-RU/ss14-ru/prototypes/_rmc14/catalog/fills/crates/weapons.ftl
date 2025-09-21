@@ -16,5 +16,7 @@ ent-RMCCrateMOU53 = ящик переломного ружья MOU-53 (x2)
     .desc = { ent-RMCCrateWeapons.desc }
 ent-RMCCrateXM51 = ящик пробивного ружья XM51 (x2)
     .desc = { ent-RMCCrateWeapons.desc }
+ent-RMCCrateM85A1 = M85A1 Grenade Launcher Crate (x2)
+    .desc = { ent-RMCCrateWeapons.desc }
 ent-RMCCrateM79 = ящик гранатомёта M79 (x2)
     .desc = { ent-RMCCrateWeapons.desc }

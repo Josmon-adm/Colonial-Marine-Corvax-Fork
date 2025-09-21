@@ -15,3 +15,4 @@ ui-options-function-rmc-interact-with-other-hand = Взаимодействат�
 ui-options-function-rmc-rest = Rest
 ui-options-header-rmc-xeno = Ксено
 ui-options-function-cm-xeno-wide-swing = Широкий удар ксено
+ui-options-function-rmc-xeno-rest = Xenonid Rest

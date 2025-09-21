@@ -2,9 +2,11 @@ rmc-attachable-holder-strip-ui-title = Снять приспособления
 rmc-attachable-holder-strip-ui-empty-slot = ничего
 rmc-verb-strip-attachables = Снять приспособления
 rmc-aslot-barrel = Ствол
+rmc-bslot-barrel = Mateba Barrel
 rmc-aslot-rail = Крепление
 rmc-aslot-stock = Приклад
 rmc-aslot-underbarrel = Подствольное
+rmc-aslot-harness = Harness
 rmc-attachable-activation-fail-not-wielded = { CAPITALIZE($holder) } нужно держать в обеих руках, чтобы активировать { $attachable }!
 rmc-attachable-activation-fail-not-held = { CAPITALIZE($holder) } нужно держать в руке, чтобы активировать { $attachable }!
 rmc-attachable-activation-fail-not-owned = { CAPITALIZE($holder) } нужно экипировать или держать в двух руках, чтобы активировать { $attachable }!
@@ -44,6 +46,8 @@ rmc-attachable-examine-ranged-recoil = [color={ $colour }]{ $sign }{ $recoil }[/
 rmc-attachable-examine-ranged-damage = [color={ $colour }]{ $sign }{ $damage }[/color] множитель урона при стрельбе.
 rmc-attachable-examine-ranged-projectile-speed = [color={ $colour }]{ $sign }{ $projectileSpeed }[/color] скорость пули.
 rmc-attachable-examine-ranged-damage-falloff = [color={ $colour }]{ $sign }{ $falloff }[/color] множитель падения урона с расстоянием.
+rmc-attachable-examine-ranged-range = [color={ $colour }]{ $sign }{ $falloff }[/color] projectile range.
+rmc-attachable-examine-ranged-projectile-stun-duration = [color={ $colour }]{ $sign }{ $stunDurationMult }[/color] stun duration multiplier.
 rmc-attachable-examine-melee-damage = [color={ $colour }]{ $sign }{ $damage }[/color] урона в ближнем бою.
 rmc-attachable-examine-size = [color={ $colour }]{ $sign }{ $size }[/color] размер предмета.
 rmc-attachable-examine-speed-walk = [color={ $colour }]{ $sign }{ TOSTRING($speed, "F2") }[/color] множитель скорости шага.

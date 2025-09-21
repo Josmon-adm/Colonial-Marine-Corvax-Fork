@@ -3,3 +3,6 @@ ent-RMCSurveillanceCameraAlmayer = ship-grade camera
 ent-RMCMonitorCameraAlmayer = ship security cameras
     .desc = Used to access the various cameras on the station.
     .suffix = Almayer
+ent-RMCMonitorCameraLandingZone = Landing zone camera
+    .suffix = Landing Zone
+    .desc = { ent-MarkerBase.desc }

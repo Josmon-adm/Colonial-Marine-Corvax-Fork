@@ -6,7 +6,7 @@
   isSubfloor: true
   footstepSounds:
     collection: FootstepPlating
-  friction: 0.2
+  friction: 1
   heatCapacity: 10000
   indestructible: true #CCM #Map issue
 
@@ -73,6 +73,7 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  mass: 200
 
 - type: tile
   id: TrainLattice
@@ -88,3 +89,4 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  mass: 200

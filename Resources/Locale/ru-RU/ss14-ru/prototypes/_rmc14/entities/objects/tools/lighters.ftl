@@ -1,5 +1,7 @@
 ent-RMCLighterBase = { ent-FlippoLighter }
     .desc = { ent-FlippoLighter.desc }
+ent-RMCLighterCheapBase = { ent-CheapLighter }
+    .desc = { ent-CheapLighter.desc }
 ent-RMCZippo = зажигалка Зиппо
     .desc = Зажигалка Зиппо из модной стали. Зажигайте стильно.
 ent-RMCLighter = дешёвая зажигалка

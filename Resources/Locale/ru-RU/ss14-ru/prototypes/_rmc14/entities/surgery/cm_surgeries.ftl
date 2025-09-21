@@ -8,3 +8,5 @@ ent-CMSurgeryOpenRibcage = Открыть грудную клетку
     .desc = { ent-CMSurgeryBase.desc }
 ent-CMSurgeryAlienEmbryoRemoval = Удаление эмбриона пришельца
     .desc = Извлечение чужеродного эмбриона из тела.
+ent-RMCSurgeryAlienHeartRemoval = Experimental Harvesting Surgery
+    .desc = Harvest the heart of an deceased alien.

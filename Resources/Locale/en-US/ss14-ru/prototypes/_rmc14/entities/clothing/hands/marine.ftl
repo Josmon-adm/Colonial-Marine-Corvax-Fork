@@ -6,3 +6,7 @@ ent-RMCHandsDeluxeMarine = deluxe combat gloves
     .desc = Combat gloves finished in an almost golden-looking fabric. Insulated, fasionable, and capable of protecting the soft hands it's likely wrapped around.
 ent-RMCHandsM3G4 = M3-G4 grenadier gloves
     .desc = A pair of plated, but nimble, gloves.
+ent-RMCHandsBrownMarine = marine brown combat gloves
+    .desc = Standard issue marine tactical gloves. It reads: 'knit by Marine Widows Association'. These are brown instead of the classic black.
+ent-RMCHandsGreyMarine = marine grey combat gloves
+    .desc = Standard issue marine tactical gloves. It reads: 'knit by Marine Widows Association'. These are a shade of grey instead of the classic black.

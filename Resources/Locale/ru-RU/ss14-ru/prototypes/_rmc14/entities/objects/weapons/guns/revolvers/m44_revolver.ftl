@@ -1,5 +1,8 @@
 ent-RMCWeaponRevolverM44 = боевой револьвер M44
     .desc = Громоздкий револьвер, временами используемый штурмовиками и офицерами Корпуса колониальной морской пехоты, а также гражданскими правоохранительными органами. Использует патроны калибра .44 Магнум.
+ent-RMCWeaponRevolverM44Marksman = { ent-RMCWeaponRevolverM44 }
+    .suffix = Marksman
+    .desc = { ent-RMCWeaponRevolverM44.desc }
 ent-RMCWeaponRevolverM44Empty = { ent-RMCWeaponRevolverM44 }
     .suffix = Пустой
     .desc = { ent-RMCWeaponRevolverM44.desc }

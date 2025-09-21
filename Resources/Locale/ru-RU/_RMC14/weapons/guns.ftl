@@ -53,6 +53,7 @@ rmc-examine-text-iff = [color=cyan]Это оружие будет игнорир
 rmc-examine-text-id-lock-no-user = [color=chartreuse]Оно не зарегистрировано. Поднимите его, чтобы зарегистрировать себя в качестве владельца.[/color]
 rmc-examine-text-id-lock = [color=chartreuse]Оно зарегистрировано на [/color][color={ $colour }]{ $name }[/color][color=chartreuse].[/color]
 rmc-examine-text-id-lock-unlocked = [color=chartreuse]Оно зарегистрировано на [/color][color={ $colour }]{ $name }[/color][color=chartreuse], но ограничения на огонь сняты.[/color]
+rmc-examine-text-execute = [color=red]This gun can be used to execute people with the right skill![/color]
 rmc-gun-rack-examine = [bold]Нажмите вашу клавишу [color=cyan]уникального действия[/color] (Пробел по умолчанию) чтобы передёрнуть затвор перед выстрелом.[/bold]
 rmc-gun-rack-first-with = Сначала вам нужно передёрнуть затвор оружия при помощи { $key }!
 rmc-gun-rack-first = Сначала вам нужно передёрнуть затвор оружия!
@@ -69,3 +70,11 @@ rmc-gun-stacks-hit-multiple =
        *[other] попаданий
     } подряд!
 rmc-gun-stacks-reset = { CAPITALIZE($weapon) } издаёт писк, теряя данные о наведении на цель и возвращаесь к обычному режиму стрельбы.
+rmc-gun-shoot-air-self = YOU FIRE YOUR { CAPITALIZE($weapon) } INTO THE AIR!
+rmc-gun-shoot-air-other = { CAPITALIZE(THE($user)) } FIRES { CAPITALIZE(THE($weapon)) } INTO THE AIR!
+rmc-gun-shoot-air-blocked = The roof above you is too dense.
+rmc-gun-shoot-air-examine = [bold]Press your [color=cyan]unique action[/color] keybind (Spacebar by default){ $harm ->
+        [true] { " while in harm mode" }
+       *[false] { "" }
+    } to fire into the air.[/bold]
+rmc-flare-gun-examine = The last signal flare fired has the designation: [color=#ad3b98][bold]{ $id }[/bold][/color]

@@ -8,3 +8,5 @@ ent-RMCBoxPillCanister = коробка таблетниц
     .desc = На лицевой стороне коробки имеется изображение таблетницы.
 ent-RMCBoxSyringe = коробка шприцов
     .desc = На лицевой стороне коробки имеется изображение символа биологической опасности.
+ent-RMCBoxBeaker = box of beakers
+    .desc = It's just an ordinary box.

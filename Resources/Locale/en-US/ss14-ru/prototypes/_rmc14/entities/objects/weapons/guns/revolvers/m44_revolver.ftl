@@ -1,5 +1,8 @@
 ent-RMCWeaponRevolverM44 = M44 combat revolver
     .desc = A bulky revolver, occasionally carried by assault troops and officers in the Marine Corps, as well as civilian law enforcement. Fires .44 Magnum rounds.
+ent-RMCWeaponRevolverM44Marksman = { ent-RMCWeaponRevolverM44 }
+    .suffix = Marksman
+    .desc = { ent-RMCWeaponRevolverM44.desc }
 ent-RMCWeaponRevolverM44Empty = { ent-RMCWeaponRevolverM44 }
     .suffix = Empty
     .desc = { ent-RMCWeaponRevolverM44.desc }

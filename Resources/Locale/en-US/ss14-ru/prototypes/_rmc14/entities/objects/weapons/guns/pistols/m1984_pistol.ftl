@@ -1,5 +1,5 @@
 ent-CMWeaponPistolM1984 = M1984 service pistol
-    .desc = An M1984 Service Pistol, once the standard issue sidearm of the Marines but has recently been replaced with the M77 combat pistol. Fires 9mm pistol rounds.
+    .desc = An M1984 Service Pistol, once the standard issue sidearm of the UNMC but has recently been replaced with the M77 combat pistol. Fires 9mm pistol rounds.
 ent-CMWeaponPistolM1984Empty = { ent-CMWeaponPistolM1984 }
     .suffix = Empty
     .desc = { ent-CMWeaponPistolM1984.desc }

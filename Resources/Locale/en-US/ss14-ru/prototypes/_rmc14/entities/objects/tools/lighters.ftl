@@ -1,5 +1,7 @@
 ent-RMCLighterBase = { ent-FlippoLighter }
     .desc = { ent-FlippoLighter.desc }
+ent-RMCLighterCheapBase = { ent-CheapLighter }
+    .desc = { ent-CheapLighter.desc }
 ent-RMCZippo = zippo lighter
     .desc = A fancy steel Zippo lighter. Ignite in style.
 ent-RMCZippoExec = We-Ya executive zippo lighter

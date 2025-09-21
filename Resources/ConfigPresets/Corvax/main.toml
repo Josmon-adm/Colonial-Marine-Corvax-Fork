@@ -96,7 +96,7 @@ marines_per_xeno = 3.5
 auto_balance_step = 0.5
 auto_balance_min = 2.5
 auto_balance_max = 4.5
-distress_xenos_minimum = 2
+distress_xenos_minimum = 1
 
 [gateway]
 generator_enabled = false
@@ -108,4 +108,7 @@ screen_shake_intensity = 1
 enabled = false
 
 [build]
-engine_version = "251.0.1-fixtures-fix" #and remember to remove it next update...xd
+engine_version = "264.0.1-fix-physics" #and remember to remove it next update...xd
+
+[movement]
+mob_pushing = true

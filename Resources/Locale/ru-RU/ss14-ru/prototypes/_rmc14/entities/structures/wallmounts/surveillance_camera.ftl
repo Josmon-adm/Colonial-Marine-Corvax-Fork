@@ -3,3 +3,6 @@ ent-RMCSurveillanceCameraAlmayer = корабельная камера
 ent-RMCMonitorCameraAlmayer = корабельные камеры наблюдения
     .desc = Используется для доступа к различным камерам на станции.
     .suffix = Альмайер
+ent-RMCMonitorCameraLandingZone = Landing zone camera
+    .suffix = Landing Zone
+    .desc = { ent-MarkerBase.desc }

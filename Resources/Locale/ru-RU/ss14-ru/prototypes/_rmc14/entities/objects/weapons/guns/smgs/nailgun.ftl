@@ -5,5 +5,7 @@ ent-RMCMagazineSMGNailgun = магазин гвоздомёта (7x45мм)
     .desc = Большой магазин огромных пласталевых гвоздей. К сожалению, стоимость производства этих гвоздей делает их недоступными для большинства военных проектов, и только некоторые специфические строительные проекты нуждаются в них.
 ent-RMCCartridge7x45mm = гвоздь (7x45мм)
     .desc = { ent-CMCartridgeSMGBase.desc }
+ent-RMCNail7x45mm = { ent-RMCBaseBullet }
+    .desc = { ent-RMCBaseBullet.desc }
 ent-Nail7x45mm = { ent-RMCBaseBullet }
     .desc = { ent-RMCBaseBullet.desc }

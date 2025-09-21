@@ -26,3 +26,5 @@ ent-RMCHybrisaProsperaMedicalSign = Hybrisa Prospera - Emergency Medical Landing
     .desc = A large sign that reads 'Emergency Medical - HBP - LZ - 01'.
 ent-RMCHybrisaProsperaMiningSign = Hybrisa Prospera - Weston-Yamada Tartarus Mining - Landing Zone two sign
     .desc = A large sign that reads 'WEYA - TMCC Mining - HBP - LZ - 01' The Tartarus Mining logo is adorns the sign.
+ent-RMCChancesClaimLandingSign = Chance's Claim landing sign
+    .desc = A large sign that reads 'Chance's Claim', with information regarding the colony written in the corner. Most of the sign is damaged from the constant wind and rain, although the writing and corporate-coloured accents seem to have been repainted.

@@ -1,5 +1,8 @@
 ent-RMCCrateOpenableBase = { ent-BaseStructureDynamic }
     .desc = { ent-BaseStructureDynamic.desc }
+
+ent-RMCOreBox = ore box
+    .desc = A heavy box used for storing ore.
 ent-RMCSecureCase = кейс для хранения
     .desc = Черный кейс для хранения.
 ent-RMCSecureCaseDouble = кейсы

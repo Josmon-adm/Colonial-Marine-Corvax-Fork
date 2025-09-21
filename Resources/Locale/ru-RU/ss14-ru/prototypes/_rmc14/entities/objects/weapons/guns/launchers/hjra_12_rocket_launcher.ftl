@@ -1,5 +1,17 @@
 ent-RMCWeaponLauncherHJRA12 = ручной противотанковый гранатомёт HJRA-12
     .desc = Ручной противотанковый гранатомёт HJRA-12 является стандартным противотанковым оружием СПН. Он разработан как простое в использовании средство для вывода из строя или уничтожения бронетехники.
+ent-RMCRocketHJRA12AT = HJRA-12 Anti-Tank Rocket
+    .desc = A rocket for the SPP standard-issue HJRA-12 Handheld Anti-Tank Grenade Launcher. This one is a standard Anti-Tank rocket designed to disable or destroy hostile vehicles.
+ent-RMCRocketHJRA12HE = HJRA-12 High-Explosive Rocket
+    .desc = A rocket for the SPP standard-issue HJRA-12 Handheld Anti-Tank Grenade Launcher. This one is a standard high-explosive rocket for use against light vehicles or as an anti-personnel grenade.
+ent-RMCRocketHJRA12Incen = HJRA-12 Extreme-Intensity Incendiary Rocket
+    .desc = A rocket for the SPP standard-issue HJRA-12 Handheld Anti-Tank Grenade Launcher. This one is an extreme-intensity incendiary rocket.
+ent-RMCProjectileRocketHJRA12AT = HJRA-12 Anti-Tank Rocket
+    .desc = A rocket for the SPP standard-issue HJRA-12 Handheld Anti-Tank Grenade Launcher. This one is a standard Anti-Tank rocket designed to disable or destroy hostile vehicles.
+ent-RMCProjectileRocketHJRA12HE = HJRA-12 High-Explosive Rocket
+    .desc = A rocket for the SPP standard-issue HJRA-12 Handheld Anti-Tank Grenade Launcher. This one is a standard high-explosive rocket for use against light vehicles or as an anti-personnel grenade.
+ent-RMCProjectileRocketHJRA12Incen = HJRA-12 Extreme-Intensity Incendiary Rocket
+    .desc = A rocket for the SPP standard-issue HJRA-12 Handheld Anti-Tank Grenade Launcher. This one is an extreme-intensity incendiary rocket.
 ent-RMCRocketHJRA12 = противотанковая ракета HJRA-12
     .desc = Ракета для стандартного ручного противотанкового гранатомёта СПН HJRA-12. Это стандартная противотанковая ракета, предназначенная для вывода из строя или уничтожения вражеских машин.
 ent-RMCProjectileRocketHJRA12 = 84-мм фугасная ракета

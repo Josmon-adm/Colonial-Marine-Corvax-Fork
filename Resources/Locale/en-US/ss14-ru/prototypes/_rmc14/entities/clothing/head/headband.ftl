@@ -25,3 +25,5 @@ ent-CMHeadBandFoxtrot = foxtrot headband
     .desc = { ent-CMHeadBandAlpha.desc }
 ent-CMHeadBandIntel = intel headband
     .desc = A piece of cloth that belonged to an experienced special forces operative, nobody seems to recall his name though. Viper..? Serpent..?
+ent-CMHeadBandRebel = rebel headband
+    .desc = A headband made from a simple strip of cloth. The words "DOWN WITH TYRANTS" are emblazoned on the front.

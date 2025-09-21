@@ -12,3 +12,5 @@ ent-CMGasTankPacid = канистра политриновой кислоты
     .desc = Канистра, наполненная сжатой политриновой кислотой. Может быть использована для пополнения накопительных баков.
 ent-CMGasTankOxygen = канистра кислорода
     .desc = Канистра, наполненная сжатым кислородом. Может быть использована для пополнения накопительных баков.
+ent-RMCGasTankPhoron = phoron tank
+    .desc = A tank of liquid phoron. WARNING: Phumes are extremely dangerous.

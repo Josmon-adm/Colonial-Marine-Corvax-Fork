@@ -26,3 +26,5 @@ ent-RMCHeadCapQuartermaster = кепка квартермейстера ККМП
     .desc = Модная кепка не очень модного военного снабженца.
 ent-RMCHeadBeretQuartermaster = берет квартермейстера ККМП
     .desc = Берет с нашитым знаком различия сержанта. Он символизирует тяжелую работу и теневые сделки.
+ent-RMCHeadUNMCHeadset = UNMC headset
+    .desc = A headset typically found in use by radio-operators and officers. This one appears to be malfunctioning.

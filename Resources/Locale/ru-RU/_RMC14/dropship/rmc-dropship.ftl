@@ -10,6 +10,7 @@ rmc-dropship-pre-hijack =
         [few] минуты
        *[other] минут
     }.
+rmc-dropship-invalid-hijack = Lights flash from the terminal but you can't comprehend their meaning.
 rmc-dropship-weapons-title = Консоль вооружения
 rmc-dropship-weapons-main-screen-text =
     К.К.М.П.
@@ -35,9 +36,7 @@ rmc-dropship-weapons-target-strike =
 
 #  Вектор атаки {$vector}
 
-
 #  Смещение 0,0
-
 
 #  Компьютер наведения НЕИСПРАВЕН
 
@@ -55,6 +54,8 @@ rmc-dropship-weapons-maps = КАРТА
 rmc-dropship-weapons-cams = КАМЕРЫ
 rmc-dropship-weapons-cancel = ОТМЕНА
 rmc-dropship-weapons-exit = ВЫХОД
+rmc-dropship-weapons-lock = LOCK
+rmc-dropship-weapons-clear = CLEAR
 rmc-dropship-weapons-offset-calibration =
     Смещен.
     Камеры
@@ -88,4 +89,17 @@ rmc-dropship-fabricator-points = Очки: { $points }
 rmc-dropship-fabricator-equipment = [bold]Снаряжение[/bold]
 rmc-dropship-fabricator-ammo = [bold]Боеприпасы[/bold]
 rmc-dropship-fabricator-fabricate = Создать ({ $cost })
+rmc-dropship-firemission-warning = A DROPSHIP FIRES TOWARDS THE { $direction }
+rmc-dropship-firemission-warning-above = A DROPSHIP FIRES RIGHT ONTOP OF YOU!
+rmc-dropship-paradrop-target-screen-text =
+    HPU-1 Paradrop Deployment System
+    { $hasTarget }
+rmc-dropship-paradrop-target-screen-target-none =
+    No locked target found.
+    Paradropping not available.
+rmc-dropship-paradrop-target-screen-target-targeting =
+    Locked to { $dropTarget }.
+    Paradropping available.
+rmc-dropship-paradrop-lock-no-target = No target selected.
+rmc-dropship-paradrop-lock-target-not-flying = You can only enable the paradrop module while in flight.
 rmc-dropship-fabricator-busy = Фабрикатор запчастей десантных кораблей занят. Пожалуйста, дождитесь завершения предыдущей операции.

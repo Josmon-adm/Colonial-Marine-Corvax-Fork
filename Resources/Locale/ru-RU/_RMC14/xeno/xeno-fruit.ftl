@@ -52,6 +52,7 @@ rmc-xeno-fruit-feed-success-others = { CAPITALIZE($user) } скормила { $t
 # Fruit removed
 rmc-xeno-fruit-destroyed = Мы чувствуем, что один из наших фруктов был уничтожен!
 rmc-xeno-fruit-consumed = Один из посаженных нами смоляных фруктов был съеден.
+rmc-xeno-fruit-picked = One of our resin fruits has been picked.
 # Fruit effect pop-ups
 rmc-xeno-fruit-effect-lesser = Мы немного оправились от наших ран.
 rmc-xeno-fruit-effect-greater = Мы немного оправились от наших ран, и мы начали быстро регенерировать.
@@ -77,3 +78,13 @@ rmc-xeno-fruit-ui-count = Посаженные фрукты: { $count }/{ $max }
 # Not-same hive
 rmc-xeno-fruit-wrong-hive = Это не из нашего улья!
 rmc-xeno-fruit-feed-wrong-hive = { $target } не из нашего улья!!
+# Weeds
+rmc-xeno-fruit-weed-boost = We sense that these weeds multiply resin fruit growth time by [bold]{ $percent }%[/bold].
+# Effects
+rmc-xeno-fruit-consume-examine = This fruit gives the following effects on consumption:
+rmc-xeno-fruit-instant-heal = Instantly restores [bold]{ $amount }[/bold] health.
+rmc-xeno-fruit-regen-heal = Regenerates [bold]{ $amount }[/bold] health per second for { $time } seconds.
+rmc-xeno-fruit-shield = Grants an overshield equal to [bold]{ $percent }%[/bold] of our max health, up to [bold]{ $max }[/bold] max. It decays after { $duration } seconds, losing { $decay } per second.
+rmc-xeno-fruit-cooldown = Reduces ability cooldowns on next cast by [bold]{ $amount }%[/bold] on slash, up to [bold]{ $max }%[/bold] max. This effect lasts { $time } seconds.
+rmc-xeno-fruit-speed = Boosts our speed by [bold]{ $amount }[/bold] for { $time } seconds.
+rmc-xeno-fruit-regen-plasma = Regenerates [bold]{ $amount }[/bold] plasma per second for { $time } seconds.

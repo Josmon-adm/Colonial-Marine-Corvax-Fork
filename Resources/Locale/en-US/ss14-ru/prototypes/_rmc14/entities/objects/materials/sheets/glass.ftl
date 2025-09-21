@@ -1,5 +1,5 @@
-ent-CMSheetGlassBase = { ent-SheetGlassBase }
-    .desc = { ent-SheetGlassBase.desc }
+ent-CMSheetGlassBase = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }
 ent-CMSheetGlass = glass
     .desc = Glass is a non-crystalline solid, made out of silicate, the primary constituent of sand. It is valued for its transparency, albeit it is not too resistant to damage.
     .suffix = Filled

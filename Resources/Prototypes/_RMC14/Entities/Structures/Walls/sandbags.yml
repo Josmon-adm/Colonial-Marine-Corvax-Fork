@@ -145,3 +145,11 @@
   icon: { sprite: _RMC14/Objects/Misc/sandbags.rsi, state: sandbag_pile } # CCM add
   spawn: CMSandbagFull
   maxCount: 50
+
+- type: entity
+  parent: CMBarricadeSandbag
+  id: RMCBarricadeSandbagSoro
+  suffix: Brown
+  components:
+  - type: Sprite
+    color: "#a98c7c"

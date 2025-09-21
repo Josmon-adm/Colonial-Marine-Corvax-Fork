@@ -1,6 +1,6 @@
-ent-RMCSpawnerPMCLeader = лидер отряда ЧВК роль призрака
-    .suffix = Спавнер
-    .desc = { ent-MarkerBase.desc }
-ent-RMCRandomHumanoidPMCLeader = лидер отряда ЧВК роль призрака
+
+ent-RMCSpawnPointPMCLeader = weya pmc squad leader spawn point
+    .desc = { ent-CMSpawnPointJobBase.desc }
+ent-RMCRandomHumanoidPMCLeader = оператор ЧВК Вестон-Ямада (Лидер) роль призрака
     .suffix = Роль
     .desc = { "" }

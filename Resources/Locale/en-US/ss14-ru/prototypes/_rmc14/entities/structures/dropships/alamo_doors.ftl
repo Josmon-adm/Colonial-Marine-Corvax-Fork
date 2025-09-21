@@ -1,5 +1,11 @@
 ent-CMAlamoDoor = alamo crew hatch
-    .desc = { ent-CMBaseDoor.desc }
-ent-CMAlamoCockpit = cockpit
+    .desc = { ent-RMCDropshipDoorBase.desc }
+ent-CMAlamoCockpit = { ent-RMCDropshipCockpitBase }
     .suffix = Alamo
-    .desc = { ent-CMBaseDoor.desc }
+    .desc = { ent-RMCDropshipCockpitBase.desc }
+ent-CMAlamoDoorAft = alamo cargo door
+    .desc = { ent-RMCDropshipDoorAftBase.desc }
+ent-CMAlamoDoorPort = alamo crew hatch
+    .desc = { ent-RMCDropshipDoorPortBase.desc }
+ent-CMAlamoDoorStarboard = alamo crew hatch
+    .desc = { ent-RMCDropshipDoorStarboardBase.desc }
