@@ -1,5 +1,5 @@
-ent-RMCMarkerAreaLabel = area
-    .suffix = Tactical Map Area Label
+ent-RMCMarkerAreaLabel = зона
+    .suffix = Марка области тактической карты
     .desc = { ent-MarkerBase.desc }
 ent-RMCMarkerAreaLabelRed = { ent-RMCMarkerAreaLabel }
     .suffix = Tactical Map Area Label, Red Text

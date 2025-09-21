@@ -1,8 +1,8 @@
-ent-RMCHeadCapTSEPA = tsepa cap
+ent-RMCHeadCapTSEPA = кепка TSEPA
     .desc = { ent-CMHeadCapMP.desc }
-ent-RMCHeadBeretTSE = tse beret
+ent-RMCHeadBeretTSE = берет TSE
     .desc = { ent-CMHeadBeret.desc }
-ent-RMCHeadBeretTSEPA = tsepa beret
+ent-RMCHeadBeretTSEPA = берет TSEPA
     .desc = { ent-CMHeadBeret.desc }
 ent-RMCHeadCapTSEPAPeaked = peaked tsepa cap
     .desc = A dark peaked cap enscribed with the powerful silver & red Sakura flower shaped emblem of the TSEPA. Empire and Honor, Bound by Duty. Duty Beyond Borders, Justice Across Worlds.
