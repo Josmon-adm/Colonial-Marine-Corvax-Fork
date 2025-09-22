@@ -3,6 +3,7 @@
   id: CCMNuclearDevice
   name: Nuclear Device
   description: It's the only way to be sure.
+  suffix: НЕ УДАЛЯТЬ!
   components:
   - type: Transform
     anchored: true
