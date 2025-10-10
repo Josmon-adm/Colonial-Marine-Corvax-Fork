@@ -123,16 +123,16 @@
     state: head_quarters
   - type: Area
     minimapColor: '#6C6767D8'
-    CAS: false
-    fulton: false
-    mortarPlacement: false
-    mortarFire: false
-    lasing: false
-    medevac: false
-    OB: false
-    supplyDrop: false
+    CAS: true
+    fulton: true
+    mortarPlacement: true
+    mortarFire: true
+    lasing: true
+    medevac: true
+    OB: true
+    supplyDrop: true
     linkedLz: dropship_lz1
-    paradropping: false
+    paradropping: true
     weatherEnabled: true
 
 - type: entity
@@ -256,12 +256,12 @@
     state: anolab
   - type: Area
     minimapColor: '#6C6767D8'
-    CAS: false
+    CAS: true
     fulton: false
     mortarPlacement: false
-    mortarFire: false
-    lasing: false
-    medevac: false
+    mortarFire: true
+    lasing: true
+    medevac: true
     OB: true
     supplyDrop: false
     paradropping: false
@@ -278,12 +278,12 @@
     state: bunker01_caves_outpost
   - type: Area
     minimapColor: '#6C6767D8'
-    CAS: false
+    CAS: true
     fulton: false
     mortarPlacement: false
-    mortarFire: false
-    lasing: false
-    medevac: false
+    mortarFire: true
+    lasing: true
+    medevac: true
     OB: true
     supplyDrop: false
     paradropping: false
@@ -313,53 +313,3 @@
     linkedLz: dropship_lz1
     paradropping: false
     weatherEnabled: true
-
-- type: entity
-  parent:
-  - CCMAreaNova
-  - CCMAreaNovaZeroProtection
-  id: CCMAreaBanMortar25
-  name: Northwest - Caves
-  suffix: 25 minutes
-  components:
-  - type: Sprite
-    state: northwest
-  - type: Area
-    minimapColor: '#6C6767D8'
-    CAS: false
-    fulton: true
-    mortarPlacement: true
-    mortarFire: false
-    lasing: true
-    medevac: true
-    OB: false
-    supplyDrop: true
-    paradropping: true
-    weatherEnabled: true
-  - type: TimedDespawn
-    lifetime: 1500
-
-- type: entity
-  parent:
-  - CCMAreaNova
-  - CCMAreaNovaZeroProtection
-  id: CCMAreaBanMortar10
-  name: Northwest - Caves
-  suffix: 25 minutes
-  components:
-  - type: Sprite
-    state: northwest
-  - type: Area
-    minimapColor: '#6C6767D8'
-    CAS: false
-    fulton: true
-    mortarPlacement: true
-    mortarFire: false
-    lasing: true
-    medevac: true
-    OB: false
-    supplyDrop: true
-    paradropping: true
-    weatherEnabled: true
-  - type: TimedDespawn
-    lifetime: 600

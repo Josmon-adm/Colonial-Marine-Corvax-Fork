@@ -222,9 +222,9 @@
     CAS: true
     fulton: false
     mortarPlacement: false
-    mortarFire: false
+    mortarFire: true
     lasing: true
-    medevac: false
+    medevac: true
     OB: true
     supplyDrop: false
     paradropping: false
@@ -484,16 +484,16 @@
     state: north
   - type: Area
     minimapColor: '#6C6767D8'
-    CAS: true
-    fulton: true
-    mortarPlacement: true
-    mortarFire: true
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: false
     lasing: true
-    medevac: true
+    medevac: false
     OB: true
-    supplyDrop: true
-    paradropping: true
-    weatherEnabled: true
+    supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
 
 # Северо-восточные пещеры
 
@@ -532,16 +532,16 @@
     state: northeast_open
   - type: Area
     minimapColor: '#6C6767D8'
-    CAS: true
-    fulton: true
-    mortarPlacement: true
-    mortarFire: true
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: false
     lasing: true
-    medevac: true
+    medevac: false
     OB: true
-    supplyDrop: true
-    paradropping: true
-    weatherEnabled: true
+    supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
 
 # Посадочная зона
 
