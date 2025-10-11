@@ -1,3 +1,11 @@
 ﻿- type: lobbyBackground
   id: CCMLogo
   background: /Textures/_CCM14/Lobby/CCM_logo_lobby.png
+
+- type: lobbyBackground
+  id: CCMLogoLetni
+  background: /Textures/_RMC14/Lobby/Letni_CCM.png
+
+- type: lobbyBackground
+  id: CCMLogoNew
+  background: /Textures/_RMC14/Lobby/CCM_New.png
