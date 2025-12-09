@@ -56234,27 +56234,6 @@ entities:
     - type: Transform
       pos: 32.570667,108.77272
       parent: 1
-- proto: RMCArmorVestMedic
-  entities:
-  - uid: 2119
-    components:
-    - type: Transform
-      parent: 2117
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2120
-    components:
-    - type: Transform
-      parent: 2117
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 8034
-    components:
-    - type: Transform
-      pos: -27.493582,10.673471
-      parent: 1
 - proto: RMCArmoryLockerBlueFilled
   entities:
   - uid: 8035
