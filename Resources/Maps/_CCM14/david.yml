@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2
   forkId: ""
   forkVersion: ""
-  time: 12/17/2025 20:42:50
-  entityCount: 11406
+  time: 12/23/2025 14:25:46
+  entityCount: 11408
 maps:
 - 1
 grids:
@@ -13818,7 +13818,6 @@ entities:
         54,120: CCMAreaDavidEvac
         54,121: CCMAreaDavidEvac
     - type: GravityShake
-      nextShake: 0
       shakeTimes: 10
   - uid: 11
     mapInit: true
@@ -20651,7 +20650,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 618.0327152
     - type: Door
-      secondsUntilStateChange: -20170.723
+      secondsUntilStateChange: -20318.11
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20665,7 +20664,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 618.0327152
     - type: Door
-      secondsUntilStateChange: -20170.723
+      secondsUntilStateChange: -20318.11
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20729,7 +20728,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 19962.313371
     - type: Door
-      secondsUntilStateChange: -215664.72
+      secondsUntilStateChange: -215812.11
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20743,7 +20742,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 19962.313371
     - type: Door
-      secondsUntilStateChange: -215664.72
+      secondsUntilStateChange: -215812.11
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -75832,6 +75831,20 @@ entities:
     components:
     - type: Transform
       pos: 12.092681,110.73857
+      parent: 1
+- proto: RMCSpawnerPVEAlamo
+  entities:
+  - uid: 2119
+    components:
+    - type: Transform
+      pos: 0.5,1.5
+      parent: 1
+- proto: RMCSpawnerPVENormandy
+  entities:
+  - uid: 2120
+    components:
+    - type: Transform
+      pos: 44.5,79.5
       parent: 1
 - proto: RMCSpawnPointSynth
   entities:
