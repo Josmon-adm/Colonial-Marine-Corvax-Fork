@@ -46,6 +46,8 @@
   components:
   - type: Sprite
     state: io
+  - type: Area
+    retrieveItemObjective: true
 
 # Bridge
 - type: entity

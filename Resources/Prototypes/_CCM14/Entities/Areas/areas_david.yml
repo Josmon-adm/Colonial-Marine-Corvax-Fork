@@ -89,6 +89,7 @@
   components:
   - type: Area
     minimapColor: "#5a2da2ed"
+    retrieveItemObjective: true
   - type: IntelRescueSurvivorArea
   - type: Sprite
     state: david
