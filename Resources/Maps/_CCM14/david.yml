@@ -15010,20 +15010,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: CCMSpawnerAlamo
-  entities:
-  - uid: 2119
-    components:
-    - type: Transform
-      pos: 0.5,1.5
-      parent: 1
-- proto: CCMSpawnerNormandy
-  entities:
-  - uid: 2120
-    components:
-    - type: Transform
-      pos: 44.5,79.5
-      parent: 1
 - proto: CCMVehicleRequisitionConsole
   entities:
   - uid: 5475
