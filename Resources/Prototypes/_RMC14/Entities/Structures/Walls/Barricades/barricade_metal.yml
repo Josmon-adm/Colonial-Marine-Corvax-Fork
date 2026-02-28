@@ -75,6 +75,9 @@
 - type: Tag
   id: RMCMetalBarricade
 
+- type: Tag
+  id: RMCMetalBarricade
+
 - type: entity
   parent: CMBarricadeMetal
   id: RMCBarricadeMetalAltDrawdepth

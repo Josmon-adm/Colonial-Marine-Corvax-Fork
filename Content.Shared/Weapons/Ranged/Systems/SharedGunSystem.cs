@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._RMC14.Attachable.Systems;
 using Content.Shared._RMC14.CCVar;
+using Content.Shared._RMC14.Emplacements;
 using Content.Shared._RMC14.Random;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared._RMC14.Weapons.Ranged.Flamer;
@@ -95,6 +96,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     // RMC14
     [Dependency] private readonly AttachableHolderSystem _attachableHolder = default!;
     [Dependency] private readonly SharedRMCFlamerSystem _flamer = default!;
+    [Dependency] private readonly RMCSharedWeaponControllerSystem _rmcSharedWeaponController = default!;
 
     // Corvax
     [Dependency] private readonly VehicleAttachableHolderSystem _vehicleHolder = default!;
@@ -238,6 +240,15 @@ public abstract partial class SharedGunSystem : EntitySystem
             return true;
         }
 
+        //RMC14
+        if (_rmcSharedWeaponController.TryGetControlledWeapon(entity, out var weapon, out gun))
+        {
+            gunEntity = weapon.Value;
+            gunComp = gun;
+            return true;
+        }
+        //
+
         return false;
     }
 
@@ -361,14 +372,15 @@ public abstract partial class SharedGunSystem : EntitySystem
             shots = Math.Min(shots, gun.ShotsPerBurstModified - gun.ShotCounter);
         }
 
-        var shootingEntity = user;
-        var shootEvt = new GetShootingEntityEvent(null, false);
-        RaiseLocalEvent(user, ref shootEvt);
+        var fromCoordinates = Transform(user).Coordinates;
 
-        if (shootEvt.Handled && shootEvt.ShootingEntity is { } overrideShooter)
-            shootingEntity = overrideShooter;
+        //RMC14
+        var shotOriginEv = new BeforeAttemptShootEvent(fromCoordinates, gun.ShootOriginOffset);
+        RaiseLocalEvent(user, ref shotOriginEv);
 
-        var fromCoordinates = Transform(shootingEntity).Coordinates;
+        if (shotOriginEv.Handled)
+            fromCoordinates = shotOriginEv.Origin;
+        //
 
         var attemptEv = new AttemptShootEvent(user, null, fromCoordinates, toCoordinates);
         RaiseLocalEvent(gunUid, ref attemptEv);
@@ -498,7 +510,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                     effectiveShooterForImpulse = impulseOverrideShooter;
             }
 
-            if (effectiveShooterForImpulse is { } eff && 
+            if (effectiveShooterForImpulse is { } eff &&
                 TryComp<PhysicsComponent>(eff, out var userPhysics))
             {
                 if (_gravity.IsWeightless(eff, userPhysics))
@@ -1124,8 +1136,18 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (sprite == null)
             return;
 
-        var ev = new MuzzleFlashEvent(GetNetEntity(gun), sprite, worldAngle);
-        CreateEffect(gun, ev, gun, user);
+        //RMC14
+        var muzzleFlashOffset = component.MuzzleFlashOffset;
+        var muzzleFlashOriginOffset = Vector2.Zero;
+        if (TryComp(gun, out GunComponent? gunComp))
+        {
+            var beforeEv = new RMCBeforeMuzzleFlashEvent(gun, gunComp.ShootOriginOffset);
+            gun = beforeEv.Weapon;
+            muzzleFlashOriginOffset = beforeEv.Offset;
+        }
+
+        var ev = new MuzzleFlashEvent(GetNetEntity(gun), sprite, worldAngle, muzzleFlashOffset, muzzleFlashOriginOffset); //RMC14 added parameter
+        CreateEffect(gun, ev, gun , user, muzzleFlashOffset, muzzleFlashOriginOffset);
     }
 
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
@@ -1215,7 +1237,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
     }
 
-    protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null, EntityUid? player = null);
+    protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null, EntityUid? player = null, Vector2 offset = default, Vector2 originOffset = default);
 
     /// <summary>
     /// Used for animated effects on the client.
