@@ -3,54 +3,62 @@ rmc-medal-1 = Медаль за выдающиеся заслуги
 rmc-medal-2 = Медаль бронзовое сердце
 rmc-medal-3 = Медаль за доблесть
 rmc-medal-4 = Медаль за исключительный героизм
+
 # Medal UI
-rmc-medal-recipient = Получатель медали
-rmc-medal-recipient-prompt = Кого вы хотите наградить медалью?
+rmc-medal-recipient = Обладатель медали
+rmc-medal-recipient-prompt = Кому вы хотите вручить медаль?
+
 rmc-medal-type = Тип медали
-rmc-medal-type-prompt = Каким типом медали вы ходите наградить?
-# Medal Recommendations
-rmc-award-recommendation-verb = Recommend for award
-rmc-award-recommendation-verb-message = Recommend a person for an award for special merits.
-rmc-award-recommendation-title = Award Recommendation
-rmc-award-recommendation-prompt = Who do you want to recommend for award?
-rmc-award-recommendation-reason = [bold]Why are you recommending?[/bold]
-rmc-award-recommendation-empty = You need to provide a reason for the recommendation.
-rmc-award-recommendation-invalid = Could not find that marine.
-rmc-award-recommendation-no-targets = There is no one to recommend right now.
-rmc-award-recommendation-no-computer = Unable to store the recommendation.
-rmc-award-recommendation-success = { $name } has been successfully recommended for an award { $count }.
-rmc-award-recommendation-out = You have reached the limit of recommendations for an award.
-rmc-award-recommendation-no-authority = You do not have the authority to recommend for an award.
-rmc-award-recommendation-too-early = It is too early to submit award recommendations. Wait { $minutes } minutes.
-rmc-award-recommendation-rank-unknown = No rank
-# Medal Recommendation Display
-rmc-medal-panel = Medals Panel
-rmc-medal-panel-give-new-medal = Give new medal
-rmc-medal-panel-tab-give-medals = Give medals
-rmc-medal-panel-tab-view-medals = View medals
-rmc-medal-panel-approve-recommendation = Approve
-rmc-medal-panel-reject-recommendation = Reject
-rmc-medal-panel-recommender-label = [color=#5B88B0]Recommender:[/color]
-rmc-medal-panel-job-label = [color=#5B88B0]Job:[/color]
-rmc-medal-panel-reason-label = [color=#5B88B0]Reason:[/color]
-rmc-medal-panel-print-medal = Print medal
-rmc-medal-panel-medal-printed = Medal printed
-rmc-medal-panel-cant-print = Printing is not supported
-# Commendation Types
-rmc-commendation-type-medal = Medals
-rmc-commendation-type-jelly = Jelly
-# Commendation Display
-rmc-commendation-window = Commendations
-rmc-commendation-title = [bold]Round { $round } - { $name }[/bold]
-rmc-commendation-description =
-    Issued to [bold]{ $receiver }[/bold] by [bold]{ $giver }[/bold] for:
-    { $text }
-rmc-commendation-examine-title = Inscription
-rmc-commendation-examine-1 = The inscription on this award reads:
-rmc-commendation-examine-2 = [italic]Issued to [bolditalic]{ $receiver }[/bolditalic] by [bolditalic]{ $giver }[/bolditalic] for: { $text }[/italic]
-rmc-commendation-examine-hover = Read the full inscription on this award
-rmc-medal-citation-prompt = What should the medal citation read?
-rmc-medal-awarded = Медаль вручена
+rmc-medal-type-prompt = Какой тип медали вы хотите вручить?
+
+rmc-medal-citation-prompt = [bold]Что должно быть написано на медали?[/bold]
+rmc-medal-awarded = Медаль выдана
+
 # Medal Errors
-rmc-medal-error-self-award = Вы не можете наградить себя медалью!
-rmc-medal-error-officer-only = Только Старший Офицер может вручать медали!
+rmc-medal-error-self-award = Вы не можете дать медаль себе!
+rmc-medal-error-officer-only = Только старшие офицеры могут вручать медали!
+
+# Medal Recommendations
+rmc-award-recommendation-verb = Рекомендовать к награждению
+rmc-award-recommendation-verb-message = Рекомендовать человека к награде за особые заслуги.
+rmc-award-recommendation-title = Наградить рекоммендацией
+rmc-award-recommendation-prompt = Кого бы вы хотели порекомендовать для награждения?
+rmc-award-recommendation-reason = [bold]Почему вы рекомендуете?[/bold]
+rmc-award-recommendation-empty = Вам необходимо указать причину такой рекомендации.
+rmc-award-recommendation-invalid = Не удалось найти этого морпеха.
+rmc-award-recommendation-no-targets = Сейчас некого порекомендовать.
+rmc-award-recommendation-no-computer = Не удается сохранить рекомендацию.
+rmc-award-recommendation-success = { $name } был успешно рекомендован к присуждению премии { $count }.
+rmc-award-recommendation-out = Вы исчерпали количество рекомендаций для получения награды.
+rmc-award-recommendation-no-authority = У вас нет полномочий рекомендовать к присуждению премии.
+rmc-award-recommendation-too-early = Пока еще слишком рано представлять рекомендации по присуждению награды. Подождите {$minutes} минут.
+rmc-award-recommendation-rank-unknown = Нет ранга
+
+# Medal Recommendation Display
+rmc-medal-panel = Панель медалей
+rmc-medal-panel-give-new-medal = Выдать новую медаль
+rmc-medal-panel-tab-give-medals = Выдать медали
+rmc-medal-panel-tab-view-medals = Просмотр медалей
+rmc-medal-panel-approve-recommendation = Принять
+rmc-medal-panel-reject-recommendation = Отклонить
+rmc-medal-panel-recommender-label = [color=#5B88B0]Рекомендующий:[/color]
+rmc-medal-panel-job-label = [color=#5B88B0]Должность:[/color]
+rmc-medal-panel-reason-label = [color=#5B88B0]Причина:[/color]
+rmc-medal-panel-print-medal = Распечатать медаль
+rmc-medal-panel-medal-printed = Медаль напечатана
+rmc-medal-panel-cant-print = Печать не поддерживается
+
+# Commendation Types
+rmc-commendation-type-medal = Медали
+rmc-commendation-type-jelly = Желе
+
+# Commendation Display
+rmc-commendation-window = Благодарности
+rmc-commendation-title = [bold]Раунд {$round} - {$name}[/bold]
+rmc-commendation-description = Выдано [bold]{$receiver}[/bold] от [bold]{$giver}[/bold] за:
+    {$text}
+
+rmc-commendation-examine-title = Надпись
+rmc-commendation-examine-1 = Надпись на награде гласит:
+rmc-commendation-examine-2 = [italic]Выдано [bolditalic]{$receiver}[/bolditalic] от [bolditalic]{$giver}[/bolditalic] за: {$text}[/italic]
+rmc-commendation-examine-hover = Прочтите полную надпись на этой награде
