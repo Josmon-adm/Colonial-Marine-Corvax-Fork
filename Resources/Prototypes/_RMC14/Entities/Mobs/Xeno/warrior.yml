@@ -138,7 +138,7 @@
     range: 2
     moveDelayTime: 0
     knockdownTime: 0
-    leapSound: /Audio/Weapons/Xeno/alien_footstep_charge3.ogg
+    leapSound: /Audio/_RMC14/Xeno/alien_footstep_charge3.ogg
     hitEffect: CMEffectPunch
     targetJitterTime: 1
     targetCameraShakeStrength: 1
