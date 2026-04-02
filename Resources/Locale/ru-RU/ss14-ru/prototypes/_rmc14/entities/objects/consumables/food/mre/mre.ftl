@@ -21,3 +21,6 @@ ent-RMCBoxMREEmpty = коробка сухих пайков
 ent-RMCBoxMRE = { ent-RMCBoxMREEmpty }
     .suffix = Заполненная
     .desc = { ent-RMCBoxMREEmpty.desc }
+ent-RMCBoxMRETSE = коробка сухих пайков (x12)
+    .desc = Коробка пайков. Питательно, но не вкусно.
+    .suffix = Заполненная, Империя Миртана

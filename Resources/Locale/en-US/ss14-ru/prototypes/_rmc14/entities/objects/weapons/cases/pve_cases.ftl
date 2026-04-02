@@ -27,5 +27,7 @@ ent-RMCPVECaseSentryPMC = We-Ya 512-M mini sentry case
     .desc = A gun case containing the We-Ya 512-M mini sentry and a spare drum.
 ent-RMCPVECaseFlamerFuel = M34 fuel canister case
     .desc = A heavy case containing six fuel canisters for the M34 incinerator unit.
+ent-RMCPVECaseFlamerFuelLPO80 = LPO80 fuel canister case
+    .desc = A heavy case containing six fuel canisters for the LPO80 incinerator unit.
 ent-RMCPVECaseMotionDetector = motion detectors case
     .desc = A case containing four individual handheld motion detectors.

@@ -28,7 +28,6 @@ rmc-xeno-construction-hive-limit-met = Мы достигли лимита { $cho
 rmc-xeno-construction-requires-hive-weeds = { $choice } должен быть построен на сорняках улья!
 rmc-xeno-construction-requires-hive-core = Чтобы построить { $choice }, улей должен иметь Ядро улья!
 rmc-xeno-construction-requires-space = Для постройки здесь нужно больше открытого пространства
-cm-xeno-unique-exists = Здесь уже стоит { $choice }!
 rmc-xeno-cant-build-new-yet = Мы пока не можем построить новый { $choice }!
 # Evolve
 cm-xeno-available-evolutions = Доступные эволюции
@@ -333,11 +332,9 @@ rmc-xeno-fling-too-big = { CAPITALIZE($target) } слишком большой, 
 rmc-gut-start-self = Мы вонзаем когти в тело этого несчастного носителя, начиная разрывать его пополам!
 rmc-gut-start-xenos = { $user } вонзает свои когти в тело этого несчастного носителя, начиная разрывать его пополам!
 rmc-gut-start-marines = Королева вонзает когти в тело { $target }, начиная разрывать его пополам!
-rmc-gut-start-others = { $user } вонзает когти в тело { $target }, начиная разрывать его пополам!
 rmc-gut-finish-xenos = { $user } разрывает жалкого носителя пополам!!
 rmc-gut-finish-marines = Королева разрывает { $target } пополам!!
 rmc-gut-finish-self = Мы разрываем этого жалкого носителя пополам!!
-rmc-gut-finish-others = { $user } разрывает { $target } пополам!!
 rmc-xeno-soak-end-others = { CAPITALIZE($xeno) } приходит в ярость, получив достаточно урона!
 # Shed Spikes
 rmc-shed-spikes = Мы сбросили наши шипы и не можем получать новые в течение 30 секунд!

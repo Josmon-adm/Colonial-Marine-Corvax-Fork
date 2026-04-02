@@ -60,10 +60,7 @@ rmc-xeno-parasite-ghost-roles-available =
        *[other] Доступно { $count } ролей призрака
     }
 rmc-xeno-parasite-ghost-carrier-none = У { $xeno } нет запасных паразитов.
-rmc-xeno-parasite-ghost-carrier-reserved = { CAPITALIZE($xeno) } зарезервировала оставшихся паразитов для себя.
-rmc-xeno-parasite-ghost-carrier-royal-none = У { $xeno } нет запасных королевских паразитов.
 rmc-xeno-parasite-ghost-carrier-dead = { $xeno } мертва, и все её паразиты погибли вместе с ней.
-rmc-xeno-parasite-carrier-death = Пищащая масса крошечных существ пытается разбежаться от тела { $xeno }!
 # Ghost possession failure messages
 rmc-xeno-parasite-ghost-invalid = Вы не можете занять эту роль.
 rmc-xeno-parasite-ghost-take-failed = Не удалось взять под контроль паразита.
