@@ -9,7 +9,7 @@ admin-announce-keep-open = Keep open
 admin-announce-color-placeholder = Color (HEX)
 admin-announce-sound-placeholder = Audio Path
 admin-announce-sender-placeholder = Signature (Sent by...)
-admin-announce-sender-default = UN Operator
+admin-announce-sender-default = UNMC High Command
 
 cmd-announceui-desc = Opens the announcement UI.
 cmd-announceui-help = Usage: announceui

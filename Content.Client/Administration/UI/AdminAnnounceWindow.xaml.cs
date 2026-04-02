@@ -15,12 +15,16 @@ namespace Content.Client.Administration.UI
         
         // CCM14-start
         private const int MaxSenderLength = 32;
+        private const string DefaultColor = "1d8bad";
+        private const string DefaultSound = "/Audio/_RMC14/Announcements/Marine/notice2.ogg";
+
+        private static string NormalizeHex(string text)
+            => text.Trim().TrimStart('#');
 
         private void UpdateColorPreview()
         {
-            if (ColorPreview == null || ColorHex == null) return;
+            var hex = NormalizeHex(ColorHex.Text);
 
-            var hex = ColorHex.Text.Trim().Replace("#", "");
             if (hex.Length != 3 && hex.Length != 6)
             {
                 ColorPreview.ModulateSelfOverride = null;
@@ -37,14 +41,14 @@ namespace Content.Client.Administration.UI
             }
         }
 
-        public string ColorHexText => ColorHex.Text.Trim().Replace("#", "");
+        public string ColorHexText => NormalizeHex(ColorHex.Text);
         public string SoundPathText => SoundPath.Text.Trim();
-        public string SenderText 
+        public string SenderText
         {
-            get 
+            get
             {
                 var t = Sender.Text.Trim();
-                return t.Length > MaxSenderLength ? t[..MaxSenderLength] : t;
+                return t[..Math.Min(t.Length, MaxSenderLength)];
             }
         }
         // CCM14-end
@@ -55,9 +59,9 @@ namespace Content.Client.Administration.UI
             IoCManager.InjectDependencies(this);
 
             // CCM14-start
-            ColorHex.Text = "1d8bad";
+            ColorHex.Text = DefaultColor;
             ColorHex.OnTextChanged += _ => UpdateColorPreview();
-            SoundPath.Text = "/Audio/_RMC14/Announcements/Marine/notice2.ogg";
+            SoundPath.Text = DefaultSound;
             UpdateColorPreview();
             // CCM14-end
             Announcement.Placeholder = new Rope.Leaf(_localization.GetString("admin-announce-announcement-placeholder"));

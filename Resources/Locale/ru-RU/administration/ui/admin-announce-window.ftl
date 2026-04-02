@@ -9,7 +9,7 @@ admin-announce-keep-open = Держать открытым
 admin-announce-color-placeholder = Цвет (HEX)
 admin-announce-sound-placeholder = Путь к звуку
 admin-announce-sender-placeholder = Подпись отправителя
-admin-announce-sender-default = Оператор ОПЗ
+admin-announce-sender-default = Верховное командование ККМП ОПЗ
 
 cmd-announceui-desc = Открывает интерфейс меню объявлений.
 cmd-announceui-help = Использование: announceui
