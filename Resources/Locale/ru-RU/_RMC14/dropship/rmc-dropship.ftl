@@ -77,8 +77,8 @@ rmc-dropship-utility-cooldown = { $utility } на перезарядке. Пов
 rmc-dropship-flyby-no-skill = У вас нет квалификации для выполнения маневра пролёта.
 rmc-dropship-fabricator-title = Фабрикатор компонентов
 rmc-dropship-fabricator-points = Очки: { $points }
-rmc-dropship-fabricator-equipment = [bold]Снаряжение[/bold]
-rmc-dropship-fabricator-ammo = [bold]Боеприпасы[/bold]
+rmc-dropship-fabricator-equipment = %ERASE_NEWLINE%[bold]Снаряжение[/bold]
+rmc-dropship-fabricator-ammo = %ERASE_NEWLINE%[bold]Боеприпасы[/bold]
 rmc-dropship-fabricator-fabricate = Создать ({ $cost })
 rmc-dropship-fabricator-busy = Фабрикатор занят выполнением операции.
 rmc-dropship-firemission-warning = ЯРКИЕ ВСПЫШКИ В НЕБЕ НА { $direction }!
@@ -96,6 +96,7 @@ rmc-dropship-paradrop-lock-no-target = Цель не выбрана.
 rmc-dropship-paradrop-lock-target-not-flying = Модуль десантирования доступен только в полёте.
 rmc-dropship-medevac-system-screen-text = RMU-4M Система "Медэвак"
 rmc-dropship-fulton-system-screen-text = RMU-19 Система извлечения "Фултон"
+rmc-dropship-paradrop-failed = Ваши страховочные ремни заклинило, не давая вам спрыгнуть!
 rmc-dropship-locked = Доступ к управлению заблокирован на { $minutes } мин.
 rmc-dropship-locked-out = Шаттл не отвечает. Повторите попытку через { $minutes } мин.
 rmc-dropship-locked-out-bypass = Вы частично обошли протоколы блокировки! Продолжайте!
@@ -112,3 +113,10 @@ rmc-dropship-equipment-undeployed = СВЕРНУТО
 rmc-dropship-equipment-operational = ИСПРАВНО
 rmc-dropship-equipment-damaged = ПОВРЕЖДЕНО
 rmc-dropship-equipment-destroyed = УНИЧТОЖЕНО
+rmc-dropship-launch-bay-screen-text = LAG-14 Внутренняя пусковая установка турелей
+rmc-dropship-launch-bay-screen-text-loaded =
+    LAG-14 Внутренняя пусковая установка турелей
+
+    Загружено: { $loaded }
+
+    Боеприпасы: { $current } / { $max }

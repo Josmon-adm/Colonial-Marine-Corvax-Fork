@@ -26,3 +26,5 @@ ent-RMCDropshipAttachmentAmmoRocketMiniMike = AGR-59 'Mini-Mike'
     .desc = The AGR-59 'Mini-Mike' minirocket is a cheap and efficient means of putting hate down range. Though rockets lack a guidance package, it makes up for it in ammunition count. Can be loaded into the LAU-229 Rocket Pod.
 ent-RMCDropshipAttachmentAmmoRocketMiniMikeIncendiary = AGR-59-I 'Mini-Mike'
     .desc = The AGR-59-I 'Mini-Mike' incendiary minirocket is a cheap and efficient means of putting hate down range AND setting them on fire! Though rockets lack a guidance package, it makes up for it in ammunition count. Can be loaded into the LAU-229 Rocket Pod.
+ent-RMCDropshipAttachmentAmmoLaunchableSentry = A/C-49-P Air Deployable Sentry
+    .desc = An omni-directional sentry, capable of defending an area from lightly armored hostile incursion. Can be loaded into the LAG-14 Internal Sentry Launcher.

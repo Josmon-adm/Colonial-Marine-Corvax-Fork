@@ -61,3 +61,6 @@ ent-RMCTileFireNapalmBase = { ent-RMCTileFire }
 ent-RMCTileFireEthanol = { ent-RMCTileFire }
     .suffix = Этанол
     .desc = { ent-RMCTileFire.desc }
+ent-RMCTileFireWeldingFuel = { ent-RMCTileFire }
+    .suffix = Сварочное топливо
+    .desc = { ent-RMCTileFire.desc }
