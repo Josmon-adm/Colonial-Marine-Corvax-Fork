@@ -216,14 +216,14 @@ CMSurvivorTrijentCorporate = Корпоративный техник Тридж�
 
 # Fiorina Science Annex Survs
 
-cm-job-name-survivor-fiorina-corporate-liaison = Корпоративный связной Фрионы
-CMSurvivorFiorinaCorporateLiaison = Корпоративный связной Фрионы
-cm-job-name-survivor-fiorina-doctor = Доктор Фрионы
-CMSurvivorFiorinaDoctor = Доктор Фрионы
-cm-job-name-survivor-fiorina-engineer = Инженер Фрионы
+cm-job-name-survivor-fiorina-corporate-liaison = Корпоративный связной Фиорины
+CMSurvivorFiorinaCorporateLiaison = Корпоративный связной Фиорины
+cm-job-name-survivor-fiorina-doctor = Доктор Фиорины
+CMSurvivorFiorinaDoctor = Доктор Фиорины
+cm-job-name-survivor-fiorina-engineer = Инженер Фиорины
 CMSurvivorFiorinaEngineer = Инженер Фрионы
-cm-job-name-survivor-fiorina-researcher = Учёный Фрионы
-CMSurvivorFiorinaResearcher = Учёный Фрионы
+cm-job-name-survivor-fiorina-researcher = Учёный Фиорины
+CMSurvivorFiorinaResearcher = Учёный Фиорины
 cm-job-name-survivor-riot-officer = Офицер БКМ
 CMSurvivorFiorinaRiotOfficer = Силовик БКМ
 cm-job-prefix-survivor-riot-officer = Охрана
