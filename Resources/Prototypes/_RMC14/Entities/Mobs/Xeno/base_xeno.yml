@@ -175,6 +175,7 @@
   - type: Xeno
   - type: XenoRegen
   - type: XenoStateVisuals
+  - type: XenoPing
   - type: UserInterface
     interfaces:
       enum.CMSurgeryUIKey.Key:
@@ -199,6 +200,8 @@
         type: HiveTeamBui
       enum.HiveLeaderSquadUIKey.Key:
         type: HiveLeaderSquadBui
+      enum.XenoResinMarkUIKey.Key:
+        type: XenoResinMarkBui
       enum.TacticalMapUserUi.Key:
         type: TacticalMapUserBui
       enum.XenoReserveParasiteChangeUI.Key:
@@ -312,6 +315,7 @@
     - HiveLeader
     - Tunnel
     - HiveCore
+  - type: ResinMarkerTracker
   - type: RequireProjectileTarget
     active: false
   - type: TacticalMapTracked

@@ -34,6 +34,8 @@ ent-RMCGuidebookActionXenoToggleLongRangeSight = { ent-CMGuidebookActionXenoBase
     .desc = { ent-CMGuidebookActionXenoBase.desc }
 ent-ActionXenoWordQueen = Слово Королевы (50)
     .desc = Отправляет сообщение всем членам вашего улья.
+ent-ActionXenoMarkResin = Меню смоляных меток
+    .desc = Открыть меню смоляных меток и выбрать тип маркера для размещения.
 ent-ActionXenoGrowOvipositor = Отрастить яйцеклад (700)
     .desc = Станьте неподвижной и начните откладывать яйца, из которых появляются паразиты. Способность перезаряжается 5 минут. [color=red]Вы должны быть в режиме яйцеклада, чтобы другие ксенониды получали очки эволюции после начала раунда![/color]
 ent-RMCGuidebookActionXenoGrowOvipositor = Отрастить яйцеклад
