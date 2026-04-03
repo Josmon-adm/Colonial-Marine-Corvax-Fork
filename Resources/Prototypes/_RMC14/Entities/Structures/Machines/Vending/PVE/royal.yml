@@ -14,38 +14,38 @@
     jobs:
     - CMRoyalMarinesAssaultEngineerPVE
     sections:
-    - name: Sapper Equipment (Mandatory)
+    - name: Снаряжение сапёра (Обязательно) # CCM14
       takeAll: CMStandard
       entries:
       - id: RMCVendorBundleRCMPVEAssaultEngi
       - id: RMCPVEArmorCaseRoyalPointman
       - id: CMHandsBlackInsulated
-    - name: Heavy-Duty Breaching Equipment # TODO RMC royal marines breaching hammer, XM51 is placeholder
+    - name: Тяжёлое оборудование для взлома # CCM14 # TODO RMC royal marines breaching hammer, XM51 is placeholder
       choices: { CMPrimary: 1 }
       entries:
       # - id: RMCBreachingHammerD2
       #   name: Breaching Hammer
       - id: RMCXM51Case
-        name: Breaching Shotgun
-    - name: Backpack
+        name: пробивное ружьё # CCM14
+    - name: Рюкзаки # CCM14
       choices: { CMBackpack: 1 }
       entries:
       - id: RMCBackpackRCMTechnician
-    - name: Belt
+    - name: Пояса # CCM14
       choices: { CMBelt: 1 }
       entries:
       - id: RMCBeltRCM
       - id: RMCBeltHolsterPistolRCM
       - id: RMCBeltUtilityGeneralRCMPVE
-    - name: Uniform Webbing
+    - name: Элементы разгрузки # CCM14
       choices: { CMAccessories: 1 }
       entries:
       - id: CMWebbingBlack # TODO RMC14 small pouch (4 small slots)
-        name: Webbing
+        name: разгрузочная система # CCM14
       - id: RMCWebbingHolsterBlack # TODO RMC14 waist holster - mechanically the same, different sprite
-        name: Shoulder Holster
+        name: плечевая кобура # CCM14
       - id: RMCWebbingDropPouchBlack
-        name: Drop Pouch
+        name: сумка на лямках # CCM14
 
 - type: entity
   parent: ColMarTechBase
@@ -63,43 +63,43 @@
     jobs:
     - CMRoyalMarinesMedicPVE
     sections:
-    - name: Medical Set (Mandatory)
+    - name: Меднабор (Обязательно) # CCM14
       takeAll: CMStandard
       entries:
       - id: RMCVendorBundleRCMPVEMedic
       - id: RMCPVEArmorCaseRoyalLight
       - id: CMHandsLatex
-    - name: Backpack
+    - name: Рюкзаки # CCM14
       choices: { CMBackpack: 1 }
       entries:
       - id: RMCBackpackRCMMedic
-    - name: Belt
+    - name: Пояса # CCM14
       choices: { CMBelt: 1 }
       entries: 
       - id: RMCMedicalL75RCM
       - id: RMCBeltUtilityGeneralRCMPVE
-    - name: Pouches
+    - name: Подсумки # CCM14
       choices: { RMCPouch: 2 }
       entries:
       - id: RMCPouchMedkit
       - id: RMCPouchAutoinjector
       - id: RMCPouchReagentCanisterMeraBic
-        name: Pressurized Reagent Canister Pouch\n(Meralyne-Bicaridine)
+        name: подсумок канистры сжатых реагентов\n(Мералин-Бикаридин) # CCM14
       - id: RMCPouchReagentCanisterKeloDerm
-        name: Pressurized Reagent Canister Pouch\n(Kelotane-Dermaline)
+        name: подсумок канистры сжатых реагентов\n(Келотан-Дермалин) # CCM14
       - id: RMCPouchReagentCanisterTricordrazine
-        name: Pressurized Reagent Canister Pouch\n(Tricordrazine)
+        name: подсумок канистры сжатых реагентов\n(Трикордразин) # CCM14
       - id: RMCPouchVialFill
-        name: vial pouch (Full)
-    - name: Uniform Webbing
+        name: подсумок для ампул (Заполненный) # CCM14
+    - name: Элементы разгрузки # CCM14
       choices: { CMAccessories: 1 }
       entries:
       - id: CMWebbingBlack # TODO RMC14 small pouch (4 small slots)
-        name: Webbing
+        name: разгрузочная система # CCM14
       - id: RMCWebbingHolsterBlack # TODO RMC14 waist holster - mechanically the same, different sprite
-        name: Shoulder Holster
+        name: плечевая кобура # CCM14
       - id: RMCWebbingDropPouchBlack
-        name: Drop Pouch
+        name: сумка на лямках # CCM14
 
 - type: entity
   parent: ColMarTechBase
@@ -118,28 +118,28 @@
     - CMRoyalMarinesBombSpecPVE
     pointsType: Specialist
     sections:
-    - name: Fire Support Set (Mandatory)
+    - name: Набор огневой поддержки (Обязательно) # CCM14
       takeOne: CMPrimary
       entries:
       - id: RMCVendorBundleRCMPVEMGL
       - id: RMCVendorBundleRCMPVEMortar
-    - name: Helmet (Mandatory)
+    - name: Шлем (Обязательно) # CCM14
       takeOne: RMCAccessories
       entries:
       - id: RMCHeadRoyalHelmetBallistic
-    - name: Backpack
+    - name: Рюкзаки # CCM14
       choices: { CMBackpack: 1 }
       entries:
       - id: RMCBackpackRCMSmall
       - id: RMCBackpackRCMMedium
       - id: RMCBackpackRCMLarge
-    - name: Belt
+    - name: Пояса # CCM14
       choices: { CMBelt: 1 }
       entries:
       - id: RMCBeltRCM
       - id: RMCBeltHolsterPistolRCM
       - id: RMCBeltUtilityGeneralRCMPVE
-    - name: Armor Webbing
+    - name: Нагрудные крепления # CCM14
       choices: { RMCArmorWebbing: 1 }
       entries:
       - id: RMCArmorWebbingGrenade
@@ -147,16 +147,16 @@
       - id: RMCArmorWebbingPouch
       - id: RMCArmorWebbingMag
       - id: RMCArmorWebbingShell
-    - name: Uniform Webbing
+    - name: Элементы разгрузки # CCM14
       choices: { CMAccessories: 1 }
       entries:
       - id: CMWebbingBlack # TODO RMC14 small pouch (4 small slots)
-        name: Webbing
+        name: разгрузочная система # CCM14
       - id: RMCWebbingHolsterBlack # TODO RMC14 waist holster - mechanically the same, different sprite
-        name: Shoulder Holster
+        name: плечевая кобура # CCM14
       - id: RMCWebbingDropPouchBlack
-        name: Drop Pouch
-    - name: Mortar Shells
+        name: сумка на лямках # CCM14
+    - name: Миномётные снаряды # CCM14
       entries:
       - id: RMCMortarShellHE
         points: 15
@@ -170,7 +170,7 @@
       #  points: 10
       #- id: RMCMortarShellWhitePhosphorus
       #  points: 25
-    - name: Grenade Packets # TODO RMC14 20mm grenades (other than HE and incendiary)
+    - name: Упаковки гранат # CCM14 # TODO RMC14 20mm grenades (other than HE and incendiary)
       entries:
       - id: RMCPacketGrenade20mmHEFilled
         points: 20
@@ -198,41 +198,41 @@
     - CMRoyalMarinesScoutSniperPVE
     pointsType: Specialist
     sections:
-    - name: Precision Weapon Set (Mandatory)
+    - name: Набор высокоточного оружия (Обязательно) # CCM14
       takeOne: CMPrimary
       entries:
       - id: RMCScoutSniperSniperEquipmentCase
-        name: Sniper Equipment Kit
+        name: снаряжение снайпера # CCM14
       - id: RMCScoutSniperMarksmanEquipmentCase
-        name: Marksman Equipment Kit
-    - name: Backpack
+        name: снаряжение скаута-снайпера # CCM14
+    - name: Рюкзаки # CCM14
       choices: { CMBackpack: 1 }
       entries:
       - id: RMCBackpackRCMSmall
       - id: RMCBackpackRCMMedium
       - id: RMCBackpackRCMLarge
-    - name: Belt
+    - name: Пояса # CCM14
       choices: { CMBelt: 1 }
       entries:
       - id: RMCBeltRCM
       - id: RMCBeltHolsterPistolRCM
       - id: RMCBeltUtilityGeneralRCMPVE
-    - name: Armor Webbing
+    - name: Нагрудные крепления # CCM14
       choices: { RMCArmorWebbing: 1 }
       entries:
       - id: RMCArmorWebbingDrum
       - id: RMCArmorWebbingPouch
       - id: RMCArmorWebbingMag
       - id: RMCArmorWebbingShell
-    - name: Uniform Webbing
+    - name: Элементы разгрузки # CCM14
       choices: { CMAccessories: 1 }
       entries:
       - id: CMWebbingBlack # TODO RMC14 small pouch (4 small slots)
-        name: Webbing
+        name: разгрузочная система # CCM14
       - id: RMCWebbingHolsterBlack # TODO RMC14 waist holster - mechanically the same, different sprite
-        name: Shoulder Holster
+        name: плечевая кобура # CCM14
       - id: RMCWebbingDropPouchBlack
-        name: Drop Pouch
+        name: сумка на лямках # CCM14
 
 
 - type: entity
@@ -249,26 +249,26 @@
     - "CMAccessMarinePrep"
     hackable: true
     sections:
-    - name: Standard Equipment
+    - name: Стандартное снаряжение # CCM14
       entries:
       - id: RMCBootsRoyal
-        name: Combat Boots
+        name: боевые ботинки # CCM14
         amount: 15
       - id: RMCJumpsuitMarineRoyalPVE
         amount: 15
       - id: RMCHandsVeteranRoyalMarine
-        name: Combat Gloves
+        name: боевые перчатки # CCM14
         amount: 15
       - id: RMCHeadRoyalHelmet
-        name: L5A2 Ballistic Helmet
+        name: баллистический шлем L5A2 # CCM14
         amount: 15
       - id: RMCHeadRoyalBeanie
-        name: Tactical Beanie
+        name: тактическая бини # CCM14
         amount: 15
       - id: RMCHeadsetRoyalMarinePVE
-        name: Radio Headset
+        name: гарнитура # CCM14
         amount: 15
-    - name: Webbings
+    - name: Разгрузки # CCM14
       entries:
       - id: RMCArmorWebbingPouch
         amount: 5
@@ -282,7 +282,7 @@
         amount: 5
       - id: RMCWebbingDropPouchBlack
         amount: 5
-    - name: Armor
+    - name: Броня # CCM14
       entries:
       - id: RMCArmorRoyalPVE
         amount: 15
@@ -298,7 +298,7 @@
         amount: 15
       - id: RMCPVEArmorKneeGuardKestrel
         amount: 15
-    - name: Backpacks
+    - name: Рюкзаки # CCM14
       entries:
       - id: RMCBackpackRCMSmall
         amount: 15
@@ -306,7 +306,7 @@
         amount: 15
       - id: RMCBackpackRCMLarge
         amount: 15
-    - name: Belts
+    - name: Пояса # CCM14
       entries: # TODO RMC14 TWE belts
       - id: RMCBeltRCM
         amount: 15
@@ -314,12 +314,12 @@
         amount: 15
       - id: RMCBeltUtilityGeneralRCMPVE
         amount: 5
-    - name: Pouches
+    - name: Подсумки # CCM14
       entries:
       - id: RMCPouchFirstResponder
         amount: 10
       - id: RMCPouchFlareL96Filled
-        name: flare pouch (Full)
+        name: подсумок для фальшфейеров (Полный) # CCM14
         amount: 10
       - id: RMCPouchMagazineLarge
         amount: 10
@@ -333,20 +333,20 @@
         amount: 10
       - id: RMCPouchSling
         amount: 10
-    - name: Mask
+    - name: Маски # CCM14
       entries:
       - id: CMMaskGas # TODO RMC14 TWE L7 gas mask
         amount: 15
-    - name: Miscellaneous
+    - name: Разное # CCM14
       entries:
       - id: RMCGogglesBallisticBlack
-        name: Ballistic Goggles
+        name: баллистические очки # CCM14
         amount: 10
       - id: RMCGogglesPrescriptionBallistic
-        name: Prescription Ballistic Goggles # These goggles both mention UNMC in their descriptions but whatever
+        name: рецептурные баллистические очки # CCM14 # These goggles both mention UNMC in their descriptions but whatever
         amount: 10
       - id: RMCHelmetGarbGunOil
-        name: firearm lubricant
+        name: оружейная смазка # CCM14
         amount: 15
       - id: RMCPatchTSEMarines
         amount: 15
@@ -371,15 +371,15 @@
     - "CMAccessMarinePrep"
     hackable: true
     sections:
-    - name: Food
+    - name: Рационы # CCM14
       entries:
       - id: RMCMRETSE
-        name: MRE
+        name: сухой паёк # CCM14
         amount: 5
       - id: RMCBoxMRETSE
-        name: MRE Box
+        name: коробка сухих пайков # CCM14
         amount: 1
-    - name: Medical
+    - name: Медикаменты # CCM14
       entries:
       - id: CMGauze10
         amount: 10
@@ -387,14 +387,14 @@
         amount: 10
       - id: CMTraumaKit10
         amount: 15
-        name: Trauma Treatment Pack
+        name: набор от травм # CCM14
       - id: CMBurnKit10
         amount: 15
-        name: Burn Treatment Pack
+        name: набор от ожогов # CCM14
       #- id: RMCSplints10 # TODO RMC14 implement newmed
       #  amount: 15
       - id: CMEmergencyAutoInjector
-        name: Emergency Autoinjector
+        name: экстренный автоинъектор # CCM14
         amount: 15
       - id: CMBicaridineAutoInjector
         amount: 15
@@ -402,27 +402,25 @@
         amount: 15
       - id: CMTricordrazineAutoInjector
         amount: 15
-      #- id: RMCTramadolAutoInjector # TODO RMC14 implement newmed
-      #  amount: 15
-    - name: Explosives
+    - name: Взрывчатка # CCM14
       entries:
       - id: RMCExplosivePlastic
         amount: 2
       - id: RMCExplosiveBreachingCharge
         amount: 2
-    - name: Flare and Light
+    - name: Освещение # CCM14
       entries:
       - id: RMCFlashlight
         amount: 10
       - id: RMCPackFlareL96
         amount: 10
-    - name: Sidearms
+    - name: Пистолеты # CCM14
       entries:
       - id: RMCWeaponPistolL14
         amount: 2
       - id: RMCMK80
         amount: 2
-    - name: Attachments
+    - name: Обвесы # CCM14
       entries:
       - id: RMCAttachmentRailFlashlight
         amount: 5
@@ -440,15 +438,15 @@
         amount: 2
       - id: RMCAttachmentTwoPointSling
         amount: 15
-    - name: Miscellaneous
+    - name: Разное # CCM14
       entries:
       - id: CMFireExtinguisherPortable
-        name: Fire Extinguisher (Portable)
+#        name: Fire Extinguisher (Portable)
         amount: 2
       - id: CMRollerBedSpawnFolded
         amount: 2
       - id: RMCScabbardMacheteFilled
-        name: Machete Scabbard (Full)
+        name: ножны H5 для мачете M2132 (Заполненные) # CCM14
         amount: 5
       - id: CMEntrenchingTool
         amount: 2

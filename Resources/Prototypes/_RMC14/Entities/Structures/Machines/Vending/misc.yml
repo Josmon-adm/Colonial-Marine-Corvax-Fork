@@ -23,10 +23,10 @@
         name: Barbed Wire x10
         amount: 0
       - id: CMSheetMetal10
-        name: Metal x10
+        name: листы металла (10 шт.) # CCM14
         amount: 0
       - id: CMSheetPlasteel10
-        name: Plasteel x10
+        name: листы пластали (10 шт.) # CCM14
         amount: 0
       - id: CMSandbagEmpty10
         name: Sandbags (empty) x10
@@ -34,7 +34,7 @@
       - id: CMSandbagFull5
         name: Sandbags (full) x5
         amount: 0
-    - name: Ammunition
+    - name: Боеприпасы # CCM14
       entries:
       - id: RMCBoxShotgunBuckshot
         amount: 0
@@ -56,7 +56,7 @@
 #        amount: 0
 #      - id: M2C Box Magazine
 #        amount: 0
-    - name: Armor
+    - name: Броня # CCM14
       entries:
       - id: ArmorHelmetM10
         amount: 0
@@ -76,7 +76,7 @@
         amount: 0
       - id: RMCArmorM3LightPadded
         amount: 0
-    - name: Miscellaneous
+    - name: Разное # CCM14
       entries:
       - id: RMCBoxMRE
         amount: 0
@@ -105,7 +105,7 @@
         amount: 4
       - id: CMChairFolded
         amount: 2
-    - name: Ammunition boxes
+    - name: Коробки с патронами # CCM14
       hasBoxes: true
       entries:
       - id: RMCBoxShellsBuckshot
@@ -121,15 +121,15 @@
         box: RMCBoxShotgunSlugs
         boxAmount: 4
       - id: RMCBoxBulletsRifle
-        name: rifle ammunition box (10x24mm) (M4SPR)
+        name: коробка винтовочных патронов (10x24мм) (M4SPR) # CCM14
         box: CMMagazineRifleM4SPR
         boxSlots: 24 # 600 / 25
       - id: RMCBoxBulletsRifle
-        name: rifle ammunition box (10x24mm) (M54C)
+        name: коробка винтовочных патронов (10x24мм) (M54C) # CCM14
         box: CMMagazineRifleM54C
         boxSlots: 15 # 600 / 40
       - id: RMCBoxBulletsSMG
-        name: SMG HV ammunition box (10x20mm) (M63)
+        name: коробка патронов ПД (10x20мм) (M63) # CCM14
         box: CMMagazineSMGM63
         boxSlots: 13 # 600 / 48, yes we lose half a mag to the void
     - name: Boxes

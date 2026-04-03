@@ -703,7 +703,7 @@
   - type: CMAutomatedVendor
     scaling: false
     sections:
-    - name: Products
+    - name: Продукты # CCM14
       entries:
       - id: RMCFork
         amount: 6
@@ -817,7 +817,7 @@
   - type: CMAutomatedVendor
     scaling: false
     sections:
-    - name: Products
+    - name: Продукты # CCM14
       entries:
       - id: FoodContainerEgg
         amount: 12
