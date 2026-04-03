@@ -12,9 +12,6 @@ highlights-staff-officer = Офицер Штаба, "ОШ", Combat Information C
 # Requisitions
 highlights-logistics-officer = Офицер логистики, "ОЛ", Снабжение, "Рек", Командование, Поставки, "Дроп", Ящик, Бюджет, Патроны
 highlights-requisitions-technician = Техник снабжения, Рек-тех, "ТС", Снабжение, "Рек", Поставки, "Дроп", Ящик, Бюджет, Патроны
-# Requisitions
-highlights-quartermaster = Квартирмейстер, "КМ", Поставки, "Карго", Командование, Поставки, "Drop", Crate, Бюджет, патроны
-highlights-cargo-technician = Техник снабжения, Карготех, "ТС" Поставки, "Карго", Поставки, "Drop", Crate, Бюджет, Патроны
 # Engineering
 highlights-chief-engineer = Главный инженер, "ГИ", Инженерный отдел, Инженер, "Инж", Командование, "ОБ", "OT"
 highlights-maintenance-technician = Техник по обслуживанию, "ТПО", Инженерный отдел, Инженер, "Инж", "ОБ"
@@ -27,8 +24,6 @@ highlights-chief-mp = Начальник военной полиции, "НВП"
 highlights-nurse = Интерн, Медицинский отдел, МедБей, "Мед", Заражён, Операция, "Хим", "Химикаты", Таблетка
 highlights-researcher = Ученый, Исследование, Наука, "НИИ", "Хим", "Химикаты"
 highlights-provost-inspector = Provost Inspector, Inspector, @"PvI", "CMP", "MP", "MPs", "MW", "Alert", Brig, "Perma", Loose, Burst, Colonist, Survivor, "SOP", "Mlaw", Marine Law, Arrest, Detain, Appeal, Execution, Executed
-# Military Police
-highlights-chief-MP = Начальник военной полиции, "НВП", "ВП", "Тревога", Бриг, "Перма", Loose, Колонист, Выживший, "SOP", Аррест, Задержать, Обжаловать, "Командование"
 highlights-military-warden = Военный надзиратель, Варден, "ВП", "Тревога", Бриг, "Перма", Loose, Колонист, Выживший, "SOP", Аррест, Задержать, Обжаловать
 highlights-military-police = Офицер военной полиции, "ВП", "Тревога", Бриг, "Перма", Loose, Колонист, Выживший, "SOP", Аррест, Задержать, Обжаловать
 # Other

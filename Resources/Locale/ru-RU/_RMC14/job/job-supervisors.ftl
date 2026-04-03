@@ -19,7 +19,6 @@ cm-job-supervisors-company-command = командованию роты
 cm-job-supervisors-royal-tl = лидеру группы и Императору
 cm-job-supervisors-royal-lieutenant = Полевому Стратегу
 cm-job-supervisors-royal-captain = Наварху
-cm-job-supervisors-royal-officer = Турману и Императору
 cm-job-supervisors-royal-section-leader = Лидеру отеделения
 cm-job-supervisors-royal-troop-sergeant = Сотнику
 cm-job-supervisors-royal-troop-commander = Командеру

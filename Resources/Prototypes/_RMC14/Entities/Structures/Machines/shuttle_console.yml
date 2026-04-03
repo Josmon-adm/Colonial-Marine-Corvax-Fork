@@ -121,6 +121,7 @@
         type: DropshipWeaponsBui
   - type: DropshipTerminalWeapons
   - type: TacticalMapComputer
+    allowedSquadGroups: [UNMC]
   - type: RequiresSkill
     skills:
       RMCSkillPilot: 1
@@ -213,6 +214,7 @@
         type: DropshipWeaponsBui
   - type: DropshipTerminalWeapons
   - type: TacticalMapComputer
+    allowedSquadGroups: [UNMC]
 
 - type: entity
   parent: MarkerBase

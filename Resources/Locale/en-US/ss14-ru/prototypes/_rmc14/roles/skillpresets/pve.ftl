@@ -10,3 +10,7 @@ ent-RMCSkillPresetPVESGO = Smartgun Operator
     .desc = { "" }
 ent-RMCSkillPresetPVERifleman = Rifleman
     .desc = { "" }
+ent-RMCSkillPresetPVECLFDoctor = CLF Doctor
+    .desc = { ent-RMCSkillPresetPVECorpsman.desc }
+ent-RMCSkillPresetPVEForeconRTO = Forecon RTO
+    .desc = { ent-RMCSkillPresetPVERifleman.desc }

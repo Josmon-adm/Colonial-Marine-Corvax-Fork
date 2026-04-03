@@ -15,7 +15,6 @@ rmc-squad-info-unassigned = [font size=16][bold]Не в группе[/bold][/fon
 rmc-squad-info-fireteam = [font size=16][bold]Группа { $fireteam }[/bold][/font]
 rmc-squad-info-tracking-selection = Выбор отслеживания
 rmc-squad-info-tracking-choose = Выбрать новую отслеживаемую цель.
-rmc-squad-info-squad-leader = Командир отряда
 rmc-squad-info-none = нет
 rmc-squad-info-CommandingOfficer = Командующий офицер
 rmc-squad-info-ExecutiveOfficer = Исполнительный офицер
@@ -61,5 +60,4 @@ rmc-squad-info-RCMTeamLead = Лидер группы
 rmc-squad-info-RCMLieutenant = Лейтенант
 rmc-squad-info-ParaTeamLeader = Лидер группы парамедиков
 rmc-squad-info-ParaCommander = Командир
-rmc-squad-info-fireteam-leader = Командир группы
 rmc-squad-info-change-tracker = Изменить отслеживание

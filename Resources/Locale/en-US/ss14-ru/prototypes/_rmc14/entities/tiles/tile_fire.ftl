@@ -61,3 +61,6 @@ ent-RMCTileFireNapalmBase = { ent-RMCTileFire }
 ent-RMCTileFireEthanol = { ent-RMCTileFire }
     .suffix = Ethanol
     .desc = { ent-RMCTileFire.desc }
+ent-RMCTileFireWeldingFuel = { ent-RMCTileFire }
+    .suffix = Welding Fuel
+    .desc = { ent-RMCTileFire.desc }

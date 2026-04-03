@@ -28,3 +28,5 @@ ent-RMCVendorBundleRCMPVEMedic = Essential Medical Set
     .desc = Contains a surgical case, stethoscope, penlight, and assortment of medical tools to put people back together. Make use of that Navy training.
 ent-RMCVendorBundleRCMPVEMGL = Multiple Grenade Launcher Set
     .desc = Contains the L989A2 Multiple Grenade Launcher and the L79 pattern load-bearing rig.
+ent-RMCVendorBundleRCMPVEMortar = Light Mortar Kit
+    .desc = Contains the L989A2 Multiple Grenade Launcher and the L79 pattern load-bearing rig.
