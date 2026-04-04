@@ -32,17 +32,18 @@
     targetCameraShakeStrength: 1
     damage:
       groups:
-        Brute: 20
+        Brute: 25
   - type: XenoPunch
     damage:
       types:
-        Blunt: 27.5
+        Blunt: 35
   - type: XenoTailSweep
     paralyzeTime: 0
     damage:
       types:
-        Slash: 30
+        Slash: 35
   - type: XenoScissorCut
+    range: 1
     attackEffect: RMCEffectSlam
     telegraphEffectEdge: RMCEffectXenoTelegraphRed
     damage:
@@ -53,14 +54,9 @@
         params:
           variation: 0.15
   - type: MeleeWeapon
-    animation: CMEffectPunch
     damage:
       groups:
         Brute: 35
-    soundHit:
-        collection: Punch
-        params:
-          variation: 0.15
   - type: XenoPlasma
     plasma: 100
     maxPlasma: 100
@@ -71,6 +67,10 @@
     - RMCXenoCrusher
     - CMXenoPraetorian
     strains: []
+  - type: XenoHidden
+  - type: XenoLifesteal
+    maxHeal: 80
+    minHeal: 40
 # // CCM Xeno Strain - Boxer Warrior
 
 # // CCM Xeno Strain - Melee & Ranger Sentinels
@@ -132,6 +132,7 @@
     evolvesToWithoutPoints:
     - CMXenoQueen
     strains: []
+  - type: XenoHidden
 
 - type: entity
   parent: CMXenoSentinel
@@ -178,6 +179,7 @@
       0: Alive
       400: Critical
       500: Dead
+  - type: XenoHidden
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 
 # // CCM Xeno Strain - Sniper Spitter
@@ -218,7 +220,7 @@
     baseWalkSpeed: 0.7
     baseSprintSpeed: 1.2
   - type: XenoZoom
-    zoom: 1, 1
+    zoom: 2, 2
     offsetLength: 3
     speed: 0.8
     doAfter: 0.5
@@ -233,4 +235,5 @@
       0: Alive
       460: Critical
       560: Dead
+  - type: XenoHidden
 # // CCM Xeno Strain - Sniper Spitter

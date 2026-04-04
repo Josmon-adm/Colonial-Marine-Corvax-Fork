@@ -41,6 +41,10 @@
       dazeTime: 3.4
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
+  - type: SpawnOnTerminate
+    spawn: CCMXenoAcidSpraySniper
+  - type: CMArmorPiercing
+    amount: 30
 
 - type: entity
   parent: XenoAcidSprayWeak
@@ -87,6 +91,8 @@
     damage:
       types:
         Heat: 10 # TODO RMC14 damage fall-off and higher at close range
+  - type: CMArmorPiercing
+    amount: 10
 
 - type: entity
   id: CCMXenoGreatScatteredSpitProjectile
@@ -112,6 +118,8 @@
     damage:
       types:
         Heat: 5 # TODO RMC14 damage fall-off and higher at close range
+  - type: CMArmorPiercing
+    amount: 10
 
 - type: entity
   parent: XenoAcidSprayWeak

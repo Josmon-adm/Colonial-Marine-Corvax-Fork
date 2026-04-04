@@ -48,7 +48,7 @@
   description: Temporarily charge up a melee attack that will stun a short time enemy after very shor delay
 
 - type: entity
-  parent: ActionXenoCripplingStrike
+  parent: ActionXenoApprehend
   id: CCMActionXenoLightNeuroEmpower
   name: Light Neuro Empower
   description: Increases your movement speed and applies a slow on the next target you slash.
