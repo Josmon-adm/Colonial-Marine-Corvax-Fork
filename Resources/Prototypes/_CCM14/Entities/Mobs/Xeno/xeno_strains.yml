@@ -32,16 +32,16 @@
     targetCameraShakeStrength: 1
     damage:
       groups:
-        Brute: 20
+        Brute: 25
   - type: XenoPunch
     damage:
       types:
-        Blunt: 27.5
+        Blunt: 35
   - type: XenoTailSweep
     paralyzeTime: 0
     damage:
       types:
-        Slash: 30
+        Slash: 35
   - type: XenoScissorCut
     range: 1
     attackEffect: RMCEffectSlam
@@ -68,6 +68,9 @@
     - CMXenoPraetorian
     strains: []
   - type: XenoHidden
+  - type: XenoLifesteal
+    maxHeal: 80
+    minHeal: 40
 # // CCM Xeno Strain - Boxer Warrior
 
 # // CCM Xeno Strain - Melee & Ranger Sentinels
