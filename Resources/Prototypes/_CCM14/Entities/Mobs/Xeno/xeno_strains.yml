@@ -205,10 +205,10 @@
     - ActionXenoSprayAcid
     - CCMActionXenoSniperWalker
     - ActionXenoDevolve
-  - type: XenoBombard
+  - type: XenoSpit
     plasmaCost: 300
-    projectile: CCMXenoSniperSpitProjectile
-    delay: 1.5
+    projectileId: CCMXenoSniperSpitProjectile
+    speed: 40
   - type: XenoResinWalker
     speedMultiplier: 3
   - type: XenoSprayAcid
