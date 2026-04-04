@@ -849,7 +849,7 @@ public sealed class TacticalMapSystem : SharedTacticalMapSystem
     private void RefreshUserVisibleLayers(Entity<TacticalMapUserComponent> user)
     {
         var baseLayers = EnsureBaseLayers(user);
-        var allowDefaults = !HasComp<RMCSurvivorComponent>(user.Owner);
+        var allowDefaults = !HasComp<RMCSurvivorComponent>(user.Owner) && !HasComp<XenoComponent>(user.Owner); // CCM14
         var options = BuildLayerOptions(user.Owner, baseLayers, includeLayerAccess: true, includeAllSquads: false, allowDefaultVisible: allowDefaults);
         ApplyLayerOptions(user, options);
         ApplyVisibleLayerSelection(user, options, baseLayers);

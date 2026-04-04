@@ -46,6 +46,7 @@ ui-tactical-map-label-dialog-delete = Удалить
 ui-tactical-map-labels-button = Метки
 ui-tactical-map-centre-button = Центр
 ui-tactical-map-reset-button = Сброс
+ui-tactical-map-popout-button = Поп-аут
 ui-tactical-map-settings-toggle-expanded = ▼
 ui-tactical-map-settings-toggle-collapsed = ▶
 ui-tactical-map-update-button = Обновить

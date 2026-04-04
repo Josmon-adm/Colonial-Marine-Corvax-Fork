@@ -59,8 +59,8 @@
     useAimDirection: true
   - type: RMCHardpointVisual
     vehicleState: ltb_cannon_0
-  - type: RMCVehicleFabricatorPrintable # CCM14
-    cost: 2000
+  - type: RMCVehicleFabricatorPrintable
+    cost: 1000
     category: Primary
     vehicle: Tank
 
@@ -146,8 +146,8 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: ltaaap_minigun_0
-  - type: RMCVehicleFabricatorPrintable # CCM14
-    cost: 1500
+  - type: RMCVehicleFabricatorPrintable
+    cost: 800
     category: Primary
     vehicle: Tank
 
@@ -214,8 +214,8 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: ace_autocannon_0
-  - type: RMCVehicleFabricatorPrintable # CCM14
-    cost: 1500
+  - type: RMCVehicleFabricatorPrintable
+    cost: 800
     category: Primary
     vehicle: Tank
 
@@ -284,7 +284,7 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: drgn_flamer_0
-  - type: RMCVehicleFabricatorPrintable # CCM14
-    cost: 1200
+  - type: RMCVehicleFabricatorPrintable
+    cost: 600
     category: Primary
     vehicle: Tank

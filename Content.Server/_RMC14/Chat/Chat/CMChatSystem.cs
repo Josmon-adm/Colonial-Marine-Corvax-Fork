@@ -16,6 +16,7 @@ using Content.Shared.Speech;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._RMC14.Chat.Chat;
@@ -29,6 +30,7 @@ public sealed class CMChatSystem : SharedCMChatSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private static readonly ProtoId<ReplacementAccentPrototype> ChatSanitize = "CMChatSanitize";
     private static readonly ProtoId<ReplacementAccentPrototype> MarineChatSanitize = "CMChatSanitizeMarine";
@@ -222,8 +224,12 @@ public sealed class CMChatSystem : SharedCMChatSystem
     private string FormatRadioMessage(string speakerName, string message, SpeechVerbPrototype speechVerb, RadioChannelPrototype? channel)
     {
         var channelName = channel?.Name ?? "Unknown";
-        var verb = speechVerb.SpeechVerbStrings.FirstOrDefault() ?? "says";
-
+        // CCM14-start
+        var verbId = speechVerb.SpeechVerbStrings.Count > 0
+            ? _random.Pick(speechVerb.SpeechVerbStrings)
+            : "chat-speech-verb-default";
+        var verb = Loc.GetString(verbId);
+        // CCM14-end
         var channelColor = channel?.Color.ToHex() ?? "#FFFFFF";
 
         var formattedMessage = $"[color={channelColor}][bold]\\[{Loc.GetString(channelName)}\\][/bold][/color] [bold]{speakerName}[/bold] {verb}, \"{message}\"";

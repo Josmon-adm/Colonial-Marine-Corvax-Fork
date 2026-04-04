@@ -48,6 +48,7 @@ ui-tactical-map-label-dialog-delete = Delete
 ui-tactical-map-labels-button = Labels
 ui-tactical-map-centre-button = Centre
 ui-tactical-map-reset-button = Reset
+ui-tactical-map-popout-button = Pop-out
 ui-tactical-map-settings-toggle-expanded = ▼
 ui-tactical-map-settings-toggle-collapsed = ▶
 ui-tactical-map-update-button = Update

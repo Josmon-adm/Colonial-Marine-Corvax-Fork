@@ -61,7 +61,7 @@
                                 Text="{Loc 'rmc-vehicle-fabricator-category-armor'}" ToggleMode="True" />
                         <Button Name="SupportCategoryButton" Access="Public"
                                 Text="{Loc 'rmc-vehicle-fabricator-category-support'}" ToggleMode="True" />
-                        <Button Name="GeneralCategoryButton" Access="Public"
+                        <Button Name="ChassisCategoryButton" Access="Public"
                                 Text="{Loc 'rmc-vehicle-fabricator-category-chassis'}" ToggleMode="True" />
                         <Button Name="AmmoCategoryButton" Access="Public"
                                 Text="{Loc 'rmc-vehicle-fabricator-category-ammo'}" ToggleMode="True" />
