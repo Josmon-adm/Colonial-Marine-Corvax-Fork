@@ -12,7 +12,7 @@
     impactEffect: null
     damage:
       types:
-        Heat: 50 # TODO RMC14 damage fall-off and higher at close range
+        Heat: 40 # TODO RMC14 damage fall-off and higher at close range
   - type: ModifyTargetOnHit
     add:
     - type: UserAcided
@@ -44,7 +44,7 @@
   - type: SpawnOnTerminate
     spawn: CCMXenoAcidSpraySniper
   - type: CMArmorPiercing
-    amount: 30
+    amount: 10
 
 - type: entity
   parent: XenoAcidSprayWeak
