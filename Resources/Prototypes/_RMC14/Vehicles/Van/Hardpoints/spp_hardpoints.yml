@@ -94,6 +94,8 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: t60p3m_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVanWheel

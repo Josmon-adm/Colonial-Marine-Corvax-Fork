@@ -25,6 +25,10 @@
   - type: RMCHardpointIntegrity
     maxIntegrity: 500
   - type: RMCVehicleWheelItem
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 200
+    category: Chassis
+    vehicle: APC
 
 - type: entity
   parent: RMCAPCHardpointBase
@@ -69,6 +73,10 @@
     useAimDirection: true
   - type: RMCHardpointVisual
     vehicleState: frontalcannon_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 600
+    category: Primary
+    vehicle: APC
 
 - type: entity
   parent: RMCAPCHardpointBase
@@ -118,6 +126,10 @@
 
   - type: RMCHardpointVisual
     vehicleState: dualcannon_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 800
+    category: Primary
+    vehicle: APC
 
 - type: entity
   parent: RMCAPCHardpointBase
@@ -137,6 +149,10 @@
     maxIntegrity: 100
   - type: RMCHardpointVisual
     vehicleState: comms_relay_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 300
+    category: Support
+    vehicle: APC
 
 - type: entity
   parent: RMCAPCHardpointBase
@@ -189,6 +205,10 @@
     useAimDirection: true
   - type: RMCHardpointVisual
     vehicleState: flare_launcher_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 300
+    category: Support
+    vehicle: APC
 
 - type: entity
   parent: RMCAPCHardpointBase
@@ -208,6 +228,10 @@
     maxIntegrity: 100
   - type: RMCHardpointVisual
     vehicleState: freight_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 150
+    category: Support
+    vehicle: APC
 
 - type: entity
   parent: BaseItem
@@ -264,6 +288,10 @@
     muzzleOffset: "0,0"
     angleOffset: 90
     useAimDirection: true
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 400
+    category: Secondary
+    vehicle: APC
 
 - type: entity
   parent: RMCVehicleAPCM56FPWPortGunBase
@@ -278,3 +306,7 @@
     muzzleOffset: "0,0"
     angleOffset: -90
     useAimDirection: true
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 400
+    category: Secondary
+    vehicle: APC

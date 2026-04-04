@@ -68,6 +68,10 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: flamer_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 800
+    category: Secondary
+    vehicle: Tank
 
 - type: entity
   parent: RMCVehicleTankHardpointBase
@@ -137,6 +141,10 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: glauncher_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 1000
+    category: Secondary
+    vehicle: Tank
 
 - type: entity
   parent: RMCVehicleTankHardpointBase
@@ -202,6 +210,10 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: towlauncher_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 1200
+    category: Secondary
+    vehicle: Tank
 
 - type: entity
   parent: RMCVehicleTankHardpointBase
@@ -270,6 +282,10 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: m56cupola_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 1000
+    category: Secondary
+    vehicle: Tank
 
 - type: entity
   parent: RMCVehicleTankHardpointBase
@@ -336,3 +352,7 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: m56cupola_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 1500
+    category: Secondary
+    vehicle: Tank

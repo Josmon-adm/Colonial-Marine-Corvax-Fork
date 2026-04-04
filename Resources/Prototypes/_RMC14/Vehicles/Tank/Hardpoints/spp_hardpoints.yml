@@ -7,6 +7,8 @@
     sprite: _RMC14/Structures/Vehicles/hardpoints/spptank.rsi
   - type: Item
     size: Large
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankTurret
@@ -59,6 +61,8 @@
       compatibilityId: SPPTank
       required: false
       insertDelay: 2.0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankLTAAAPMinigun
@@ -97,6 +101,8 @@
     offsetNorth: "0, -1.8"
     useAimDirection: true
     useContainerOwner: false
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankLTBCannon
@@ -131,6 +137,8 @@
     muzzleOffset: "0,-1"
     useAimDirection: true
     useContainerOwner: false
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankTowLauncher
@@ -166,6 +174,8 @@
     muzzleOffset: "0,0"
     useAimDirection: true
     useContainerOwner: false
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankM56Cupola
@@ -204,6 +214,8 @@
     muzzleOffset: "0,0"
     useAimDirection: true
     useContainerOwner: false
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankArmorBallistic
@@ -218,6 +230,8 @@
     compatibilityId: SPPTank
   - type: RMCHardpointVisual
     vehicleState: reactive_armor_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankRocketLauncher
@@ -232,6 +246,8 @@
     compatibilityId: SPPTank
   - type: RMCHardpointVisual
     vehicleState: slauncher_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankFlareModule
@@ -246,6 +262,8 @@
     compatibilityId: SPPTank
   - type: RMCHardpointVisual
     vehicleState: slauncher_1
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankWarningArray
@@ -260,6 +278,8 @@
     compatibilityId: SPPTank
   - type: RMCHardpointVisual
     vehicleState: warray_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankOverdriveEnhancer
@@ -274,6 +294,8 @@
     compatibilityId: SPPTank
   - type: RMCHardpointVisual
     vehicleState: odrive_enhancer_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: RMCVehicleTankArtilleryModule
@@ -288,3 +310,5 @@
     compatibilityId: SPPTank
   - type: RMCHardpointVisual
     vehicleState: artillerymod_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    enabled: false

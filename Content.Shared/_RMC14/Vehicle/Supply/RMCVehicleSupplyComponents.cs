@@ -45,7 +45,7 @@ public sealed partial class RMCVehicleSupplyTechComponent : Component
     [DataField, AutoNetworkedField]
     public List<string> Unlocked = new();
 }
-
+#if false // CCM14-start
 [RegisterComponent]
 public sealed partial class RMCVehicleHardpointVendorComponent : Component
 {
@@ -58,3 +58,4 @@ public sealed partial class RMCVehicleHardpointVendorComponent : Component
     [NonSerialized]
     public readonly Dictionary<string, int> RemainingGroupAmounts = new();
 }
+#endif // CCM14-end

@@ -59,6 +59,10 @@
     useAimDirection: true
   - type: RMCHardpointVisual
     vehicleState: ltb_cannon_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 2000
+    category: Primary
+    vehicle: Tank
 
 - type: entity
   parent: RMCVehicleTankHardpointBase
@@ -142,6 +146,10 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: ltaaap_minigun_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 1500
+    category: Primary
+    vehicle: Tank
 
 - type: entity
   parent: RMCVehicleTankHardpointBase
@@ -206,6 +214,10 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: ace_autocannon_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 1500
+    category: Primary
+    vehicle: Tank
 
 - type: entity
   parent: RMCVehicleTankHardpointBase
@@ -272,3 +284,7 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: drgn_flamer_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 1200
+    category: Primary
+    vehicle: Tank

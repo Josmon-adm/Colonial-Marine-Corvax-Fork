@@ -25,6 +25,10 @@
   - type: RMCHardpointIntegrity
     maxIntegrity: 500
   - type: RMCVehicleWheelItem
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 100
+    category: Chassis
+    vehicle: Humvee
 
 - type: entity
   parent: RMCVehicleHumveeHardpointBase
@@ -67,6 +71,10 @@
       slotType: Launcher
       required: false
       insertDelay: 2.0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 400
+    category: Primary
+    vehicle: Humvee
 
 - type: entity
   parent: RMCVehicleHumveeHardpointBase
@@ -128,6 +136,10 @@
     useContainerOwner: false
   - type: RMCHardpointVisual
     vehicleState: humveecannon_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 600
+    category: Primary
+    vehicle: Humvee
 
 - type: entity
   parent: RMCVehicleHumveeCannon
@@ -142,6 +154,10 @@
     selectedMode: Burst
     availableModes:
     - Burst
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 700
+    category: Primary
+    vehicle: Humvee
 
 - type: entity
   parent: RMCVehicleHumveeHardpointBase
@@ -194,6 +210,10 @@
     arc: 120
   - type: RefillableByBulletBox
     bulletType: RMCVehicleAmmoBoxGrenadeLauncher
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 500
+    category: Secondary
+    vehicle: Humvee
 
 - type: entity
   parent: RMCVehicleHumveeHardpointBase
@@ -213,6 +233,10 @@
     maxIntegrity: 100
   - type: RMCHardpointVisual
     vehicleState: snowplow_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 200
+    category: Armor
+    vehicle: Humvee
 
 - type: entity
   parent: RMCVehicleHumveeHardpointBase
@@ -234,6 +258,10 @@
     radiusMultiplier: 2.0
   - type: RMCHardpointVisual
     vehicleState: overlight_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 300
+    category: Support
+    vehicle: Humvee
 
 - type: entity
   parent: RMCVehicleHumveeHardpointBase
@@ -253,3 +281,7 @@
     maxIntegrity: 100
   - type: RMCHardpointVisual
     vehicleState: humveehatch_0
+  - type: RMCVehicleFabricatorPrintable # CCM14
+    cost: 150
+    category: Support
+    vehicle: Humvee
