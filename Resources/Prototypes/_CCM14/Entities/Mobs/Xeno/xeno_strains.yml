@@ -214,7 +214,7 @@
     baseWalkSpeed: 0.7
     baseSprintSpeed: 1.2
   - type: XenoZoom
-    zoom: 1, 1
+    zoom: 2, 2
     offsetLength: 3
     speed: 0.8
     doAfter: 0.5
