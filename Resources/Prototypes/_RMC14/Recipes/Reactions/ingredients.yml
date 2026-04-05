@@ -235,18 +235,18 @@
   - !type:CreateEntityReactionEffect
     entity: FoodMeat
 
-#- type: reaction
-#  id: CreateFriedEgg
-#  impact: Low
-#  quantized: true
-#  conserveEnergy: false
-#  reactants:
-#    TableSalt:
-#      amount: 1
-#    Blackpepper:
-#      amount: 1
-#    EggCooked:
-#      amount: 5
-#  effects:
-#  - !type:CreateEntityReactionEffect
-#    entity: FoodMealFriedegg
+- type: reaction
+  id: CreateFriedEgg
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    TableSalt:
+      amount: 1
+    Blackpepper:
+      amount: 1
+    Egg:
+      amount: 6 # CCM14
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: FoodMealFriedegg

@@ -477,17 +477,3 @@
     FoodBreadBaguette: 1
     FoodMeatCutlet: 3
     FoodCheeseSlice: 1
-
-# CCM14-start
-- type: microwaveMealRecipe
-  id: RecipeFriedEggSimple
-  name: fried egg recipe
-  result: FoodMealFriedegg
-  time: 5
-  group: Savory
-  reagents:
-    TableSalt: 5
-    Blackpepper: 5
-  solids:
-    FoodEgg: 1
-# CCM14-end
