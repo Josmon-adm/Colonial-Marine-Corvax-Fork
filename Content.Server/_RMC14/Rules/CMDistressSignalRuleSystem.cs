@@ -401,10 +401,16 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
                 possibleSurvivorJobs.AddRange(comp.SurvivorJobVariantScenarios.Values.SelectMany(x => x).Select(x => x.Special));
 
             var survivorSpawners = new Dictionary<ProtoId<JobPrototype>, List<EntityUid>>();
-            var spawnerQuery = EntityQueryEnumerator<SpawnPointComponent>();
-            while (spawnerQuery.MoveNext(out var spawnId, out var spawnComp))
+            // CCM14-start
+            var spawnerQuery = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
+            var planetMapId = comp.XenoMap != null ? _transform.GetMapId(comp.XenoMap.Value) : MapId.Nullspace;
+            while (spawnerQuery.MoveNext(out var spawnId, out var spawnComp, out var xform))
             {
                 if (spawnComp.Job is not { } job)
+                    continue;
+
+                if (planetMapId != MapId.Nullspace && xform.MapID != planetMapId) 
+            // CCM14-end
                     continue;
 
                 if (possibleSurvivorJobs.Contains(job))
@@ -627,10 +633,13 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
                 return xenoEnt;
             }
 
-            var totalXenos = (int) Math.Round(Math.Max(1, ev.PlayerPool.Count / _marinesPerXeno));
-            var totalSurvivors = (int) Math.Round(ev.PlayerPool.Count / _marinesPerSurvivor);
+            // CCM14-start
+            var actualPlayerCount = Math.Max(ev.PlayerPool.Count, _player.PlayerCount);
+            var totalXenos = (int) Math.Round(Math.Max(1, actualPlayerCount / _marinesPerXeno));
+            var totalSurvivors = (int) Math.Round(actualPlayerCount / _marinesPerSurvivor);
             totalSurvivors = (int) Math.Clamp(totalSurvivors, _minimumSurvivors, _maximumSurvivors);
-            var marines = ev.PlayerPool.Count - totalXenos - totalSurvivors;
+            var marines = actualPlayerCount - totalXenos - totalSurvivors;
+            // CCM14-end
             var jobSlotScaling = _config.GetCVar(RMCCVars.RMCJobSlotScaling);
             if (comp.DoJobSlotScaling && marines > 0 && jobSlotScaling)
             {
