@@ -40,13 +40,24 @@
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
       state: bombard
-    useDelay: 4
+    useDelay: 6
+  - type: ActionSharedCooldown
+    id: CCMActionXenoSniperSnipe
+    ids:
+    - CCMActionXenoSniperWalker
+    cooldown: 6
 
 - type: entity
   id: CCMActionXenoSniperWalker
   parent: ActionXenoResinWalker
   name: Walk Recover (50) # TODO RMC14 proper plasma costs
   description: Recover to your normal speed. [color=cyan]Consumes 30 plasma per second.[/color]
+  components:
+  - type: ActionSharedCooldown
+    id: CCMActionXenoSniperWalker
+    ids:
+    - CCMActionXenoSniperSnipe
+    cooldown: 6
 
 - type: entity
   id: CCMActionXenoGreaterParalyzingSlash
