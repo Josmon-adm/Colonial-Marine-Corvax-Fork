@@ -177,8 +177,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Critical
-      500: Dead
+      350: Critical
+      450: Dead
   - type: XenoHidden
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 
@@ -208,17 +208,18 @@
   - type: XenoSpit
     plasmaCost: 300
     projectileId: CCMXenoSniperSpitProjectile
-    speed: 40
+    speed: 28
   - type: XenoResinWalker
-    speedMultiplier: 3
+    plasmaCost: 150
+    speedMultiplier: 2.2
   - type: XenoSprayAcid
     acid: CCMXenoAcidSpraySniper
     barricadeDamage:
       types:
         Heat: 5
   - type: MovementSpeedModifier
-    baseWalkSpeed: 0.7
-    baseSprintSpeed: 1.2
+    baseWalkSpeed: 1
+    baseSprintSpeed: 2
   - type: XenoZoom
     zoom: 2, 2
     offsetLength: 3
@@ -233,7 +234,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      460: Critical
-      560: Dead
+      420: Critical
+      520: Dead
   - type: XenoHidden
 # // CCM Xeno Strain - Sniper Spitter

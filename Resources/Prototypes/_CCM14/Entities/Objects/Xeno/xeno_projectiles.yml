@@ -5,6 +5,7 @@
   components:
   - type: Sprite
     sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    scale: 1.3, 3.3
     layers:
     - state: xeno_acid_strong
       shader: unshaded
@@ -38,13 +39,26 @@
       knockBackSpeed: 5
       forceKnockBack: true
       slowsEffectBigXenos: true
+      losesEffectWithRange: false
       dazeTime: 3.4
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 20
+      falloff: 9999
+      ignoreModifiers: true
   - type: SpawnOnTerminate
     spawn: CCMXenoAcidSpraySniper
   - type: CMArmorPiercing
     amount: 10
+  - type: RMCProjectileAccuracy
+    accuracy: 125
+    thresholds:
+    - range: 19
+      falloff: 10
+  - type: TimedDespawn
+    lifetime: 6
 
 - type: entity
   parent: XenoAcidSprayWeak
@@ -131,7 +145,7 @@
     layers:
     - state: acid2-weak
   - type: DamageOnCollide
-    paralyze: 1
+    paralyze: 0
     damage:
       types:
         Heat: 10
