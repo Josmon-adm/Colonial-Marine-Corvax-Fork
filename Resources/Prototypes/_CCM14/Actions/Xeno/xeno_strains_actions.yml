@@ -20,14 +20,17 @@
 - type: entity
   id: CCMActionXenoBoxerTailKnock
   parent: ActionXenoTailSweep
-  name: Tail Knock (10) # TODO RMC14 proper plasma costs
+  name: Tail Knock # TODO RMC14 proper plasma costs
   description: Use your yail to smash ground and enemies around you, and deal damage, a lil fling them
   
 - type: entity
   parent: ActionXenoScissorCut
   id: CCMActionXenoBoxerWidePunch
-  name: Wide weak punch (25)
+  name: Wide weak punch
   description: Punch in 1x1 area (or bigger) and deal damage to enemy in that area
+  components:
+  - type: XenoActionPlasma
+    cost: 0
 
 - type: entity
   parent: ActionXenoSpit
