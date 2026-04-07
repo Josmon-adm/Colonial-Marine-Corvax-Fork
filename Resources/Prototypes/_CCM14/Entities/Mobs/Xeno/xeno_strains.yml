@@ -38,6 +38,7 @@
       types:
         Blunt: 35
   - type: XenoTailSweep
+    plasmaCost: 0
     paralyzeTime: 0
     damage:
       types:
@@ -54,13 +55,12 @@
         params:
           variation: 0.15
   - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: CCMWeaponArcXenoPunch
     damage:
       groups:
         Brute: 35
-  - type: XenoPlasma
-    plasma: 100
-    maxPlasma: 100
-    plasmaRegenOnWeeds: 6
   - type: XenoEvolution
     max: 500
     evolvesTo:
@@ -71,6 +71,20 @@
   - type: XenoLifesteal
     maxHeal: 80
     minHeal: 40
+
+# // CCM Xeno Punch Attack Effect
+- type: entity
+  parent: [WeaponArcClaw, RMCBaseEffect]
+  id: CCMWeaponArcXenoPunch
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    sprite: _RMC14/Effects/attacks.rsi
+    state: punch
+    noRot: true
+# // CCM Xeno Punch Attack Effect
 # // CCM Xeno Strain - Boxer Warrior
 
 # // CCM Xeno Strain - Melee & Ranger Sentinels
@@ -107,7 +121,7 @@
     range: 3
     damage:
       types:
-        Blunt: 20
+        Blunt: 27.5
   - type: XenoParalyzingSlash
     stunDelay: 1
     stunDuration: 2
@@ -158,8 +172,8 @@
   - type: XenoSlowingSpit
     projectileId: CCMXenoGreatSlowingSpitProjectile
   - type: XenoScatteredSpit
-    maxDeviation: 45
-    maxProjectiles: 8
+    maxDeviation: 60
+    maxProjectiles: 12
     projectileId: CCMXenoGreatScatteredSpitProjectile
   - type: XenoSprayAcid
     acid: CCMXenoAcidSprayRanger
@@ -177,8 +191,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Critical
-      450: Dead
+      380: Critical
+      480: Dead
   - type: XenoHidden
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 
@@ -208,10 +222,10 @@
   - type: XenoSpit
     plasmaCost: 300
     projectileId: CCMXenoSniperSpitProjectile
-    speed: 28
+    speed: 33
   - type: XenoResinWalker
-    plasmaCost: 150
-    speedMultiplier: 2.2
+    plasmaCost: 100
+    speedMultiplier: 5
   - type: XenoSprayAcid
     acid: CCMXenoAcidSpraySniper
     barricadeDamage:
@@ -219,7 +233,7 @@
         Heat: 5
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
-    baseSprintSpeed: 2
+    baseSprintSpeed: 1.4
   - type: XenoZoom
     zoom: 2, 2
     offsetLength: 3
@@ -234,7 +248,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      420: Critical
-      520: Dead
+      350: Critical
+      450: Dead
   - type: XenoHidden
 # // CCM Xeno Strain - Sniper Spitter

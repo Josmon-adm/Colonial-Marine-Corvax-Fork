@@ -10,7 +10,7 @@
     - state: xeno_acid_strong
       shader: unshaded
   - type: Projectile
-    impactEffect: null
+    impactEffect: XenoProjectileImpactEffect
     damage:
       types:
         Heat: 40 # TODO RMC14 damage fall-off and higher at close range
@@ -21,44 +21,48 @@
       damage:
         types:
           Heat: 1
-      duration: 20
+      duration: 3
     whitelist:
       components:
       - Marine
   - type: ProjectileMaxRange
-    max: 20
-  - type: RMCStunOnHit
-    stuns:
-    - whitelist:
-        minMobSize: VerySmallXeno
-      maxRange: 20
-      stunTime: 0
-      slowTime: 4
-      knockBackPowerMin: 1
-      knockBackPowerMax: 3
-      knockBackSpeed: 5
-      forceKnockBack: true
-      slowsEffectBigXenos: true
-      losesEffectWithRange: false
-      dazeTime: 3.4
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: false
+    max: 18
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 20
       falloff: 9999
       ignoreModifiers: true
   - type: SpawnOnTerminate
-    spawn: CCMXenoAcidSpraySniper
+    spawn: CCMXenoAcidSprayProjectileSniper
   - type: CMArmorPiercing
     amount: 10
   - type: RMCProjectileAccuracy
-    accuracy: 125
-    thresholds:
-    - range: 19
-      falloff: 10
+    accuracy: 200
   - type: TimedDespawn
     lifetime: 6
+
+- type: entity
+  parent: XenoAcidSprayWeak
+  id: CCMXenoAcidSprayProjectileSniper
+  name: weak splatter
+  description: It burns! It burns, but not as much!
+  components:
+  - type: Sprite
+    scale: 0.8, 0.8
+    layers:
+    - state: acid2-weak
+  - type: DamageOnCollide
+    paralyze: 2
+    damage:
+      types:
+        Heat: 0
+    chainDamage:
+      types:
+        Heat: 0
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: SprayExtinguishTileFire
+    extinguishAmount: 13
 
 - type: entity
   parent: XenoAcidSprayWeak
@@ -133,7 +137,7 @@
       types:
         Heat: 5 # TODO RMC14 damage fall-off and higher at close range
   - type: CMArmorPiercing
-    amount: 10
+    amount: 5
 
 - type: entity
   parent: XenoAcidSprayWeak
@@ -142,16 +146,17 @@
   description: It burns! It burns, but not as much!
   components:
   - type: Sprite
+    scale: 0.7, 0.7
     layers:
     - state: acid2-weak
   - type: DamageOnCollide
     paralyze: 0
     damage:
       types:
-        Heat: 10
+        Heat: 15.5
     chainDamage:
       types:
-        Heat: 5
+        Heat: 10
   - type: TimedDespawn
     lifetime: 0.6
   - type: SprayExtinguishTileFire
