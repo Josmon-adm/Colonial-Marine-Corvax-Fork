@@ -47,7 +47,7 @@
     maxRage: 10
     armorPerRage: 0
     speedBuffPerRage: 0
-    attackSpeedPerRage: 0
+    attackSpeedPerRage: 0.08
     healAmount: 0
   - type: XenoEviscerate
     stunTime: 0.25
