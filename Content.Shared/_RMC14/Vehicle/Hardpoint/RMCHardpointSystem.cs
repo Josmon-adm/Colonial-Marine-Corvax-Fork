@@ -77,7 +77,6 @@ public sealed class RMCHardpointSystem : EntitySystem
             before: new[] { typeof(ItemSlotsSystem) });
         SubscribeLocalEvent<RMCHardpointIntegrityComponent, ExaminedEvent>(OnHardpointExamined);
         SubscribeLocalEvent<RMCHardpointIntegrityComponent, RMCHardpointRepairDoAfterEvent>(OnHardpointRepairDoAfter);
-        SubscribeLocalEvent<RMCHardpointIntegrityComponent, VehicleCanRunEvent>(OnIntegrityVehicleCanRun); // CCM14
     }
 
     private void OnSlotsInit(Entity<RMCHardpointSlotsComponent> ent, ref ComponentInit args)
@@ -392,15 +391,6 @@ public sealed class RMCHardpointSystem : EntitySystem
 
         args.CanRun = false;
     }
-    // CCM14-start
-    private void OnIntegrityVehicleCanRun(Entity<RMCHardpointIntegrityComponent> ent, ref VehicleCanRunEvent args)
-    {
-        if (!args.CanRun || ent.Comp.Integrity > 0f)
-            return;
-
-        args.CanRun = false;
-    }
-    // CCM14-end
 
     private void EnsureSlots(EntityUid uid, RMCHardpointSlotsComponent component, ItemSlotsComponent? itemSlots = null)
     {
