@@ -79,7 +79,7 @@
         Brute: 144
     - groups:
         Brute: 160
-    rangeAtRageLevels: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,]
+    rangeAtRageLevels: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0,]
     windupReductionAtRageLevels: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1]
   - type: XenoEvolution
     max: 500
