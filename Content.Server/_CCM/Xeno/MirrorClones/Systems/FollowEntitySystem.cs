@@ -8,6 +8,7 @@ public sealed class FollowEntitySystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        base.Update(frameTime);
         var query = EntityQueryEnumerator<FollowEntityComponent, TransformComponent>();
 
         while (query.MoveNext(out var uid, out var follow, out var xform))
@@ -23,7 +24,7 @@ public sealed class FollowEntitySystem : EntitySystem
 
             if (targetPos.MapId != ourPos.MapId)
             {
-                _transform.SetCoordinates(uid, targetXform.Coordinates);
+                _transform.SetWorldPosition(uid, targetPos.Position);
                 continue;
             }
 
@@ -44,7 +45,7 @@ public sealed class FollowEntitySystem : EntitySystem
 
             _transform.SetWorldPosition(uid, newPos);
 
-            xform.LocalRotation = targetXform.LocalRotation;
+            _transform.SetLocalRotation(uid, targetXform.LocalRotation);
         }
     }
 }

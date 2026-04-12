@@ -62,12 +62,13 @@ public sealed class MirrorCloneMimicAttackSystem : EntitySystem
             return;
 
         var originIsXeno = HasComp<XenoComponent>(origin.Value);
-        var originHasActive = TryComp(origin.Value, out MirrorClonesActiveComponent? originActive);
-
         if (!originIsXeno)
             return;
 
-        if (!originHasActive || originActive == null || originActive.TimeLeft < 0f)
+        if (!TryComp(origin.Value, out MirrorClonesActiveComponent? originActive))
+            return;
+
+        if (originActive.TimeLeft < 0f)
             return;
 
         _recentExtra[uid] = now;
@@ -95,6 +96,7 @@ public sealed class MirrorCloneMimicAttackSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        base.Update(frameTime);
         var now = _timing.CurTime;
         List<EntityUid>? list = null;
 

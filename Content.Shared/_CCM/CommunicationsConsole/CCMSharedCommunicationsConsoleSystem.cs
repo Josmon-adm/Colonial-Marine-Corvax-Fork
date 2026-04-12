@@ -14,7 +14,6 @@ public abstract class CCMSharedCommunicationsConsoleSystem : EntitySystem
 
     protected virtual void OnRunMessage(Entity<CCMCommunicationsConsoleComponent> entity, ref CCMCommunicationsConsoleERTCallBuiMessage args)
     {
-
     }
 }
 // thanks to _gadmin1 (discord) for the provided code

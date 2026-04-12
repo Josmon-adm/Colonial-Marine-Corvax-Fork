@@ -12,6 +12,7 @@ public sealed class FakeAttackerSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        base.Update(frameTime);
         var query = EntityQueryEnumerator<FakeAttackerComponent, MirrorCloneComponent, TransformComponent>();
 
         while (query.MoveNext(out var uid, out var fake, out var clone, out var xform))
@@ -40,7 +41,7 @@ public sealed class FakeAttackerSystem : EntitySystem
                 var ourMapPos = _transform.GetMapCoordinates(uid, xform);
                 var dir = targetMapPos.Position - ourMapPos.Position;
                 if (dir.LengthSquared() > 0.001f)
-                    xform.LocalRotation = dir.ToAngle();
+                    _transform.SetLocalRotation(uid, dir.ToAngle(), xform);
             }
 
             if (fake.SwingSound != null)

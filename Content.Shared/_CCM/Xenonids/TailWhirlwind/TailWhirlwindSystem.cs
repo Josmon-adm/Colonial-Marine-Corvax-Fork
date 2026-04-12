@@ -68,9 +68,10 @@ public sealed class TailWhirlwindSystem : EntitySystem
             if (!_interact.InRangeUnobstructed(xeno.Owner, target.Owner, xeno.Comp1.Range))
                 continue;
 
-            if (xeno.Comp1.Damage is { } damage && damage.GetTotal() != FixedPoint2.Zero)
+            if (!xeno.Comp1.Damage.Empty)
             {
-                _damageable.TryChangeDamage(target, _xeno.TryApplyXenoSlashDamageMultiplier(target, damage), origin: xeno, tool: xeno);
+                var damage = _xeno.TryApplyXenoSlashDamageMultiplier(target, xeno.Comp1.Damage);
+                _damageable.TryChangeDamage(target, damage, origin: xeno, tool: xeno);
                 var filter = Filter.Pvs(target, entityManager: EntityManager);
                 _colorFlash.RaiseEffect(Color.Red, new List<EntityUid> { target }, filter);
             }

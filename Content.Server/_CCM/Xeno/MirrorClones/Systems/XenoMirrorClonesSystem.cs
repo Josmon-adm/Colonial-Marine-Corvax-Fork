@@ -53,7 +53,7 @@ public sealed class XenoMirrorClonesSystem : EntitySystem
 
         var offsets = new[]
         {
-            new Vector2(+side, back),
+            new Vector2(side, back),
             new Vector2(-side, back),
         };
 
