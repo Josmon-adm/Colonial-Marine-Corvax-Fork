@@ -20,7 +20,6 @@ using Content.Shared.Fax.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Preferences;
-using Content.Shared.Roles;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -175,21 +174,6 @@ public sealed partial class CMDistressSignalRuleSystem
             xenoLeaderSpawnPoints.Add(spawnUid);
         }
 
-        bool IsAllowed(NetUserId id, ProtoId<JobPrototype> role)
-        {
-            if (!_player.TryGetSessionById(id, out var player))
-                return false;
-
-            var jobBans = _bans.GetJobBans(player.UserId);
-            if (jobBans != null && jobBans.Contains(role))
-                return false;
-
-            if (!_playTime.IsAllowed(player, role))
-                return false;
-
-            return true;
-        }
-
         NetUserId? SpawnXeno(List<NetUserId> list, EntProtoId ent, bool doBurst = false)
         {
             var playerId = _random.PickAndTake(list);
@@ -221,7 +205,7 @@ public sealed partial class CMDistressSignalRuleSystem
 
         foreach (var (id, profile) in ev.Profiles)
         {
-            if (IsAllowed(id, comp.QueenJob) && profile.JobPriorities.TryGetValue(comp.QueenJob, out var p) && p > JobPriority.Never)
+            if (IsJobAllowed(id, comp.QueenJob) && profile.JobPriorities.TryGetValue(comp.QueenJob, out var p) && p > JobPriority.Never)
                 xenoCandidates[(int)p].Add(id);
         }
 
@@ -247,7 +231,7 @@ public sealed partial class CMDistressSignalRuleSystem
 
         foreach (var (id, profile) in ev.Profiles)
         {
-            if (id != queenSelected && IsAllowed(id, comp.XenoSelectableJob) && profile.JobPriorities.TryGetValue(comp.XenoSelectableJob, out var p) && p > JobPriority.Never)
+            if (id != queenSelected && IsJobAllowed(id, comp.XenoSelectableJob) && profile.JobPriorities.TryGetValue(comp.XenoSelectableJob, out var p) && p > JobPriority.Never)
                 xenoCandidates[(int)p].Add(id);
         }
 
@@ -395,44 +379,43 @@ public sealed partial class CMDistressSignalRuleSystem
             return;
         }
 
-        var query = QueryActiveRules();
-        while (query.MoveNext(out _, out _, out var comp, out _))
-        {
-            var squadPreference = ev.HumanoidCharacterProfile?.SquadPreference;
-            if (GetSpawner(comp, job, squadPreference) is not { } spawnerInfo)
-                return;
-
-            var (spawner, squad) = spawnerInfo;
-            if (_hyperSleepChamberQuery.TryComp(spawner, out var hyperSleep) &&
-                _containers.TryGetContainer(spawner, hyperSleep.ContainerId, out var container))
-            {
-                ev.SpawnResult = _stationSpawning.SpawnPlayerMob(spawner.ToCoordinates(), ev.Job, ev.HumanoidCharacterProfile, ev.Station);
-                _containers.Insert(ev.SpawnResult.Value, container);
-            }
-            else
-            {
-                var coordinates = _transform.GetMoverCoordinates(spawner);
-                ev.SpawnResult = _stationSpawning.SpawnPlayerMob(coordinates, ev.Job, ev.HumanoidCharacterProfile, ev.Station);
-            }
-
-            if (squad != null)
-            {
-                _squad.AssignSquad(ev.SpawnResult.Value, squad.Value, jobId);
-
-                // TODO RMC14 add this to the map file
-                if (TryComp(spawner, out TransformComponent? xform) &&
-                    xform.GridUid != null)
-                {
-                    EnsureComp<AlmayerComponent>(xform.GridUid.Value);
-                }
-
-                if (comp.SetHunger && TryComp(ev.SpawnResult, out HungerComponent? hunger))
-                    _hunger.SetHunger(ev.SpawnResult.Value, 50.0f, hunger);
-            }
-
-            comp.MarinesSpawned++; // CCM14
+        var comp = TryGetActiveRule();
+        if (comp == null)
             return;
+
+        var squadPreference = ev.HumanoidCharacterProfile?.SquadPreference;
+        if (GetSpawner(comp, job, squadPreference) is not { } spawnerInfo)
+            return;
+
+        var (spawner, squad) = spawnerInfo;
+        if (_hyperSleepChamberQuery.TryComp(spawner, out var hyperSleep) &&
+            _containers.TryGetContainer(spawner, hyperSleep.ContainerId, out var container))
+        {
+            ev.SpawnResult = _stationSpawning.SpawnPlayerMob(spawner.ToCoordinates(), ev.Job, ev.HumanoidCharacterProfile, ev.Station);
+            _containers.Insert(ev.SpawnResult.Value, container);
         }
+        else
+        {
+            var coordinates = _transform.GetMoverCoordinates(spawner);
+            ev.SpawnResult = _stationSpawning.SpawnPlayerMob(coordinates, ev.Job, ev.HumanoidCharacterProfile, ev.Station);
+        }
+
+        if (squad != null)
+        {
+            _squad.AssignSquad(ev.SpawnResult.Value, squad.Value, jobId);
+
+            // TODO RMC14 add this to the map file
+            if (TryComp(spawner, out TransformComponent? xform) &&
+                xform.GridUid != null)
+            {
+                EnsureComp<AlmayerComponent>(xform.GridUid.Value);
+            }
+
+            if (comp.SetHunger && TryComp(ev.SpawnResult, out HungerComponent? hunger))
+                _hunger.SetHunger(ev.SpawnResult.Value, 50.0f, hunger);
+        }
+
+        comp.MarinesSpawned++; // CCM14
     }
 
     private void SpawnSquads(Entity<CMDistressSignalRuleComponent> rule)

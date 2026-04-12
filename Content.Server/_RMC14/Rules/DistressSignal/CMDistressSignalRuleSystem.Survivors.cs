@@ -30,10 +30,9 @@ public sealed partial class CMDistressSignalRuleSystem
 
         var possibleJobs = CollectPossibleSurvivorJobs(comp);
         var (spawners, spawnersLeft) = FindSurvivorSpawners(possibleJobs);
-        var isAllowed = CreateSurvivorAllowedChecker();
-        var candidates = CollectSurvivorCandidates(comp, ev, isAllowed);
+        var candidates = CollectSurvivorCandidates(comp, ev);
 
-        SpawnSurvivorsFromCandidates(comp, ev, candidates, spawners, spawnersLeft, isAllowed);
+        SpawnSurvivorsFromCandidates(comp, ev, candidates, spawners, spawnersLeft);
     }
 
     private List<ProtoId<JobPrototype>> CollectPossibleSurvivorJobs(CMDistressSignalRuleComponent comp)
@@ -65,25 +64,9 @@ public sealed partial class CMDistressSignalRuleSystem
         return (spawners, spawnersLeft);
     }
 
-    private Func<NetUserId, ProtoId<JobPrototype>, bool> CreateSurvivorAllowedChecker()
-    {
-        return (id, role) =>
-        {
-            if (!_player.TryGetSessionById(id, out var player))
-                return false;
-
-            var jobBans = _bans.GetJobBans(player.UserId);
-            if (jobBans != null && jobBans.Contains(role))
-                return false;
-
-            return _playTime.IsAllowed(player, role);
-        };
-    }
-
     private Dictionary<ProtoId<JobPrototype>, List<NetUserId>[]> CollectSurvivorCandidates(
         CMDistressSignalRuleComponent comp,
-        RulePlayerSpawningEvent ev,
-        Func<NetUserId, ProtoId<JobPrototype>, bool> isAllowed)
+        RulePlayerSpawningEvent ev)
     {
         var priorities = Enum.GetValues<JobPriority>().Length;
         var candidates = new Dictionary<ProtoId<JobPrototype>, List<NetUserId>[]>();
@@ -102,7 +85,7 @@ public sealed partial class CMDistressSignalRuleSystem
         {
             foreach (var (job, players) in candidates)
             {
-                TryAddSurvivorCandidate(player.UserId, job, players, comp, ev, isAllowed);
+                TryAddSurvivorCandidate(player.UserId, job, players, comp, ev);
             }
         }
 
@@ -114,10 +97,9 @@ public sealed partial class CMDistressSignalRuleSystem
         ProtoId<JobPrototype> job,
         List<NetUserId>[] players,
         CMDistressSignalRuleComponent comp,
-        RulePlayerSpawningEvent ev,
-        Func<NetUserId, ProtoId<JobPrototype>, bool> isAllowed)
+        RulePlayerSpawningEvent ev)
     {
-        if (!isAllowed(id, comp.CivilianSurvivorJob) || !isAllowed(id, job))
+        if (!IsJobAllowed(id, comp.CivilianSurvivorJob) || !IsJobAllowed(id, job))
             return;
 
         if (!ev.Profiles.TryGetValue(id, out var profile))
@@ -147,8 +129,7 @@ public sealed partial class CMDistressSignalRuleSystem
         RulePlayerSpawningEvent ev,
         Dictionary<ProtoId<JobPrototype>, List<NetUserId>[]> candidates,
         Dictionary<ProtoId<JobPrototype>, List<EntityUid>> spawners,
-        Dictionary<ProtoId<JobPrototype>, List<EntityUid>> spawnersLeft,
-        Func<NetUserId, ProtoId<JobPrototype>, bool> isAllowed)
+        Dictionary<ProtoId<JobPrototype>, List<EntityUid>> spawnersLeft)
     {
         var priorities = Enum.GetValues<JobPriority>().Length;
         var totalSurvivors = (int)Math.Clamp((int)Math.Round(ev.PlayerPool.Count / _marinesPerSurvivor), _minimumSurvivors, _maximumSurvivors);
@@ -163,7 +144,7 @@ public sealed partial class CMDistressSignalRuleSystem
                 Log.Info($"Rolling survivor job {job} with priority {i} and players {string.Join(", ", playerNames)}");
                 while (players[i].Count > 0 && (ignoreLimit || selected < totalSurvivors))
                 {
-                    if (TrySpawnSingleSurvivor(job, players[i], comp, ev, spawnersLeft, spawners, isAllowed, out var playerId))
+                    if (TrySpawnSingleSurvivor(job, players[i], comp, ev, spawnersLeft, spawners, out var playerId))
                     {
                         var name = ev.Profiles.TryGetValue(playerId, out var prof) ? prof.Name : playerId.ToString();
                         Log.Info($"Spawned survivor job {job} with name/id {name}, ignore limit: {ignoreLimit}");
@@ -201,7 +182,6 @@ public sealed partial class CMDistressSignalRuleSystem
         RulePlayerSpawningEvent ev,
         Dictionary<ProtoId<JobPrototype>, List<EntityUid>> spawnersLeft,
         Dictionary<ProtoId<JobPrototype>, List<EntityUid>> spawners,
-        Func<NetUserId, ProtoId<JobPrototype>, bool> isAllowed,
         out NetUserId spawnedId)
     {
         var playerId = _random.Pick(list);
@@ -211,7 +191,7 @@ public sealed partial class CMDistressSignalRuleSystem
             return false;
         }
 
-        var spawnAsJob = DetermineSurvivorJob(job, playerId, comp, isAllowed, out var stop);
+        var spawnAsJob = DetermineSurvivorJob(job, playerId, comp, out var stop);
         if (stop)
         {
             spawnedId = default;
@@ -250,17 +230,16 @@ public sealed partial class CMDistressSignalRuleSystem
         ProtoId<JobPrototype> job,
         NetUserId playerId,
         CMDistressSignalRuleComponent comp,
-        Func<NetUserId, ProtoId<JobPrototype>, bool> isAllowed,
         out bool stop)
     {
         stop = false;
         var spawnAsJob = job;
         var selectRandomVariant = SelectedPlanetMap?.Comp.SelectRandomSurvivorVariant ?? false;
 
-        if (TryGetScenarioJob(job, playerId, comp, isAllowed, ref spawnAsJob, ref stop))
+        if (TryGetScenarioJob(job, playerId, comp, ref spawnAsJob, ref stop))
             return spawnAsJob;
 
-        if (TryGetVariantJob(job, playerId, comp, isAllowed, ref spawnAsJob, ref stop, selectRandomVariant))
+        if (TryGetVariantJob(job, playerId, comp, ref spawnAsJob, ref stop, selectRandomVariant))
             return spawnAsJob;
 
         if (!DecrementSurvivorJobSlot(job, comp, selectRandomVariant, ref spawnAsJob))
@@ -275,7 +254,6 @@ public sealed partial class CMDistressSignalRuleSystem
         ProtoId<JobPrototype> job,
         NetUserId playerId,
         CMDistressSignalRuleComponent comp,
-        Func<NetUserId, ProtoId<JobPrototype>, bool> isAllowed,
         ref ProtoId<JobPrototype> spawnAsJob,
         ref bool stop)
     {
@@ -288,7 +266,7 @@ public sealed partial class CMDistressSignalRuleSystem
         for (var i = 0; i < scenarioJobsList.Count; i++)
         {
             var (scenarioJob, amount) = scenarioJobsList[i];
-            if (!isAllowed(playerId, scenarioJob))
+            if (!IsJobAllowed(playerId, scenarioJob))
                 continue;
 
             if (amount == -1)
@@ -313,7 +291,6 @@ public sealed partial class CMDistressSignalRuleSystem
         ProtoId<JobPrototype> job,
         NetUserId playerId,
         CMDistressSignalRuleComponent comp,
-        Func<NetUserId, ProtoId<JobPrototype>, bool> isAllowed,
         ref ProtoId<JobPrototype> spawnAsJob,
         ref bool stop,
         bool selectRandomVariant)
@@ -333,7 +310,7 @@ public sealed partial class CMDistressSignalRuleSystem
                 if (vAmount != -1 && vAmount <= 0)
                     continue;
 
-                if (isAllowed(playerId, vJob))
+                if (IsJobAllowed(playerId, vJob))
                     allowedIndices.Add(j);
             }
 
@@ -352,7 +329,7 @@ public sealed partial class CMDistressSignalRuleSystem
         for (var i = 0; i < variants.Count; i++)
         {
             var (variantJob, amount) = variants[i];
-            if (!isAllowed(playerId, variantJob))
+            if (!IsJobAllowed(playerId, variantJob))
                 continue;
 
             if (amount == -1)

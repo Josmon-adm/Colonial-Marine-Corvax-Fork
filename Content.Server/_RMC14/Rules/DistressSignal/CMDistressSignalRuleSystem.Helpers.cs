@@ -13,8 +13,10 @@ using Content.Shared.Coordinates;
 using Content.Shared.Fax.Components;
 using Content.Shared.Roles;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+
 using Robust.Shared.Utility;
 
 namespace Content.Server._RMC14.Rules.DistressSignal;
@@ -22,6 +24,21 @@ namespace Content.Server._RMC14.Rules.DistressSignal;
 public sealed partial class CMDistressSignalRuleSystem
 {
     private const int FaxPowerLoadValue = 5;
+
+    /// <summary>
+    /// Checks whether a player is allowed to play the specified job, considering bans and playtime requirements.
+    /// </summary>
+    private bool IsJobAllowed(NetUserId id, ProtoId<JobPrototype> role)
+    {
+        if (!_player.TryGetSessionById(id, out var player))
+            return false;
+
+        var jobBans = _bans.GetJobBans(player.UserId);
+        if (jobBans != null && jobBans.Contains(role))
+            return false;
+
+        return _playTime.IsAllowed(player, role);
+    }
 
     // TODO RMC14: Move these to a prototype
     private string GetRandomOperationName()
