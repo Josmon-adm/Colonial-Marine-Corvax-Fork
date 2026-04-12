@@ -45,6 +45,7 @@ public sealed partial class CMDistressSignalRuleSystem
         return name.Trim();
     }
 
+    // TODO RMC14 this would be literally anywhere else if the code for loading maps wasn't dogshit and broken upstream
     private void SpawnAdminAreas(CMDistressSignalRuleComponent comp)
     {
         bool SpawnMap(ResPath path, [NotNullWhen(true)] out EntityUid? mapEntityUid)
@@ -92,6 +93,10 @@ public sealed partial class CMDistressSignalRuleSystem
             _camo.CurrentMapCamouflage = SelectedPlanetMap.Value.Comp.Camouflage;
     }
 
+    /// <summary>
+    /// Sets the hive of all loaded xeno friendly entities (e.g. weeds).
+    /// Only makes sense for distress signal with 1 hive, with multiple hives you would need to determine which weeds belong to which hive
+    /// </summary>
     private void SetFriendlyHives(EntityUid hive)
     {
         var query = EntityQueryEnumerator<XenoFriendlyComponent>();
@@ -122,6 +127,7 @@ public sealed partial class CMDistressSignalRuleSystem
         
         foreach (var tunnel in tunnels)
         {
+            // Replace all pre-mapped tunnels with a new tunnel with name and associated with the hive
             if (_xenoTunnel.TryPlaceTunnel(hive, null, tunnel.ToCoordinates(), out var newTunnel))
                 RemCompDeferred<DeletedByWeedKillerComponent>(newTunnel.Value);
 

@@ -226,35 +226,32 @@ public sealed partial class CMDistressSignalRuleSystem
 
     private void OnRoundEndMessage(RoundEndMessageEvent ev)
     {
-        var distress = TryGetActiveRule();
-        if (distress == null)
-            return;
-
-        if (distress.Result == DistressSignalRuleResult.None)
-            return;
-
-        var audio = distress.Result switch
+        var rules = QueryActiveRules();
+        while (rules.MoveNext(out _, out var distress, out _))
         {
-            DistressSignalRuleResult.MajorMarineVictory => distress.MajorMarineAudio,
-            DistressSignalRuleResult.MinorMarineVictory => distress.MinorMarineAudio,
-            DistressSignalRuleResult.MajorXenoVictory => distress.MajorXenoAudio,
-            DistressSignalRuleResult.MinorXenoVictory => distress.MinorXenoAudio,
-            _ => null,
-        };
+            if (distress.Result == DistressSignalRuleResult.None)
+                continue;
 
-        if (audio != null)
-            _audio.PlayGlobal(audio, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-8));
+            var audio = distress.Result switch
+            {
+                DistressSignalRuleResult.None => null,
+                DistressSignalRuleResult.MajorMarineVictory => distress.MajorMarineAudio,
+                DistressSignalRuleResult.MinorMarineVictory => distress.MinorMarineAudio,
+                DistressSignalRuleResult.MajorXenoVictory => distress.MajorXenoAudio,
+                DistressSignalRuleResult.MinorXenoVictory => distress.MinorXenoAudio,
+                // DistressSignalRuleResult.AllDied => distress.AllDiedAudio,
+                _ => null,
+            };
+
+            if (audio != null)
+                _audio.PlayGlobal(_audio.GetSound(audio), Filter.Broadcast(), true, AudioParams.Default.WithVolume(-8));
+        }
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
-        InvalidateActiveRule();
         StartPlanetVote();
         ResetSelectedPlanet();
-        _spawnedDropships = false;
-        OperationName = null;
-        _usingCustomOperationName = false;
-        ActiveNightmareScenario = null;
         _config.SetCVar(CCVars.GameDisallowLateJoins, false);
 
         if (!_autoBalance)
@@ -269,7 +266,7 @@ public sealed partial class CMDistressSignalRuleSystem
                 DistressSignalRuleResult.MajorMarineVictory => -1,
                 DistressSignalRuleResult.MinorMarineVictory => -1,
                 DistressSignalRuleResult.MajorXenoVictory => 1,
-                DistressSignalRuleResult.MinorXenoVictory => 0,
+                DistressSignalRuleResult.MinorXenoVictory => 0, // hijack but all xenos die or timeout happens
                 DistressSignalRuleResult.AllDied => 0,
                 null => 0,
                 _ => throw new ArgumentOutOfRangeException(),
@@ -299,6 +296,15 @@ public sealed partial class CMDistressSignalRuleSystem
         if (!rule.AutoEnd)
             return;
 
+        // you might be wondering what this check is doing here
+        // the answer is simple
+        // the absolute unit that wrote game rule system and game ticker made a conveniently named ActiveTick method
+        // that gets ticked BEFORE THE FUCKING ROUND IS SETUP
+        // so no marines and no xenos means instant mutual annihilation
+        // therefore we wait an arbitrary 1 minute
+        // i fucking hate my life dude
+        // i slept 3 hours and have to stay up to manually end ANOTHER ROUND OF RMC14
+        // TODO RMC14 why are we still here
         if (rule.StartTime == null || Timing.CurTime - rule.StartTime < rule.RoundEndCheckDelay)
             return;
 
@@ -391,15 +397,19 @@ public sealed partial class CMDistressSignalRuleSystem
             var xenoCandidates = 0;
             foreach (var player in ev.Players)
             {
-                if (!_prefsManager.TryGetCachedPreferences(player.UserId, out var preferences)) continue;
-                if (preferences.GetProfile(preferences.SelectedCharacterIndex) is not HumanoidCharacterProfile profile)
-                    continue;
-
-                if (profile.JobPriorities.TryGetValue(distress.XenoSelectableJob, out var xenoPriority) &&
-                    xenoPriority > JobPriority.Never || profile.JobPriorities.TryGetValue(distress.QueenJob, out var queenPriority) &&
-                    queenPriority > JobPriority.Never)
+                if (_prefsManager.TryGetCachedPreferences(player.UserId, out var preferences))
                 {
-                    xenoCandidates++;
+                    var profile = (HumanoidCharacterProfile) preferences.GetProfile(preferences.SelectedCharacterIndex);
+                    if (profile.JobPriorities.TryGetValue(distress.XenoSelectableJob, out var xenoPriority) &&
+                        xenoPriority > JobPriority.Never)
+                    {
+                        xenoCandidates++;
+                    }
+                    else if (profile.JobPriorities.TryGetValue(distress.QueenJob, out var queenPriority) &&
+                        queenPriority > JobPriority.Never)
+                    {
+                        xenoCandidates++;
+                    }
                 }
             }
 
