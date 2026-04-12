@@ -3,7 +3,6 @@ using Content.Shared._RMC14.Stun;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
-using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio.Systems;
@@ -25,8 +24,6 @@ public sealed class TailWhirlwindSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _colorFlash = default!;
     [Dependency] private readonly RMCSizeStunSystem _size = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
-
-    private readonly HashSet<Entity<MobStateComponent>> _hits = new();
 
     public override void Initialize()
     {
@@ -59,25 +56,27 @@ public sealed class TailWhirlwindSystem : EntitySystem
 
         var coordinates = _transform.GetMapCoordinates(xeno);
 
-        _hits.Clear();
-        _entityLookup.GetEntitiesInRange(coordinates, xeno.Comp1.Range, _hits);
-        foreach (var target in _hits)
+        var results = _entityLookup.GetEntitiesInRange(coordinates, xeno.Comp1.Range);
+        foreach (var targetUid in results)
         {
-            if (!_xeno.CanAbilityAttackTarget(xeno, target))
+            if (!HasComp<MobStateComponent>(targetUid))
                 continue;
 
-            if (!_interact.InRangeUnobstructed(xeno.Owner, target.Owner, xeno.Comp1.Range))
+            if (!_xeno.CanAbilityAttackTarget(xeno, targetUid))
+                continue;
+
+            if (!_interact.InRangeUnobstructed(xeno.Owner, targetUid, xeno.Comp1.Range))
                 continue;
 
             if (!xeno.Comp1.Damage.Empty)
             {
-                var damage = _xeno.TryApplyXenoSlashDamageMultiplier(target, xeno.Comp1.Damage);
-                _damageable.TryChangeDamage(target, damage, origin: xeno, tool: xeno);
-                var filter = Filter.Pvs(target, entityManager: EntityManager);
-                _colorFlash.RaiseEffect(Color.Red, new List<EntityUid> { target }, filter);
+                var damage = _xeno.TryApplyXenoSlashDamageMultiplier(targetUid, xeno.Comp1.Damage);
+                _damageable.TryChangeDamage(targetUid, damage, origin: xeno, tool: xeno);
+                var filter = Filter.Pvs(targetUid, entityManager: EntityManager);
+                _colorFlash.RaiseEffect(Color.Red, new List<EntityUid> { targetUid }, filter);
             }
 
-            _size.KnockBack(target, coordinates, xeno.Comp1.ThrowDistance, xeno.Comp1.ThrowDistance);
+            _size.KnockBack(targetUid, coordinates, xeno.Comp1.ThrowDistance, xeno.Comp1.ThrowDistance);
         }
 
         _audio.PlayPredicted(xeno.Comp1.Sound, xeno, xeno);

@@ -218,6 +218,9 @@ public sealed class RMCVehicleFabricatorSystem : EntitySystem
         var pointsQuery = EntityQueryEnumerator<RMCVehicleFabricatorPointsComponent>();
         while (pointsQuery.MoveNext(out var pointsId, out var points))
         {
+            if (_gainEvery <= TimeSpan.Zero)
+                continue;
+
             if (time < points.NextPointsAt)
                 continue;
 
