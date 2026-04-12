@@ -35,7 +35,6 @@ public sealed class XenoMirrorClonesSystem : EntitySystem
         var active = EnsureComp<MirrorClonesActiveComponent>(xeno.Owner);
         active.TimeLeft = ActiveSeconds;
         active.GeneticDamage = ExtraDamage;
-        Dirty(xeno.Owner, active);
 
         SpawnClones(xeno.Owner, "CCMXenoHunterMirrorClone");
 
@@ -72,8 +71,6 @@ public sealed class XenoMirrorClonesSystem : EntitySystem
 
             follow.FollowStrength = 45f;
             follow.TeleportDistance = 1.0f;
-
-            Dirty(clone, follow);
         }
     }
 }
