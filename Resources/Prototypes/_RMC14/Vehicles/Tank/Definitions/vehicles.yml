@@ -119,11 +119,13 @@
         whitelist:
           components:
           - RMCHardpointItem
+        disableEject: true
       wheel-1:
         startingItem: RMCVehicleTankTreads
         whitelist:
           components:
           - RMCVehicleWheelItem
+        disableEject: true
   - type: RMCHardpointSlots
     vehicleFamily: Tank
     slots:
@@ -217,11 +219,13 @@
         whitelist:
           components:
           - RMCHardpointItem
+        disableEject: true
       wheel-1:
         startingItem: RMCVehicleTankTreads
         whitelist:
           components:
           - RMCVehicleWheelItem
+        disableEject: true
   - type: RMCHardpointSlots
     vehicleFamily: Tank
     slots:

@@ -306,11 +306,13 @@
         whitelist:
           components:
           - RMCHardpointItem
+        disableEject: true
       wheel-1:
         startingItem: RMCVehicleSPPAPCWheel
         whitelist:
           components:
           - RMCVehicleWheelItem
+        disableEject: true
   - type: RMCHardpointSlots
     vehicleFamily: APC
     slots:

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._RMC14.Damage;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Whitelist;
@@ -34,6 +35,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Marines.Skills;
+using Content.Shared._RMC14.Vehicle;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._RMC14.Vehicle;
 
@@ -60,6 +63,7 @@ public sealed class RMCHardpointSystem : EntitySystem
     [Dependency] private readonly SharedExplosionSystem _explosion = default!;
     [Dependency] private readonly RMCVehicleTopologySystem _topology = default!;
     [Dependency] private readonly SkillsSystem _skills = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -70,7 +74,7 @@ public sealed class RMCHardpointSystem : EntitySystem
         SubscribeLocalEvent<RMCHardpointSlotsComponent, EntInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<RMCHardpointSlotsComponent, EntRemovedFromContainerMessage>(OnRemoved);
         SubscribeLocalEvent<RMCHardpointSlotsComponent, VehicleCanRunEvent>(OnVehicleCanRun);
-        SubscribeLocalEvent<RMCHardpointSlotsComponent, DamageModifyEvent>(OnVehicleDamageModify);
+        SubscribeLocalEvent<RMCHardpointSlotsComponent, DamageModifyAfterResistEvent>(OnVehicleDamageModify);
         SubscribeLocalEvent<RMCHardpointIntegrityComponent, ComponentInit>(OnHardpointIntegrityInit);
         SubscribeLocalEvent<RMCHardpointIntegrityComponent, InteractUsingEvent>(
             OnHardpointRepair,
@@ -430,6 +434,7 @@ public sealed class RMCHardpointSystem : EntitySystem
             var itemSlot = new ItemSlot
             {
                 Whitelist = whitelist,
+                DisableEject = true // CCM14
             };
 
             _itemSlots.AddItemSlot(uid, slot.Id, itemSlot, itemSlots);
@@ -527,7 +532,7 @@ public sealed class RMCHardpointSystem : EntitySystem
         _vehicles.RefreshCanRun((uid, vehicle));
     }
 
-    private void OnVehicleDamageModify(Entity<RMCHardpointSlotsComponent> ent, ref DamageModifyEvent args)
+    private void OnVehicleDamageModify(Entity<RMCHardpointSlotsComponent> ent, ref DamageModifyAfterResistEvent args)
     {
         if (_net.IsClient)
             return;
@@ -563,6 +568,39 @@ public sealed class RMCHardpointSystem : EntitySystem
         }
 
         args.Damage = ScaleDamage(args.Damage, hullFraction);
+
+        // CCM14: After vehicle absorbs explosion damage, remaining damage passes to interior occupants.
+        // Only for explosions (origin has ExplosionVisualsComponent).
+        if (args.Origin != null && HasComp<ExplosionVisualsComponent>(args.Origin.Value))
+        {
+            DamageVehicleInteriorOccupants(ent.Owner, args.Damage);
+        }
+    }
+
+    /// <summary>
+    /// CCM14: Applies remaining explosion damage to all occupants inside a vehicle's interior
+    /// after the vehicle's hardpoints and hull have absorbed their share.
+    /// </summary>
+    private void DamageVehicleInteriorOccupants(EntityUid vehicle, DamageSpecifier damage)
+    {
+        if (!TryComp(vehicle, out RMCVehicleInteriorComponent? interior))
+            return;
+
+        var occupants = interior.Passengers.Count + interior.Xenos.Count;
+        if (occupants == 0)
+            return;
+
+        var toDamage = new List<EntityUid>(occupants);
+        toDamage.AddRange(interior.Passengers);
+        toDamage.AddRange(interior.Xenos);
+
+        foreach (var occupant in toDamage)
+        {
+            if (TerminatingOrDeleted(occupant))
+                continue;
+
+            _damageable.TryChangeDamage(occupant, damage * _damageable.UniversalExplosionDamageModifier, ignoreResistances: true);
+        }
     }
 
     private void CollectIntactTopLevelHardpoints(

@@ -22,8 +22,20 @@ public sealed class RMCVehicleViewportSystem : EntitySystem
         SubscribeLocalEvent<RMCVehicleViewportComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<RMCVehicleViewportComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<RMCVehicleViewportUserComponent, MoveInputEvent>(OnUserMove);
+        SubscribeLocalEvent<RMCVehicleViewportUserComponent, ComponentRemove>(OnUserComponentRemove); // CCM14
     }
+    // CCM14-start
+    private void OnUserComponentRemove(Entity<RMCVehicleViewportUserComponent> ent, ref ComponentRemove args)
+    {
+        if (_net.IsClient)
+            return;
 
+        if (ent.Comp.LifeStage >= ComponentLifeStage.Stopping)
+            return;
+
+        CloseViewport(ent.Owner, ent.Comp);
+    }
+    // CCM14-end
     private void OnActivate(Entity<RMCVehicleViewportComponent> ent, ref ActivateInWorldEvent args)
     {
         if (_net.IsClient || args.Handled)
@@ -92,11 +104,14 @@ public sealed class RMCVehicleViewportSystem : EntitySystem
         if (state == null)
             return;
 
-        if (TryComp(user, out EyeComponent? eye))
+        if (!Exists(user) || TerminatingOrDeleted(user))
+            return;
+
+        if (TryComp(user, out EyeComponent? eye) && eye.LifeStage < ComponentLifeStage.Stopping)
             _eye.SetTarget(user, state.PreviousTarget, eye);
 
-        if (state.Source != null)
-            _viewToggle.DisableViewToggle(user, state.Source.Value);
+        if (state.Source is { } source && Exists(source) && !TerminatingOrDeleted(source))
+            _viewToggle.DisableViewToggle(user, source);
 
         RemCompDeferred<RMCVehicleViewportUserComponent>(user);
     }

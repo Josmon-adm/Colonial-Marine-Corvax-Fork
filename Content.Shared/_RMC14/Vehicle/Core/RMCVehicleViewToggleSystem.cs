@@ -48,6 +48,10 @@ public sealed class RMCVehicleViewToggleSystem : EntitySystem
 
     public void DisableViewToggle(EntityUid user, EntityUid source)
     {
+        // CCM14-start
+        if (!Exists(user) || TerminatingOrDeleted(user))
+            return;
+        // CCM14-end
         if (!TryComp(user, out RMCVehicleViewToggleComponent? toggle))
             return;
 
@@ -90,7 +94,10 @@ public sealed class RMCVehicleViewToggleSystem : EntitySystem
     {
         if (args.Handled || args.Performer != ent.Owner)
             return;
-
+        // CCM14-start
+        if (TerminatingOrDeleted(ent.Owner) || ent.Comp.LifeStage >= ComponentLifeStage.Stopping)
+            return;
+        // CCM14-end
         args.Handled = true;
 
         if (ent.Comp.OutsideTarget == null || !TryComp(ent.Owner, out EyeComponent? eye))

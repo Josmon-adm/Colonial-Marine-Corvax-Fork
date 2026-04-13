@@ -1,7 +1,8 @@
 rmc-discord-round-notifications-started = Раунд #{ $id } начался: Операция "{ $operation }" на "{ $planet }" на борту "{ $ship }".
-rmc-discord-round-notifications-end = Операция #{ $id } "{ $operation }" на "{ $planet }" завершилась { $result }. Она продлилась { $hours } час, { $minutes } минут, и { $seconds } секунд.
+rmc-discord-round-notifications-end = Операция #{ $id } "{ $operation }" на "{ $planet }" завершилась { $result }.
+rmc-discord-round-notifications-end-duration = Она продлилась { $hours } час, { $minutes } минут, и { $seconds } секунд.
 rmc-discord-round-notifications-end-stats = Всего задействовано: { $marines } морпехов, { $xenos } ксеноморфов.
-rmc-discord-round-notifications-end-hijack = Борт '{ $ship }': захват { $hijack }.
+rmc-discord-round-notifications-end-hijack = Борт "{ $ship }": захват { $hijack }.
 rmc-discord-round-notifications-hijack-yes = зафиксирован
 rmc-discord-round-notifications-hijack-no = не зафиксирован
 rmc-discord-round-notifications-major-marine = крупной победой морпехов

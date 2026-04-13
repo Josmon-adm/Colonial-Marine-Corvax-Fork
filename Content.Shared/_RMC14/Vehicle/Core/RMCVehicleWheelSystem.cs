@@ -107,6 +107,7 @@ public sealed class RMCVehicleWheelSystem : EntitySystem
             var slot = new ItemSlot
             {
                 Whitelist = component.WheelWhitelist,
+                DisableEject = true // CCM14
             };
 
             _itemSlots.AddItemSlot(uid, slotId, slot, itemSlots);

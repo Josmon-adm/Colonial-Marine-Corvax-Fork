@@ -1,5 +1,6 @@
 ﻿rmc-discord-round-notifications-started = Round #{$id} started: Operation "{$operation}" on "{$planet}" aboard "{$ship}".
-rmc-discord-round-notifications-end = Operation #{$id} "{$operation}" on "{$planet}" has ended with {$result}. It lasted for {$hours} hours, {$minutes} minutes, and {$seconds} seconds.
+rmc-discord-round-notifications-end = Operation #{$id} "{$operation}" on "{$planet}" has ended with {$result}.
+rmc-discord-round-notifications-end-duration = It lasted for {$hours} hours, {$minutes} minutes, and {$seconds} seconds.
 rmc-discord-round-notifications-end-stats = Total deployed: {$marines} marines, {$xenos} xenomorphs.
 rmc-discord-round-notifications-end-hijack = Aboard "{$ship}": hijack {$hijack}.
 rmc-discord-round-notifications-hijack-yes = confirmed

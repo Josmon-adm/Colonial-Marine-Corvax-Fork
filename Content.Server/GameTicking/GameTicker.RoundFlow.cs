@@ -697,7 +697,9 @@ namespace Content.Server.GameTicking
                 ("id", roundId),
                 ("operation", operation),
                 ("planet", planet),
-                ("result", resultText),
+                ("result", resultText));
+
+            var durationLine = Loc.GetString("rmc-discord-round-notifications-end-duration",
                 ("hours", hours),
                 ("minutes", minutes),
                 ("seconds", seconds));
@@ -710,7 +712,7 @@ namespace Content.Server.GameTicking
                 ("ship", ship),
                 ("hijack", hijackText));
 
-            return $"{message}\n\n{statsLine}\n{hijackLine}";
+            return $"{message}\n{durationLine}\n{statsLine}\n{hijackLine}";
         }
         // CCM14-end
         public void RestartRound()

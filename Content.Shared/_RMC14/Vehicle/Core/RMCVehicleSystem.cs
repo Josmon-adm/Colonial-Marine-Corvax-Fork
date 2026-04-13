@@ -677,7 +677,10 @@ public sealed class RMCVehicleSystem : EntitySystem
     {
         if (_net.IsClient)
             return;
-
+        // CCM14-start
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+        // CCM14-end
         if (!TryComp(ent, out EyeComponent? eye))
             return;
 
