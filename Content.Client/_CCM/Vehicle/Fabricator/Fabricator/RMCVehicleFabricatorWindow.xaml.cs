@@ -1,9 +1,12 @@
-﻿using Content.Client.Message;
+﻿using System.Numerics;
+using Content.Client.Message;
 using Content.Shared._CCM.Vehicle.Fabricator;
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client._CCM.Vehicle.Fabricator.Fabricator;
 
@@ -18,12 +21,20 @@ public sealed class RMCVehicleFabricatorWindow : DefaultWindow
 
     private Label PointsLabel => FindControl<Label>("PointsLabel");
     private Label PrintingLabel => FindControl<Label>("PrintingLabel");
+    private ProgressBar PrintingBar => FindControl<ProgressBar>("PrintingBar");
+    private EntityPrototypeView VehiclePreview => FindControl<EntityPrototypeView>("VehiclePreview");
     private BoxContainer PrintablesContainer => FindControl<BoxContainer>("PrintablesContainer");
     private RichTextLabel CategoryTitleLabel => FindControl<RichTextLabel>("CategoryTitleLabel");
+
+    private string? _printingItemName;
+    private TimeSpan? _printAt;
+    private TimeSpan _printDelay;
+    private IGameTiming _timing = default!;
 
     public RMCVehicleFabricatorWindow()
     {
         RobustXamlLoader.Load(this);
+        IoCManager.Resolve(ref _timing);
 
         var primaryBtn = FindControl<Button>("PrimaryCategoryButton");
         var secondaryBtn = FindControl<Button>("SecondaryCategoryButton");
@@ -49,6 +60,7 @@ public sealed class RMCVehicleFabricatorWindow : DefaultWindow
 
         tankBtn.Pressed = true;
         primaryBtn.Pressed = true;
+        UpdateVehiclePreview();
         UpdateCategoryTitle();
     }
 
@@ -72,6 +84,7 @@ public sealed class RMCVehicleFabricatorWindow : DefaultWindow
             btn.Pressed = btn == pressed;
         }
         UpdateCategoryTitle();
+        UpdateVehiclePreview();
     }
 
     private void UpdateCategoryTitle()
@@ -91,6 +104,20 @@ public sealed class RMCVehicleFabricatorWindow : DefaultWindow
         _ => type.ToString().ToLowerInvariant(),
     };
 
+    private static string GetVehicleProtoId(RMCVehicleType type) => type switch
+    {
+        RMCVehicleType.Tank => "RMCVehicleTank",
+        RMCVehicleType.APC => "RMCVehicleAPC",
+        RMCVehicleType.Humvee => "RMCVehicleHumvee",
+        _ => "RMCVehicleTank",
+    };
+
+    private void UpdateVehiclePreview()
+    {
+        var protoId = GetVehicleProtoId(SelectedVehicle);
+        VehiclePreview.SetPrototype(protoId);
+    }
+
     private static string GetCategoryKey(RMCVehicleFabricatorCategory category) => category switch
     {
         RMCVehicleFabricatorCategory.Primary => "primary",
@@ -107,12 +134,46 @@ public sealed class RMCVehicleFabricatorWindow : DefaultWindow
         PointsLabel.Text = Loc.GetString("rmc-vehicle-fabricator-points", ("points", points));
     }
 
-    public void SetPrinting(string? itemName)
+    public void SetPrinting(string? itemName, float progress = 0f)
     {
-        PrintingLabel.Visible = itemName != null;
-        PrintingLabel.Text = itemName != null
-            ? Loc.GetString("rmc-vehicle-fabricator-printing", ("item", itemName))
+        _printingItemName = itemName;
+        _printAt = null;
+        _printDelay = TimeSpan.Zero;
+        UpdatePrintingDisplay(progress);
+    }
+
+    public void SetPrinting(string? itemName, TimeSpan? printAt, TimeSpan printDelay)
+    {
+        _printingItemName = itemName;
+        _printAt = printAt;
+        _printDelay = printDelay;
+        UpdatePrintingDisplay(0f);
+    }
+
+    private void UpdatePrintingDisplay(float progress)
+    {
+        var isPrinting = _printingItemName != null;
+        PrintingLabel.Visible = isPrinting;
+        PrintingLabel.Text = isPrinting
+            ? Loc.GetString("rmc-vehicle-fabricator-printing", ("item", _printingItemName!))
             : string.Empty;
+
+        PrintingBar.Visible = isPrinting;
+        PrintingBar.Value = isPrinting ? progress : 0;
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (_printingItemName == null || _printAt == null || _printDelay <= TimeSpan.Zero)
+            return;
+
+        var printStart = _printAt.Value - _printDelay;
+        var elapsed = (float)(_timing.CurTime - printStart).TotalSeconds;
+        var total = (float)_printDelay.TotalSeconds;
+        var progress = total > 0 ? Math.Clamp(elapsed / total, 0f, 1f) : 0f;
+        UpdatePrintingDisplay(progress);
     }
 
     public void SetCategory(RMCVehicleFabricatorCategory category)
@@ -137,6 +198,7 @@ public sealed class RMCVehicleFabricatorWindow : DefaultWindow
             btn.Pressed = GetVehicleKey(vehicle) == name.ToLowerInvariant();
         }
         UpdateCategoryTitle();
+        UpdateVehiclePreview();
     }
 
     public void SetPrintables(List<RMCVehicleFabricatorPrintableDisplayData> printables)
@@ -145,43 +207,69 @@ public sealed class RMCVehicleFabricatorWindow : DefaultWindow
 
         foreach (var printable in printables)
         {
+            var card = new PanelContainer
+            {
+                HorizontalExpand = true,
+                PanelOverride = new StyleBoxFlat
+                {
+                    BackgroundColor = Color.FromHex("#0F1D2E"),
+                    BorderColor = Color.FromHex("#1E3450"),
+                    BorderThickness = new Thickness(1),
+                    ContentMarginLeftOverride = 6,
+                    ContentMarginRightOverride = 6,
+                    ContentMarginTopOverride = 6,
+                    ContentMarginBottomOverride = 6,
+                },
+            };
+
             var box = new BoxContainer
             {
                 Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                Margin = new Thickness(4, 4),
                 HorizontalExpand = true,
             };
+
+            var spritePreview = new EntityPrototypeView
+            {
+                MinSize = new Vector2(48, 48),
+                MaxSize = new Vector2(48, 48),
+                Stretch = SpriteView.StretchMode.Fit,
+            };
+            spritePreview.SetPrototype(printable.Id);
+            box.AddChild(spritePreview);
 
             var labelBox = new BoxContainer
             {
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
-                HorizontalExpand = true
+                HorizontalExpand = true,
+                Margin = new Thickness(6, 0, 0, 0),
             };
 
             labelBox.AddChild(new Label
             {
                 Text = printable.Name,
-                FontColorOverride = Color.FromHex("#FFFFFF"),
+                FontColorOverride = Color.FromHex("#C7D7EA"),
             });
 
             labelBox.AddChild(new Label
             {
                 Text = printable.Description,
-                FontColorOverride = Color.FromHex("#AAAAAA"),
+                FontColorOverride = Color.FromHex("#9DB5D1"),
             });
 
             box.AddChild(labelBox);
 
-            var button = new Button 
-            { 
+            var button = new Button
+            {
                 Text = Loc.GetString("rmc-vehicle-fabricator-print", ("cost", printable.Cost)),
                 MinWidth = 150,
+                VerticalAlignment = VAlignment.Center,
                 StyleClasses = { "OpenBoth" }
             };
             button.OnPressed += _ => OnPrint?.Invoke(printable.Id);
             box.AddChild(button);
 
-            PrintablesContainer.AddChild(box);
+            card.AddChild(box);
+            PrintablesContainer.AddChild(card);
         }
     }
 }

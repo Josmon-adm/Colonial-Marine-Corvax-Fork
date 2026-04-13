@@ -1,14 +1,9 @@
-using System;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Systems;
-using Content.Shared.UserInterface;
-using Content.Shared.Vehicle.Components;
 using Content.Shared.Verbs;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Localization;
 
 namespace Content.Shared._RMC14.Vehicle;
 
@@ -25,6 +20,7 @@ public sealed class RMCHardpointSlotSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<RMCHardpointSlotsComponent, ItemSlotEjectAttemptEvent>(OnEjectAttempt);
         SubscribeLocalEvent<RMCHardpointSlotsComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<RMCHardpointSlotsComponent, RMCHardpointInsertDoAfterEvent>(OnInsertDoAfter);
         SubscribeLocalEvent<RMCHardpointSlotsComponent, GetVerbsEvent<InteractionVerb>>(OnGetRemoveVerbs);
@@ -33,6 +29,11 @@ public sealed class RMCHardpointSlotSystem : EntitySystem
         SubscribeLocalEvent<RMCHardpointSlotsComponent, BoundUIClosedEvent>(OnHardpointUiClosed);
         SubscribeLocalEvent<RMCHardpointSlotsComponent, RMCHardpointRemoveMessage>(OnHardpointRemoveMessage);
         SubscribeLocalEvent<RMCHardpointSlotsComponent, RMCHardpointRemoveDoAfterEvent>(OnHardpointRemoveDoAfter);
+    }
+
+    private void OnEjectAttempt(Entity<RMCHardpointSlotsComponent> ent, ref ItemSlotEjectAttemptEvent args)
+    {
+        args.Cancelled = true;
     }
 
     private void OnInsertAttempt(Entity<RMCHardpointSlotsComponent> ent, ref ItemSlotInsertAttemptEvent args)

@@ -1,17 +1,10 @@
-using System;
+using Content.Shared._RMC14.Repairable;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Popups;
-using Content.Shared.Tools.Components;
 using Content.Shared.Vehicle;
 using Content.Shared.Vehicle.Components;
-using Content.Shared._RMC14.Repairable;
-using Content.Shared._RMC14.Vehicle;
-using Content.Shared.Interaction;
-using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.GameStates;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Localization;
+using Robust.Shared.Containers;
 
 namespace Content.Shared._RMC14.Vehicle;
 
@@ -31,6 +24,7 @@ public sealed class RMCVehicleWheelSystem : EntitySystem
     {
         SubscribeLocalEvent<RMCVehicleWheelSlotsComponent, ComponentInit>(OnWheelInit);
         SubscribeLocalEvent<RMCVehicleWheelSlotsComponent, MapInitEvent>(OnWheelMapInit);
+        SubscribeLocalEvent<RMCVehicleWheelSlotsComponent, ItemSlotEjectAttemptEvent>(OnWheelEjectAttempt);
         SubscribeLocalEvent<RMCVehicleWheelSlotsComponent, EntInsertedIntoContainerMessage>(OnWheelInserted);
         SubscribeLocalEvent<RMCVehicleWheelSlotsComponent, EntRemovedFromContainerMessage>(OnWheelRemoved);
         SubscribeLocalEvent<RMCVehicleWheelSlotsComponent, VehicleCanRunEvent>(OnVehicleCanRun);
@@ -46,6 +40,11 @@ public sealed class RMCVehicleWheelSystem : EntitySystem
     {
         EnsureSlots(ent.Owner, ent.Comp);
         UpdateAppearance(ent.Owner, ent.Comp);
+    }
+
+    private void OnWheelEjectAttempt(Entity<RMCVehicleWheelSlotsComponent> ent, ref ItemSlotEjectAttemptEvent args)
+    {
+        args.Cancelled = true;
     }
 
     private void OnWheelInserted(Entity<RMCVehicleWheelSlotsComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -107,7 +106,6 @@ public sealed class RMCVehicleWheelSystem : EntitySystem
             var slot = new ItemSlot
             {
                 Whitelist = component.WheelWhitelist,
-                DisableEject = true // CCM14
             };
 
             _itemSlots.AddItemSlot(uid, slotId, slot, itemSlots);

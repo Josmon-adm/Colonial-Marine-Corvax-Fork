@@ -94,7 +94,6 @@
     repairRate: 0.008
   - type: RMCHardpointIntegrity
     maxIntegrity: 500
-  - type: VehicleTurretAttachment
   - type: VehicleTurret
   - type: GunUseGunOrigin
   - type: GunIgnoreContainerOwnerCollision

@@ -39,10 +39,21 @@ public sealed class RMCVehicleFabricatorBui : BoundUserInterface
         _window.SetPoints(fabricator.Points);
 
         string? printingName = null;
-        if (fabricator.Printing != null && _prototype.TryIndex(fabricator.Printing.Value, out var proto))
-            printingName = proto.Name;
+        TimeSpan? printAt = null;
+        var printDelay = TimeSpan.Zero;
 
-        _window.SetPrinting(printingName);
+        if (fabricator.Printing != null && _prototype.TryIndex(fabricator.Printing.Value, out var proto))
+        {
+            printingName = proto.Name;
+            printAt = fabricator.PrintAt;
+
+            if (proto.TryGetComponent(out RMCVehicleFabricatorPrintableComponent? printable, _compFactory))
+            {
+                printDelay = printable.Delay;
+            }
+        }
+
+        _window.SetPrinting(printingName, printAt, printDelay);
 
         UpdatePrintables();
     }

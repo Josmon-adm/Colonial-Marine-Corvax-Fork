@@ -1,42 +1,33 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._RMC14.Damage;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.DoAfter;
-using Content.Shared.Whitelist;
-using Content.Shared.Vehicle;
-using Content.Shared.Vehicle.Components;
-using Content.Shared.Tools;
-using Content.Shared.Tools.Systems;
-using Content.Shared.Damage;
+using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared._RMC14.Repairable;
-using Content.Shared.Tools.Components;
-using Content.Shared._RMC14.Tools;
-using Robust.Shared.GameObjects;
-using Content.Shared.Hands.Components;
-using Robust.Shared.Containers;
-using Robust.Shared.Localization;
-using Robust.Shared.Network;
-using Robust.Shared.Audio.Systems;
-using Content.Shared.Popups;
-using Content.Shared.Interaction;
-using Content.Shared.Examine;
-using Content.Shared.UserInterface;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared._RMC14.Xenonids;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
-using Robust.Shared.Utility;
-using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Prototypes;
-using Content.Shared.FixedPoint;
 using Content.Shared.Explosion.EntitySystems;
-using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Marines.Skills;
-using Content.Shared._RMC14.Vehicle;
-using Content.Shared.Damage.Systems;
+using Content.Shared.FixedPoint;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Components;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Vehicle;
+using Content.Shared.Vehicle.Components;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Vehicle;
 
@@ -434,7 +425,6 @@ public sealed class RMCHardpointSystem : EntitySystem
             var itemSlot = new ItemSlot
             {
                 Whitelist = whitelist,
-                DisableEject = true // CCM14
             };
 
             _itemSlots.AddItemSlot(uid, slot.Id, itemSlot, itemSlots);
