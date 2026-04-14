@@ -2,7 +2,7 @@
 - type: entity
   parent: CMXenoWarrior
   id: CCMXenoWarriorBoxer
-  suffix: Boxer
+  suffix: CCM-Boxer
   components:
   - type: Sprite
     sprite: _RMC14/Mobs/Xenonids/Warrior/boxer.rsi
@@ -117,6 +117,7 @@
 - type: entity
   parent: CMXenoSentinel
   id: CCMXenoMeleeSentinel
+  suffix: CCM-Melee
   components:
   - type: Sprite
     sprite: _RMC14/Mobs/Xenonids/Sentinel/melee.rsi
@@ -177,6 +178,7 @@
 - type: entity
   parent: CMXenoSentinel
   id: CCMXenoRangerSentinel
+  suffix: CCM-Ranger
   components:
   - type: Sprite
     sprite: _RMC14/Mobs/Xenonids/Sentinel/ranger.rsi
@@ -226,6 +228,7 @@
 - type: entity
   parent: CMXenoSpitter
   id: CCMXenoSniperSpitter
+  suffix: CCM-Sniper
   components:
   - type: Sprite
     sprite: _RMC14/Mobs/Xenonids/Spitter/sniper.rsi
