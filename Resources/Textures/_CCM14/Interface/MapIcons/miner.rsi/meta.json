@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ttmc14/ttmc14",
+  "size": {
+    "x": 7,
+    "y": 7
+  },
+  "states": [
+    {
+      "name": "phoron"
+    },
+    {
+      "name": "phoron-on",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "platinum"
+    },
+    {
+      "name": "platinum-on",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

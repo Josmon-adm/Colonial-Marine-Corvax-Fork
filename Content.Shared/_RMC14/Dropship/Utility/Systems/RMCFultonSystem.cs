@@ -50,7 +50,42 @@ public sealed class RMCFultonSystem : EntitySystem
         SubscribeLocalEvent<RMCCanBeFultonedComponent, InteractUsingEvent>(OnCanBeFultonedInteractUsing);
         SubscribeLocalEvent<RMCCanBeFultonedComponent, RMCPrepareFultonDoAfterEvent>(OnCanBeFultonedPrepareFulton);
     }
+    // CCM14-start
+    public bool TryAutoFulton(EntityUid target, EntityCoordinates? returnTo = null, TimeSpan? returnDelay = null, bool ignoreConstraints = false)
+    {
+        if (!TryComp(target, out RMCCanBeFultonedComponent? canBeFultoned))
+            return false;
 
+        if (HasComp<RMCActiveFultonComponent>(target))
+            return true;
+
+        var returnCoordinates = returnTo ?? _transform.GetMoverCoordinates(target);
+
+        if (!ignoreConstraints)
+        {
+            if (!_rmcPlanet.IsOnPlanet(returnCoordinates))
+                return false;
+
+            if (!_area.CanFulton(returnCoordinates))
+                return false;
+        }
+
+        var active = EnsureComp<RMCActiveFultonComponent>(target);
+        active.ReturnAt = _timing.CurTime + (returnDelay ?? canBeFultoned.ReturnDelay);
+        active.ReturnTo = returnCoordinates;
+        Dirty(target, active);
+
+        _audio.PlayPvs(canBeFultoned.FultonSound, returnCoordinates);
+
+        var name = Name(target);
+        _dropshipWeapon.MakeTarget(target, name, false);
+        _rmcpulling.TryStopAllPullsFromAndOn(target);
+
+        var mapId = EnsureMap();
+        _transform.SetMapCoordinates(target, new MapCoordinates(_fultonCount++ * 50, 0, mapId));
+        return true;
+    }
+    // CCM14-end
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
         _fultonCount = 0;
