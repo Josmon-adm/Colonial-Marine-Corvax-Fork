@@ -359,28 +359,6 @@
   parent:
   - CCMAreaGlacius
   - CCMAreaGlaciusZeroProtection
-  id: CCMAreaGlaciusServerRoom
-  name: Server room
-  components:
-  - type: Sprite
-    state: bunker01_caves_outpost
-  - type: Area
-    minimapColor: '#67289E'
-    CAS: true
-    fulton: false
-    mortarPlacement: false
-    mortarFire: false
-    lasing: true
-    medevac: false
-    OB: true
-    supplyDrop: false
-    paradropping: false
-    weatherEnabled: false
-
-- type: entity
-  parent:
-  - CCMAreaGlacius
-  - CCMAreaGlaciusZeroProtection
   id: CCMAreaGlaciusWarehouse
   name: Warehouse
   components:
