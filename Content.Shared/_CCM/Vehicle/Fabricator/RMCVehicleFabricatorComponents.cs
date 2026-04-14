@@ -33,7 +33,7 @@ public sealed partial class RMCVehicleFabricatorComponent : Component
     public SoundSpecifier RecycleSound = new SoundPathSpecifier("/Audio/_RMC14/Machines/fax.ogg");
 }
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(RMCVehicleFabricatorSystem))]
 public sealed partial class RMCVehicleFabricatorPrintableComponent : Component
 {

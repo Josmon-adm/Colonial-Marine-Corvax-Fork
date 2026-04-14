@@ -90,3 +90,4 @@ rmc-vehicle-lock-not-driver = You need to be in the driver seat to lock or unloc
 rmc-vehicle-lock-set-locked = Vehicle doors locked.
 rmc-vehicle-lock-set-unlocked = Vehicle doors unlocked.
 rmc-hardpoint-remove-blocked = That hardpoint is fixed in place.
+rmc-vehicle-cannot-place-inside = You cannot place { $object } inside a vehicle.

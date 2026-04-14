@@ -220,5 +220,8 @@ public sealed partial class CMDistressSignalRuleComponent : Component
 
     [DataField]
     public int XenosSpawned;
+
+    [DataField]
+    public int SurvivorsSpawned;
     // CCM14-end
 }

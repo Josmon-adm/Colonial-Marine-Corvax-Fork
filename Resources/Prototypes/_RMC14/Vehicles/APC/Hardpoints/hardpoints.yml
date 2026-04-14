@@ -104,6 +104,9 @@
     - FullAuto
     soundGunshot: /Audio/_RMC14/Vehicle/weapons/dual_autocannon_fire.ogg #TODO change to mono
     cameraRecoilScalar: 0
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 6
+    accuracyMultiplierUnwielded: 6
   - type: BallisticAmmoProvider
     cycleable: false
     proto: RMCVehicleCartridgeBoyarsDualCannon10x50mm

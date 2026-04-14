@@ -626,7 +626,7 @@ namespace Content.Server.GameTicking
                     var mapName = _gameMapManager.GetSelectedMap()?.MapName;
                     mapName ??= Loc.GetString("discord-round-notifications-unknown-map");
                     // CCM14-start
-                    var (result, hijack, marinesTotal, xenosTotal) = _distressSignal.GetRoundEndInfo();
+                    var (result, hijack, marinesTotal, xenosTotal, survivorsTotal) = _distressSignal.GetRoundEndInfo();
 
                     content = BuildRoundEndDiscordMessage(
                         RoundId,
@@ -637,7 +637,8 @@ namespace Content.Server.GameTicking
                         result,
                         hijack,
                         marinesTotal,
-                        xenosTotal);
+                        xenosTotal,
+                        survivorsTotal);
                     // CCM14-end
                 }
 
@@ -682,7 +683,8 @@ namespace Content.Server.GameTicking
             DistressSignalRuleResult? result,
             bool hijack,
             int marinesTotal,
-            int xenosTotal)
+            int xenosTotal,
+            int survivorsTotal)
         {
             var resultText = GetRoundResultText(result);
             var hijackText = hijack
@@ -697,20 +699,23 @@ namespace Content.Server.GameTicking
                 ("id", roundId),
                 ("operation", operation),
                 ("planet", planet),
-                ("result", resultText),
+                ("result", resultText));
+
+            var durationLine = Loc.GetString("rmc-discord-round-notifications-end-duration",
                 ("hours", hours),
                 ("minutes", minutes),
                 ("seconds", seconds));
 
             var statsLine = Loc.GetString("rmc-discord-round-notifications-end-stats",
                 ("marines", marinesTotal),
-                ("xenos", xenosTotal));
+                ("xenos", xenosTotal),
+                ("survivors", survivorsTotal));
 
             var hijackLine = Loc.GetString("rmc-discord-round-notifications-end-hijack",
                 ("ship", ship),
                 ("hijack", hijackText));
 
-            return $"{message}\n\n{statsLine}\n{hijackLine}";
+            return $"{message}\n{durationLine}\n{statsLine}\n{hijackLine}";
         }
         // CCM14-end
         public void RestartRound()

@@ -96,9 +96,6 @@
       vehicle: RMCVehicleTank
       unlock: RMCVehicleTank
       hardpoints:
-      - RMCVehicleTankTurret
-      - RMCVehicleTankTreads
-      - RMCVehicleTankReinforcedTreads
       - RMCVehicleTankArmorBallistic
       - RMCVehicleTankArmorConcussive
       - RMCVehicleTankArmorCaustic
@@ -117,6 +114,8 @@
       - RMCVehicleTankTowLauncher
       - RMCVehicleTankFlareModule
       - RMCVehicleTankArtilleryModule
+      - RMCVehicleTankReinforcedTreads
+      - RMCVehicleTankTreads
     - name: humvee (arc)
       vehicle: RMCVehicleHumveeARC
       unlock: RMCVehicleHumveeARC

@@ -6,6 +6,7 @@ public sealed class RMCVehicleFabricatorUISystem : EntitySystem
 {
     public override void Initialize()
     {
+        base.Initialize();
         SubscribeLocalEvent<RMCVehicleFabricatorComponent, AfterAutoHandleStateEvent>(OnFabricatorState);
     }
 

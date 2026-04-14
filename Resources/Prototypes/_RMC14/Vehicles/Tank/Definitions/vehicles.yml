@@ -18,6 +18,7 @@
     turnInPlace: true
     turnInPlaceMaxSpeed: 0.5
     pushCooldown: 2
+    movementCollisionInset: 0.25
     xenoBlockMinimumSize: Immobile
     canXenosPush: false
   - type: RMCVehicleOvercharge
@@ -119,11 +120,13 @@
         whitelist:
           components:
           - RMCHardpointItem
+        disableEject: true
       wheel-1:
         startingItem: RMCVehicleTankTreads
         whitelist:
           components:
           - RMCVehicleWheelItem
+        disableEject: true
   - type: RMCHardpointSlots
     vehicleFamily: Tank
     slots:
@@ -217,11 +220,13 @@
         whitelist:
           components:
           - RMCHardpointItem
+        disableEject: true
       wheel-1:
         startingItem: RMCVehicleTankTreads
         whitelist:
           components:
           - RMCVehicleWheelItem
+        disableEject: true
   - type: RMCHardpointSlots
     vehicleFamily: Tank
     slots:
