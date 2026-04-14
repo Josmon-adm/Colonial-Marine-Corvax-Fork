@@ -73,6 +73,7 @@ public sealed class TacticalMapSystem : SharedTacticalMapSystem
     [Dependency] private readonly XenoAnnounceSystem _xenoAnnounce = default!;
     [Dependency] private readonly XenoWatchSystem _xenoWatch = default!;
     [Dependency] private readonly RMCUnrevivableSystem _unrevivableSystem = default!;
+    [Dependency] private readonly TacMapLiveUpdateSystem _tacMapLiveUpdate = default!;
 
     private EntityQuery<ActiveTacticalMapTrackedComponent> _activeTacticalMapTrackedQuery;
     private EntityQuery<TacticalMapLayerTrackedComponent> _tacticalMapLayerTrackedQuery;
@@ -312,6 +313,7 @@ public sealed class TacticalMapSystem : SharedTacticalMapSystem
 
         TryResolveUserMap(ent, out _);
         RefreshUserVisibleLayers(ent);
+        _tacMapLiveUpdate.RefreshLiveUpdate(ent);
 
         Dirty(ent);
     }
