@@ -7,7 +7,7 @@
   components:
   - type: Tag
     tags:
-    - CMSurgicalLine
+    - CCMAdvancedBruteToolHealerTag
   - type: Sprite
     sprite: _RMC14/Objects/Medical/Surgery/scalpel.rsi
     state: scalpel_manager
@@ -55,7 +55,7 @@
   components:
   - type: Tag
     tags:
-    - CMSynthGraft
+    - CCMAdvancedBurnToolHealerTag
   - type: Sprite
     sprite: _RMC14/Objects/Medical/Surgery/cautery.rsi
     state: predator_cautery
