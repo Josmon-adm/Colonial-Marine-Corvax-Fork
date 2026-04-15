@@ -89,7 +89,6 @@
     id: CMIDCardCMO
     ears: CMHeadsetCMO
     belt: CMBeltMedicalFilled
-    pocket1: CCMPouchGeneralLargeFilledAdvancedMedical # // CCM Change
 
 - type: entity
   parent: CMSpawnPointJobBase
