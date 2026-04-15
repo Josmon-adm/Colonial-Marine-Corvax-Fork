@@ -30,6 +30,12 @@
   - type: Miner
     state: Destroyed
   - type: Appearance
+  - type: AmbientSound
+    enabled: false
+    volume: -8
+    range: 4
+    sound:
+      path: /Audio/_RMC14/Machines/fuel_pump_active.ogg
   - type: Speech
   - type: Damageable
     damageContainer: Inorganic
@@ -78,7 +84,7 @@
   parent: BaseItem
   id: CCMMinerModuleAutomation
   name: miner automation module
-  description: A logic module that automates extraction and transport, automatically launching ore crates via fulton recovery once the drill is full.
+  description: A control module that automates logistics, once storage is full, mined ore is sold directly to requisitions budget while the drill remains operational.
   components:
   - type: Sprite
     sprite: _CCM14/Structures/Machines/mining_drill.rsi

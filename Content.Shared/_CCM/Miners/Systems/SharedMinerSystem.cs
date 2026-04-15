@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared._CCM.Miners.Components;
 using Content.Shared._CCM.Miners.Events;
 using Content.Shared._RMC14.Marines.Skills;
@@ -34,6 +33,7 @@ public abstract class SharedMinerSystem : EntitySystem
         SubscribeLocalEvent<MinerComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<MinerComponent, MinerRepairDoAfterEvent>(OnRepairDoAfter);
         SubscribeLocalEvent<MinerComponent, MinerExtractionDoAfterEvent>(OnExtractionDoAfter);
+        SubscribeLocalEvent<MinerComponent, MinerModuleInstallDoAfterEvent>(OnModuleInstallDoAfter);
         SubscribeLocalEvent<MinerComponent, MinerModuleRemoveDoAfterEvent>(OnModuleRemoveDoAfter);
     }
 
@@ -162,31 +162,33 @@ public abstract class SharedMinerSystem : EntitySystem
                 return;
             }
 
-            if (!entity.Comp.Modules.Add(module.Type))
+            if (entity.Comp.Modules.Contains(module.Type))
             {
                 Popup.PopupClient(Loc.GetString("miner-module-already-installed", ("miner", entity.Owner)), entity,
                     user, PopupType.LargeCaution);
                 return;
             }
 
-            RecalculateState(entity);
+            var delay = entity.Comp.BaseModuleInstallDelay * _rmcSkills.GetSkillDelayMultiplier(user, EngineerSkill);
+            var doAfterArgs = new DoAfterArgs(EntityManager, user, delay,
+                new MinerModuleInstallDoAfterEvent(module.Type), entity.Owner, entity.Owner, used: used)
+            {
+                BreakOnMove = true,
+                NeedHand = true,
+                BreakOnHandChange = true
+            };
 
-            Dirty(entity);
-            UpdateAllIcons(entity);
-            Popup.PopupClient(Loc.GetString("miner-module-installed", ("module", used), ("miner", entity.Owner)),
-                entity, user, PopupType.Medium);
-            QueueDel(used);
+            _doAfter.TryStartDoAfter(doAfterArgs);
             return;
         }
 
         if (_tool.HasQuality(used, entity.Comp.PryingQuality))
         {
-            if (entity.Comp.Modules.Count == 0)
+            if (!TryGetModuleForRemoval(entity.Comp, out var moduleToRemove))
                 return;
 
             args.Handled = true;
 
-            var moduleToRemove = entity.Comp.Modules.Last();
             var delay = entity.Comp.BaseModuleRemovalDelay * _rmcSkills.GetSkillDelayMultiplier(user, EngineerSkill);
             var doAfterArgs = new DoAfterArgs(EntityManager, user, delay,
                 new MinerModuleRemoveDoAfterEvent(moduleToRemove), entity.Owner, entity.Owner)
@@ -226,8 +228,33 @@ public abstract class SharedMinerSystem : EntitySystem
         }
     }
 
+    private bool TryGetModuleForRemoval(MinerComponent component, out MinerModuleType module)
+    {
+        if (component.Modules.Contains(MinerModuleType.Reinforced))
+        {
+            module = MinerModuleType.Reinforced;
+            return true;
+        }
+
+        if (component.Modules.Contains(MinerModuleType.Speed))
+        {
+            module = MinerModuleType.Speed;
+            return true;
+        }
+
+        if (component.Modules.Contains(MinerModuleType.Automation))
+        {
+            module = MinerModuleType.Automation;
+            return true;
+        }
+
+        module = default;
+        return false;
+    }
+
     protected abstract void OnRepairDoAfter(Entity<MinerComponent> entity, ref MinerRepairDoAfterEvent args);
     protected abstract void OnExtractionDoAfter(Entity<MinerComponent> entity, ref MinerExtractionDoAfterEvent args);
+    protected abstract void OnModuleInstallDoAfter(Entity<MinerComponent> entity, ref MinerModuleInstallDoAfterEvent args);
 
     protected abstract void
         OnModuleRemoveDoAfter(Entity<MinerComponent> entity, ref MinerModuleRemoveDoAfterEvent args);

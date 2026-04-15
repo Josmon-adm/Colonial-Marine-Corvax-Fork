@@ -1,5 +1,6 @@
 ﻿using Content.Shared.FixedPoint;
 using Content.Shared.Tools;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -40,7 +41,13 @@ public sealed partial class MinerComponent : Component
     public TimeSpan BaseModuleRemovalDelay = TimeSpan.FromSeconds(5);
 
     [DataField, AutoNetworkedField]
+    public TimeSpan BaseModuleInstallDelay = TimeSpan.FromSeconds(5);
+
+    [DataField, AutoNetworkedField]
     public EntProtoId OreCratePrototype = "CCMOreCratePhoron";
+
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier AutoSellSound = new SoundPathSpecifier("/Audio/Effects/Cargo/beep.ogg");
 
     [DataField, AutoNetworkedField]
     public FixedPoint2 SmallDamageThreshold = 25;

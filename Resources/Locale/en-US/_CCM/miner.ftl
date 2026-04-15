@@ -10,7 +10,7 @@ ent-CCMMinerDebug = debug drill
     .suffix = DEBUG
 # Modules
 ent-CCMMinerModuleAutomation = miner automation module
-    .desc = A logic module that automates extraction and transport, automatically launching ore crates via fulton recovery once the drill is full.
+    .desc = A control module that automates logistics: once storage is full, mined ore is sold directly to requisitions budget while the drill remains operational.
 ent-CCMMinerModuleSpeed = miner overclocking module
     .desc = Overclocks the drill's motor for significantly faster mineral production.
 ent-CCMMinerModuleReinforced = miner reinforcement module

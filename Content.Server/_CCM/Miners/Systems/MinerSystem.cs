@@ -1,9 +1,12 @@
 using Content.Shared._CCM.Miners.Components;
 using Content.Shared._CCM.Miners.Events;
 using Content.Shared._CCM.Miners.Systems;
-using Content.Shared._RMC14.Dropship.Utility.Systems;
+using Content.Shared._RMC14.Requisitions;
+using Content.Shared._RMC14.Requisitions.Components;
+using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._CCM.Miners.Systems;
@@ -11,8 +14,11 @@ namespace Content.Server._CCM.Miners.Systems;
 public sealed class MinerSystem : SharedMinerSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly RMCFultonSystem _rmcFulton = null!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = null!;
+    [Dependency] private readonly SharedRequisitionsSystem _requisitions = null!;
+    [Dependency] private readonly AudioSystem _audio = null!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambient = null!;
+    private readonly Dictionary<EntProtoId, int?> _crateRewardCache = new();
 
     public override void Initialize()
     {
@@ -24,6 +30,7 @@ public sealed class MinerSystem : SharedMinerSystem
     private void OnMapInit(Entity<MinerComponent> entity, ref MapInitEvent args)
     {
         entity.Comp.NextMineralProduction = Timing.CurTime + GetProductionTime(entity.Comp);
+        _ambient.SetAmbience(entity, IsActivelyDrilling(entity.Comp));
         UpdateAllIcons(entity);
     }
 
@@ -34,6 +41,8 @@ public sealed class MinerSystem : SharedMinerSystem
         var query = EntityQueryEnumerator<MinerComponent>();
         while (query.MoveNext(out var uid, out var miner))
         {
+            _ambient.SetAmbience(uid, IsActivelyDrilling(miner));
+
             if (miner.State != MinerState.Running)
                 continue;
 
@@ -42,20 +51,8 @@ public sealed class MinerSystem : SharedMinerSystem
             {
                 var maxStorage = GetMaxStorage(miner);
 
-                if (miner.MineralStored >= maxStorage && miner.Modules.Contains(MinerModuleType.Automation))
+                if (TryProcessAutomationSale(uid, miner, maxStorage))
                 {
-                    var xform = Transform(uid);
-                    var crate = Spawn(miner.OreCratePrototype, xform.Coordinates);
-
-                    if (_rmcFulton.TryAutoFulton(crate, xform.Coordinates, ignoreConstraints: true))
-                        miner.MineralStored = 0;
-                    else
-                    {
-                        var offset = xform.LocalRotation.ToWorldVec();
-                        _transform.SetCoordinates(crate, xform.Coordinates.Offset(offset));
-                        miner.MineralStored = 0;
-                    }
-
                     didChange = true;
                     miner.NextMineralProduction = Timing.CurTime + GetProductionTime(miner);
                     continue;
@@ -105,19 +102,13 @@ public sealed class MinerSystem : SharedMinerSystem
 
         args.Handled = true;
 
-        EntProtoId? moduleId = null;
-        switch (args.ModuleType)
+        var moduleId = args.ModuleType switch
         {
-            case MinerModuleType.Automation:
-                moduleId = entity.Comp.AutomationModulePrototype;
-                break;
-            case MinerModuleType.Speed:
-                moduleId = entity.Comp.SpeedModulePrototype;
-                break;
-            case MinerModuleType.Reinforced:
-                moduleId = entity.Comp.ReinforcedModulePrototype;
-                break;
-        }
+            MinerModuleType.Automation => entity.Comp.AutomationModulePrototype,
+            MinerModuleType.Speed => entity.Comp.SpeedModulePrototype,
+            MinerModuleType.Reinforced => entity.Comp.ReinforcedModulePrototype,
+            _ => (EntProtoId?) null
+        };
 
         if (moduleId != null) Spawn(moduleId.Value, Transform(entity).Coordinates);
 
@@ -127,6 +118,30 @@ public sealed class MinerSystem : SharedMinerSystem
         Dirty(entity);
         UpdateAllIcons(entity);
         Popup.PopupEntity(Loc.GetString("miner-module-removed", ("miner", entity.Owner)), entity.Owner, args.User);
+    }
+
+    protected override void OnModuleInstallDoAfter(Entity<MinerComponent> entity, ref MinerModuleInstallDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled || entity.Comp.State != MinerState.Running || entity.Comp.Modules.Contains(args.ModuleType))
+            return;
+
+        if (args.Used is not { } used ||
+            !TryComp<MinerModuleComponent>(used, out var module) ||
+            module.Type != args.ModuleType)
+        {
+            return;
+        }
+
+        args.Handled = true;
+        entity.Comp.Modules.Add(module.Type);
+
+        RecalculateState(entity);
+
+        Dirty(entity);
+        UpdateAllIcons(entity);
+        Popup.PopupEntity(Loc.GetString("miner-module-installed", ("module", used), ("miner", entity.Owner)),
+            entity.Owner, args.User);
+        QueueDel(used);
     }
 
     protected override void OnRepairDoAfter(Entity<MinerComponent> entity, ref MinerRepairDoAfterEvent args)
@@ -187,8 +202,13 @@ public sealed class MinerSystem : SharedMinerSystem
 
             foreach (var damageType in damageable.Damage.DamageDict.Keys)
             {
-                var newDamage = new DamageSpecifier();
-                newDamage.DamageDict[damageType] = targetTotalDamage;
+                var newDamage = new DamageSpecifier
+                {
+                    DamageDict =
+                    {
+                        [damageType] = targetTotalDamage
+                    }
+                };
                 _damageable.TryChangeDamage(uid, newDamage, true, false);
                 break;
             }
@@ -198,5 +218,46 @@ public sealed class MinerSystem : SharedMinerSystem
 
         var scale = targetTotalDamage.Float() / damageable.TotalDamage.Float();
         _damageable.SetDamage(uid, damageable, damageable.Damage * scale);
+    }
+
+    private bool TryGetCrateReward(EntProtoId cratePrototype, out int reward)
+    {
+        if (_crateRewardCache.TryGetValue(cratePrototype, out var cachedReward))
+        {
+            reward = cachedReward ?? 0;
+            return cachedReward != null;
+        }
+
+        reward = 0;
+        if (!_prototype.TryIndex<EntityPrototype>(cratePrototype, out var crateEntityPrototype) ||
+            !crateEntityPrototype.TryGetComponent<RequisitionsCrateComponent>(out var crateComp, EntityManager.ComponentFactory))
+        {
+            _crateRewardCache[cratePrototype] = null;
+            return false;
+        }
+
+        reward = crateComp.Reward;
+        _crateRewardCache[cratePrototype] = reward;
+        return true;
+    }
+
+    private bool TryProcessAutomationSale(EntityUid uid, MinerComponent miner, int maxStorage)
+    {
+        if (miner.MineralStored < maxStorage || !miner.Modules.Contains(MinerModuleType.Automation))
+            return false;
+
+        if (TryGetCrateReward(miner.OreCratePrototype, out var reward))
+        {
+            _requisitions.ChangeBudget(reward);
+            _audio.PlayPvs(miner.AutoSellSound, uid);
+        }
+
+        miner.MineralStored = 0;
+        return true;
+    }
+
+    private bool IsActivelyDrilling(MinerComponent miner)
+    {
+        return miner.State == MinerState.Running && miner.MineralStored < GetMaxStorage(miner);
     }
 }
