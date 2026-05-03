@@ -1,0 +1,12 @@
+ent-RMCMechMAXChassis = шасси MAX
+    .desc = { ent-RMCMechPropBase.desc }
+ent-RMCMechMAXTorso = торс MAX
+    .desc = Часть торса MAX. Содержит энергоблок, процессор и системы жизнеобеспечения. Имеет дополнительный слот для оборудования.
+ent-RMCMechMAXArmor = бронепластины MAX
+    .desc = { ent-RMCMechPropBase.desc }
+ent-RMCMechEnergyRelay = энергореле
+    .desc = Беспроводно откачивает энергию из любого доступного силового канала в зоне. Коэффициент производительности довольно низкий.
+ent-RMCMechRepairDroid = ремонтный дроид
+    .desc = Автоматизированный ремонтный дроид. Сканирует экзоскелет на предмет повреждений и устраняет их. Может устранить почти все типы внешних или внутренних повреждений.
+ent-RMCMechRipleyBroken = обломки погрузчика MkIV
+    .desc = { ent-RMCMechPropBase.desc }
