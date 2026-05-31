@@ -7,6 +7,7 @@ using System;
 using System.Threading;
 using Content.Server._RMC14.Admin;
 using Content.Server._CCM.Sponsorship;
+using Content.Server._Forge.Sponsor;
 using Content.Server._RMC14.Discord;
 using Content.Server._RMC14.LinkAccount;
 using Content.Server._RMC14.Mentor;
@@ -63,7 +64,7 @@ internal sealed partial class ChatManager : IChatManager
     // RMC14
     [Dependency] private readonly LinkAccountManager _linkAccount = default!;
     [Dependency] private readonly CCMCustomizationManager _ccmCustomization = default!;
-    [Dependency] private readonly CCMSponsorshipManager _ccmSponsorship = default!;
+    [Dependency] private readonly SponsorManager _ccmSponsorship = default!;
     [Dependency] private readonly RMCDiscordManager _discord = default!;
     [Dependency] private readonly MentorManager _mentor = default!;
     [Dependency] private readonly RMCChatBansManager _rmcChatBans = default!;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
+using Content.Server._Forge.Sponsor;
 using Content.Shared._CCM.Sponsorship;
 using Content.Shared.Preferences;
 using Robust.Shared.IoC;
@@ -18,7 +19,7 @@ public sealed class CCMCustomizationManager : IPostInjectInit
 
     [Dependency] private readonly UserDbDataManager _userDb = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly CCMSponsorshipManager _sponsorship = default!;
+    [Dependency] private readonly SponsorManager _sponsorship = default!;
 
     public async Task<CCMCustomizationSnapshot> GetSnapshot(NetUserId userId)
     {
@@ -264,6 +265,16 @@ public sealed class CCMCustomizationManager : IPostInjectInit
     private void ClientDisconnected(ICommonSession session)
     {
         _cache.Remove(session.UserId);
+    }
+
+    /// <summary>
+    ///     Drops the cached snapshot for a user. Called when the resolved sponsorship tier
+    ///     changes (e.g. after Discord auth) so the next snapshot is re-normalized against
+    ///     the new tier instead of a stale tier-None cache.
+    /// </summary>
+    public void InvalidateCache(NetUserId userId)
+    {
+        _cache.Remove(userId);
     }
 
     void IPostInjectInit.PostInject()

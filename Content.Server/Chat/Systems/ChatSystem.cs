@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using Content.Server._CCM.Sponsorship;
+using Content.Server._Forge.Sponsor;
 using Content.Server._RMC14.Admin;
 using Content.Server._RMC14.Chat.Chat;
 using Content.Server._RMC14.Emote;
@@ -77,7 +78,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
     [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
     [Dependency] private readonly CCMCustomizationManager _ccmCustomization = default!;
-    [Dependency] private readonly CCMSponsorshipManager _ccmSponsorship = default!;
+    [Dependency] private readonly SponsorManager _ccmSponsorship = default!;
 
     // RMC14
     [Dependency] private readonly RMCChatBansManager _rmcChatBans = default!;

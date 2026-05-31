@@ -1,27 +1,22 @@
-// CM14 rework: non-RMC edit marker.
-// Forge port: the legacy CCMSponsorshipSystem was the bridge between a server-only
-// sponsorship cache and the CCM client UI. After porting the Monolith _Forge
-// SponsorManager, all heavy lifting (resolving Discord-role driven tier, sending
-// MsgSyncSponsorData) moves there - this class now only:
-//   * answers CCM-specific status/customization requests from the client
-//   * pushes refreshed status/customization when the resolved tier changes
-//   * appends round-end credits for connected sponsors
-// It is intentionally thin; the perks themselves live in CCMCustomizationManager
-// and CCMCustomizationApplySystem, both of which keep working unchanged because
-// the manager's snapshot API still returns CCMSponsorshipTier values.
+// Forge: replaces the former CCM bridge (Content.Server/_CCM/Sponsorship/CCMSponsorshipSystem).
+// This thin EntitySystem only carries the client network protocol for the CCM sponsorship/
+// customization UI and appends round-end sponsor credits. All tier resolution now lives in
+// the _Forge SponsorManager, and the perks themselves live in CCMCustomizationManager /
+// CCMCustomizationApplySystem (unchanged).
 using System.Text;
 using System.Threading.Tasks;
+using Content.Server._CCM.Sponsorship;
 using Content.Server.GameTicking;
 using Content.Shared._CCM.Sponsorship;
 using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 
-namespace Content.Server._CCM.Sponsorship;
+namespace Content.Server._Forge.Sponsor;
 
-public sealed class CCMSponsorshipSystem : EntitySystem
+public sealed class SponsorPerksSystem : EntitySystem
 {
-    [Dependency] private readonly CCMSponsorshipManager _sponsorship = default!;
+    [Dependency] private readonly SponsorManager _sponsor = default!;
     [Dependency] private readonly CCMCustomizationManager _customization = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
 
@@ -33,18 +28,18 @@ public sealed class CCMSponsorshipSystem : EntitySystem
 
         SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndTextAppend);
 
-        _sponsorship.StatusChanged += OnSponsorshipChanged;
+        _sponsor.SponsorChanged += OnSponsorChanged;
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _sponsorship.StatusChanged -= OnSponsorshipChanged;
+        _sponsor.SponsorChanged -= OnSponsorChanged;
     }
 
     public void PushStatus(ICommonSession session)
     {
-        RaiseNetworkEvent(new CCMSponsorshipStatusResponseEvent(_sponsorship.GetStatus(session.UserId)),
+        RaiseNetworkEvent(new CCMSponsorshipStatusResponseEvent(_sponsor.GetStatus(session.UserId)),
             session.Channel);
     }
 
@@ -57,12 +52,15 @@ public sealed class CCMSponsorshipSystem : EntitySystem
         RaiseNetworkEvent(new CCMCustomizationResponseEvent(snapshot), session.Channel);
     }
 
-    private void OnSponsorshipChanged(NetUserId userId)
+    private void OnSponsorChanged(NetUserId userId)
     {
         if (!_players.TryGetSessionById(userId, out var session))
             return;
 
         PushStatus(session);
+        // The customization cache may have been normalized at tier None before the Discord
+        // auth resolved the real level; drop it so the next snapshot re-reads from the DB.
+        _customization.InvalidateCache(userId);
         _ = PushCustomization(session);
     }
 
@@ -96,7 +94,7 @@ public sealed class CCMSponsorshipSystem : EntitySystem
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
     {
-        var sponsors = _sponsorship.GetConnectedSponsorsForCredits();
+        var sponsors = _sponsor.GetConnectedSponsorsForCredits();
         if (sponsors.Count == 0)
             return;
 

@@ -110,7 +110,6 @@ namespace Content.Server.IoC
             IoCManager.Register<JoinQueueManager>();
 
             // CCM
-            IoCManager.Register<CCMSponsorshipManager>();
             IoCManager.Register<CCMCustomizationManager>();
         }
     }

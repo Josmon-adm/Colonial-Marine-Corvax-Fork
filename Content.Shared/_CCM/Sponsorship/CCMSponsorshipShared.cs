@@ -121,8 +121,6 @@ public sealed class CCMSponsorshipStatusSnapshot
     public long ExpirationUnixSeconds { get; }
     public string OocColorHex { get; }
     public string LoocColorHex { get; }
-    public float RoleWeightBonus { get; }
-    public bool QueueBypass { get; }
     public bool CustomizationUnlocked { get; }
 
     public CCMSponsorshipStatusSnapshot(
@@ -131,8 +129,6 @@ public sealed class CCMSponsorshipStatusSnapshot
         long expirationUnixSeconds,
         string oocColorHex,
         string loocColorHex,
-        float roleWeightBonus,
-        bool queueBypass,
         bool customizationUnlocked)
     {
         Tier = tier;
@@ -140,8 +136,6 @@ public sealed class CCMSponsorshipStatusSnapshot
         ExpirationUnixSeconds = expirationUnixSeconds;
         OocColorHex = oocColorHex;
         LoocColorHex = loocColorHex;
-        RoleWeightBonus = roleWeightBonus;
-        QueueBypass = queueBypass;
         CustomizationUnlocked = customizationUnlocked;
     }
 }

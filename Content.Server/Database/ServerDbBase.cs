@@ -34,10 +34,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Database
 {
-    public sealed record CCMStoredSponsorshipRecord(
-        CCMSponsorshipTier Tier,
-        long ExpirationUnixSeconds);
-
     public abstract class ServerDbBase
     {
         private readonly ISawmill _opsLog;
@@ -2513,45 +2509,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return ToCCMCustomizationSnapshot(customization);
         }
 
-        public async Task<CCMStoredSponsorshipRecord?> GetCCMStoredSponsorship(Guid player)
-        {
-            await using var db = await GetDb();
-            await EnsureCCMSponsorshipStorage(db.DbContext);
-
-            var connection = db.DbContext.Database.GetDbConnection();
-            var shouldClose = connection.State != System.Data.ConnectionState.Open;
-            if (shouldClose)
-                await connection.OpenAsync();
-
-            try
-            {
-                await using var command = connection.CreateCommand();
-                command.CommandText = @"
-SELECT tier, expiration_unix_seconds
-FROM ccm_player_sponsorship
-WHERE player_id = @player
-LIMIT 1";
-
-                var playerParameter = command.CreateParameter();
-                playerParameter.ParameterName = "player";
-                playerParameter.Value = player.ToString();
-                command.Parameters.Add(playerParameter);
-
-                await using var reader = await command.ExecuteReaderAsync();
-                if (!await reader.ReadAsync())
-                    return null;
-
-                var tier = (CCMSponsorshipTier) Convert.ToInt32(reader.GetValue(0));
-                var expiration = Convert.ToInt64(reader.GetValue(1));
-                return new CCMStoredSponsorshipRecord(tier, expiration);
-            }
-            finally
-            {
-                if (shouldClose)
-                    await connection.CloseAsync();
-            }
-        }
-
         public async Task AdjustCCMPlayerAchievementStats(
             Guid player,
             int friendlyFireDamageDelta = 0,
@@ -2655,62 +2612,6 @@ LIMIT 1";
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task SaveCCMStoredSponsorship(Guid player, CCMSponsorshipTier tier, long expirationUnixSeconds)
-        {
-            await using var db = await GetDb();
-            await EnsureCCMSponsorshipStorage(db.DbContext);
-
-            var connection = db.DbContext.Database.GetDbConnection();
-            var shouldClose = connection.State != System.Data.ConnectionState.Open;
-            if (shouldClose)
-                await connection.OpenAsync();
-
-            try
-            {
-                await using var command = connection.CreateCommand();
-
-                if (tier == CCMSponsorshipTier.None || expirationUnixSeconds <= 0)
-                {
-                    command.CommandText = "DELETE FROM ccm_player_sponsorship WHERE player_id = @player";
-                    var deletePlayerParameter = command.CreateParameter();
-                    deletePlayerParameter.ParameterName = "player";
-                    deletePlayerParameter.Value = player.ToString();
-                    command.Parameters.Add(deletePlayerParameter);
-                    await command.ExecuteNonQueryAsync();
-                    return;
-                }
-
-                command.CommandText = @"
-INSERT INTO ccm_player_sponsorship (player_id, tier, expiration_unix_seconds)
-VALUES (@player, @tier, @expiration)
-ON CONFLICT(player_id) DO UPDATE SET
-    tier = excluded.tier,
-    expiration_unix_seconds = excluded.expiration_unix_seconds";
-
-                var playerParameter = command.CreateParameter();
-                playerParameter.ParameterName = "player";
-                playerParameter.Value = player.ToString();
-                command.Parameters.Add(playerParameter);
-
-                var tierParameter = command.CreateParameter();
-                tierParameter.ParameterName = "tier";
-                tierParameter.Value = (int) tier;
-                command.Parameters.Add(tierParameter);
-
-                var expirationParameter = command.CreateParameter();
-                expirationParameter.ParameterName = "expiration";
-                expirationParameter.Value = expirationUnixSeconds;
-                command.Parameters.Add(expirationParameter);
-
-                await command.ExecuteNonQueryAsync();
-            }
-            finally
-            {
-                if (shouldClose)
-                    await connection.CloseAsync();
-            }
-        }
-
         private static async Task EnsureCCMCustomizationCompatibility(DbContext dbContext)
         {
             const string addArmorVariantSqlite =
@@ -2783,26 +2684,6 @@ ON CONFLICT(player_id) DO UPDATE SET
             }
             catch (Exception e) when (e.Message.Contains("already exists", StringComparison.OrdinalIgnoreCase))
             {
-            }
-        }
-
-        private static async Task EnsureCCMSponsorshipStorage(DbContext dbContext)
-        {
-            const string createTable = @"
-CREATE TABLE IF NOT EXISTS ccm_player_sponsorship (
-    player_id TEXT PRIMARY KEY,
-    tier INTEGER NOT NULL,
-    expiration_unix_seconds BIGINT NOT NULL
-)";
-
-            try
-            {
-                await dbContext.Database.ExecuteSqlRawAsync(createTable);
-            }
-            catch (SqliteException e) when (e.Message.Contains("database is locked", StringComparison.OrdinalIgnoreCase))
-            {
-                await Task.Delay(200);
-                await dbContext.Database.ExecuteSqlRawAsync(createTable);
             }
         }
 
