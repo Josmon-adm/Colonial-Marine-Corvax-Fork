@@ -214,7 +214,7 @@
                              VerticalExpand="True" />
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="6"
                               Margin="8 8 8 8">
-                    <Button Name="LinkDiscordButton" Access="Public" Text="{Loc 'ui-lobby-link-discord-button'}"
+                    <Button Name="LinkDiscordButton" Access="Public" Visible="False" Text="{Loc 'ui-lobby-link-discord-button'}"
                             StyleClasses="LobbyTopButton" MinHeight="40" HorizontalExpand="True" />
                     <BoxContainer Orientation="Horizontal" MinSize="0 32" Name="TopButtonBar"
                                   SeparationOverride="6" HorizontalAlignment="Stretch" HorizontalExpand="True">

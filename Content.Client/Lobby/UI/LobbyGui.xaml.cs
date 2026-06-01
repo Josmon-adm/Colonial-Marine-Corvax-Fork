@@ -622,11 +622,12 @@ namespace Content.Client.Lobby.UI
         private void UpdateDiscordLinkState()
         {
             var linked = _linkAccount.Linked;
-            LinkDiscordButton.Visible = !linked;
+            // Кнопка привязки Discord скрыта полностью по требованию — она никогда не показывается.
+            LinkDiscordButton.Visible = false;
             LinkDiscordButton.Text = Loc.GetString(linked
                 ? "ui-lobby-discord-linked-button"
                 : "ui-lobby-link-discord-button");
-            _oldLayout.LinkDiscordButton.Visible = !linked;
+            _oldLayout.LinkDiscordButton.Visible = false;
             _oldLayout.LinkDiscordButton.Text = LinkDiscordButton.Text;
         }
 
