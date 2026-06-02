@@ -175,6 +175,14 @@ namespace Content.Shared.Preferences
         [DataField]
         public float BarkSpeed { get; private set; } = 1f;
 
+        /// <summary>
+        ///     TTS (Text-To-Speech) voice prototype id. <see cref="Content.Shared._Forge.TTS.TTSVoicePrototype"/>
+        /// </summary>
+        [DataField]
+        public string Voice { get; private set; } = DefaultVoice;
+
+        public const string DefaultVoice = "Papich";
+
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -202,7 +210,8 @@ namespace Content.Shared.Preferences
             string corporateRelationId,
             string barkVoice,
             float barkPitch,
-            float barkSpeed)
+            float barkSpeed,
+            string voice)
         {
             Name = name;
             FlavorText = flavortext;
@@ -236,6 +245,7 @@ namespace Content.Shared.Preferences
             BarkVoice = barkVoice;
             BarkPitch = barkPitch;
             BarkSpeed = barkSpeed;
+            Voice = voice;
         }
 
         /// <summary>Copy constructor</summary>
@@ -266,7 +276,8 @@ namespace Content.Shared.Preferences
                 other.CorporateRelationId,
                 other.BarkVoice,
                 other.BarkPitch,
-                other.BarkSpeed)
+                other.BarkSpeed,
+                other.Voice)
         {
         }
 
@@ -320,7 +331,8 @@ namespace Content.Shared.Preferences
                 "neutral",
                 BarkPrototype.Default,
                 1f,
-                1f
+                1f,
+                DefaultVoice
             );
         }
 
@@ -402,7 +414,8 @@ namespace Content.Shared.Preferences
                 "neutral",
                 BarkPrototype.Default,
                 1f,
-                1f
+                1f,
+                DefaultVoice
             );
         }
 
@@ -509,6 +522,11 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithBarkPitch(float barkPitch)
         {
             return new(this) { BarkPitch = barkPitch };
+        }
+
+        public HumanoidCharacterProfile WithVoice(string voice)
+        {
+            return new(this) { Voice = voice };
         }
 
         public HumanoidCharacterProfile WithBarkSpeed(float barkSpeed)
@@ -668,6 +686,7 @@ namespace Content.Shared.Preferences
             if (BarkVoice != other.BarkVoice) return false;
             if (Math.Abs(BarkPitch - other.BarkPitch) > 0.0001f) return false;
             if (Math.Abs(BarkSpeed - other.BarkSpeed) > 0.0001f) return false;
+            if (Voice != other.Voice) return false;
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -910,6 +929,25 @@ namespace Content.Shared.Preferences
             BarkPitch = Math.Clamp(BarkPitch, 0.7f, 1.4f);
             BarkSpeed = Math.Clamp(BarkSpeed, 0.7f, 1.4f);
             // CCM barks - end
+
+            // Forge TTS - start
+            if (!prototypeManager.TryIndex<Content.Shared._Forge.TTS.TTSVoicePrototype>(Voice, out var ttsVoice) ||
+                !ttsVoice.RoundStart ||
+                !CanHaveVoice(ttsVoice, Sex))
+            {
+                Voice = prototypeManager
+                    .EnumeratePrototypes<Content.Shared._Forge.TTS.TTSVoicePrototype>()
+                    .FirstOrDefault(o => o.RoundStart && CanHaveVoice(o, Sex))?.ID ?? DefaultVoice;
+            }
+            // Forge TTS - end
+        }
+
+        /// <summary>
+        ///     Whether a TTS voice can be used by a character of the given sex.
+        /// </summary>
+        public static bool CanHaveVoice(Content.Shared._Forge.TTS.TTSVoicePrototype voice, Sex sex)
+        {
+            return voice.Sex == sex || voice.Sex == Sex.Unsexed;
         }
 
         /// <summary>
@@ -996,6 +1034,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(BarkVoice);
             hashCode.Add(BarkPitch);
             hashCode.Add(BarkSpeed);
+            hashCode.Add(Voice);
             return hashCode.ToHashCode();
         }
 

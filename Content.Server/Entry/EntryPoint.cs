@@ -126,6 +126,7 @@ namespace Content.Server.Entry
                 // Forge sponsor/discord/queue stack
                 IoCManager.Resolve<DiscordAuthManager>().Initialize();
                 IoCManager.Resolve<JoinQueueManager>().Initialize();
+                IoCManager.Resolve<Content.Server._Forge.TTS.TTSManager>().Initialize(); // Forge-TTS
             }
         }
 

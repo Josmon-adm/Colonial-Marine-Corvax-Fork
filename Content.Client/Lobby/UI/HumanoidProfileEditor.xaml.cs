@@ -251,6 +251,7 @@ namespace Content.Client.Lobby.UI
             AlwaysRandomNameButton.OnPressed += _ => SetAlwaysRandomName(AlwaysRandomNameButton.Pressed);
             AlwaysRandomAppearanceButton.OnPressed += _ => SetAlwaysRandomAppearance(AlwaysRandomAppearanceButton.Pressed);
             InitializeBarkSettings();
+            RefreshTTS(); // Forge TTS
 
             #endregion Name
 
@@ -1174,6 +1175,7 @@ namespace Content.Client.Lobby.UI
             UpdateXenoPostfix();
             UpdateAlwaysRandomToggles();
             UpdateBarkSettings();
+            UpdateTTSControls(); // Forge TTS
             UpdateOriginButton();
             UpdateReligionButton();
             ImportExportStateChanged?.Invoke();
@@ -1787,6 +1789,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateGenderControls();
             UpdateBarkSettings();
+            UpdateTTSControls(); // Forge TTS
             Markings.SetSex(newSex);
             UpdateEyePickers();
             UpdateMarkings();

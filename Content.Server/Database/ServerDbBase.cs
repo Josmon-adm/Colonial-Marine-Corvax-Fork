@@ -359,7 +359,8 @@ namespace Content.Server.Database
                   profile.CorporateRelationId,
                   profile.BarkVoice,
                   profile.BarkPitch,
-                  profile.BarkSpeed
+                  profile.BarkSpeed,
+                  profile.Voice
               );
         }
 
@@ -461,6 +462,7 @@ namespace Content.Server.Database
             profile.BarkVoice = humanoid.BarkVoice;
             profile.BarkPitch = humanoid.BarkPitch;
             profile.BarkSpeed = humanoid.BarkSpeed;
+            profile.Voice = humanoid.Voice;
 
             return profile;
         }

@@ -106,6 +106,12 @@ namespace Content.Server.Database
                 .HasDefaultValue(1f);
             // CCM barks - end
 
+            // Forge TTS - start
+            modelBuilder.Entity<Profile>()
+                .Property(p => p.Voice)
+                .HasDefaultValue("Papich");
+            // Forge TTS - end
+
             // CCM profile background - start
             modelBuilder.Entity<Profile>()
                 .Property(p => p.OriginId)
@@ -663,6 +669,7 @@ namespace Content.Server.Database
         public string BarkVoice { get; set; } = "BarkMaleVoice01";
         public float BarkPitch { get; set; } = 1f;
         public float BarkSpeed { get; set; } = 1f;
+        public string Voice { get; set; } = "Papich";
         public string OriginId { get; set; } = string.Empty;
         public string ReligionId { get; set; } = "agnostic";
         public string CorporateRelationId { get; set; } = "neutral";
