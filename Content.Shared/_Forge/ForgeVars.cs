@@ -72,7 +72,7 @@ public sealed class ForgeVars
     ///     Default volume setting of TTS sound.
     /// </summary>
     public static readonly CVarDef<float> TTSVolume =
-        CVarDef.Create("tts.volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("tts.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     ///     Whether the client wants local TTS playback enabled.
