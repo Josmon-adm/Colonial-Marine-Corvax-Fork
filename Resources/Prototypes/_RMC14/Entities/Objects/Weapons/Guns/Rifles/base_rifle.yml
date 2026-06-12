@@ -129,6 +129,10 @@
   - type: Clothing
     slots:
     - suitStorage
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
 
 - type: entity
   parent: BaseCartridgeRifle

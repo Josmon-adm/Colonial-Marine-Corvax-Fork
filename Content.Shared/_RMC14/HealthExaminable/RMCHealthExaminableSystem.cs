@@ -16,13 +16,7 @@ namespace Content.Shared._RMC14.HealthExaminable;
 
 public sealed class RMCHealthExaminableSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-
-    private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
-    private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "Burn";
-
-    private readonly ImmutableArray<FixedPoint2> _thresholds = ImmutableArray.Create<FixedPoint2>(25, 50, 75);
+    private readonly ImmutableArray<FixedPoint2> _thresholds = ImmutableArray.Create<FixedPoint2>(25, 50, 75, 100, 200, 300);
 
     public override void Initialize()
     {
@@ -31,6 +25,9 @@ public sealed class RMCHealthExaminableSystem : EntitySystem
 
     private void OnExamined(Entity<RMCHealthExaminableComponent> ent, ref ExaminedEvent args)
     {
+        if (ent.Comp.SpeciesType == null)
+            return;
+
         if (!TryComp(ent, out DamageableComponent? damageable))
             return;
 
@@ -54,7 +51,7 @@ public sealed class RMCHealthExaminableSystem : EntitySystem
                     if (groupDamage < threshold)
                         continue;
 
-                    var id = $"rmc-health-examinable-{group}-{threshold.Int()}";
+                    var id = $"rmc-health-examinable-{ent.Comp.SpeciesType}-{group}-{threshold.Int()}";
                     if (!Loc.TryGetString(id, out var msg, ("target", Identity.Entity(ent, EntityManager, args.Examiner))))
                         continue;
 

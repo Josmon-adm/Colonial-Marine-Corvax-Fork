@@ -1,19 +1,19 @@
 ﻿- type: job
-  parent: CMJobBase
+  parent: CMJobSquadBase
   id: CMVehicleCrewman
   name: cm-job-name-vc
   description: cm-job-description-vc
   playTimeTracker: CMJobVehicleCrewman
   requirements:
+  - !type:DepartmentTimeRequirement
+    department: CMSquad
+    time: 36000 # 10 hours
   - !type:RoleTimeRequirement
     role: CMJobCombatTech
-    time: 36000 # 10 hours
-  - !type:RoleTimeRequirement
-    role: CMJobFireteamLeader
-    time: 36000 # 10 hours
+    time: 18000 # 5 hours
   ranks:
     RMCRankCorporal: []
-  startingGear: CMGearVC
+  startingGear: CMGearVehicleCrewman
   icon: "CMJobIconVehicleCrewman"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-co
@@ -47,22 +47,27 @@
     - type: RMCPointing
     - type: JobPrefix
       prefix: cm-job-prefix-vc
+    - type: SquadArmorWearer
+    - type: SquadNameOverride
+      name: cm-job-name-vc
     - type: TacticalMapIcon
       icon:
         sprite: /Textures/_RMC14/Interface/map_blips.rsi
         state: vc
       background:
         sprite: /Textures/_RMC14/Interface/map_blips.rsi
-        state: background
+        state: background_intel
+  # hidden: true #TODO RMC14 - Remove when vehicles are fully added. # CCM-14 : not hidden
 
 - type: startingGear
-  id: CMGearVC
+  id: CMGearVehicleCrewman
   equipment:
     jumpsuit: CMJumpsuitMarineTanker
     shoes: CMBootsBlackFilled
     id: CMDogtagCrewman
     ears: RMCHeadsetCrewman
     outerClothing: RMCCoatTanker
+    back: CMSatchelMarine
 
 - type: entity
   parent: CMSpawnPointJobBase

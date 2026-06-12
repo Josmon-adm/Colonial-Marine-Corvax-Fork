@@ -153,6 +153,18 @@ namespace Content.Client.Options.UI.Tabs
                 KeybindsContainer.AddChild(newCheckBox);
             }
 
+            void AddToggleCvarCheckBox(string checkBoxName, CVarDef<bool> cvar)
+            {
+                CheckBox newCheckBox = new CheckBox() { Text = Loc.GetString(checkBoxName) };
+                newCheckBox.Pressed = _cfg.GetCVar(cvar);
+                newCheckBox.OnToggled += (e) =>
+                {
+                    _cfg.SetCVar(cvar, e.Pressed);
+                    _cfg.SaveToFile();
+                };
+                KeybindsContainer.AddChild(newCheckBox);
+            }
+
             AddHeader("ui-options-header-rmc");
             AddButton(CMKeyFunctions.RMCActivateAttachableBarrel);
             AddButton(CMKeyFunctions.RMCActivateAttachableRail);
@@ -168,6 +180,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(CMKeyFunctions.RMCPickUpDroppedItems);
             AddButton(CMKeyFunctions.RMCInteractWithOtherHand);
             AddButton(CMKeyFunctions.RMCRest);
+            AddButton(CMKeyFunctions.RMCResist);
 
             AddHeader("ui-options-header-cmu-medical");
             AddButton(CMUKeyFunctions.CMUCycleBodyZoneTarget);
@@ -179,6 +192,8 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(CMKeyFunctions.CMXenoPing);
             AddHeader("ui-options-header-general");
             AddCheckBox("ui-options-hotkey-keymap", _cfg.GetCVar(CVars.DisplayUSQWERTYHotkeys), HandleToggleUSQWERTYCheckbox);
+            AddToggleCvarCheckBox("ui-options-hold-to-attack-melee", CCVars.ControlHoldToAttackMelee);
+            AddToggleCvarCheckBox("ui-options-hold-to-attack-ranged", CCVars.ControlHoldToAttackRanged);
 
             AddHeader("ui-options-header-movement");
             AddButton(EngineKeyFunctions.MoveUp);

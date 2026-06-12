@@ -9,6 +9,7 @@ using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
 using Content.Shared._RMC14.Ghost;
+using Content.Shared._RMC14.Mentor.ImaginaryFriend;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -80,6 +81,7 @@ namespace Content.Server.Ghost
 
         private static readonly ProtoId<TagPrototype> AllowGhostShownByEventTag = "AllowGhostShownByEvent";
         private static readonly ProtoId<DamageTypePrototype> AsphyxiationDamageType = "Asphyxiation";
+        private static readonly ProtoId<DamageTypePrototype> BluntDamageType = "Blunt";
 
         private static readonly Dictionary<string, string> FactionTabNames = new(StringComparer.OrdinalIgnoreCase)
         {
@@ -177,7 +179,7 @@ namespace Content.Server.Ghost
             // If component not deleting they can see ghosts.
             if (ent.Comp.LifeStage <= ComponentLifeStage.Running)
             {
-                args.VisibilityMask |= (int)VisibilityFlags.Ghost;
+                args.VisibilityMask |= (int)VisibilityFlags.Ghost | (int)VisibilityFlags.ImaginaryFriend; // RMC14
             }
         }
 
@@ -300,6 +302,10 @@ namespace Content.Server.Ghost
 
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)
         {
+            // RMC14
+            if (HasComp<ImaginaryFriendComponent>(uid))
+                return;
+
             var timeSinceDeath = _gameTiming.RealTime.Subtract(component.TimeOfDeath);
             var deathTimeInfo = timeSinceDeath.Minutes > 0
                 ? Loc.GetString("comp-ghost-examine-time-minutes", ("minutes", timeSinceDeath.Minutes))
@@ -832,6 +838,11 @@ namespace Content.Server.Ghost
                     }
 
                     DamageSpecifier damage = new(_prototypeManager.Index(AsphyxiationDamageType), dealtDamage);
+
+                    if (HasComp<XenoComponent>(playerEntity))
+                    {
+                        damage = new(_prototypeManager.Index(BluntDamageType), dealtDamage);
+                    }
 
                     _damageable.TryChangeDamage(playerEntity, damage, true);
                 }

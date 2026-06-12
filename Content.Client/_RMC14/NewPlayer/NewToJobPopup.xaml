@@ -1,22 +1,22 @@
-<ccm:DefaultCMWindow xmlns="https://spacestation14.io"
-                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                     xmlns:ccm="clr-namespace:Content.Client._CCM.UserInterface.Controls"
-                     x:Class="Content.Client._RMC14.NewPlayer.NewToJobPopup"
-                     Title="{Loc 'rmc-new-to-job-popup-title'}"
-                     SetSize="820 670"
-                     MinSize="720 560"
-                     Resizable="False">
-    <BoxContainer Orientation="Vertical" Margin="12" SeparationOverride="10">
-        <PanelContainer StyleClasses="VoteSectionPanel">
-            <BoxContainer Orientation="Vertical" Margin="12 10">
-                <Label Name="WelcomeTitleLabel"
-                       StyleClasses="LabelBig"
-                       HorizontalAlignment="Center"
-                       Margin="0 0 0 6" />
-                <RichTextLabel Name="NewToJobName"
-                               HorizontalAlignment="Center"
-                               HorizontalExpand="True" />
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'rmc-new-to-job-popup-title'}"
+                      SetSize="800 500">
+    <BoxContainer Orientation="Vertical" Margin="20">
+        <Label Name="TitleLabel"
+               StyleClasses="LabelBig"
+               HorizontalAlignment="Center"
+               Margin="0 0 0 5" />
+        <PanelContainer StyleClasses="BackgroundDark" Margin="0 0 0 10" VerticalExpand="True" HorizontalExpand="True">
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" VScrollEnabled="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" Margin="10" VerticalExpand="True">
+                <RichTextLabel Name="NewToJobName" HorizontalAlignment="Center" />
+                <Control MinSize="0 5" />
+                    <RichTextLabel Name="NewToJobLabel" HorizontalAlignment="Left" Margin="0" />
+                <Control MinSize="0 5" />
+                <RichTextLabel Name="NewToJobAdditional" HorizontalAlignment="Center" Margin="0 5 0 0" />
             </BoxContainer>
+            </ScrollContainer>
         </PanelContainer>
 
         <PanelContainer StyleClasses="VoteSectionPanel" VerticalExpand="True">

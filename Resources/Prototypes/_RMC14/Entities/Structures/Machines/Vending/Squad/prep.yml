@@ -11,6 +11,12 @@
   - type: Sprite
     sprite: _RMC14/Structures/Machines/VendingMachines/ColMarTech/guns.rsi
   - type: CMAutomatedVendor
+    canManualRestock: true
+    ignoreBulkRestockById:
+    - RMCBoxShotgunBuckshot
+    - RMCBoxShotgunFlechette
+    - RMCBoxShotgunSlugs
+    - RMCBoxShotgunBreaching
     access:
     - "CMAccessMarinePrep"
     hackable: true
@@ -151,6 +157,7 @@
   - type: Sprite
     sprite: _RMC14/Structures/Machines/VendingMachines/ColMarTech/clothing.rsi
   - type: CMAutomatedVendor
+    canManualRestock: true
     access:
     - "CMAccessMarinePrep"
     hackable: true
@@ -341,6 +348,9 @@
         amount: 10
       - id: RMCHelmetGarbRainCover
         name: чехол от дождя для шлема M10 # CCM14
+        amount: 10
+      - id: RMCPoncho
+        name: UNMC poncho
         amount: 10
       - id: RMCHelmetGarbGunOil
         name: оружейная смазка # CCM14
@@ -607,6 +617,7 @@
   - type: Sprite
     sprite: _RMC14/Structures/Machines/VendingMachines/ColMarTech/requisitions_ammo.rsi
   - type: CMAutomatedVendor
+    canManualRestock: true
     access:
     - "CMAccessMarinePrep"
     - "CMAccessRequisitions"
@@ -616,10 +627,6 @@
       entries:
       - id: CMMagazineRifleM4SPRAP
         amount: 4
-      - id: RMCMagazinePistolM13AP
-        amount: 4
-      - id: RMCMagazinePistolM13ExtAP
-        amount: 2
       - id: CMMagazineSMGM63AP
         amount: 3
       - id: CMMagazineRifleM54CAP
@@ -678,6 +685,7 @@
   - type: Sprite
     sprite: _RMC14/Structures/Machines/VendingMachines/ColMarTech/attachments.rsi
   - type: CMAutomatedVendor
+    canManualRestock: true
     access:
     - "CMAccessMarinePrep"
     - "CMAccessRequisitions"
@@ -734,10 +742,12 @@
         amount: 5
       - id: RMCBinoculars
         amount: 1
+      - id: CMFoldingBarricadesMB6x3
+        amount: 2
       #- id: CMFoldingBarricadesMB6x3
       #  amount: 2
-      #- id: CMSparePDTLBattleBuddyKit
-      #  amount: 3
+      - id: CMSparePDTLBattleBuddyKit
+        amount: 3
       - id: RMCPowerCellCrap
         amount: 2
       - id: RMCMagazineSMGNailgun
@@ -756,6 +766,7 @@
   - type: Sprite
     sprite: _RMC14/Structures/Machines/VendingMachines/ColMarTech/attachments.rsi
   - type: CMAutomatedVendor
+    canManualRestock: true
     access:
     - "CMAccessMarinePrep"
     - "CMAccessRequisitions"

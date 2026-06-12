@@ -16,11 +16,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: TacticalMapUser
-      actionId: RMCActionOpenTacticalMapMarine
-      layerSets: [TacticalMapSetForecon]
-    - type: TacticalMapLayerTracked
-      layers: [SquadFORECON]
+    - type: RMCAllowSuitStorage
     - type: Skills
       preset: RMCSkillPresetCommander
     - type: MarineOrders

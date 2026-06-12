@@ -6,11 +6,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: TacticalMapUser
-      actionId: RMCActionOpenTacticalMapMarine
-      layerSets: [TacticalMapSetSurvivor]
-    - type: TacticalMapLayerTracked
-      layers: [FactionSurvivor]
+    - type: RMCAllowSuitStorage
     - type: Skills
       skills:
         RMCSkillCqc: 3
@@ -88,6 +84,8 @@
     - [ RMCDailyGrindApron, RMCJumpsuitDailyGrind, RMCShoesLaceup, CMSatchel ]
     # Landing Pad Attendant Synth
     - [ RMCJumpsuitCivilianYellow, RMCHeadCapFlippable, RMCSatchelNorm, CMBootsBlackFilled, CMPackFlare, RMCHazardVest, RMCBinoculars, RMCBeltUtilityGeneral, RMCHandsVeteran, RMCScabbardMacheteFilled, RMCEarmuffs ]
+    # Teacher
+    - [ RMCHipsterGlasses, RMCJumpsuitCivilianBrown, RMCSatchelNorm, CMSparePDTLBattleBuddyKit, RMCCoatBomber, CMHealthAnalyzer, RMCSprayBottleSpaceCleaner, RMCCrayonBox, RMCFoodSnackChipsPepper, CMBootsBlackFilled ]
     # Bartender
     - [ RMCSatchelBlackBartenderSynthFill, CMHandsBlackMarine, RMCCigarette, CMBootsBlackFilled, RMCCoatWaistcoat, ClothingUniformJumpsuitDetectiveGrey, ClothingHeadHatBowlerHat ]
 
