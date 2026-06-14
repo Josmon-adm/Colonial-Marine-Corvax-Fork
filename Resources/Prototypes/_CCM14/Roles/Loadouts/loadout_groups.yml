@@ -1,0 +1,8 @@
+# ВКС
+- type: loadoutGroup
+  id: MSFRoleSpecificCCM
+  name: ccm-loadout-group-role-specific
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - PatchMSFCCM
