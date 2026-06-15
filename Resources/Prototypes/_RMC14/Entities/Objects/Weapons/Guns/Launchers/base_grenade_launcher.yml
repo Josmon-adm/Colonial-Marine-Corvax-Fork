@@ -20,7 +20,7 @@
     - SemiAuto
     recoilWielded: 2
   - type: ShootAtFixedPoint
-    # shootArcProj: true # CCM-14
+    shootArcProj: true
     maxFixedRange: 8.463 # The result of CircleAreaFromSquareAbilityRange(7)
   - type: OnShootTriggerAmmoTimer
     delay: 1

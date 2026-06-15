@@ -113,7 +113,6 @@ public sealed class CMGunSystem : EntitySystem
 
         SubscribeLocalEvent<ProjectileFixedDistanceComponent, PreventCollideEvent>(OnCollisionCheckArc);
         SubscribeLocalEvent<ProjectileFixedDistanceComponent, PhysicsSleepEvent>(OnEventToStopProjectile);
-        SubscribeLocalEvent<ProjectileFixedDistanceComponent, StartCollideEvent>(OnProjectileFixedDistanceStartCollide); // CCM-14
 
         SubscribeLocalEvent<GunShowUseDelayComponent, GunShotEvent>(OnShowUseDelayShot);
         SubscribeLocalEvent<GunShowUseDelayComponent, ItemWieldedEvent>(OnShowUseDelayWielded);
@@ -184,8 +183,6 @@ public sealed class CMGunSystem : EntitySystem
 
         // Find start and end coordinates for vector.
         var from = _transform.GetMapCoordinates(ent);
-        if (args.FiredProjectiles.Count > 0)
-            from = _transform.GetMapCoordinates(args.FiredProjectiles[0]);
         var to = _transform.ToMapCoordinates(target);
         // Must be same map.
         if (from.MapId != to.MapId)
@@ -197,15 +194,15 @@ public sealed class CMGunSystem : EntitySystem
             return;
 
         // Check for a max range from the ShootAtFixedPointComponent. If defined, take the minimum between that and the calculated distance.
-        var baseDistance = ent.Comp.MaxFixedRange != null ? Math.Min(ent.Comp.MaxFixedRange.Value, direction.Length()) : direction.Length();
+        var distance = ent.Comp.MaxFixedRange != null ? Math.Min(ent.Comp.MaxFixedRange.Value, direction.Length()) : direction.Length();
 
         if (ent.Comp.AutoAimClosestObstacle)
         {
             var ray = new CollisionRay(from.Position, direction.Normalized(), ((int)Physics.CollisionGroup.Impassable));
-            var hitResults = _physics.IntersectRay(from.MapId, ray, baseDistance, returnOnFirstHit: true);
+            var hitResults = _physics.IntersectRay(from.MapId, ray, distance, returnOnFirstHit: true);
             if (hitResults.TryFirstOrNull(out var hitResult) && hitResult is RayCastResults trueHit)
             {
-                baseDistance = trueHit.Distance;
+                distance = trueHit.Distance;
             }
         }
         // Get current time and normalize the vector for physics math.
@@ -218,13 +215,8 @@ public sealed class CMGunSystem : EntitySystem
             if (!_physicsQuery.TryComp(projectile, out var physics))
                 continue;
 
-            // Preserve spread direction for multi-projectile shots. Single projectiles still snap to target.
-            var projectileDirection = normalized;
-            if (args.FiredProjectiles.Count > 1 && physics.LinearVelocity != Vector2.Zero)
-                projectileDirection = physics.LinearVelocity.Normalized();
-
-            // Calculate needed impulse to get to target direction, remove all velocity from projectile, then apply.
-            var impulse = projectileDirection * gun.ProjectileSpeedModified * physics.Mass;
+            // Calculate needed impulse to get to target, remove all velocity from projectile, then apply.
+            var impulse = normalized * gun.ProjectileSpeedModified * physics.Mass;
             _physics.SetLinearVelocity(projectile, Vector2.Zero, body: physics);
             _physics.ApplyLinearImpulse(projectile, impulse, body: physics);
             _physics.SetBodyStatus(projectile, physics, BodyStatus.InAir);
@@ -242,13 +234,11 @@ public sealed class CMGunSystem : EntitySystem
                 comp.ArcProj = true;
 
             // Take the lowest nonzero MaxFixedRange between projectile and gun for the capped vector length.
-            var distance = baseDistance;
             if (TryComp(projectile, out ProjectileComponent? normalProjectile) && normalProjectile.MaxFixedRange > 0)
             {
                 distance = distance > 0 ? Math.Min(normalProjectile.MaxFixedRange.Value, distance) : normalProjectile.MaxFixedRange.Value;
             }
             // Calculate travel time and equivalent distance based either on click location or calculated max range, whichever is shorter.
-            comp.TargetCoordinates = new MapCoordinates(from.Position + projectileDirection * distance, from.MapId);
             comp.FlyEndTime = time + TimeSpan.FromSeconds(distance / gun.ProjectileSpeedModified);
         }
 
@@ -345,7 +335,7 @@ public sealed class CMGunSystem : EntitySystem
             orderAccuracy = orderComponent.Received[0].Multiplier * orderComponent.AccuracyModifier;
             orderAccuracyPerTile = orderComponent.Received[0].Multiplier * orderComponent.AccuracyPerTileModifier;
         }
-// CCM14 start
+        // CCM14 start
         if (transformComponent is not null &&
             transformComponent.ParentUid.Valid &&
             TryComp(transformComponent.ParentUid, out XenoScreechAccuracyDebuffComponent? screechComp) &&
@@ -357,7 +347,7 @@ public sealed class CMGunSystem : EntitySystem
             screechAccuracyPerTile =
                 screechComp.Received[0].Multiplier * screechComp.AccuracyPerTileModifier;
         }
-// CCM14 end
+        // CCM14 end
         for (var t = 0; t < args.FiredProjectiles.Count; ++t)
         {
             if (!TryComp(args.FiredProjectiles[t], out RMCProjectileAccuracyComponent? accuracyComponent))
@@ -377,7 +367,7 @@ public sealed class CMGunSystem : EntitySystem
 
             if (orderAccuracyPerTile != 0)
                 accuracyComponent.Thresholds.Add(new AccuracyFalloffThreshold(0f, -orderAccuracyPerTile, false));
-            
+
             if (screechAccuracyPerTile != 0) // CCM14
                 accuracyComponent.Thresholds.Add(new AccuracyFalloffThreshold(0f, -screechAccuracyPerTile, false)); // CCM14
 
@@ -676,18 +666,10 @@ public sealed class CMGunSystem : EntitySystem
             if (time < comp.FlyEndTime)
                 continue;
 
-            if (comp.TargetCoordinates is { } targetCoords)
-                _transform.SetMapCoordinates(uid, targetCoords);
-
             StopProjectile((uid, comp));
             RemCompDeferred<ProjectileFixedDistanceComponent>(uid);
             var ev = new ProjectileFixedDistanceStopEvent();
             RaiseLocalEvent(uid, ref ev);
-
-            if (_net.IsClient &&
-                IsClientSide(uid) &&
-                HasComp<DeleteOnFixedDistanceStopComponent>(uid))
-                QueueDel(uid);
         }
     }
 
@@ -942,14 +924,6 @@ public sealed class CMGunSystem : EntitySystem
     {
         args.Cancelled = true;
     }
-
-    #region CCM14
-    private void OnProjectileFixedDistanceStartCollide(Entity<ProjectileFixedDistanceComponent> ent, ref StartCollideEvent args)
-    {
-        RemCompDeferred<ProjectileFixedDistanceComponent>(ent);
-        StopProjectile(ent);
-    }
-    #endregion
 }
 
 /// <summary>
