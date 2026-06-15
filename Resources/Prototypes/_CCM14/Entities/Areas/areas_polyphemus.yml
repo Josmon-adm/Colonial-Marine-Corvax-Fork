@@ -569,3 +569,52 @@
     linkedLz: dropship_lz1
     paradropping: false
     weatherEnabled: true
+
+# Лабаратория
+
+- type: entity
+  parent:
+  - CCMAreaPolyphemus
+  - CCMAreaPolyphemusZeroProtection
+  id: CCMAreaPolyphemusEastLab
+  name: East - Labaratory
+  components:
+  - type: Sprite
+    state: construction
+  - type: Area
+    minimapColor: '#7e6e28d7'
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: false
+    lasing: true
+    medevac: false
+    OB: true
+    supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
+
+# Добывающий лагерь
+
+- type: entity
+  parent:
+  - CCMAreaPolyphemus
+  - CCMAreaPolyphemusZeroProtection
+  id: CCMAreaPolyphemusEastminersCamp
+  name: East - Miners camp
+  components:
+  - type: Sprite
+    state: construction
+  - type: Area
+    minimapColor: '#7e6e28d7'
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: false
+    lasing: true
+    medevac: false
+    OB: false
+    supplyDrop: false
+    paradropping: false
+    weatherEnabled: false
+    

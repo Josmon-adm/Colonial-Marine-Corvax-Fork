@@ -4,22 +4,41 @@
   components:
   - type: RMCPlanetMapPrototype
     map: /Maps/_CCM14/Planets/polyphemus.yml
-    camouflage: Classic
+    camouflage: Urban
+    selectRandomSurvivorVariant: false
     survivorJobs:
-    - CMSurvivor: 3
-    - CMSurvivorCorporate: 1
-    - CMSurvivorDoctor: 2
-    - CMSurvivorEngineer: 2
-    - CMSurvivorSecurity: 2
-    - CMSurvivorScientist: 1
-    announcement: "Пехота! Была потеряна связь с отрядом морпехов на аванпосте High Rock Company. После бомбардировки шахт они отправились туда добивать остатки жуков. Видимо, не добили. Теперь наша очередь.
-      Для общего понимания,
-      Обозначение колонии - аванпост ХРК, под карантином.
-      Температура на поверхности составляет 23 °C.
-      Заведующий колонии - представитель ХРК Сайли Хильсон.
-      Биосканирование Выдаёт ошибку.
+    - RMCSurvivorCommandingOfficer: 1
+    - RMCSurvivorForeconSupportTech: 1
+    - RMCSurvivorForeconBase: 6 # todo 7 when eight survs
+    survivorJobVariants:
+      RMCSurvivorCommandingOfficer:
+      - RMCSurvivorForeconCommander: 1
+      RMCSurvivorForeconBase:
+      - RMCSurvivorForeconSquadLeader: 1
+      - RMCSurvivorForeconSniper: 1
+      - RMCSurvivorForeconSmartgunOperator: 1
+      - RMCSurvivorForeconMarksman: 1
+      - RMCSurvivorForeconRifleman: 3
+    survivorJobOverrides:
+      CMSurvivor: RMCSurvivorForeconBase
+      CMSurvivorCorporate: RMCSurvivorForeconBase
+      CMSurvivorDoctor: RMCSurvivorForeconSupportTech
+      CMSurvivorEngineer: RMCSurvivorForeconSupportTech
+      CMSurvivorSecurity: RMCSurvivorForeconBase
+      CMSurvivorScientist: RMCSurvivorForeconBase
+    announcement: От аванпоста UEG «Polyphemus» получен автоматический сигнал бедствия. В ближайшее время для расследования будет отправлена Рота ККМП Морпехов. 
+      Назначение: исследовательская станция и горнодобывающее предприятие.
 
-      Авторизовано: капитан Леон Гранц"
+      Население: 48 человек.
+      Текущая температура: 19 °C внутри, ERROR°C снаружи.
+      Командир аванпоста: представитель UEG Стив Хайфиш.
+      Телекоммуникационная система: требуется ремонт.
+      Биосканирование: Unknown ERROR
+
+      Эта трансляция будет повторяться каждые 24 часа.
+
+      На данный момент дополнительная информация отсутствует.
+
 - type: entity
   id: RMCPlanetChancesNova
   name: Nova Outpost
@@ -64,4 +83,33 @@
       Заведующий колонии - некто из красных комиссаров, он и отправил сигнал.
       Биосканирование Выдаёт ошибку.
     
+      Авторизовано: капитан Леон Гранц"
+- type: entity
+  id: RMCPlanetChancesGlacius
+  name: Glacius
+  components:
+  - type: RMCPlanetMapPrototype
+    map: /Maps/_CCM14/Planets/glacius.yml
+    camouflage: Classic
+    survivorJobs:
+    - CMSurvivor: 3
+    - CMSurvivorCorporate: 1
+    - CMSurvivorDoctor: 2
+    - CMSurvivorEngineer: 2
+    - CMSurvivorSecurity: 2
+    - CMSurvivorScientist: 1
+    # announcement: "От аванпоста ООН «Полифем» получен автоматический сигнал бедствия. В ближайшее время для расследования будет отправлена группа реагирования с корабля UNS David.
+    #   Назначение: исследовательская станция и горнодобывающее предприятие.
+
+    #   Население: 48 человек.
+    #   Текущая температура: 15 °C внутри, ERROR°C снаружи.
+    #   Командир аванпоста: представитель ООН Стив Хайфиш.
+    #   Телекоммуникационная система: требуется ремонт.
+    #   Биосканирование: Unknown error
+
+    #   Эта трансляция будет повторяться каждые 24 часа.
+
+    #   На данный момент дополнительная информация отсутствует." заменить на анноунцемент ниже
+    announcement: "Пехота! Была потеряна связь с отрядом морпехов на аванпосте High Rock Company. После бомбардировки шахт они отправились туда добивать остатки жуков. Видимо, не добили. Теперь наша очередь.
+
       Авторизовано: капитан Леон Гранц"
