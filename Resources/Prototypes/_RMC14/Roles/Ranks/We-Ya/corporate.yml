@@ -107,24 +107,24 @@
 # Executive Bodyguard
 - type: rank
   id: RMCRankWeYaBodyguardTPPO
-  name: Trainee Personal Protection Officer
-  prefix: TPPO.
-  paygrade: WY-SEC-1
+  name: Стажёр личной охраны
+  prefix: Стаж. Лич. Охр.
+  paygrade: КОРП-Т-1
 
 - type: rank
   id: RMCRankWeYaBodyguardPPO
-  name: Personal Protection Officer
-  prefix: PPO.
-  paygrade: WY-SEC-2
+  name: Корпоративный телохранитель
+  prefix: Корп. Тел.
+  paygrade: КОРП-Т-2
 
 - type: rank
   id: RMCRankWeYaBodyguardPPS
-  name: Personal Protection Specialist
-  prefix: PPS.
-  paygrade: WY-SEC-3
+  name: Специалист по личной охране
+  prefix: СЛО.
+  paygrade: КОРП-Т-3
 
 - type: rank
   id: RMCRankWeYaBodyguardPPC
-  name: Personal Protection Coordinator
-  prefix: PPC.
-  paygrade: WY-SEC-4
+  name: Координатор личной безопасности
+  prefix: КЛБ.
+  paygrade: КОРП-Т-4
