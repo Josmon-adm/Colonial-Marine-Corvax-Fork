@@ -48,10 +48,10 @@ public sealed class RMCHijackRandomDamageSystem : EntitySystem
     private const float PipeMinPercent = 0.01f;
     private const float PipeMaxPercent = 0.015f;
 
-    private const float PipeExplosionTotal = 300f;
-    private const float PipeExplosionSlope = 25f;
-    private const float PipeExplosionMax = 20f;
-    private const int PipeFireRange = 2;
+    private const float PipeExplosionTotal = 100f; // CCM-14 : 300 -> 100
+    private const float PipeExplosionSlope = 5f; // CCM-14 : 25 -> 5
+    private const float PipeExplosionMax = 5f; // CCM-14 : 20 -> 5
+    // private const int PipeFireRange = 2; // CCM-14
 
     private TimeSpan _hijackCrashStunTime;
 
@@ -285,7 +285,7 @@ public sealed class RMCHijackRandomDamageSystem : EntitySystem
             pipe,
             canCreateVacuum: false);
 
-        _rmcFlammable.SpawnFireDiamond(PipeFire, coordinates, PipeFireRange);
+        // _rmcFlammable.SpawnFireDiamond(PipeFire, coordinates, PipeFireRange); // CCM-14
 
         Del(pipe);
         var brokenPipe = Spawn(BrokenPipe, coordinates);

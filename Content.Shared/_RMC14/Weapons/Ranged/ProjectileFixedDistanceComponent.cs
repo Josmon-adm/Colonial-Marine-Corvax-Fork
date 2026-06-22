@@ -1,11 +1,12 @@
-﻿using Content.Shared._RMC14.Xenonids.Projectile;
+﻿using Content.Shared._CCM.Weapons.Ranged.Mortar; // CCM-14
+using Content.Shared._RMC14.Xenonids.Projectile;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 
 namespace Content.Shared._RMC14.Weapons.Ranged;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(CMGunSystem), typeof(XenoProjectileSystem))]
+[Access(typeof(CMGunSystem), typeof(XenoProjectileSystem), typeof(GrenaderMortarSystem))] // CCM-14 : +GrenaderMortarSystem
 public sealed partial class ProjectileFixedDistanceComponent : Component
 {
     /// <summary>

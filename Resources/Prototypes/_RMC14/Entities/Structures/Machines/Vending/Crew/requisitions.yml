@@ -298,6 +298,8 @@
         amount: 1
       - id: CMPamphletEngineer
         amount: 1
+      - id: CMPamphletMedical
+        amount: 1
       - id: CMPamphletPowerloader
         amount: 1
     - name: Коробки со взрывчаткой # CCM14
@@ -309,7 +311,7 @@
         boxAmount: 3
         boxSlots: 3
       - id: RMCBoxClaymoreMineFilled
-        name: M20 Claymore anti-personnel mine box
+        # name: M20 Claymore anti-personnel mine box # CCM-14
         box: RMCExplosiveClaymoreMine
         boxAmount: 5
         boxSlots: 5

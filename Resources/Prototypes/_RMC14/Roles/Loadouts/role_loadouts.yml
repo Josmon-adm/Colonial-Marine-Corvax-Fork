@@ -23,7 +23,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMDropshipCrewChief
@@ -49,7 +48,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMPilotDropship
@@ -75,7 +73,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMPilotGunship
@@ -101,7 +98,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMIntelOfficer
@@ -127,7 +123,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMVehicleCrewman
@@ -254,7 +249,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMMaintTech
@@ -280,7 +274,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMOrdnanceTech
@@ -306,7 +299,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 # Squad Roles
 - type: roleLoadout
@@ -509,7 +501,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMDoctor
@@ -535,7 +526,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMFieldDoctor
@@ -559,7 +549,6 @@
   - RMCLoadoutGroupPins
   - SmokablesRMC
   - MiscellaneousRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMNurse
@@ -585,7 +574,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMResearcher
@@ -840,7 +828,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMSeniorEnlistedAdvisor
@@ -914,7 +901,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 - type: roleLoadout
   id: JobCMQuartermaster
@@ -940,7 +926,6 @@
   - SmokablesRMC
   - MiscellaneousRMC
   - MeleeWeaponsRMC
-  - MSFRoleSpecificCCM # CCM14
 
 # Survivors
 # They don't have access to some loadout categories

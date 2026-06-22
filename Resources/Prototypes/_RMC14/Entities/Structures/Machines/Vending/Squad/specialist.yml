@@ -114,7 +114,7 @@
         points: 40
         spawn: 6
       - id: RMCGrenadeWhitePhosphorusCompound
-        name: M40 CCDP Chemical Compound Grenades (x6)
+        name: граната с химическим зарядом CCDP (x6) # CCM14
         points: 40
         spawn: 6
       - id: RMC40MMGrenadeM74AGMF
@@ -333,6 +333,8 @@
         points: 15
       - id: CMPamphletEngineer
         points: 15
+      - id: CMPamphletMedical # CCM-14
+        points: 15 # CCM-14
     - name: Ключи шифрования # CCM14
       entries:
       - id: CMEncryptionKeyEngineer

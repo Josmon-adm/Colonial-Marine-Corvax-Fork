@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._CCM14.Xenonids.Screech;
+using Content.Shared._CCM.Xenonids.Screech;
 using Content.Shared._RMC14.Evasion;
 using Content.Shared._RMC14.Random;
 using Content.Shared._RMC14.Xenonids.Hive;

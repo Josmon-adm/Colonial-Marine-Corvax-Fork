@@ -186,6 +186,8 @@
       entries:
       - id: CMPamphletJTAC
         points: 15
+      - id: CMPamphletMedical # CCM-14
+        points: 15 # CCM-14
     - name: Ключи шифрования # CCM14
       entries:
       - id: CMEncryptionKeyIntel

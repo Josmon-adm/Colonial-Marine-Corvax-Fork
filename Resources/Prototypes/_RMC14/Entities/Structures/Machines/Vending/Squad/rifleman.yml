@@ -236,6 +236,8 @@
         points: 15
       - id: CMPamphletEngineer
         points: 15
+      - id: CMPamphletMedical # CCM-14
+        points: 15 # CCM-14
       - id: RMCPamphletAdminFireman1 # // CCM Changed
         points: 15 # // CCM Changed
     - name: Ключи шифрования # CCM14

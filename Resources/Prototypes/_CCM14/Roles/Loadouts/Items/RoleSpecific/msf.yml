@@ -1,6 +1,0 @@
-- type: loadout
-  id: PatchMSFCCM
-  cost: 1
-  storage:
-    back:
-    - CCMPatchMSF

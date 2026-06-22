@@ -81,7 +81,7 @@ namespace Content.Server.Database
                 // Validate species - only allow: Human, Avali, Arachnid, Moth, Felinid, Dwarf
                 if (convertedProfile is HumanoidCharacterProfile humanoidProfile)
                 {
-                    var allowedSpecies = new[] { "Human", "Avali", "Arachnid", "Moth", "Felinid", "Dwarf" };
+                    var allowedSpecies = new[] { "Human", "Avali", "Arachnid", "Moth", "Felinid", "Dwarf", "Yautja" };
                     if (!allowedSpecies.Contains(humanoidProfile.Species.Id))
                     {
                         humanoidProfile.Species = "Human";

@@ -12,7 +12,7 @@
   defaultSkinTone: "#ffffff"
   markingLimits: CMUMobYautjaMarkingLimits
   dollPrototype: CMUMobYautjaDummy
-  skinColoration: Hues
+  skinColoration: HumanToned
   sexes:
   - Male
   - Female
