@@ -10,14 +10,14 @@
     jobs:
     - RMCWeYaExecutiveBodyguard
     sections:
-    - name: Standard Equipment
+    - name: Стандартное обмундирование #CCM14
       takeAll: CMStandard
       entries:
       - id: RMCBootsPMCFilled
       - id: RMCHeadsetExecutiveBodyguard
       - id: RMCGlassesSecurityBlue
       # RMC14 TODO: Blue SecHud Perscription
-    - name: Uniforms
+    - name: Униформа #CCM14
       choices: { CMUniform: 5 }
       entries:
       - id: CMJumpsuitLiaisonBlack
@@ -25,7 +25,7 @@
       - id: CMJumpsuitLiaisonBlue
       - id: CMJumpsuitLiaisonBrown
       - id: CMJumpsuitLiaisonCorporateFormal
-    - name: Jackets
+    - name: Куртки #CCM14
       choices: { CMArmor: 5 }
       entries:
       - id: RMCJacketCorporateBlack
@@ -35,11 +35,11 @@
       - id: RMCCoatBureauTrenchCoatBeige
       - id: RMCCoatBureauTrenchCoatBrown
       - id: RMCCoatBureauTrenchCoatGrey
-    - name: Backpack
+    - name: Рюкзаки #CCM14
       choices: { CMBackpack: 1 }
       entries:
       - id: RMCSatchelBlack
-    - name: Accessories
+    - name: Аксессуары #CCM14
       choices: { CMAccessories: 1 }
       entries:
       - id: CMWebbingBrown
@@ -66,38 +66,38 @@
     # ////////////////////////////////////
     # JR PPO
     # ////////////////////////////////////
-      - name: Headgear
+      - name: Головные уборы #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         choices: { CMHelmet: 1 }
         entries:
         - id: RMCHeadCapExecutiveBodyguard
-      - name: Mask
+      - name: Маски #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         choices: { CMMask: 1 }
         entries:
         - id: CMMaskGas
         - id: RMCMaskRebreather
-      - name: Jackets
-        ranks:
-        - RMCRankWeYaBodyguardTPPO
-        choices: { CMArmor: 1 }
-        entries:
-        - id: RMCArmorM1ExecutiveBodyguard
-      - name: Backpack
+      # - name: Броня                 CCM14
+      #   ranks:
+      #   - RMCRankWeYaBodyguardTPPO
+      #   choices: { CMArmor: 1 }
+      #   entries:
+      #   - id: RMCArmorM1ExecutiveBodyguard
+      - name: Рюкзаки #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         choices: { CMBackpack: 1 }
         entries:
         - id: RMCSatchelBlack
-      - name: Gloves
+      - name: Перчатки #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         choices: { CMHands: 1 }
         entries:
         - id: RMCHandsVeteranExecutiveBodyguard
-      - name: Pouches
+      - name: Пожсумки #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         choices: { CMPouches: 2 }
@@ -110,20 +110,29 @@
           name: first-aid pouch (pills)
         - id: RMCPouchMagazine
         - id: RMCPouchGeneralMedium
-      - name: Sidearm
+      - name: Пистолеты #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         choices: { RMCBeltHolsterPistol: 1 }
         entries:
         - id: RMCBeltHolsterPistolWeYaPK7Fill
           name: PK-7 electrostatic pistol
-      - name: Ammunition
+        - id: RMCBeltHolsterPistolWeYaM77Fill #CCM14
+          name: M77 combat pistol #CCM14
+        - id: RMCBeltHolsterPistolWeYaMK80Fill #CCM14
+          points: 8 #CCM14
+          name: MK80 pistol #CCM14
+      - name: Аммуниция #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         entries:
         - id: RMCMagazinePistolPK7
           points: 4
-      - name: Attachments
+        - id: CMMagazinePistolMK80 #CCM14
+          points: 6 #CCM14
+        - id: CMMagazinePistolM77AP #CCM14
+          points: 4 #CCM14
+      - name: Приспособления #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
         choices: { RMCAttachableBase: 2 }
@@ -137,7 +146,7 @@
         - id: RMCAttachmentVerticalGrip
         - id: RMCAttachmentExtendedBarrel
         - id: RMCAttachmentSuppressor
-      - name: Spare Equipment
+      - name: Дополнительное оборудование
         ranks:
         - RMCRankWeYaBodyguardTPPO
         entries:
@@ -151,38 +160,45 @@
     # ////////////////////////////////////
     # PPO
     # ////////////////////////////////////
-      - name: Headgear
+      - name: Головные уборы #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { CMHelmet: 1 }
         entries:
         - id: RMCHeadCapExecutiveBodyguard
-      - name: Mask
+      - name: Плащи #CCM14
+        ranks:  #CCM14
+        - RMCRankWeYaBodyguardPPO #CCM14
+        - RMCRankWeYaBodyguardPPS #CCM14
+        - RMCRankWeYaBodyguardPPC #CCM14
+        entries: #CCM14
+        - id: CCMVIBodyguardCloak #CCM14
+      - name: Маски #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { CMMask: 1 }
         entries:
         - id: CMMaskGas
         - id: RMCMaskRebreather
-      - name: Jackets
+      - name: Броня #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { CMArmor: 1 }
         entries:
         - id: RMCArmorM1ExecutiveBodyguard
-      - name: Backpack
+      - name: Рюкзаки #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { CMBackpack: 1 }
         entries:
         - id: RMCSatchelBlack
-      - name: Gloves
+      - name: Перчатки #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { CMHands: 1 }
         entries:
         - id: RMCHandsVeteranExecutiveBodyguard
-      - name: Pouches
+      - name: Подсумки #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { CMPouches: 2 }
@@ -194,8 +210,19 @@
         - id: RMCPouchFirstAidPills
           name: first-aid pouch (pills)
         - id: RMCPouchMagazine
-        - id: RMCPouchGeneralMedium
-      - name: Sidearm
+      - name: Основное оружие #CCM14
+        ranks: #CCM14
+        - RMCRankWeYaBodyguardPPO #CCM14
+        choices: { CMVendorBundleRiflemanApparel: 1 } #CCM14
+        entries: #CCM14
+        - id: CCMWeaponSMGMk68 #CCM14
+      - name: Аммуниция основного оружия #CCM14
+        ranks: #CCM14
+        - RMCRankWeYaBodyguardPPO #CCM14
+        entries: #CCM14
+        - id: CCMMagazineSMGMk68 #CCM14
+          points: 6 #CCM14
+      - name: Пистолеты #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { RMCBeltHolsterPistol: 1 }
@@ -207,7 +234,7 @@
         - id: RMCBeltHolsterPistolWeYaMK80Fill
           points: 8
           name: MK80 pistol
-      - name: Ammunition
+      - name: Аммуниция дополнительного оружия #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         entries:
@@ -217,7 +244,7 @@
           points: 6
         - id: CMMagazinePistolM77AP
           points: 4
-      - name: Attachments
+      - name: Приспособления #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         choices: { RMCAttachableBase: 2 }
@@ -231,7 +258,7 @@
         - id: RMCAttachmentVerticalGrip
         - id: RMCAttachmentExtendedBarrel
         - id: RMCAttachmentSuppressor
-      - name: Spare Equipment
+      - name: Дополнительное обмундирование #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
         entries:
@@ -245,7 +272,7 @@
     # ////////////////////////////////////
     # PPS / PPC
     # ////////////////////////////////////
-      - name: Headgear
+      - name: Головные уборы #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
@@ -253,7 +280,7 @@
         entries:
         - id: RMCHeadCapExecutiveBodyguard
         - id: RMCArmorHelmetExecutiveBodyguard
-      - name: Mask
+      - name: Маски #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
@@ -261,7 +288,7 @@
         entries:
         - id: CMMaskGas
         - id: RMCMaskRebreather
-      - name: Jackets
+      - name: Куртки #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
@@ -269,21 +296,21 @@
         entries:
         - id: RMCArmorM1ExecutiveBodyguard
         - id: RMCArmorM4ExecutiveBodyguard
-      - name: Backpack
+      - name: Рюкзаки #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
         choices: { CMBackpack: 1 }
         entries:
         - id: RMCSatchelBlack
-      - name: Gloves
+      - name: Перчатки #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
         choices: { CMHands: 1 }
         entries:
         - id: RMCHandsVeteranExecutiveBodyguard
-      - name: Pouches
+      - name: Подсумки #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
@@ -297,17 +324,24 @@
           name: first-aid pouch (pills)
         - id: RMCPouchMagazine
         - id: RMCPouchGeneralMedium
-      - name: Primary
+      - name: Спецснаряжение #CCM14
+        choices:  { CMWeapon: 1 }
+        ranks:  #CCM14
+        - RMCRankWeYaBodyguardPPC #CCM14
+        entries: #CCM14
+        - id: CCMMeleeVIEsword #CCM14
+      - name: Основное оружие #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
         choices: { CMVendorBundleRiflemanApparel: 1 }
         entries:
         # RMC14 TODO: Shock Shotgun 15p
+        - id: CCMWeaponSMGMk68 # CCM14
         - id: RMCVendorBundleM54CWhiteNoLock
         - id: RMCVendorBundleSMGM63WhiteNoLock
         - id: RMCVendorBundleSMGSSG45NoLockStripped
-      - name: Sidearm
+      - name: Пистолеты #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
@@ -320,12 +354,14 @@
         - id: RMCBeltHolsterPistolWeYaMK80Fill
           points: 8
           name: MK80 pistol
-      - name: Primary Ammunition
+      - name: Аммуниция основного оружия #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
         entries:
         #RMC14 TODO: Shock Shotgun lethal 15p & Stun shells 10p
+        - id: CCMMagazineSMGMk68 #CCM14
+          points: 4 # CCM14
         - id: CMMagazineSMGM63
           points: 6
         - id: CMMagazineSMGM63Ext
@@ -344,7 +380,7 @@
           points: 8
         - id: RMCMagazineRifleSSG45AP
           points: 10
-      - name: Sidearm Ammunition
+      - name: Аммуниция дополнительного оружия #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
@@ -355,7 +391,7 @@
           points: 6
         - id: CMMagazinePistolM77AP
           points: 4
-      - name: Attachments
+      - name: Приспособления #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
@@ -370,7 +406,7 @@
         - id: RMCAttachmentVerticalGrip
         - id: RMCAttachmentExtendedBarrel
         - id: RMCAttachmentSuppressor
-      - name: Spare Equipment
+      - name: Дополнительное обмундирование #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
         - RMCRankWeYaBodyguardPPC
