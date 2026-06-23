@@ -76,7 +76,7 @@
     proto: CCMCartridge10mmSMG
     capacity: 25
   - type: Sprite
-    sprite: _CCM14/Objects/Weapons/Guns/Ammunition/Magazines/mk68_mag.rsi
+    sprite: _CCM14/Objects/Weapons/Ammunition/Magazines/mk68_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
