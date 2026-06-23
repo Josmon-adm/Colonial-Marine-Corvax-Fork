@@ -9,6 +9,6 @@
   - CMChiefMP
   - CMMilitaryWarden
   - CMMilitaryPolice
-  - CMProvostInspector #CCM14
+  - CMProvostAdvisor #CCM14
   departmentRadio: MarineMilitaryPolice
   headOfDepartment: CMChiefMP

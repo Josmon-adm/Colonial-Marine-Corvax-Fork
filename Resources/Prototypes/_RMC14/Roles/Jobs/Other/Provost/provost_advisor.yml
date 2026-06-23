@@ -18,6 +18,7 @@
   startingGear: RMCGearProvostAdvisor
   icon: RMCJobIconProvostAdvisor
   joinNotifyCrew: false
+  supervisors: ccm-job-supervisors-provost  # CCM14
   accessGroups:
   - ShipMasterAccess
   special:
