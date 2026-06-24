@@ -12,5 +12,5 @@
     uses: 4
     maxSuppressed: Simple
   - type: Sprite
-    sprite: _RMC14/Objects/Medical/Surgery/bone_gel.rsi
-    state: bone-gel
+    sprite: _CCM14/Objects/Medical/Surgery/medical_cast.rsi # Forge-Change : resprite
+    state: medical-cast # Forge-Change : resprite

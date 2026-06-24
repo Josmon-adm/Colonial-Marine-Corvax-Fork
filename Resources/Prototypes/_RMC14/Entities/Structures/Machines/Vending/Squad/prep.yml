@@ -579,7 +579,7 @@
       - id: RMCGunCasePistolM44Custom
       - id: RMCGunCasePistolHG45Aguila
       - id: RMCGunCasePistolHG45Marina
-      - id: RMCD18Case
+      # - id: RMCD18Case # Forge-Change : CLF Pistol
       - id: RMCSawtoothDaggerB
         name: кинжал Фиорина (Тип Б) #Knife Fiorina B
       - id: RMCSawtoothDaggerA
