@@ -24,7 +24,7 @@ cm-distress-signal-medals = Вручённые медали:
 cm-distress-signal-jellies = Вручённое королевское желе:
 rmc-distress-signal-got-medal = { $receiver } награждается медалью «{ $award }»: «{ $awardDescription }»
 rmc-distress-signal-got-jelly = { $receiver } получает { $award }: «{ $awardDescription }» от { $giver }
-rmc-distress-signal-ares-online = АРЕС. Система активна. Доброе утро, морпехи.
+rmc-distress-signal-ares-online = ARES. Система активна. Доброе утро, морпехи.
 rmc-distress-signal-bioscan-complete = Биосканирование завершено. Неизвестных форм жизни не обнаружено.
 rmc-distress-signal-saving-report = Сохранение оперативного отчета в архив Верховного Командования.
 rmc-distress-signal-final-scan = Начало финального сканирования систем через 3 минуты.
@@ -33,7 +33,7 @@ rmc-distress-signal-operation-name = Операция { $name }
 rmc-distress-signal-preflight-complete = Десантные корабли заправлены и готовы к вылету.
 
 rmc-distress-signal-scuttle-unlocked = Теперь активна авторизация на аварийное отключение ARES. Протоколы защиты антиматериальных реакторов от перегрузки сняты. Квалифицированный инженерный персонал может настраивать работающие реакторы на топливе с помощью мультитула.
-rmc-distress-signal-scuttle-first-overload = Обнаружена аварийная перегрузка реактора. АРЕС начал отслеживать нестабильность ядра корабля.
+rmc-distress-signal-scuttle-first-overload = Обнаружена аварийная перегрузка реактора. ARES начал отслеживать нестабильность ядра корабля.
 rmc-distress-signal-scuttle-stage-one = Внимание. Тепловая мощность ядра превышает допустимые эксплуатационные пределы. Перегрузка реактора остается активной.
 rmc-distress-signal-scuttle-halfway = Внимание. Последовательность аварийного затопления достигла запланированной половины. Если затопление больше не требуется, рекомендуется немедленно остановить реактор.
 rmc-distress-signal-scuttle-stage-two = Критическое предупреждение. Обнаружен перегрев ядра. Ожидайте неминуемый структурный урон и образование локализованных пожаров рядом перегруженных реакторов.

@@ -103,11 +103,11 @@
         choices: { CMPouches: 2 }
         entries:
         - id: RMCPouchFirstAidInjectors
-          name: first-aid pouch (refillable injectors)
+          name: подсумок первой помощи (многоразовые инъекторы) # CCM14
         - id: RMCPouchFirstAidSplintsGauzeOintment
-          name: first-aid pouch (gauze, ointment)
+          name: подсумок первой помощи (марля, мазь) # CCM14
         - id: RMCPouchFirstAidPills
-          name: first-aid pouch (pills)
+          name: подсумок первой помощи (таблетки) # CCM14
         - id: RMCPouchMagazine
         - id: RMCPouchGeneralMedium
       - name: Пистолеты #CCM14
@@ -116,12 +116,12 @@
         choices: { RMCBeltHolsterPistol: 1 }
         entries:
         - id: RMCBeltHolsterPistolWeYaPK7Fill
-          name: PK-7 electrostatic pistol
+          name: электростатический пистолет PK-7 # CCM14
         - id: RMCBeltHolsterPistolWeYaM77Fill #CCM14
-          name: M77 combat pistol #CCM14
+          name: боевой пистолет M77 #CCM14
         - id: RMCBeltHolsterPistolWeYaMK80Fill #CCM14
           points: 8 #CCM14
-          name: MK80 pistol #CCM14
+          name: пистолет MK80 #CCM14
       - name: Аммуниция #CCM14
         ranks:
         - RMCRankWeYaBodyguardTPPO
@@ -204,11 +204,11 @@
         choices: { CMPouches: 2 }
         entries:
         - id: RMCPouchFirstAidInjectors
-          name: first-aid pouch (refillable injectors)
+          name: подсумок первой помощи (многоразовые инъекторы) # CCM14
         - id: RMCPouchFirstAidSplintsGauzeOintment
-          name: first-aid pouch (gauze, ointment)
+          name: подсумок первой помощи (марля, мазь) # CCM14
         - id: RMCPouchFirstAidPills
-          name: first-aid pouch (pills)
+          name: подсумок первой помощи (таблетки) # CCM14
         - id: RMCPouchMagazine
       - name: Основное оружие #CCM14
         ranks: #CCM14
@@ -228,12 +228,12 @@
         choices: { RMCBeltHolsterPistol: 1 }
         entries:
         - id: RMCBeltHolsterPistolWeYaPK7Fill
-          name: PK-7 electrostatic pistol
+          name: электростатический пистолет PK-7 # CCM14
         - id: RMCBeltHolsterPistolWeYaM77Fill
-          name: M77 combat pistol
+          name: боевой пистолет M77 # CCM14
         - id: RMCBeltHolsterPistolWeYaMK80Fill
           points: 8
-          name: MK80 pistol
+          name: пистолет MK80 # CCM14
       - name: Аммуниция дополнительного оружия #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPO
@@ -317,11 +317,11 @@
         choices: { CMPouches: 2 }
         entries:
         - id: RMCPouchFirstAidInjectors
-          name: first-aid pouch (refillable injectors)
+          name: подсумок первой помощи (многоразовые инъекторы) # CCM14
         - id: RMCPouchFirstAidSplintsGauzeOintment
-          name: first-aid pouch (gauze, ointment)
+          name: подсумок первой помощи (марля, мазь) # CCM14
         - id: RMCPouchFirstAidPills
-          name: first-aid pouch (pills)
+          name: подсумок первой помощи (таблетки) # CCM14
         - id: RMCPouchMagazine
         - id: RMCPouchGeneralMedium
       - name: Спецснаряжение #CCM14
@@ -348,12 +348,12 @@
         choices: { RMCBeltHolsterPistol: 1 }
         entries:
         - id: RMCBeltHolsterPistolWeYaPK7Fill
-          name: PK-7 electrostatic pistol
+          name: электростатический пистолет PK-7 # CCM14
         - id: RMCBeltHolsterPistolWeYaM77Fill
-          name: M77 combat pistol
+          name: боевой пистолет M77 # CCM14
         - id: RMCBeltHolsterPistolWeYaMK80Fill
           points: 8
-          name: MK80 pistol
+          name: пистолет MK80 # CCM14
       - name: Аммуниция основного оружия #CCM14
         ranks:
         - RMCRankWeYaBodyguardPPS
