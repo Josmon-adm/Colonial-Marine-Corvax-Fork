@@ -215,6 +215,10 @@
   id: RMCJumpsuitLiaisonBlackExecutiveBodyguard
   suffix: Executive Bodyguard
   components:
+  - type: Sprite # CCM14
+    sprite: _CCM14/Objects/Clothing/Uniforms/vi_bodyguard_uni.rsi # CCM14
+  - type: Clothing # CCM14
+    sprite: _CCM14/Objects/Clothing/Uniforms/vi_bodyguard_uni.rsi # CCM14
   - type: UniformAccessoryHolder
     startingAccessories:
     - RMCPatchWeYaBlack

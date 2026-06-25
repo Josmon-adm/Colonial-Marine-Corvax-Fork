@@ -2,7 +2,8 @@
   parent: CMJobBase
   id: CMProvostAdvisor
   name: rmc-job-name-corp-provost-advisor
-  description: rmc-ghost-role-information-provost-description
+  description: rmc-ghost-role-information-provost-advisor-description # CCM14
+  whitelisted: true #CCM14
   playTimeTracker: CMJobProvostAdvisor
   ranks:
     RMCRankProvostAdvisor2:
@@ -17,6 +18,7 @@
   startingGear: RMCGearProvostAdvisor
   icon: RMCJobIconProvostAdvisor
   joinNotifyCrew: false
+  supervisors: ccm-job-supervisors-provost  # CCM14
   accessGroups:
   - ShipMasterAccess
   special:
@@ -30,11 +32,18 @@
         RMCSkillFireman: 2
         RMCSkillMeleeWeapons: 1
         RMCSkillPolice: 2
+        RMCSkillLeadership: 2 # CCM14
+        RMCSkillMedical: 1 # CCM14
+        RMCSkillOverwatch: 1 # CCM14
     - type: SquadArmorWearer
     - type: JobPrefix
       prefix: rmc-job-prefix-provost-advisor
     - type: RMCTrackable
-  hidden: true
+    - type: SeeNewPlayers #CCM14
+    - type: MarineOrders #CCM14
+    - type: CommandAccent #CCM14
+    - type: RMCPointing #CCM14
+  hidden: false #CCM14
 
 - type: entity
   id: RMCRandomHumanoidProvostAdvisor
@@ -76,7 +85,17 @@
     back: CMSatchelSecurityFilledProvost
     pocket1: RMCUniversalRecorder
     pocket2: RMCPouchGeneralLarge # TODO RMC14 3 listening devices
-
+# ///CCM14
+- type: entity
+  parent: CMSpawnPointJobBase
+  id: CCMSpawnPointProvostAdvisor
+  name: Bailiffs Advisor spawn point
+  components:
+  - type: SpawnPoint
+    job_id: CMProvostAdvisor
+  - type: Sprite
+    state: x # todo rmc14 need a spawn location sprite
+# //////
 - type: playTimeTracker
   id: CMJobProvostAdvisor
 

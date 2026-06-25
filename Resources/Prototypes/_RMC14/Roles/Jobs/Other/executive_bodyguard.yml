@@ -72,8 +72,9 @@
   equipment:
     id: RMCIDCardExecutiveBodyguard
     ears: RMCHeadsetExecutiveBodyguard
+    head: CCMHeadVIBodyguardBeret # CCM14
     jumpsuit: RMCJumpsuitLiaisonBlackExecutiveBodyguard
-    outerClothing: RMCJacketCorporateBlack
+    outerClothing: CCMArmorVIBodyguardCarapace # CCM14
     eyes: RMCGlassesSecurityBlue
     shoes: RMCBootsPMCFilled
     pocket1: RMCPouchFirstAidWEYA
