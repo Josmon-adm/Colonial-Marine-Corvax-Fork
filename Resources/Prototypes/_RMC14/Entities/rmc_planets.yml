@@ -88,7 +88,7 @@
       Биосканирование Выдаёт ошибку.
 
       Авторизовано: капитан Леон Гранц."
-    minPlayers: 25 # CCM14-mappool
+    minPlayers: 15 # CCM14-mappool
     specialFaxes:
       Liaison: RMCPaperWeYaLiaisonBriefingSolaris
     #smallHostVariants:
@@ -241,7 +241,7 @@
   - type: RMCPlanetMapPrototype
     map: /Maps/_RMC14/prison.yml
     camouflage: Classic
-    minPlayers: 45 # CCM14-mappool
+    minPlayers: 25 # CCM14-mappool
     announcement: "Пехота! Был получен автоматический сигнал бедствия из приграничной тюрьмы строгого режима. Должен сказать, что я крайне удивлён, что такие заведения вообще работают чуть ли не в упор к фронту, но, видимо, они уже за это поплатились.
       Для общего понимания,
       Обозначение - орбитальная тюрьма общего режима.
@@ -308,7 +308,7 @@
       Биосканирование Выдаёт ошибку.
 
       Авторизовано: капитан Леон Гранц."
-    minPlayers: 45 # CCM14-mappool
+    minPlayers: 25 # CCM14-mappool
     #smallHostVariants:
       #RMCMobSmallHostStok
     nightmareScenarios:
@@ -414,7 +414,7 @@
       Биосканирование Выдаёт ошибку.
 
       Авторизовано: капитан Леон Гранц."
-    minPlayers: 30 # CCM14-mappool
+    minPlayers: 15 # CCM14-mappool
     specialFaxes:
       Liaison: RMCPaperWeYaLiaisonBriefingVaradero
     #smallHostVariants:
@@ -466,7 +466,7 @@
       Биосканирование Выдаёт ошибку.
 
       Авторизовано: капитан Леон Гранц."
-    minPlayers: 25 # CCM14-mappool
+    minPlayers: 15 # CCM14-mappool
     #smallHostVariants:
       #RMCMobSmallHostNeaera
       #RMCMobSmallHostStok
@@ -559,7 +559,7 @@
       scenarioProbability: 0.3
     - scenarioName: none
       scenarioProbability: 0.7
-    minPlayers: 55 # CCM14-mappool
+    minPlayers: 30 # CCM14-mappool
     survivorJobVariants:
       CMSurvivor:
       - RMCSurvivorHybrisaCivilian: -1
@@ -622,7 +622,7 @@
   - type: RMCPlanetMapPrototype
     map: /Maps/_RMC14/sorokyne.yml
     camouflage: Jungle
-    minPlayers: 55 # CCM14-mappool
+    minPlayers: 30 # CCM14-mappool
     announcement: "Пехота! Был получен сигнал бедствия с шахтёрской колонии СССП, так ещё гнездится Халькон Динамикс. Вы знаете, они занятые ребята, поэтому попросили помощи у нас — мы ближе всего. Как закончите, прошу прихватить для меня какой-нибудь СССПшный сувенирчик.
           Для общего понимания,
       Обозначение колонии - аванпост добычи.

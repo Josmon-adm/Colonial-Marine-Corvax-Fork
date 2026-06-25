@@ -536,7 +536,7 @@
   minLimit: 0
   maxLimit: 7
   loadouts:
-  - HoldoutPistolRMC
+  # - HoldoutPistolRMC # Forge-Change : CLF Pistol
   - CustomM1984RMC
   - CustomM44RMC
   - HG45AguilaCaseRMC

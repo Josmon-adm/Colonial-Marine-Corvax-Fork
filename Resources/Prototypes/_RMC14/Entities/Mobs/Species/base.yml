@@ -182,6 +182,10 @@
         type: DialogBui
       enum.ViewIntelObjectivesUI.Key:
         type: ViewIntelObjectivesBui
+      enum.BodyPartPickerUIKey.Key:
+        type: BodyPartPickerBui
+      enum.CMUSurgeryUIKey.Key:
+        type: CMUSurgeryBui
   - type: Infectable
   - type: Tackleable
   - type: XenoNestable
