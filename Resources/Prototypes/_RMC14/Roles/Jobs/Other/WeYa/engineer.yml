@@ -88,7 +88,7 @@
   id: RMCJobPMCEngineer
   equipment:
     id: RMCIDCardPMC
-    head: ArmorHelmetPMCEngineer
+    head: CCMArmorHelmetPMCEngineer # CCM14
     mask: RMCMaskCoifPMC
     ears: RMCHeadsetDistressPMC
     jumpsuit: RMCJumpsuitVeteranPMCEngineer

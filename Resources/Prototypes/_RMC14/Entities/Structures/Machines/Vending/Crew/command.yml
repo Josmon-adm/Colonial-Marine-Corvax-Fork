@@ -256,6 +256,8 @@
     - name: Основное вооружение капитана # CCM14
       takeOne: CMPrimary
       entries:
+      - id: RMCM59ACaseAP # CCM14
+        name: кейс прототипа винтовки M59A # CCM14
       - id: RMCM54CMK1CaseAP
         name: кейс штурмовой винтовки M54C MK1 # CCM14
       - id: RMCVendorBundleXOShotgun
@@ -580,8 +582,8 @@
     - name: Основное вооружение командира # CCM14
       takeOne: CMProtagGun
       entries:
-      - id: RMCM59ACaseAP
-        name: кейс прототипа винтовки M59A # CCM14
+      # - id: RMCM59ACaseAP
+      #   name: кейс прототипа винтовки M59A # CCM14 не гоже штабному олуху с таким арсеналом ходить
       - id: CMCOSmartGunOperatorEquipmentCaseBelt
         name: смартган командира # CCM14
         recommended: true # TODO RMC14 Make choices: colour the options brown
