@@ -96,7 +96,7 @@
   suffix: Leader
   components:
   - type: Sprite
-    sprite: _CCM1414/Objects/Clothing/OuterClothing/Armor/Vitez/corporate_lead.rsi # CCM14
+    sprite: _CCM14/Objects/Clothing/OuterClothing/Armor/Vitez/corporate_lead.rsi # CCM14
 
 - type: entity
   parent: CMArmorM4PMC
