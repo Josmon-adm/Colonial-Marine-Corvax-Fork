@@ -9,10 +9,10 @@
     David:
       stationProto: StandardUNMCWarship
       components:
-      - type: StationNameSetup
-        mapNameTemplate: 'UEG СКК Давид'
-      - type: StationJobs
-        availableJobs:
+        - type: StationNameSetup
+          mapNameTemplate: 'UEG СКК Давид'
+        - type: StationJobs
+          availableJobs:
             # Command
             CMCommandingOfficer: [1, 1]
             CMExecutiveOfficer: [1, 1]
