@@ -90,7 +90,7 @@
     id: RMCIDCardPMC
     ears: RMCHeadsetDistressPMC
     jumpsuit: RMCJumpsuitVeteranPMCGunner
-    outerClothing: CMArmorM4PMCSmartGunHarness
+    outerClothing: CCMArmorM4PMCSmartGunHarness # CCM 14
     gloves: RMCHandsVeteran
     head: ArmorHelmetPMCGunner
     shoes: RMCBootsPMCFilled

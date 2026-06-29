@@ -91,9 +91,9 @@
     id: RMCIDCardPMC
     ears: RMCHeadsetDistressPMC
     jumpsuit: RMCJumpsuitVeteranPMC
-    outerClothing: RMCArmorM4PMCBulletProof
+    outerClothing: CMArmorM4PMCLight # CCM14
     gloves: RMCHandsVeteranPMC
-    head: RMCArmorHelmetPMCTactical
+    head: CCMArmorHelmetPMCSniper # CCM14
     mask: RMCMaskCoifPMC
     shoes: RMCBootsPMCFilled
     eyes: CMGlassesM96CSight

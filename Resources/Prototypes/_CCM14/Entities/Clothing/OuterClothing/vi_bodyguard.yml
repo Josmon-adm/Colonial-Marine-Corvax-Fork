@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCBaseMarineArmorLight
+  parent: RMCArmorM4PMCNoLight
   id: CCMArmorVIBodyguardCarapace
   name: M47 light carapace
   description: Standart protection gear of Vitezstvi's personal protection officers. Provides protection and doesn't interfere with movement.
