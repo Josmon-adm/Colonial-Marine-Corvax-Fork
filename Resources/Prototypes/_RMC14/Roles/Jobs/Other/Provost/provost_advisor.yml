@@ -21,6 +21,7 @@
   supervisors: ccm-job-supervisors-provost  # CCM14
   accessGroups:
   - ShipMasterAccess
+  - CCMBaillif # CCM14
   special:
   - !type:AddComponentSpecial
     components:

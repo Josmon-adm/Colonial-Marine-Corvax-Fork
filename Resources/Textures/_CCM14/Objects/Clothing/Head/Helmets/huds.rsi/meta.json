@@ -8,7 +8,16 @@
   },
   "states": [
     {
-      "name": "pmc_engi_weld"
+      "name": "pmc_engi_weld",
+      "directions": 4
+    },
+    {
+      "name": "serene_engi_weld",
+      "directions": 4
+    },
+    {
+      "name": "serene_heavy_nvg_unshaded",
+      "directions": 4
     }
   ]
 }
