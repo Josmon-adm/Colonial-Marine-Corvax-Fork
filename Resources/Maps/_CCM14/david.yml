@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 07/05/2026 19:01:50
-  entityCount: 12813
+  time: 07/07/2026 17:47:08
+  entityCount: 12816
 maps:
 - 1
 grids:
@@ -16936,6 +16936,15 @@ entities:
     - type: InsideEntityStorage
     missingComponents:
     - ToggleableClothing
+- proto: CMAdvFirstAidKitFilled
+  entities:
+  - uid: 11623
+    components:
+    - type: Transform
+      parent: 2065
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: CMAirlock
   entities:
   - uid: 416
@@ -16963,6 +16972,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,101.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
 - proto: CMAirlockASOLocked
   entities:
   - uid: 5078
@@ -16984,21 +16996,33 @@ entities:
     - type: Transform
       pos: -35.5,-1.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 423
     components:
     - type: Transform
       pos: -37.5,-1.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 424
     components:
     - type: Transform
       pos: 25.5,103.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 425
     components:
     - type: Transform
       pos: 23.5,103.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 428
     components:
     - type: Transform
@@ -17055,6 +17079,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 26.5,101.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
 - proto: CMAirlockCOLocked
   entities:
   - uid: 432
@@ -17080,12 +17107,18 @@ entities:
     - type: Transform
       pos: 51.5,115.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 9519
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 48.5,118.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
 - proto: CMAirlockCommand
   entities:
   - uid: 437
@@ -17316,23 +17349,35 @@ entities:
     - type: Transform
       pos: 14.5,107.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 696
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 19.5,110.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 774
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 22.5,113.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 5120
     components:
     - type: Transform
       pos: 22.5,117.5
       parent: 1
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
 - proto: CMAirlockMaint
   entities:
   - uid: 466
@@ -17463,6 +17508,9 @@ entities:
       parent: 1
     - type: Godmode
       oldDamage: {}
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
 - proto: CMAirlockMaintEngineerLocked
   entities:
   - uid: 481
@@ -17492,6 +17540,11 @@ entities:
     - type: Transform
       pos: 15.5,113.5
       parent: 1
+    - type: Godmode
+      oldDamage: {}
+    missingComponents:
+    - Damageable
+    - DamageMultiplierFlags
   - uid: 504
     components:
     - type: Transform
@@ -18030,6 +18083,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 45.5,116.5
+      parent: 1
+    - type: SpriteSetRenderOrder
+      offset: -0.7,-0.4
+  - uid: 12814
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,114.5
       parent: 1
     - type: SpriteSetRenderOrder
       offset: -0.7,-0.4
@@ -22204,6 +22265,28 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -37.724335,-12.20804
       parent: 1
+- proto: CMClosetBase
+  entities:
+  - uid: 2065
+    components:
+    - type: Transform
+      pos: 19.5,120.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 11623
+          - 11628
+          - 11626
+          - 11624
+          - 11627
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: CMClosetBaseUnanchored
   entities:
   - uid: 3935
@@ -23118,7 +23201,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 618.0327152
     - type: Door
-      secondsUntilStateChange: -100460.79
+      secondsUntilStateChange: -102056.15
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23132,7 +23215,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 618.0327152
     - type: Door
-      secondsUntilStateChange: -100460.79
+      secondsUntilStateChange: -102056.15
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23758,13 +23841,6 @@ entities:
     - type: Transform
       pos: 13.51111,-15.518121
       parent: 1
-  - uid: 11625
-    components:
-    - type: Transform
-      parent: 11623
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11669
     components:
     - type: Transform
@@ -23787,7 +23863,7 @@ entities:
   - uid: 11626
     components:
     - type: Transform
-      parent: 11623
+      parent: 2065
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -57606,6 +57682,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: HydroponicsToolMiniHoe
+  entities:
+  - uid: 12816
+    components:
+    - type: Transform
+      pos: 17.406475,111.50755
+      parent: 1
 - proto: HydroponicsToolScythe
   entities:
   - uid: 7926
@@ -57634,11 +57717,15 @@ entities:
     - type: Transform
       pos: -13.5,91.5
       parent: 1
+    - type: ApcPowerReceiver
+      needsPower: False
   - uid: 11218
     components:
     - type: Transform
       pos: 45.5,118.5
       parent: 1
+    - type: ApcPowerReceiver
+      needsPower: False
   - uid: 12097
     components:
     - type: Transform
@@ -69749,7 +69836,7 @@ entities:
   - uid: 11627
     components:
     - type: Transform
-      parent: 11623
+      parent: 2065
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -80352,6 +80439,9 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+    missingComponents:
+    - Damageable
+    - DamageOnHighSpeedImpact
   - uid: 11459
     components:
     - type: Transform
@@ -80385,26 +80475,6 @@ entities:
           - 11544
           - 11554
           - 11576
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 11623
-    components:
-    - type: Transform
-      pos: 19.5,120.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 11628
-          - 11627
-          - 11624
-          - 11625
-          - 11626
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -80552,6 +80622,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: RMCMagazineSentry
+  entities:
+  - uid: 11790
+    components:
+    - type: Transform
+      pos: 16.625738,118.40463
+      parent: 1
 - proto: RMCMannequin
   entities:
   - uid: 3528
@@ -82169,7 +82246,7 @@ entities:
   - uid: 11628
     components:
     - type: Transform
-      parent: 11623
+      parent: 2065
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -84972,18 +85049,6 @@ entities:
       inSlot: outerClothing
     - type: Physics
       canCollide: False
-- proto: RMCPVECaseSentryPMC
-  entities:
-  - uid: 11790
-    components:
-    - type: Transform
-      pos: 16.50997,118.80018
-      parent: 1
-  - uid: 11793
-    components:
-    - type: Transform
-      pos: 16.503025,118.44601
-      parent: 1
 - proto: RMCRackSoro
   entities:
   - uid: 69
@@ -85006,7 +85071,7 @@ entities:
   - uid: 11624
     components:
     - type: Transform
-      parent: 11623
+      parent: 2065
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -86005,6 +86070,14 @@ entities:
     - type: Transform
       pos: 15.537399,118.473305
       parent: 1
+- proto: RMCSentryOmni
+  entities:
+  - uid: 11625
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.4102,118.60602
+      parent: 1
 - proto: RMCSheetCardboard30
   entities:
   - uid: 1119
@@ -86941,10 +87014,11 @@ entities:
       parent: 1
 - proto: RMCSpawnerEvacuationPodSouth
   entities:
-  - uid: 2065
+  - uid: 11793
     components:
     - type: Transform
-      pos: -22.5,25.5
+      rot: 3.141592653589793 rad
+      pos: -22.5,22.5
       parent: 1
 - proto: RMCSpawnerLifeboat
   entities:
@@ -89067,6 +89141,17 @@ entities:
     - type: Transform
       pos: -36.511562,10.4375515
       parent: 1
+- proto: RMCTeslaOverclocked
+  entities:
+  - uid: 12815
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.291012,118.49516
+      parent: 1
+    - type: SentryTargeting
+      friendlyFactions:
+      - UNMC
 - proto: RMCThreeSunEmpireCup
   entities:
   - uid: 11724
@@ -90142,7 +90227,7 @@ entities:
       - 3931
     - type: Gun
       cameraRecoilScalar: 4
-      lastFire: 3080.9202401
+      lastFire: 3080.92024
       currentAngle: 1.5533430342749532 rad
       angleIncrease: 0 rad
       angleDecay: 0 rad
@@ -90209,7 +90294,7 @@ entities:
           startTime: 3191.6
           length: 1.2
         CMShootUseDelay:
-          endTime: 3085.4002401
+          endTime: 3085.40024
           startTime: 3080.32
           length: 0.6002401
     - type: MeleeWeapon
