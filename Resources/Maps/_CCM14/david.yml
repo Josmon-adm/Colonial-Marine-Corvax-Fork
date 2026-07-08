@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 07/07/2026 17:47:08
-  entityCount: 12816
+  time: 07/07/2026 21:14:03
+  entityCount: 12787
 maps:
 - 1
 grids:
@@ -16233,6 +16233,15 @@ entities:
       parent: 1
 - proto: ArmorHelmetRiot
   entities:
+  - uid: 3911
+    components:
+    - type: Transform
+      parent: 2819
+    - type: Physics
+      canCollide: False
+    - type: HideLayerClothing
+      slots: null
+    - type: InsideEntityStorage
   - uid: 12037
     components:
     - type: Transform
@@ -23201,7 +23210,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 618.0327152
     - type: Door
-      secondsUntilStateChange: -102056.15
+      secondsUntilStateChange: -104893.36
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23215,7 +23224,7 @@ entities:
     - type: CMDoubleDoor
       lastOpeningAt: 618.0327152
     - type: Door
-      secondsUntilStateChange: -102056.15
+      secondsUntilStateChange: -104893.36
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24206,18 +24215,6 @@ entities:
       parent: 1
 - proto: CMHeadCapWarden
   entities:
-  - uid: 9512
-    components:
-    - type: MetaData
-      desc: Ох....бля!
-      name: фуражка советника
-    - type: Transform
-      parent: 8086
-    - type: Clothing
-      inSlotFlag: HEAD
-      inSlot: head
-    - type: Physics
-      canCollide: False
   - uid: 11768
     components:
     - type: Transform
@@ -25194,6 +25191,45 @@ entities:
     - type: Transform
       pos: -4.5,118.5
       parent: 1
+  - uid: 2819
+    components:
+    - type: MetaData
+      name: шкафчик советника военного приставолитета
+    - type: Transform
+      pos: 46.5,120.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 3931
+          - 3509
+          - 3910
+          - 3911
+          - 3919
+          - 10542
+          - 10541
+          - 10538
+          - 10536
+          - 9783
+          - 10614
+          - 10610
+          - 10655
+          - 10651
+          - 9523
+          - 3920
+          - 3929
+          - 3930
+          - 3932
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+    missingComponents:
+    - Damageable
+    - DamageOnHighSpeedImpact
 - proto: CMLockerCommanderSecure
   entities:
   - uid: 2095
@@ -25673,11 +25709,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 5215
-    components:
-    - type: Transform
-      pos: 15.250909,118.47318
-      parent: 1
   - uid: 11489
     components:
     - type: Transform
@@ -57682,13 +57713,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: HydroponicsToolMiniHoe
-  entities:
-  - uid: 12816
-    components:
-    - type: Transform
-      pos: 17.406475,111.50755
-      parent: 1
 - proto: HydroponicsToolScythe
   entities:
   - uid: 7926
@@ -59375,6 +59399,20 @@ entities:
     - type: Transform
       pos: -0.5,83.5
       parent: 1
+- proto: RMCArmorCapProvost
+  entities:
+  - uid: 3933
+    components:
+    - type: MetaData
+      desc: Бронефуражка настоящего арбитра! Несите правосудия во все уголки галактики!
+      name: бронефуражка военного пристава
+    - type: Transform
+      parent: 8086
+    - type: Clothing
+      inSlotFlag: HEAD
+      inSlot: head
+    - type: Physics
+      canCollide: False
 - proto: RMCArmorHelmetM12Intel
   entities:
   - uid: 8033
@@ -59422,7 +59460,7 @@ entities:
   - uid: 10614
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: HandheldLight
       toggleActionEntity: 10617
     - type: ContainerContainer
@@ -59465,7 +59503,7 @@ entities:
   - uid: 10538
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -59526,69 +59564,6 @@ entities:
     - type: Transform
       pos: -30.5,-15.5
       parent: 1
-- proto: RMCAttachmentExtendedBarrel
-  entities:
-  - uid: 3929
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-- proto: RMCAttachmentLaserSight
-  entities:
-  - uid: 3919
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-- proto: RMCAttachmentMK221Stock
-  entities:
-  - uid: 3509
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-- proto: RMCAttachmentS6ReflexSight
-  entities:
-  - uid: 3933
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 - proto: RMCAutodoc
   entities:
   - uid: 1120
@@ -60811,32 +60786,39 @@ entities:
   - uid: 9523
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: RMCBoxShellsHeavyBuckshot
+- proto: RMCBoxShellsBuckshot
   entities:
-  - uid: 4953
+  - uid: 3920
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: RMCBoxShellsHeavySlugs
+  - uid: 3929
+    components:
+    - type: Transform
+      parent: 2819
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: RMCBoxShellsSlugs
   entities:
-  - uid: 4952
+  - uid: 3509
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 9657
+  - uid: 3930
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -69827,7 +69809,7 @@ entities:
   - uid: 10610
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -70080,11 +70062,6 @@ entities:
     - type: Transform
       pos: -33.33721,-13.593457
       parent: 1
-  - uid: 11800
-    components:
-    - type: Transform
-      pos: 15.651544,117.768654
-      parent: 1
   - uid: 12123
     components:
     - type: Transform
@@ -70105,7 +70082,7 @@ entities:
   - uid: 11801
     components:
     - type: Transform
-      pos: 15.385919,117.38584
+      pos: 16.442356,118.41598
       parent: 1
   - uid: 12120
     components:
@@ -76147,7 +76124,7 @@ entities:
   - uid: 9783
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -76293,6 +76270,87 @@ entities:
     - type: InsideEntityStorage
 - proto: RMCIDComputer
   entities:
+  - uid: 3946
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 54.02578,118.33086
+      parent: 1
+    - type: IdModificationConsole
+      jobList:
+      - CMCE
+      - Synth
+      - WeaponSpec
+      - CMP
+      - HospitalCorpsman
+      - Rifleman
+      - CMCMO
+      - IntelOfficer
+      - RMCFieldDoctor
+      - CMCargoTech
+      - SmartGunOperator
+      - SO
+      - MessTech
+      - CO
+      - OT
+      - Researcher
+      - Nurse
+      - CMMedbay
+      - MarineMain
+      - FTL
+      - SEA
+      - MaintTech
+      - CombatTech
+      - Pilot
+      - DropshipCrewChief
+      - SquadLeader
+      - ASO
+      - QuarterMaster
+      - CMWarden
+      - RMCWeYaExec
+      - MP
+      accessList:
+      - CMAccessSpecPrep
+      - CMAccessKitchen
+      - RMCAccessDatabase
+      - CMAccessBrig
+      - CMAccessSmartPrep
+      - CMAccessOT
+      - CMAccessCMP
+      - CMAccessCombatTechPrep
+      - RMCAccessFieldDoctor
+      - CMAccessDropship
+      - CMAccessSquadLeaderPrep
+      - CMAccessQM
+      - CMAccessChemistry
+      - CMAccessCharlie
+      - CMAccessBravo
+      - CMAccessEngineering
+      - RMCAccessLogs
+      - RMCAccessSeniorCommand
+      - CMAccessMaint
+      - CMAccessDelta
+      - CMAccessFTLPrep
+      - CMAccessCMO
+      - CMAccessMedical
+      - CMAccessAlpha
+      - CMAccessMarineRifleman
+      - RMCAccessMorgue
+      - CMAccessArmory
+      - RMCAccessCommand
+      - CMAccessMedPrep
+      - CMAccessRequisitions
+      - CMAccessMarinePrep
+      - CMAccessResearch
+      - CMAccessCE
+      accessGroups:
+      - RMCBaseARESAccess
+      - RMCBaseMarineAccess
+      - RMCBaseMPAccess
+      - RMCBaseSquadAccess
+      - RMCBaseMedicalAccess
+      - RMCBaseCommandAccess
+      - RMCBaseEngineeringAccess
   - uid: 10566
     components:
     - type: Transform
@@ -80395,53 +80453,6 @@ entities:
       parent: 1
 - proto: RMCLockerGunRed
   entities:
-  - uid: 9521
-    components:
-    - type: Transform
-      pos: 46.5,120.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 9523
-          - 2819
-          - 9657
-          - 10651
-          - 10655
-          - 10610
-          - 10614
-          - 9783
-          - 9562
-          - 9561
-          - 9560
-          - 9559
-          - 9522
-          - 9699
-          - 9781
-          - 9789
-          - 9791
-          - 10363
-          - 10364
-          - 10533
-          - 10534
-          - 10535
-          - 10536
-          - 10537
-          - 10538
-          - 10541
-          - 10542
-          - 4952
-          - 4953
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    missingComponents:
-    - Damageable
-    - DamageOnHighSpeedImpact
   - uid: 11459
     components:
     - type: Transform
@@ -80545,6 +80556,15 @@ entities:
     - type: Transform
       pos: 37.5,85.5
       parent: 1
+- proto: RMCM276ShotgunShellLoadingRigFill
+  entities:
+  - uid: 3932
+    components:
+    - type: Transform
+      parent: 2819
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: RMCM54CMK1CaseAP
   entities:
   - uid: 18
@@ -80581,28 +80601,28 @@ entities:
   - uid: 10541
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
   - uid: 10542
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
   - uid: 10651
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
   - uid: 10655
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -80622,13 +80642,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: RMCMagazineSentry
-  entities:
-  - uid: 11790
-    components:
-    - type: Transform
-      pos: 16.625738,118.40463
-      parent: 1
 - proto: RMCMannequin
   entities:
   - uid: 3528
@@ -80783,7 +80796,7 @@ entities:
         head: !type:ContainerSlot
           showEnts: False
           occludes: False
-          ent: 9512
+          ent: 3933
         suitstorage: !type:ContainerSlot
           showEnts: False
           occludes: False
@@ -81256,7 +81269,7 @@ entities:
   - uid: 10536
     components:
     - type: Transform
-      parent: 9521
+      parent: 2819
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -82141,157 +82154,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -5.511704,90.365295
       parent: 1
-- proto: RMCPamphletAdminConstruction3
-  entities:
-  - uid: 9789
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminCQC5
-  entities:
-  - uid: 10534
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminEndurance5
-  entities:
-  - uid: 9560
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminEngineer2
-  entities:
-  - uid: 5119
-    components:
-    - type: Transform
-      pos: 15.756925,118.55157
-      parent: 1
-  - uid: 12813
-    components:
-    - type: Transform
-      pos: 15.639418,118.62983
-      parent: 1
-- proto: RMCPamphletAdminEngineer4
-  entities:
-  - uid: 10363
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminFirearms3
-  entities:
-  - uid: 10533
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminFireman5
-  entities:
-  - uid: 9562
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminIntel2
-  entities:
-  - uid: 10535
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminJtac4
-  entities:
-  - uid: 9699
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminLeadership3
-  entities:
-  - uid: 10364
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: RMCPamphletAdminMedical4
   entities:
-  - uid: 9559
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11628
     components:
     - type: Transform
       parent: 2065
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminMeleeWeapons2
-  entities:
-  - uid: 9561
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminPilot2
-  entities:
-  - uid: 9522
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminPowerLoader2
-  entities:
-  - uid: 9781
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminSurgery3
-  entities:
-  - uid: 10537
-    components:
-    - type: Transform
-      parent: 9521
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: RMCPamphletAdminVehicles3
-  entities:
-  - uid: 9791
-    components:
-    - type: Transform
-      parent: 9521
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -84853,6 +84721,22 @@ entities:
     - type: Transform
       pos: -21.595966,10.683786
       parent: 1
+- proto: RMCPouchShotgunLargeHeavyBuchshotFilled
+  entities:
+  - uid: 3910
+    components:
+    - type: Transform
+      parent: 2819
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 3931
+    components:
+    - type: Transform
+      parent: 2819
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: RMCPrefabGreeble1
   entities:
   - uid: 5879
@@ -86063,21 +85947,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.467558,119.37639
       parent: 1
-- proto: RMCSentryLaptop
-  entities:
-  - uid: 11600
-    components:
-    - type: Transform
-      pos: 15.537399,118.473305
-      parent: 1
-- proto: RMCSentryOmni
-  entities:
-  - uid: 11625
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 16.4102,118.60602
-      parent: 1
 - proto: RMCSheetCardboard30
   entities:
   - uid: 1119
@@ -86099,128 +85968,6 @@ entities:
     - type: Transform
       pos: -40.6044,11.53338
       parent: 1
-- proto: RMCShellShotgunHeavyBuckshot
-  entities:
-  - uid: 3910
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3911
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3920
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3930
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3931
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3932
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3934
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3946
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3947
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-  - uid: 3948
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2819
-    - type: Stack
-      count: 1
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
 - proto: RMCShioRoyalsCase
   entities:
   - uid: 11592
@@ -89141,17 +88888,6 @@ entities:
     - type: Transform
       pos: -36.511562,10.4375515
       parent: 1
-- proto: RMCTeslaOverclocked
-  entities:
-  - uid: 12815
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 16.291012,118.49516
-      parent: 1
-    - type: SentryTargeting
-      friendlyFactions:
-      - UNMC
 - proto: RMCThreeSunEmpireCup
   entities:
   - uid: 11724
@@ -89173,12 +88909,26 @@ entities:
     - type: Transform
       pos: 17.5,20.5
       parent: 1
+- proto: RMCToolboxMechanicalFilled
+  entities:
+  - uid: 3947
+    components:
+    - type: Transform
+      pos: 15.473739,118.727455
+      parent: 1
 - proto: RMCToolboxSyndicate
   entities:
   - uid: 11505
     components:
     - type: Transform
       pos: 22.5,20.5
+      parent: 1
+- proto: RMCToolMiniHoe
+  entities:
+  - uid: 12816
+    components:
+    - type: Transform
+      pos: 17.406475,111.50755
       parent: 1
 - proto: RMCTrashCart
   entities:
@@ -90138,6 +89888,12 @@ entities:
       parent: 1
 - proto: RMCWarshipControlConsole
   entities:
+  - uid: 3934
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 54.020714,118.77191
+      parent: 1
   - uid: 5517
     components:
     - type: Transform
@@ -90205,108 +89961,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: RMCWeaponShotgunXM38Filled
-  entities:
-  - uid: 2819
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 9521
-    - type: BallisticAmmoProvider
-      entities:
-      - 3911
-      - 3910
-      - 3920
-      - 3930
-      - 3932
-      - 3934
-      - 3946
-      - 3947
-      - 3948
-      - 3931
-    - type: Gun
-      cameraRecoilScalar: 4
-      lastFire: 3080.92024
-      currentAngle: 1.5533430342749532 rad
-      angleIncrease: 0 rad
-      angleDecay: 0 rad
-      maxAngle: 0.3490658503988659 rad
-      minAngle: 0.3490658503988659 rad
-      fireRate: 1.666
-      nextFire: -96.2397599
-      availableModes: SemiAuto, FullAuto
-    - type: RMCSelectiveFire
-      burstScatterMultModified: 5
-    - type: RMCWeaponAccuracy
-      modifiedAccuracyMultiplier: 1.4
-    - type: AttachableHolder
-      startingAttachments:
-        rmc-aslot-stock: RMCAttachmentMK221Stock
-    - type: Item
-      size: Ginormous
-    - type: WieldDelay
-      modifiedDelay: 1.2
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 3911
-          - 3910
-          - 3920
-          - 3930
-          - 3932
-          - 3934
-          - 3946
-          - 3947
-          - 3948
-          - 3931
-        rmc-aslot-stock: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 3509
-        rmc-aslot-barrel: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 3929
-        rmc-aslot-rail: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 3933
-        rmc-aslot-underbarrel: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 3919
-    - type: EmitSoundOnCollide
-      nextSound: -3177.16
-    - type: Physics
-      canCollide: False
-    - type: UseDelay
-      delays:
-        default:
-          endTime: 3157.68
-          startTime: 3153.2
-          length: 0
-        RMCWieldDelay:
-          endTime: 3182.84
-          startTime: 3191.6
-          length: 1.2
-        CMShootUseDelay:
-          endTime: 3085.40024
-          startTime: 3080.32
-          length: 0.6002401
-    - type: MeleeWeapon
-      nextAttack: -15.38
-    - type: ItemSizeChange
-      baseSize: 3
-    - type: InsideEntityStorage
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 - proto: RMCWeldingGoggles
   entities:
   - uid: 373
@@ -90909,6 +90563,37 @@ entities:
     - type: Transform
       pos: -16.441416,-14.500559
       parent: 1
+- proto: WeaponShotgunM890Guard
+  entities:
+  - uid: 3919
+    components:
+    - type: Transform
+      parent: 2819
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        rmc-aslot-barrel: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        rmc-aslot-rail: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        rmc-aslot-stock: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        rmc-aslot-underbarrel: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: WeYaExperimentalToolsVendor
   entities:
   - uid: 11482

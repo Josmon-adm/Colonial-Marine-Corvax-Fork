@@ -27,14 +27,15 @@
     components:
     - type: Skills
       skills:
-        RMCSkillCqc: 3
+        RMCSkillCqc: 5 # CCM14
         RMCSkillEndurance: 3
-        RMCSkillFirearms: 1
+        RMCSkillFirearms: 3 # CCM14
         RMCSkillFireman: 2
+        RMCSkillEngineer: 2 # CCM14
         RMCSkillMeleeWeapons: 1
         RMCSkillPolice: 2
         RMCSkillLeadership: 2 # CCM14
-        RMCSkillMedical: 1 # CCM14
+        RMCSkillMedical: 2 # CCM14
         RMCSkillOverwatch: 1 # CCM14
     - type: SquadArmorWearer
     - type: JobPrefix
