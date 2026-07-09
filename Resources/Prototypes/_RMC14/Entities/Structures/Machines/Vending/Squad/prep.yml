@@ -645,6 +645,8 @@
       entries:
       - id: RMCMagazineSmartGun
         amount: 1
+      - id: CCMMagazineSmartGunML99A # CCM14 Add
+        amount: 1 #CCM14 Add
       #- id: CMSpeedLoaderM44Heavy
       #  amount: 2
       - id: RMCSpeedLoader44Marksman

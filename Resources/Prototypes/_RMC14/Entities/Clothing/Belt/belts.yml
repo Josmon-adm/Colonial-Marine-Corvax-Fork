@@ -500,11 +500,21 @@
       - RMCMagazineSmartGun
       - RMCShellShotgun
       - Flare
+# CCM14 ADD
+      - CCMMagazineSmartGunML109AAS
+      - CCMMagazineSmartGunHeavy
+      - CCMMagazineSmartGunML109AFlak
+# CCM14 End
   - type: FixedItemSizeStorage
   - type: IgnoreContentsSize
     items:
       tags:
       - RMCMagazineSmartGun
+# CCM14 ADD
+      - CCMMagazineSmartGunML109AAS
+      - CCMMagazineSmartGunHeavy
+      - CCMMagazineSmartGunML109AFlak
+# CCM14 End
   - type: ItemCamouflage
     camouflageVariations:
       Jungle: _RMC14/Objects/Clothing/Belt/smart_gun_operator/jungle-classic.rsi
@@ -550,11 +560,21 @@
       - RMCMagazineRevolver
       - RMCMagazineSmartGun
       - Flare
+# CCM14 ADD
+      - CCMMagazineSmartGunML109AAS
+      - CCMMagazineSmartGunHeavy
+      - CCMMagazineSmartGunML109AFlak
+# CCM14 End
   - type: FixedItemSizeStorage
   - type: IgnoreContentsSize
     items:
       tags:
       - RMCMagazineSmartGun
+# CCM14 ADD
+      - CCMMagazineSmartGunML109AAS
+      - CCMMagazineSmartGunHeavy
+      - CCMMagazineSmartGunML109AFlak
+# CCM14 End
   - type: LimitedStorage
     limits:
     - popup: rmc-storage-limit-one-gun

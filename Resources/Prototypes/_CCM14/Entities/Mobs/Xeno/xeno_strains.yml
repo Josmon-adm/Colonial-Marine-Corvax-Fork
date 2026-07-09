@@ -300,7 +300,7 @@
     maxProjectiles: 3
     projectileId: CCMXenoSpitProjectileSniperStructural
   - type: XenoZoom
-    zoom: 0.8, 0.8
+    zoom: 1.5, 1.5
     offsetLength: 3
     speed: 0.8
     doAfter: 0.5
@@ -353,6 +353,7 @@
     minimumTunnelTime: 0.3
   - type: XenoSprayAcid
     acid: CCMXenoBurrowerImpalerSpike
+    sound: /Audio/_RMC14/Xeno/burrowing_b.ogg
     doAfter: 0.8
     barricadeDuration: 0
     barricadeDamage:

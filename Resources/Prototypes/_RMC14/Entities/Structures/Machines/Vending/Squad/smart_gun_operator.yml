@@ -16,9 +16,11 @@
     - CMSmartGunOperator
     sections:
     - name: Smart Gun Set (Mandatory)
-      takeAll: CMSmartGunSet
+#      takeAll: CMSmartGunSet CCM14 Delete
+      choices: { CMGunAttachments: 1 } #CCM14 Add
       entries:
       - id: CMSmartGunOperatorEquipmentCase
+      - id: CCMSmartGunOperatorML99ACase #CCM14 Add
     - name: Gun Attachments
       choices: { CMGunAttachments: 1 }
       entries:
