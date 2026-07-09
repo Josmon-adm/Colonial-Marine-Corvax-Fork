@@ -16,26 +16,13 @@
     - ActionXenoRegurgitate
     - ActionXenoWatch
     - ActionXenoTailStab
-    - ActionXenoPunch
-    - CCMActionXenoBoxerAdvance
-    - CCMActionXenoBoxerKnockout
     - ActionXenoDevolve
-  - type: XenoLeap
-    delay: 0
-    range: 2
-    moveDelayTime: 0
-    knockdownTime: 0
-    leapSound: /Audio/_RMC14/Xeno/alien_claw_block.ogg
-    hitEffect: CMEffectPunch
-    targetJitterTime: 0
-    targetCameraShakeStrength: 1
-    damage:
-      groups:
-        Brute: 25
-  - type: XenoPunch
-    damage:
-      types:
-        Blunt: 35
+    -
+    -
+  - type: YautjaAbomination
+    announceDelay: 99999999999
+    maxKills: 4
+    damagePerKill: 3
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -47,41 +34,12 @@
     max: 6
     min: 3
   - type: XenoRage
-    rageDecayTime: 8
-    maxRage: 10
+    rageDecayTime: 4
+    maxRage: 999
     armorPerRage: 0
-    speedBuffPerRage: 0
-    attackSpeedPerRage: 0.05
+    speedBuffPerRage: 0.15
+    attackSpeedPerRage: 0.25
     healAmount: 0
-  - type: XenoEviscerate
-    stunTime: 0.25
-    lifeStealPerMarine: 250
-    maxLifeSteal: 500
-    rageHitSound: 
-      collection: CCMBoxingBell
-    damageAtRageLevels:
-    - groups:
-        Brute: 16
-    - groups:
-        Brute: 32
-    - groups:
-        Brute: 48
-    - groups:
-        Brute: 64
-    - groups:
-        Brute: 80
-    - groups:
-        Brute: 96
-    - groups:
-        Brute: 112
-    - groups:
-        Brute: 128
-    - groups:
-        Brute: 144
-    - groups:
-        Brute: 160
-    rangeAtRageLevels: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0,]
-    windupReductionAtRageLevels: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1]
   - type: XenoEvolution
     max: 500
     evolvesTo:
@@ -89,10 +47,17 @@
     - CMXenoPraetorian
     strains: []
   - type: XenoHidden
+  - type: RMCSize
+    size: Big
+  - type: XenoCleave
+    flingDistance: -4
+    rootTime: 3
   - type: XenoLifesteal
-    maxHeal: 60
-    minHeal: 40
-
+    basePercentage: 0.01
+    maxPercentage: 0.02
+    maxEffect: CCMBoxerEffectHealing
+    maxHeal: 0
+    minHeal: 0
 # // CCM Xeno Punch Attack Effect
 - type: entity
   parent: [WeaponArcClaw, RMCBaseEffect]
@@ -106,13 +71,241 @@
     state: punch
     noRot: true
 # // CCM Xeno Punch Attack Effect
-# // CCM Boxing bell sound collection
-- type: soundCollection
-  id: CCMBoxingBell
-  files:
-  - /Audio/Weapons/boxingbell.ogg # Need that because eviscarate need collection
-# // CCM Boxing bell sound collection
+# // CCM Xeno Heal Effect
+- type: entity
+  parent: RMCEffectHeal
+  id: CCMBoxerEffectHealing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    scale: 0.7, 0.7
+    color: "#FFFFFF"
+    state: busy_medical
+  - type: DamageOverTime
+    affectsDead: false
+    affectsInfectedNested: false
+    armorPiercingDamage:
+      types:
+        Heat: -1
+      groups:
+        Blunt: -1
+    damage:
+      types:
+        Heat: -1
+      groups:
+        Blunt: -1
+    barricadeDamage:
+      types:
+        Heat: 0
+    whitelist:
+      components:
+      - YautjaAbomination # Im lazy as shi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+# // CCM Xeno Heal Effect
 # // CCM Xeno Strain - Boxer Warrior
+
+# // CCM Xeno Strain - Basher Warrior
+- type: entity
+  parent: CMXenoWarrior
+  id: CCMXenoWarriorBasher
+  suffix: CCM-Basher
+  components:
+  - type: Sprite
+    sprite: _CCM14/Mobs/Xenonids/Warrior/Basher.rsi
+  - type: XenoStrain
+    name: ccm-xeno-basher-name
+    description: ccm-xeno-basher-description
+    popup: ccm-xeno-basher-popup
+  - type: Xeno
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoRegurgitate
+    - ActionXenoWatch
+    - ActionXenoTailStab
+    - ActionXenoDevolve
+    -
+    -
+    -
+  - type: XenoEvolution
+    max: 500
+    evolvesTo:
+    - RMCXenoCrusher
+    - CMXenoPraetorian
+    strains: []
+  - type: XenoHidden
+  - type: XenoPunch
+    effect: blank
+    range: 2
+    damage:
+      types:
+        Blunt: 60
+  - type: XenoFling
+    effect: blank
+    range: 4
+    paralyzeTime: 1
+    slowTime: 3
+    dazeTime: 3
+    throwSpeed: 12
+    damage:
+      groups:
+        Brute: 45
+  - type: XenoTailJab
+    throwRange: 6
+    attackEffect: blank
+    sound: /Audio/_RMC14/Xeno/alien_claw_block.ogg
+    damage:
+      groups:
+        Brute: 30
+# // CCM Xeno Strain - Effects
+﻿- type: entity
+  parent: RMCBaseEffect
+  id: CCMEffectStartInEyes
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    sprite: _RMC14/Effects/attacks.rsi
+    state: punch
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+
+- type: entity
+  parent: RMCBaseEffect
+  id: CCMEffectBrokenLegs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    sprite: _RMC14/Effects/attacks.rsi
+    state: punch
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+
+- type: entity
+  parent: RMCBaseEffect
+  id: CCMEffectBrokenBones
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    sprite: _RMC14/Effects/attacks.rsi
+    state: punch
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+# // CCM Xeno Strain - Effects
+# After After Effect
+- type: entity
+  parent: RMCBaseEffect
+  id: CCMEffectBrokenLegs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    sprite: _RMC14/Effects/attacks.rsi
+    state: punch
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+
+- type: entity
+  parent: RMCBaseEffect
+  id: CCMEffectStun05
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Sprite
+    sprite: _RMC14/Effects/attacks.rsi
+    state: punch
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+# After After Effect
+# // CCM Xeno Strain - Basher Warrior
 
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 - type: entity
