@@ -17,3 +17,5 @@ ent-CCMSmartGunOperatorML99ACase = кейс системы ML99A-109A Смарт
         Большой кейс содержащий ML99A смарт-автоган, боевую обвязку ML66A, налобный визор и блок питания
         
         ПРИМЕЧАНИЕ: Вы не можете поместить предметы обратно в этот кейс.
+ent-CCMCrateMagazineSmartGunML99A = ящик патронов смарт авто-гана ML99A & ML109A (2x2)
+    .desc = { ent-RMCCrateAmmo.desc }

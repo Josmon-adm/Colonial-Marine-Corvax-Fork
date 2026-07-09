@@ -58,6 +58,10 @@
         crate: RMCCrateBatterySmartGun
       - cost: 3000
         crate: RMCCrateMagazineSmartGun
+#CCM14 ADD
+      - cost: 6000
+        crate: CCMCrateMagazineSmartGunML99A
+#CCM14 END
       - cost: 4000
         crate: RMCCrateBoxMagazineSmartPistol
       - cost: 2000
