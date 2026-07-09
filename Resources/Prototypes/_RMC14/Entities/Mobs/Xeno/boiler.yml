@@ -216,7 +216,7 @@
     description: rmc-xeno-trapper-description
     popup: rmc-xeno-trapper-popup
   - type: CMArmor
-    xenoArmor: 0
+    xenoArmor: 5 # CCM Change | Base = 0
     explosionArmor: 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.50
@@ -245,5 +245,3 @@
   - type: XenoAdrenalineSurge
   - type: RMCActionOrder
     id: RMCXenoBoilerSapper
-
-

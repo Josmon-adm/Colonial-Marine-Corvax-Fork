@@ -218,8 +218,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      345: Critical
-      445: Dead
+      445: Critical #CCM Change | Base = 345
+      545: Dead #CCM Change | Base = 445
   - type: Xeno
     actionIds:
     - ActionXenoRest
@@ -244,7 +244,7 @@
     canMeltStructures: false
   - type: XenoEnergy
     max: 1000
-    gain: 1
+    gain: 2 #CCM Change | Base = 1
     gainAttack: 14
     gainAttackDowned: 8
     ignoreLateInfected: true

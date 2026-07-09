@@ -20,7 +20,7 @@
     impactEffect: XenoProjectileImpactEffect
     damage:
       types:
-        Heat: 10 # TODO RMC14 damage fall-off and higher at close range
+        Heat: 15 # TODO RMC14 damage fall-off and higher at close range
   - type: CMArmorPiercing
     amount: 10
 
@@ -47,7 +47,7 @@
     impactEffect: XenoProjectileImpactEffect
     damage:
       types:
-        Heat: 5 # TODO RMC14 damage fall-off and higher at close range
+        Heat: 7 # TODO RMC14 damage fall-off and higher at close range
   - type: CMArmorPiercing
     amount: 5
 
@@ -67,7 +67,7 @@
     impactEffect: null
     damage:
       types:
-        Heat: 15
+        Heat: 27.5
   - type: CMArmorPiercing
     amount: 25
   - type: XenoProjectile

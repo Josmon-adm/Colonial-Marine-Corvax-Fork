@@ -140,16 +140,16 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 27.5
+        Brute: 30
   - type: XenoTailStab
     tailDamage:
       groups:
-        Brute: 35
+        Brute: 45
   - type: XenoPunch
     range: 3
     damage:
       types:
-        Blunt: 27.5
+        Blunt: 30
   - type: XenoParalyzingSlash
     stunDelay: 1
     stunDuration: 2

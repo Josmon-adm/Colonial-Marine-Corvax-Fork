@@ -54,7 +54,7 @@
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
       state: acid_lance
-    useDelay: 3
+    useDelay: 6
 
 - type: entity
   parent: ActionXenoToggleSpitType
