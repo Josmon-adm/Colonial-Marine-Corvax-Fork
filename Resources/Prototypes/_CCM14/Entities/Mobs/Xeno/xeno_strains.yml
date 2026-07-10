@@ -341,6 +341,7 @@
     - ActionXenoDigTunnel
     - CCMActionJauntBurrow
     - CCMActionXenoBurrowerImpale
+    - CCMActionXenoBurrowerDeepImpale
     - ActionXenoDevolve
     tier: 2
     hudOffset: -0.15,0.56
@@ -351,6 +352,14 @@
     unburrowStunRange: 0.75
     unburrowStunLength: 2
     minimumTunnelTime: 0.3
+  - type: XenoAcidMine
+    range: 10
+    plasmaCost: 70
+    blastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
+    empoweredBlastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
+    actionIconEmpowered:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: rav_eviscerate
   - type: XenoSprayAcid
     acid: CCMXenoBurrowerImpalerSpike
     sound: /Audio/_RMC14/Xeno/burrowing_b.ogg
@@ -361,7 +370,9 @@
         Heat: 0
   - type: XenoEvolution
     strains: []
+
 # Burrower Jaunt
+
 - type: entity
   name: Burrower
   description: Burrowed Burrower, dont step on spikes!

@@ -54,7 +54,7 @@
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
       state: acid_lance
-    useDelay: 6
+    useDelay: 10
 
 - type: entity
   parent: ActionXenoToggleSpitType
@@ -93,7 +93,7 @@
   description: Dig in ground and them rush your enemies with your back spikes
   components:
   - type: Action
-    useDelay: 25
+    useDelay: 20
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
       state: tunnel
@@ -112,4 +112,33 @@
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
       state: prae_impale
-    useDelay: 13
+    useDelay: 11
+
+- type: entity
+  parent: ActionXenoBase
+  id: CCMActionXenoBurrowerDeepImpale
+  name: Burrowed deep spike strike (70)
+  description: Strike with your spikes under ground with long range
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: rav_eviscerate
+    useDelay: 15
+  - type: XenoAcidMine
+    range: 10
+    plasmaCost: 70
+    blastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
+    empoweredBlastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
+    actionIconEmpowered:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: rav_eviscerate
+  - type: TargetAction
+    deselectOnMiss: false
+    checkCanAccess: false
+    repeat: true
+    range: 10
+  - type: WorldTargetAction
+    event: !type:XenoAcidMineActionEvent
+  - type: ActionBlockIfResting

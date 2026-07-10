@@ -32,10 +32,11 @@
   - type: DamageOnCollide
     paralyze: 0
     canRehit: false
-    armorPenetration: 20
+    armorPenetration: 25
     damage:
       types:
         Piercing: 30
+        Structural: 100
     whitelist:
       components:
       - Marine
@@ -58,3 +59,16 @@
         layer:
         - FullTileLayer
   - type: IgnorePredictionHit
+  - type: AutoAssignHive
+
+- type: entity
+  parent: RMCEffectXenoTelegraphGreen
+  id: RMCEffectXenoBurrowerDeepImpaleTelegraph
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.25
+  - type: Sprite
+    color: "#A50824"
+  - type: SpawnOnTerminate
+    spawn: CCMXenoBurrowerImpalerSpike
