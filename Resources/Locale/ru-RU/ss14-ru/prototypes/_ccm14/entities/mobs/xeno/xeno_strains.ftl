@@ -1,6 +1,9 @@
 ent-CCMXenoWarriorBoxer = Воин
     .desc = Мускулистый инопланетянин с бронированным панцирем.
-    .suffix = Боксёр
+    .suffix = CCM-Boxer
+ent-CCMXenoWarriorBasher = Воин
+    .desc = Мускулистый инопланетянин с бронированным панцирем.
+    .suffix = CCM-Basher
 ent-CCMWeaponArcXenoPunch = { ent-WeaponArcClaw }
     .desc = { ent-WeaponArcClaw.desc }
 ent-CCMXenoMeleeSentinel = Страж
