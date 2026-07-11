@@ -1,34 +1,98 @@
 - type: entity
-  id: CCMActionXenoBoxerAdvance
   parent: ActionXenoBase
-  name: Advance
-  description: Do a small jump/dash toward enemy and deal small amount of damage.
+  id: CCMActionXenoBoxerStand
+  name: Face to face
+  description: Root an enemy for 3 seconds.
   components:
   - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
-      state: tumble
-    useDelay: 1.5
+      state: agility_off
+    useDelay: 30
   - type: TargetAction
-    range: 15
-    checkCanAccess: false
-  - type: WorldTargetAction
-    event: !type:XenoLeapActionEvent
-  - type: RMCDazeableAction
+    range: 1.5
+    deselectOnMiss: false
+  - type: EntityTargetAction
+    event: !type:XenoCleaveActionEvent
+  - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoEviscerate
-  id: CCMActionXenoBoxerKnockout
-  name: Knockout!
-  description: Use your stack of boxing, and deal massive damage and little stun
+  parent: ActionXenoBase
+  id: CCMActionXenoBoxerComeToMe
+  name: Come to ME!
+  description: Hook enemy to you up for 4 tiles, for 2.5 range.
   components:
   - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
-      state: rav_clothesline
-    useDelay: 60
+      state: abduct
+    useDelay: 20
+  - type: TargetAction
+    range: 2.5
+    deselectOnMiss: false
+  - type: EntityTargetAction
+    event: !type:XenoCleaveActionEvent
+      flings: true
+  - type: ActionBlockIfResting
+
+- type: entity
+  id: CCMActionXenoBasherLegsOff
+  parent: ActionXenoFling
+  name: Legs off
+  description: Fling in legs an enemy, dealing a medium damage with medium knockback. Add "Breaked bones" effect, that slows and stuns every 2 seconds.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: fling
+    useDelay: 30
+  - type: ActionSharedCooldown
+    id: CCMActionXenoBasherLegsOff
+    ids:
+    - CCMActionXenoBasherCrushingDaBones
+    - CCMActionXenoBasherHighFlyHead
+    cooldown: 30
+
+- type: entity
+  id: CCMActionXenoBasherHighFlyHead
+  parent: ActionXenoPunch
+  name: High fly head
+  description: Punch an enemy in head, dealing a high damage with slight knockback. Add "Stars in eyes" effect, that deals asphyxiation damage and stuns every 4 seconds.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: fling
+    useDelay: 30
+  - type: ActionSharedCooldown
+    id: ActionXenoCleaveRoot
+    ids:
+    - CCMActionXenoBasherLegsOff
+    - CCMActionXenoBasherCrushingDaBones
+    cooldown: 30
+
+- type: entity
+  id: CCMActionXenoBasherCrushingDaBones
+  parent: ActionXenoTailJab
+  name: Crushing Da' Bones
+  description: Punch enemy in chest, delaing low damage with high knockback & stun. Add "Breaked bones" effect, that deals high brute damage.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: fling
+    useDelay: 30
+  - type: ActionSharedCooldown
+    id: CCMActionXenoBasherCrushingDaBones
+    ids:
+    - CCMActionXenoBasherLegsOff
+    - CCMActionXenoBasherHighFlyHead
+    cooldown: 30
 
 - type: entity
   id: CCMActionXenoScatteredSpitSniper
