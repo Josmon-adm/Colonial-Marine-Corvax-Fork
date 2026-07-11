@@ -62,13 +62,30 @@
   - type: AutoAssignHive
 
 - type: entity
+  id: CCMXenoBurrowerImpalerSpikeDeep #technically, this shi is acid
+  components:
+  - type: DamageOnCollide
+    paralyze: 0
+    canRehit: false
+    armorPenetration: 25
+    damage:
+      types:
+        Piercing: 20
+        Structural: 100
+    whitelist:
+      components:
+      - Marine
+      - Barricade
+      - Vehicle
+
+- type: entity
   parent: RMCEffectXenoTelegraphGreen
   id: RMCEffectXenoBurrowerDeepImpaleTelegraph
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 1.25
+    lifetime: 1.4
   - type: Sprite
     color: "#A50824"
   - type: SpawnOnTerminate
-    spawn: CCMXenoBurrowerImpalerSpike
+    spawn: CCMXenoBurrowerImpalerSpikeDeep

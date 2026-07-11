@@ -353,7 +353,7 @@
     unburrowStunLength: 2
     minimumTunnelTime: 0.3
   - type: XenoAcidMine
-    range: 10
+    range: 6
     plasmaCost: 70
     blastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
     empoweredBlastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
@@ -370,7 +370,11 @@
         Heat: 0
   - type: XenoEvolution
     strains: []
-
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      375: Critical
+      475: Dead
 # Burrower Jaunt
 
 - type: entity
@@ -388,8 +392,8 @@
     sprite: _CCM14/Objects/Xeno/xeno_64x64.rsi
     state: alive
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6
-    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+    baseWalkSpeed: 2
   - type: DamageOnCollide
     paralyze: 2
     canRehit: false
@@ -410,7 +414,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.5
+          radius: 0.3
         density: 10
         mask:
         - MobMask
@@ -458,5 +462,5 @@
     allowRepeatedMorphs: false
     polymorphSound: /Audio/_RMC14/Xeno/burrowing_b.ogg
     exitPolymorphSound: /Audio/_RMC14/Xeno/burrowoff.ogg
-    duration: 3
+    duration: 5
 # // CCM Xeno Strain - Burrower Impaler

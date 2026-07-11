@@ -93,7 +93,7 @@
   description: Dig in ground and them rush your enemies with your back spikes
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 27
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
       state: tunnel
@@ -127,7 +127,7 @@
       state: rav_eviscerate
     useDelay: 15
   - type: XenoAcidMine
-    range: 10
+    range: 5
     plasmaCost: 70
     blastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
     empoweredBlastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
@@ -138,7 +138,7 @@
     deselectOnMiss: false
     checkCanAccess: false
     repeat: true
-    range: 10
+    range: 5
   - type: WorldTargetAction
     event: !type:XenoAcidMineActionEvent
   - type: ActionBlockIfResting
