@@ -17,8 +17,8 @@
     - ActionXenoWatch
     - ActionXenoTailStab
     - ActionXenoDevolve
-    -
-    -
+    - CCMActionXenoBoxerComeToMe
+    - CCMActionXenoBoxerStand
   - type: YautjaAbomination
     announceDelay: 99999999999
     maxKills: 4
@@ -29,7 +29,7 @@
     animation: CCMWeaponArcXenoPunch
     damage:
       groups:
-        Brute: 25
+        Brute: 23
   - type: Tackle
     max: 6
     min: 3
@@ -135,9 +135,9 @@
     - ActionXenoWatch
     - ActionXenoTailStab
     - ActionXenoDevolve
-    -
-    -
-    -
+    - CCMActionXenoBasherLegsOff
+    - CCMActionXenoBasherHighFlyHead
+    - CCMActionXenoBasherCrushingDaBones
   - type: XenoEvolution
     max: 500
     evolvesTo:
@@ -146,38 +146,39 @@
     strains: []
   - type: XenoHidden
   - type: XenoPunch
-    effect: blank
+    effect: CCMEffectStarsInEyes
     range: 2
     damage:
       types:
         Blunt: 60
   - type: XenoFling
-    effect: blank
-    range: 4
+    effect: CCMEffectBrokenBones
+    range: 6
     paralyzeTime: 1
     slowTime: 3
     dazeTime: 3
     throwSpeed: 12
     damage:
       groups:
-        Brute: 45
+        Brute: 30
   - type: XenoTailJab
-    throwRange: 6
-    attackEffect: blank
+    slowdownTime: 6
+    throwRange: 4
+    attackEffect: CCMEffectBrokenLegs
     sound: /Audio/_RMC14/Xeno/alien_claw_block.ogg
     damage:
       groups:
-        Brute: 30
+        Brute: 45
 # // CCM Xeno Strain - Effects
 ﻿- type: entity
   parent: RMCBaseEffect
-  id: CCMEffectStartInEyes
+  id: CCMEffectStarsInEyes
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 8
   - type: Sprite
-    sprite: _RMC14/Effects/attacks.rsi
+    sprite: _CCM14/Mobs/Xenonids/Warrior/basher_effects.rsi
     state: punch
     drawdepth: Effects
   - type: EffectVisuals
@@ -195,6 +196,23 @@
         - MobMask
         layer:
         - MidImpassable
+  - type: DamageOverTime
+    affectsDead: false
+    affectsInfectedNested: false
+    armorPiercingDamage:
+      types:
+        Asphyxiation: 2
+    whitelist:
+      components:
+      - Marine
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - CCMEffectStunBasher
+    chance: 1
+    intervalSeconds: 4
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
 
 - type: entity
   parent: RMCBaseEffect
@@ -202,9 +220,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 6
   - type: Sprite
-    sprite: _RMC14/Effects/attacks.rsi
+    sprite: _CCM14/Mobs/Xenonids/Warrior/basher_effects.rsi
     state: punch
     drawdepth: Effects
   - type: EffectVisuals
@@ -222,6 +240,14 @@
         - MobMask
         layer:
         - MidImpassable
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - CCMEffectStunBasher
+    chance: 1
+    intervalSeconds: 2
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
 
 - type: entity
   parent: RMCBaseEffect
@@ -229,9 +255,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 10
   - type: Sprite
-    sprite: _RMC14/Effects/attacks.rsi
+    sprite: _CCM14/Mobs/Xenonids/Warrior/basher_effects.rsi
     state: punch
     drawdepth: Effects
   - type: EffectVisuals
@@ -249,18 +275,27 @@
         - MobMask
         layer:
         - MidImpassable
+  - type: DamageOverTime
+    affectsDead: false
+    affectsInfectedNested: false
+    armorPiercingDamage:
+      groups:
+        Brute: 4
+    whitelist:
+      components:
+      - Marine
 # // CCM Xeno Strain - Effects
 # After After Effect
 - type: entity
   parent: RMCBaseEffect
-  id: CCMEffectBrokenLegs
+  id: CCMEffectStunBasher
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 0.1
   - type: Sprite
     sprite: _RMC14/Effects/attacks.rsi
-    state: punch
+    state: punch # Im lazy
     drawdepth: Effects
   - type: EffectVisuals
   - type: Tag
@@ -277,33 +312,17 @@
         - MobMask
         layer:
         - MidImpassable
-
-- type: entity
-  parent: RMCBaseEffect
-  id: CCMEffectStun05
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: TimedDespawn
-    lifetime: 0.4
-  - type: Sprite
-    sprite: _RMC14/Effects/attacks.rsi
-    state: punch
-    drawdepth: Effects
-  - type: EffectVisuals
-  - type: Tag
-    tags:
-    - HideContextMenu
-  - type: Fixtures
-    fixtures:
-      fix1:
-        hard: false
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        mask:
-        - MobMask
-        layer:
-        - MidImpassable
+  - type: DamageOnCollide
+    paralyze: 0.5
+    damage:
+      types:
+        Heat: 0
+    chainDamage:
+      types:
+        Heat: 0
+    whitelist:
+      components:
+      - Marine
 # After After Effect
 # // CCM Xeno Strain - Basher Warrior
 
