@@ -352,8 +352,6 @@
   - type: XenoHidden
   - type: CriticalGraceTime
     graceDuration: 3
-  - type: RMCMobCollision
-    fixtureShape: 0.1
   - type: MobThresholds
     thresholds:
       0: Alive
