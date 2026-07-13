@@ -36,7 +36,7 @@
     settings:
     - damage:
         types:
-          Piercing: 60
+          Piercing: 65
       armorPiercing: 5
       name: rmc-toggleable-ammo-highly-precise
       icon:
@@ -55,7 +55,7 @@
     - FullAuto
     recoilWielded: 3
     scatterWielded: 10
-    baseFireRate: 1.8
+    baseFireRate: 2
     burstScatterMult: 4
     modifiers:
       FullAuto:
@@ -84,9 +84,14 @@
       params:
         volume: -2
   - type: ClothingSpeedModifier
-    walkModifier: 0.6
-    sprintModifier: 0.6
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: HeldSpeedModifier
+  - type: WieldableSpeedModifiers
+    base: 0.3
+    light: 0.49
+    medium: 0.59
+    heavy: 0.608
 
 - type: entity
   parent: RMCMagazineSmartGun
@@ -98,7 +103,7 @@
       tags:
       - CCMCartridgeSmartGunML99A
     proto: CCMCartridgeSmartGunML99A
-    capacity: 150
+    capacity: 200
   - type: Sprite
     sprite: _CCM14/Objects/Weapons/Ammunition/Smartgun/ml99a_magazine.rsi
   - type: Tag
@@ -257,7 +262,7 @@
       tags:
       - CCMCartridgeSmartGunML109AFlak
     proto: CCMCartridgeSmartGunML109AFlak
-    capacity: 45
+    capacity: 30
   - type: Sprite
     sprite: _CCM14/Objects/Weapons/Ammunition/Smartgun/ml109a_magazine_flak.rsi
   - type: Tag
@@ -292,13 +297,15 @@
         Piercing: 20
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 14
+    - range: 10
       falloff: 9999
       ignoreModifiers: true
+  - type: ProjectileMaxRange
+    max: 10
   - type: RMCAreaDamage
     damageArea: 2
     falloffDistance: 1
-    xenoDamageMultiplier: 2.55
+    xenoDamageMultiplier: 3.33
 
 #
 
@@ -312,7 +319,7 @@
       tags:
       - CCMCartridgeSmartGunML109AAS
     proto: CCMCartridgeSmartGunML109AAS
-    capacity: 50
+    capacity: 80
   - type: Sprite
     sprite: _CCM14/Objects/Weapons/Ammunition/Smartgun/ml109a_magazine_as.rsi
   - type: Tag
@@ -346,9 +353,11 @@
       types:
         Piercing: 10
         Structural: 200
+  - type: ProjectileMaxRange
+    max: 7
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 9
+    - range: 7
       falloff: 9999
       ignoreModifiers: true
 
@@ -368,19 +377,24 @@
     - id: RMCPowerCellSmartgun
     - id: CMArmorSmartGunCombatHarness
     - id: CCMMagazineSmartGunML99A
+      amount: 3
     - id: CCMMagazineSmartGunML109AFlak
+      amount: 2
     - id: CCMMagazineSmartGunML109AAS
+      amount: 2
 
 #
 
 - type: entity
   parent: RMCCrateAmmo
   id: CCMCrateMagazineSmartGunML99A
-  name: ML99A & ML109A smart gun ammo crate (2x)
+  name: ML99A & ML109A smart gun ammo crate (3x2)
   components:
   - type: StorageFill
     contents:
     - id: CCMMagazineSmartGunML99A
-      amount: 2
+      amount: 3
     - id: CCMMagazineSmartGunML109AFlak
+      amount: 2
     - id: CCMMagazineSmartGunML109AAS
+      amount: 2

@@ -445,11 +445,11 @@
         amount: 4
 # CCM14 Start
       - id: CCMMagazineSmartGunML99A
-        amount: 2
+        amount: 3
       - id: CCMMagazineSmartGunML109AFlak
         amount: 1
       - id: CCMMagazineSmartGunML109AAS
-        amount: 1
+        amount: 2
 # CCM14 End
       #- id: M44 Heavy Speed Loader (.44)
       #  amount: 10

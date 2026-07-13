@@ -32,8 +32,10 @@
     shotsPerBurst: 1
     soundGunshot:
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_sniper_heavy.ogg
+  - type: GunSkilledRecoil # CCM14 ADD
+    setRecoil: 999 # CCM14 ADD
   - type: RMCSelectiveFire
-    recoilWielded: 1
+    recoilWielded: 999
     scatterWielded: 0
     baseFireRate: 0.333
   - type: RMCWeaponAccuracy
@@ -153,8 +155,8 @@
       shader: unshaded
   - type: Projectile
     damage:
-      types:
-        Piercing: 300 # TODO RMC14: 150% damage to runners (225), 300% against Big xenos (450), and 200% against all others (300). For now it's just 300, base damage should be 150 when this multiplier is added
+      types:  # CCM14 ADD - Who tf even add 300 damage | Base value - 300
+        Piercing: 100 # TODO RMC14: 150% damage to runners (225), 300% against Big xenos (450), and 200% against all others (300). For now it's just 300, base damage should be 150 when this multiplier is added
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 32

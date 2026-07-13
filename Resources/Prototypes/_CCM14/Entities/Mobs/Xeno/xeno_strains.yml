@@ -737,6 +737,7 @@
     - ActionXenoDigTunnel
     - CCMActionJauntBurrow
     - CCMActionXenoBurrowerImpale
+    - CCMActionXenoBurrowerDeepImpale
     - ActionXenoDevolve
     tier: 2
     hudOffset: -0.15,0.56
@@ -747,6 +748,14 @@
     unburrowStunRange: 0.75
     unburrowStunLength: 2
     minimumTunnelTime: 0.3
+  - type: XenoAcidMine
+    range: 6
+    plasmaCost: 70
+    blastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
+    empoweredBlastProto: RMCEffectXenoBurrowerDeepImpaleTelegraph
+    actionIconEmpowered:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: rav_eviscerate
   - type: XenoSprayAcid
     acid: CCMXenoBurrowerImpalerSpike
     sound: /Audio/_RMC14/Xeno/burrowing_b.ogg
@@ -757,7 +766,16 @@
         Heat: 0
   - type: XenoEvolution
     strains: []
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      375: Critical
+      475: Dead
+  - type: RemoveComponents
+    components:
+    - type: CanBeLarvaQueued
 # Burrower Jaunt
+
 - type: entity
   name: Burrower
   description: Burrowed Burrower, dont step on spikes!
@@ -773,8 +791,8 @@
     sprite: _CCM14/Objects/Xeno/xeno_64x64.rsi
     state: alive
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6
-    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+    baseWalkSpeed: 2
   - type: DamageOnCollide
     paralyze: 2
     canRehit: false
@@ -795,7 +813,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.5
+          radius: 0.3
         density: 10
         mask:
         - MobMask
@@ -830,6 +848,7 @@
     - type: XenoEvolution
       strains: # CCM Change
       - CCMXenoBurrowerImpaler
+    - type: CanBeLarvaQueued 
 # Polymorph
 - type: polymorph
   id: CCMJauntBurrow
@@ -843,5 +862,5 @@
     allowRepeatedMorphs: false
     polymorphSound: /Audio/_RMC14/Xeno/burrowing_b.ogg
     exitPolymorphSound: /Audio/_RMC14/Xeno/burrowoff.ogg
-    duration: 3
+    duration: 5
 # // CCM Xeno Strain - Burrower Impaler
