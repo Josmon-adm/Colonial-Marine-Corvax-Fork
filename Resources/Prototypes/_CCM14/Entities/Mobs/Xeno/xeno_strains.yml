@@ -179,7 +179,7 @@
     lifetime: 8
   - type: Sprite
     sprite: _CCM14/Mobs/Xenonids/Warrior/basher_effects.rsi
-    state: punch
+    state: stars_in_eyes
     drawdepth: Effects
   - type: EffectVisuals
   - type: Tag
@@ -223,7 +223,7 @@
     lifetime: 6
   - type: Sprite
     sprite: _CCM14/Mobs/Xenonids/Warrior/basher_effects.rsi
-    state: punch
+    state: broken_legs
     drawdepth: Effects
   - type: EffectVisuals
   - type: Tag
@@ -258,7 +258,7 @@
     lifetime: 10
   - type: Sprite
     sprite: _CCM14/Mobs/Xenonids/Warrior/basher_effects.rsi
-    state: punch
+    state: broken_bones
     drawdepth: Effects
   - type: EffectVisuals
   - type: Tag
