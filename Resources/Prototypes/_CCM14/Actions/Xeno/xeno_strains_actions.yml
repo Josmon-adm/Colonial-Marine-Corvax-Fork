@@ -198,6 +198,19 @@
   description: Increases your movement speed and applies a slow on the next target you slash.
 
 - type: entity
+  id: CCMActionXenoScatteredSpitAcidicScatterShot
+  parent: ActionXenoScatteredSpit
+  name: Scattered acidic Spit (20) # TODO RMC14 proper plasma costs
+  description: Launches multiple damageless projectiles that will deal serious damage at point blank distance
+
+
+- type: entity
+  id: CCMActionXenoScatterShotComeToMe
+  parent: ActionXenoChargeSpit
+  name: Come To Me (50) # TODO RMC14 proper plasma costs
+  description: Charge your acid to make a shrapnel acid boom, need charge in 1.25 seconds. While charged gain armor and speed bost for 4 seconds.
+
+- type: entity
   parent: BaseActionPolymorph
   id: CCMActionJauntBurrow
   name: Burrowing spike rush
