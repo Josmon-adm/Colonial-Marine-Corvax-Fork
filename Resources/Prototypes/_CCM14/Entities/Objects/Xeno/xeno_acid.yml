@@ -31,7 +31,7 @@
     layers:
     - state: acid2
   - type: DamageOnCollide
-    paralyze: 2
+    paralyze: 0
     damage:
       types:
         Heat: 37.65
