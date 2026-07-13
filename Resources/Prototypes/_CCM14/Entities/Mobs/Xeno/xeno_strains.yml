@@ -144,6 +144,15 @@
     - RMCXenoCrusher
     - CMXenoPraetorian
     strains: []
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Critical
+      700: Dead
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 40
   - type: XenoHidden
   - type: XenoPunch
     effect: CCMEffectStarsInEyes
