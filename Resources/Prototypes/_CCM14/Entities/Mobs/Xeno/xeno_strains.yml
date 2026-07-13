@@ -349,6 +349,7 @@
     - CCMActionXenoBodyGuardGuard
     - CCMActionXenoBodyGuardProtect
     - ActionXenoDevolve
+  - type: XenoHidden
   - type: CriticalGraceTime
     graceDuration: 3
   - type: RMCMobCollision
@@ -499,6 +500,133 @@
   - type: XenoHidden
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 
+# // CCM Xeno Strain - Scattershot Spitter
+- type: entity
+  parent: CMXenoSpitter
+  id: CCMXenoSniperSpitter
+  suffix: CCM-ScatterShot
+  components:
+  - type: XenoHidden
+  - type: Sprite
+    sprite: _CCM14/Mobs/Xenonids/Spitter/scattershot.rsi
+  - type: XenoStrain
+    name: ccm-xeno-scattershotspitter-name
+    description: ccm-xeno-scattershotspitter-description
+    popup: ccm-xeno-scattershotspitter-popup
+  - type: CMArmor
+    xenoArmor: 25
+    explosionArmor: 50
+  - type: Xeno
+    role: CMXenoSpitter
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoRegurgitate
+    - ActionXenoWatch
+    - ActionXenoTailStabCorrosive
+    - ActionXenoAcidNormal
+    - ActionXenoSprayAcid
+    - CCMActionXenoScatteredSpitAcidicScatterShot
+    - CCMActionXenoScatterShotComeToMe
+    - ActionXenoDevolve
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      575: Critical
+      675: Dead
+  - type: XenoScatteredSpit
+    maxDeviation: 45
+    maxProjectiles: 7
+    projectileId: CCMXenoSpitterScatterShotSpit
+  - type: XenoChargeSpit
+    effect: CCMEffectChargeAcidScatterShot
+  - type: XenoSprayAcid
+    range: 3
+    delay: 0.1
+    acid: CCMXenoAcidSprayScatterShotSpitter
+    barricadeDamage:
+      types:
+        Heat: 10
+        
+# // CCM Charge Spit - Scattershot Effect
+- type: entity
+  parent: RMCBaseEffect
+  id: CCMEffectChargeAcidScatterShot
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.25
+  - type: Sprite
+    sprite: _RMC14/Effects/xeno_empower.rsi
+    noRot: true
+    state: empower
+    drawdepth: Effects
+    color: "#00FF73"
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: SpawnOnTerminate
+    spawn: CCMEffectChargeAcidScatterShotBoom
+  - type: DamageOnCollide
+    damage:
+      types:
+        Heat: 100
+    chainDamage:
+      types:
+        Heat: 0
+    whitelist:
+      components:
+      - XenoChargeSpit
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - MobMask
+        layer:
+        - MidImpassable
+
+- type: entity
+  parent: RMCBaseEffect
+  id: CCMEffectChargeAcidScatterShotBoom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.1
+  - type: Sprite
+    sprite: _RMC14/Effects/xeno_empower.rsi
+    noRot: true
+    state: empower
+    drawdepth: Effects
+    color: "#00FF73"
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: ClusterLimitHits
+    limit: 8
+  - type: RequireProjectileTarget
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: RMC
+    totalIntensity: 1
+    intensitySlope: 5
+    maxIntensity: 1
+    canCreateVacuum: false
+  - type: ProjectileGrenade
+    evenSpread: true
+    minVelocity: 0.5
+    maxVelocity: 1.5
+    fillPrototype: CCMXenoSpitterScatterShotShrapnel
+    capacity: 24
+    spreadAngle: 360
+  - type: TriggerOnSpawn
+# // CCM Charge Spit - Scattershot Effect
+# // CCM Xeno Strain - Scattershot Spitter
+
 # // CCM Xeno Strain - Sniper Spitter
 - type: entity
   parent: CMXenoSpitter
@@ -552,9 +680,6 @@
     - CCMActionXenoToggleSpitTypeSniper
     - ActionXenoZoom
     - ActionXenoDevolve
-    tier: 2
-    hudOffset: -0.15,0.025
-    unlockAt: 540 # 9 minutes
   - type: XenoToggleSpit
     neuroCost: 84
     neuroProto: CCMXenoSpitProjectileSniperPain
