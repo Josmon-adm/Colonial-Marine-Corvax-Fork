@@ -65,7 +65,7 @@
   - type: XenoProjectile
     deleteOnFriendlyXeno: true
   - type: ProjectileMaxRange
-    max: 6
+    max: 3.79
   - type: Projectile
     impactEffect: XenoProjectileImpactEffect
     damage:
