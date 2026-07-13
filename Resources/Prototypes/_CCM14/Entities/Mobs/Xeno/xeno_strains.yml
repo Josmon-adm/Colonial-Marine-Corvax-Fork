@@ -503,7 +503,7 @@
 # // CCM Xeno Strain - Scattershot Spitter
 - type: entity
   parent: CMXenoSpitter
-  id: CCMXenoSniperSpitter
+  id: CCMXenoScatterShotSpitter
   suffix: CCM-ScatterShot
   components:
   - type: XenoHidden
