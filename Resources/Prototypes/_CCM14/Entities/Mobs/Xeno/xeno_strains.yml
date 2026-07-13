@@ -90,12 +90,12 @@
       types:
         Heat: -1
       groups:
-        Blunt: -1
+        Brute: -1
     damage:
       types:
         Heat: -1
       groups:
-        Blunt: -1
+        Brute: -1
     barricadeDamage:
       types:
         Heat: 0
