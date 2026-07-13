@@ -123,7 +123,7 @@
   suffix: CCM-Basher
   components:
   - type: Sprite
-    sprite: _CCM14/Mobs/Xenonids/Warrior/Basher.rsi
+    sprite: _CCM14/Mobs/Xenonids/Warrior/basher.rsi
   - type: XenoStrain
     name: ccm-xeno-basher-name
     description: ccm-xeno-basher-description
@@ -325,6 +325,65 @@
       - Marine
 # After After Effect
 # // CCM Xeno Strain - Basher Warrior
+
+# // CCM Xeno Strain - Bodyguard Defender
+- type: entity
+  parent: CMXenoDefenderBase
+  id: CCMXenoDefenderBodyguard
+  suffix: CCM-Bodyguard
+  components:
+  - type: Sprite
+    sprite: _CCM14/Mobs/Xenonids/Defender/bodyguard.rsi
+  - type: XenoStrain
+    name: ccm-xeno-bodyguarddef-name
+    description: ccm-xeno-bodyguarddef-description
+    popup: ccm-xeno-bodyguarddef-popup
+  - type: Xeno
+    actionIds:
+    - ActionXenoRest
+    - ActionXenoRegurgitate
+    - ActionXenoWatch
+    - ActionXenoTailSlam
+    - ActionXenoToggleCrest
+    - CCMActionXenoBoyGuardSave
+    - CCMActionXenoBodyGuardGuard
+    - CCMActionXenoBodyGuardProtect
+    - ActionXenoDevolve
+  - type: CriticalGraceTime
+    graceDuration: 3
+  - type: RMCMobCollision
+    fixtureShape: 0.1
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      600: Critical
+      750: Dead
+  - type: XenoPlasma
+    plasma: 300
+    maxPlasma: 300
+    plasmaRegenOnWeeds: 2
+  - type: CMArmor
+    xenoArmor: 20
+    explosionArmor: 35
+  - type: XenoTantrum
+    furyCost: 0
+    selfArmorBoost: 0
+    selfArmorDuration: 0
+    otherSpeedDuration: 0
+    otherArmorDuration: 6
+    enrageColor: "#66443B"
+  - type: XenoCrest
+    armor: 20
+    speedMultiplier: 0.5
+  - type: XenoFling # TODO RMC14 target head
+    range: 2
+    paralyzeTime: 2
+    slowTime: 4
+    throwSpeed: 12
+    damage:
+      groups:
+        Brute: 25
+# // CCM Xeno Strain - Bodyguard Defender
 
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 - type: entity
