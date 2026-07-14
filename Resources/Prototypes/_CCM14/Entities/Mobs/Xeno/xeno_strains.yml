@@ -553,7 +553,12 @@
     barricadeDamage:
       types:
         Heat: 10
-        
+  - type: XenoEvolution
+    max: 500
+    evolvesTo:
+    - CMXenoBoiler
+    - CMXenoPraetorian
+    strains: []
 # // CCM Charge Spit - Scattershot Effect
 - type: entity
   parent: RMCBaseEffect
