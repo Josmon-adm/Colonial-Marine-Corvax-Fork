@@ -101,7 +101,7 @@
     - CMXenoQueen
     - RMCXenoKing #CCM14 ADD
   - type: Evasion
-    evasion: 20
+    evasion: 15
   - type: XenoInhands
     prefix: drone
   - type: IntelRecoverCorpseObjectiveOnDeath

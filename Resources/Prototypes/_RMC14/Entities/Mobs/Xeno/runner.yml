@@ -48,6 +48,11 @@
     - Alive
     - Critical
     - Dead
+  - type: FiremanCarriable
+    canThrow: true
+    carrierWhitelist:
+      components:
+      - Synth
   - type: Tag
     tags:
     - DoorBumpOpener

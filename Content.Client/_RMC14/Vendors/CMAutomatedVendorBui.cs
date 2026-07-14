@@ -3,6 +3,7 @@ using Content.Shared._RMC14.Holiday;
 using Content.Shared._RMC14.Marines.Roles.Ranks;
 using Content.Shared._RMC14.Medical.Refill;
 using Content.Shared._RMC14.Vendors;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Mind;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Stacks;
@@ -100,11 +101,8 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
                     uiEntry.Texture.Textures = SpriteComponent.GetPrototypeTextures(entity, _resource)
                         .Select(o => o.Default)
                         .ToList();
-                    if (entity.TryGetComponent<SpriteComponent>("Sprite", out var entitySprites) &&
-                        entitySprites.AllLayers.FirstOrDefault() is { } firstLayer)
-                    {
-                        uiEntry.Texture.Modulate = firstLayer.Color;
-                    }
+                    if (entity.TryGetComponent<SpriteComponent>("Sprite", out var entitySprites))
+                        uiEntry.Texture.Modulate = entitySprites.AllLayers.First().Color;
 
                     uiEntry.Panel.Button.Label.Text = entry.Name?.Replace("\\n", "\n") ?? entity.Name;
 
@@ -174,6 +172,9 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
 
     private bool IsSectionValid(CMVendorSection section)
     {
+        if (_player.LocalEntity is { } localEntity && EntMan.HasComponent<BypassInteractionChecksComponent>(localEntity))
+            return true;
+
         var validJob = true;
         var validRank = true;
         if (_player.LocalSession != null && _mind.TryGetMind(_player.LocalSession.UserId, out var mindId))

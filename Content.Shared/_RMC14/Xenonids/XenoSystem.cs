@@ -1,6 +1,6 @@
-using System.Linq;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.CCVar;
+using Content.Shared._RMC14.Commendations;
 using Content.Shared._RMC14.Damage;
 using Content.Shared._RMC14.Entrenching;
 using Content.Shared._RMC14.Marines;
@@ -27,6 +27,7 @@ using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
+using Content.Shared.Body.Events;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
@@ -56,6 +57,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Shared._RMC14.Xenonids;
 
@@ -140,6 +142,7 @@ public sealed partial class XenoSystem : EntitySystem
             before: [typeof(SharedHandsSystem), typeof(SharedStaminaSystem)],
             after: [typeof(TackleSystem)]);
         SubscribeLocalEvent<XenoComponent, DisarmedEvent>(OnDisarmed, before: new[] { typeof(SharedHandsSystem) });
+        SubscribeLocalEvent<XenoComponent, BeingGibbedEvent>(OnBeingGibbed);
 
         SubscribeLocalEvent<XenoRegenComponent, MapInitEvent>(OnXenoRegenMapInit, before: [typeof(SharedXenoPheromonesSystem)]);
         SubscribeLocalEvent<XenoRegenComponent, DamageStateCritBeforeDamageEvent>(OnXenoRegenBeforeCritDamage, before: [typeof(SharedXenoPheromonesSystem)]);
@@ -407,16 +410,29 @@ public sealed partial class XenoSystem : EntitySystem
         EnsureComp<XenoComponent>(xeno);
     }
 
-    public void SetHealOffWeeds(Entity<XenoRegenComponent?> xeno, bool healOffWeeds)
+    private void OnBeingGibbed(Entity<XenoComponent> xeno, ref BeingGibbedEvent args)
     {
-        if (!Resolve(xeno, ref xeno.Comp, false) ||
-            xeno.Comp.HealOffWeeds == healOffWeeds)
+        if (!TryComp<HiveMemberComponent>(xeno, out var member))
+            return;
+
+        var hive = _hive.GetHive((xeno, member));
+
+        if (hive == null)
+            return;
+
+        if (!TryComp(xeno, out CommendationReceiverComponent? receiver) ||
+    receiver.LastPlayerId == null || receiver.LastPlayerId == string.Empty)
         {
             return;
         }
 
-        xeno.Comp.HealOffWeeds = healOffWeeds;
-        DirtyField(xeno.Owner, xeno.Comp, nameof(XenoRegenComponent.HealOffWeeds));
+        var gibbed = new GibbedXenoInfo
+        {
+            Name = Name(xeno),
+            LastPlayerId = receiver.LastPlayerId
+        };
+
+        _hive.RecordGib(hive.Value, gibbed);
     }
 
     private FixedPoint2 GetWeedsHealAmount(Entity<XenoRegenComponent> xeno)

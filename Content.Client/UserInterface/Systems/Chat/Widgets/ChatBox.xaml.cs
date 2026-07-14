@@ -1,7 +1,7 @@
+// RMC14
 using System.Linq;
-﻿// CM14 rework: non-RMC edit marker.
 using Content.Client._RMC14.Chat;
-using Content.Client.Stylesheets;
+// RMC14
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared._MC;
 using Content.Shared.Audio;
@@ -43,7 +43,9 @@ public partial class ChatBox : UIWidget
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
 
     public readonly Queue<RepeatedMessage> RepeatQueue = new();
-    private readonly HashSet<string> _whitelist = ["mono", "scramble", "bolditalic", "bold", "bullet", "color", "font", "head", "italic"];
+    // RMC14
+    private readonly HashSet<string> _whitelist = ["mono", "scramble", "bolditalic", "bold", "bullet", "color", "font", "head", "italic", "langicon"];
+    // RMC14
 
     // MCChanges:
     private bool _emojiAvaible = false;
@@ -107,8 +109,9 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        AddLine(msg.WrappedMessage, color, msg.SenderEntity, msg.Message, msg.Channel, msg.RepeatCheckSender);
-
+        // RMC14
+        AddLine(msg.WrappedMessage, color, msg.SenderEntity, msg.Message, msg.Channel, msg.RepeatCheckSender, msg.LanguageIcon);
+        // RMC14
     }
 
     private void OnHighlightsUpdated(string highlights)
@@ -155,18 +158,38 @@ public partial class ChatBox : UIWidget
         _controller.UpdateHighlights(highlighs);
     }
 
-    public void AddLine(string message, Color color, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
+    // RMC14
+    public void AddLine(
+        string message,
+        Color color,
+        NetEntity sender,
+        string unwrapped,
+        ChatChannel channel,
+        bool repeatCheckSender,
+        string? languageIcon = null)
+    // RMC14
     {
         // MC changes
         color = AdjustLobbyTextColor(color);
         var formatted = new FormattedMessage(10);
         // MC changes
         formatted.PushColor(color);
+        // RMC14
+        if (!string.IsNullOrWhiteSpace(languageIcon))
+            formatted.AddMarkupOrThrow($"[langicon language=\"{FormattedMessage.EscapeText(languageIcon)}\"][/langicon]");
+        // RMC14
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
 
         formatted = FilterProblematicTags(formatted);
         // RMC chat repetition guard: CMChatSystem can be unavailable during early client startup.
+        if (_entManager.SystemOrNull<CMChatSystem>()?.TryRepetition(this, Contents, formatted, sender, unwrapped, channel, repeatCheckSender, languageIcon) ?? false)
+            return;
+
+        // RMC14
+        if (!string.IsNullOrWhiteSpace(languageIcon) && RepeatQueue.Count > 0)
+            RepeatQueue.Last().IconControl = Contents.Children.OfType<LanguageIconTag.LanguageIconControl>().LastOrDefault();
+
         if (TryRepeatWithCMChat(formatted, sender, unwrapped, channel, repeatCheckSender))
             return;
 
@@ -216,6 +239,7 @@ public partial class ChatBox : UIWidget
 
         return output;
     }
+    // RMC14
 
     // RMC chat repetition guard start
     private bool TryRepeatWithCMChat(FormattedMessage formatted, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)

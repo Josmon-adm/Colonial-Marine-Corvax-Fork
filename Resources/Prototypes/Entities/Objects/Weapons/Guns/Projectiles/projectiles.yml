@@ -757,7 +757,6 @@
   - type: AnomalousParticle
     particleType: Sigma
 
-# Launcher projectiles (grenade / rocket)
 - type: entity
   parent: RMCProjectileRocket84mm
   id: RMCProjectileLTBCannon
