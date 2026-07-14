@@ -102,6 +102,10 @@
     whitelist:
       components:
       - YautjaAbomination # Im lazy as shi
+  - type: Transform
+  - type: IgnorePredictionHit
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -110,9 +114,9 @@
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
         mask:
-        - MobMask
+        - FullTileLayer
         layer:
-        - MidImpassable
+        - FullTileLayer
 # // CCM Xeno Heal Effect
 # // CCM Xeno Strain - Boxer Warrior
 
@@ -194,6 +198,10 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: Transform
+  - type: IgnorePredictionHit
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -202,9 +210,9 @@
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
         mask:
-        - MobMask
+        - FullTileLayer
         layer:
-        - MidImpassable
+        - FullTileLayer
   - type: DamageOverTime
     affectsDead: false
     affectsInfectedNested: false
@@ -238,6 +246,10 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: Transform
+  - type: IgnorePredictionHit
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -246,9 +258,9 @@
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
         mask:
-        - MobMask
+        - FullTileLayer
         layer:
-        - MidImpassable
+        - FullTileLayer
   - type: Timer
   - type: TimedSpawner
     prototypes:
@@ -273,6 +285,10 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: Transform
+  - type: IgnorePredictionHit
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -281,9 +297,9 @@
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
         mask:
-        - MobMask
+        - FullTileLayer
         layer:
-        - MidImpassable
+        - FullTileLayer
   - type: DamageOverTime
     affectsDead: false
     affectsInfectedNested: false
@@ -310,6 +326,10 @@
   - type: Tag
     tags:
     - HideContextMenu
+  - type: Transform
+  - type: IgnorePredictionHit
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -318,9 +338,9 @@
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
         mask:
-        - MobMask
+        - FullTileLayer
         layer:
-        - MidImpassable
+        - FullTileLayer
   - type: DamageOnCollide
     paralyze: 0.5
     damage:
@@ -589,6 +609,10 @@
     whitelist:
       components:
       - XenoChargeSpit
+  - type: Transform
+  - type: IgnorePredictionHit
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -597,9 +621,9 @@
           !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
         mask:
-        - MobMask
+        - FullTileLayer
         layer:
-        - MidImpassable
+        - FullTileLayer
 
 - type: entity
   parent: RMCBaseEffect
@@ -623,7 +647,7 @@
   - type: RequireProjectileTarget
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: RMC
+    explosionType: Radioactive
     totalIntensity: 1
     intensitySlope: 5
     maxIntensity: 1
