@@ -60,8 +60,11 @@
     evolvesTo:
     - RMCXenoBoiler
     - CMXenoPraetorian
-    strains: # CCM Change
-    - CCMXenoSniperSpitter # CCM Change
+# CCM14 Add
+    strains:
+    - CCMXenoSniperSpitter
+    - CCMXenoScatterShotSpitter
+# CCM14 End
   - type: XenoSpit
   - type: XenoChargeSpit
   - type: XenoScatteredSpit
