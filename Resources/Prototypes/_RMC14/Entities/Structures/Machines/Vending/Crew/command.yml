@@ -105,6 +105,16 @@
       entries:
       - id: CCMGuitarBagFilled
     # CCM14-end
+# CCM14 Add
+    - name: Вспомог. одежда - Шея
+      choices: { CCMDripNeck: 1 }
+      entries:
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+      - id: CCMCapeCaseScarf
+# CCM14 End
 
 # Armoury Vend
 
@@ -562,6 +572,19 @@
       entries:
       - id: CCMGuitarBagFilled
     # CCM14-end
+# CCM14 Add
+    - name: Вспомог. одежда - Шея
+      choices: { CCMDripNeck: 1 }
+      entries:
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+      - id: CCMCapeCaseGeist
+      - id: CCMCapeCaseGhille
+      - id: CCMCapeCaseShredded
+      - id: CCMCapeCaseScarf
+# CCM14 End
 
 # Weapon Vend
 - type: entity
@@ -904,6 +927,17 @@
       - id: CMHeadCapPeakedService
       - id: RMCHeadCapFlippable # TODO: Port Patrol Cap
       - id: CMHeadCapOfficer
+# CCM14 Add
+    - name: Вспомог. одежда - Шея
+      choices: { CCMDripNeck: 1 }
+      entries:
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+      - id: CCMCapeCaseShredded
+      - id: CCMCapeCaseScarf
+# CCM14 End
     # ////////////////////////////////////
     # Chief MP
     # ////////////////////////////////////
