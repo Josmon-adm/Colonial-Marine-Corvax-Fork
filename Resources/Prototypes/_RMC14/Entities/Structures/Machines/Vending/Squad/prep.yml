@@ -326,6 +326,18 @@
         amount: 10
       - id: RMCMaskRebreather
         amount: 10
+# CCM14 ADD
+      - id: CCMClothingGasMaskFull
+        amount: 10
+      - id: CCMClothingGasMask
+        amount: 10
+      - id: CCMClothingMercenaryMask
+        amount: 3
+      - id: CCMClothingSpecialGasMask
+        amount: 3
+      - id: CCMClothingGlassGasMask
+        amount: 1
+# CCM14 END
     - name: Разное # CCM14
       entries:
       - id: RMCGogglesBallistic
