@@ -50,13 +50,6 @@
   - type: RMCPlanetMapPrototype
     map: /Maps/_CCM14/Planets/westernforest.yml
     camouflage: Snow
-    survivorJobs:
-    - CMSurvivor: 1
-    - CMSurvivorCorporate: 1
-    - CMSurvivorDoctor: 1
-    - CMSurvivorEngineer: 1
-    - CMSurvivorSecurity: 1
-    - CMSurvivorScientist: 1
     announcement: "Пехота! Был получен сигнал бедствия с горнодобывающей колонии СССП неподалеку отсюда. Поможем нашим товарищам избавиться от заразы.
       Для общего понимания,
       Обозначение колонии - островная исследовательская станция и горнодобывающее предприятие.
@@ -65,3 +58,23 @@
       Биосканирование Выдаёт ошибку.
     
       Авторизовано: капитан Леон Гранц"
+    selectRandomSurvivorVariant: false
+    survivorJobs:
+    - CCMSurvivorSPPWesternForestCommander: 1
+    - CCMSurvivorSPPWesternForestSupportTech: 1
+    - CCMSurvivorSPPWesternForestMedic: 1
+    - CCMSurvivorSPPWesternForestBase: 5 # todo 6 when eight survs
+    survivorJobVariants:
+      CCMSurvivorSPPWesternForestBase:
+      - CCMSurvivorSPPWesternForestSpecialist: 1
+      - CCMSurvivorSPPWesternForestSquadLeader: 1
+      - CCMSurvivorSPPWesternForestRifleman: 3
+    survivorJobOverrides:
+      CMSurvivor: CCMSurvivorSPPWesternForestBase
+      CMSurvivorCorporate: CCMSurvivorSPPWesternForestBase
+      CMSurvivorDoctor: CCMSurvivorSPPWesternForestMedic
+      CMSurvivorEngineer: CCMSurvivorSPPWesternForestSupportTech
+      CMSurvivorSecurity: CCMSurvivorSPPWesternForestBase
+      CMSurvivorScientist: CCMSurvivorSPPWesternForestBase
+      RMCSurvivorCommandingOfficer: CCMSurvivorSPPWesternForestCommander
+
