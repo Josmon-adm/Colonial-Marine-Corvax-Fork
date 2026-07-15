@@ -14,7 +14,6 @@
   - type: RMCIgnoreGhostInteractionLimits
   - type: RequireProjectileTarget
   - type: GridVehicleMover
-    mobCollisionDamage: 50 # CCM14
     maxSpeed: 6
     acceleration: 5
     deceleration: 12
