@@ -323,6 +323,11 @@
       - id: CMMaskCoif
       - id: RMCMaskRebreather
 # CCM14 Add
+      - id: CCMClothingGasMaskFull
+      - id: CCMClothingMercenaryMask
+      - id: CCMClothingGasMask
+      - id: CCMClothingGlassGasMask
+      - id: CCMClothingSpecialGasMask
     - name: Вспомог. одежда - Шея
       choices: { CCMDripNeck: 1 }
       entries:
