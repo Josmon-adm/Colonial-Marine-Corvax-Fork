@@ -1,6 +1,8 @@
 // RMC14
 using System.Linq;
 using Content.Client._RMC14.Chat;
+using Content.Client.Stylesheets;
+
 // RMC14
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared._MC;
@@ -190,9 +192,6 @@ public partial class ChatBox : UIWidget
         if (!string.IsNullOrWhiteSpace(languageIcon) && RepeatQueue.Count > 0)
             RepeatQueue.Last().IconControl = Contents.Children.OfType<LanguageIconTag.LanguageIconControl>().LastOrDefault();
 
-        if (TryRepeatWithCMChat(formatted, sender, unwrapped, channel, repeatCheckSender))
-            return;
-
         Contents.AddMessage(formatted);
         Contents.InvalidateArrange();
     }
@@ -240,27 +239,6 @@ public partial class ChatBox : UIWidget
         return output;
     }
     // RMC14
-
-    // RMC chat repetition guard start
-    private bool TryRepeatWithCMChat(FormattedMessage formatted, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
-    {
-        try
-        {
-            return _entManager.SystemOrNull<CMChatSystem>()?.TryRepetition(
-                this,
-                Contents,
-                formatted,
-                sender,
-                unwrapped,
-                channel,
-                repeatCheckSender) ?? false;
-        }
-        catch (NullReferenceException)
-        {
-            return false;
-        }
-    }
-    // RMC chat repetition guard end
 
     public void Focus(ChatSelectChannel? channel = null)
     {

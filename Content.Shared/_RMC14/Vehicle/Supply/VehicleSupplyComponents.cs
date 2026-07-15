@@ -17,6 +17,9 @@ public sealed partial class VehicleSupplyEntry
     public EntProtoId Vehicle;
 
     [DataField]
+    public string? Unlock;
+
+    [DataField]
     public List<EntProtoId> Hardpoints = new();
 
     [DataField]

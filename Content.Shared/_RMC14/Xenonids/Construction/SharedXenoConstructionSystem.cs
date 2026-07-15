@@ -1878,16 +1878,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
         return true;
     }
 
-    private bool IsNearVehicle(MapCoordinates mapCoords)
-    {
-        if (mapCoords.MapId == MapId.Nullspace)
-            return false;
-
-        var size = new Vector2(VehicleConstructionBlockRange * 2f, VehicleConstructionBlockRange * 2f);
-        var aabb = Box2.CenteredAround(mapCoords.Position, size);
-        return _entityLookup.AnyComponentsIntersecting(typeof(GridVehicleMoverComponent), mapCoords.MapId, aabb);
-    }
-
     public void GiveQueenBoost(EntityUid queen, float speedMultiplier, float remoteRange)
     {
         var boost = EnsureComp<QueenBuildingBoostComponent>(queen);
@@ -2258,15 +2248,6 @@ public sealed class SharedXenoConstructionSystem : EntitySystem
         };
 
         _doAfter.TryStartDoAfter(doAfter);
-        return true;
-    }
-
-    private bool IsNearVehiclePopup(Entity<XenoConstructionComponent> xeno, EntityCoordinates target)
-    {
-        if (!IsNearVehicle(_transform.ToMapCoordinates(target)))
-            return false;
-
-        _popup.PopupClient(Loc.GetString("cm-xeno-construction-failed-cant-build"), target, xeno);
         return true;
     }
 

@@ -88,6 +88,7 @@
       - RMCAPCWheel
     - name: tank
       vehicle: VehicleTank
+      unlock: VehicleTank
       hardpoints:
       - VehicleTankArmorBallistic
       - VehicleTankArmorConcussive
@@ -95,7 +96,7 @@
       - VehicleTankArmorPaladin
       - VehicleTankSnowplow
       - VehicleTankLTAAAPMinigun
-      # - VehicleTankLTBCannon parity :c
+      - VehicleTankLTBCannon # CCM14
       - VehicleTankAceAutocannon
       - VehicleTankDragonFlamer
       - VehicleTankFlamer
@@ -142,6 +143,7 @@
         - VehicleTankSnowplow
     - name: humvee (arc)
       vehicle: VehicleHumveeARC
+      unlock: VehicleHumveeARC
       hardpoints:
       - VehicleHumveeTurret
       - VehicleHumveeARCCannon

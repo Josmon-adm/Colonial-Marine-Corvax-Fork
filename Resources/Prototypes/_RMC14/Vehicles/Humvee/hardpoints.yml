@@ -100,6 +100,8 @@
         whitelist:
           components:
           - HardpointItem
+  - type: VehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: VehicleHumveeTurret
@@ -120,6 +122,8 @@
         whitelist:
           components:
           - HardpointItem
+  - type: VehicleFabricatorPrintable # CCM14
+    enabled: false
 
 - type: entity
   parent: VehicleHumveeHardpointBase

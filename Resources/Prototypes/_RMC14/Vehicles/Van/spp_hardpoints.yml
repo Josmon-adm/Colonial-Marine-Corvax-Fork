@@ -114,4 +114,6 @@
     state: spp_tires
   - type: HardpointItem
     compatibilityId: HardpointCompatibilitySPPVan
+  - type: VehicleFabricatorPrintable # CCM14
+    enabled: false
 

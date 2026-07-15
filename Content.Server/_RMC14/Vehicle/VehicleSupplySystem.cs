@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._RMC14.Intel;
 using Content.Shared._RMC14.Intel.Tech;
 using Content.Shared._RMC14.Requisitions;
 using Content.Shared._RMC14.Requisitions.Components;
@@ -30,10 +31,10 @@ public sealed class VehicleSupplySystem : EntitySystem
     private readonly record struct HardpointItemInfo(string ProtoId, HashSet<ProtoId<TagPrototype>> Tags);
     private const int VendedHardpointAmmoCount = 3;
 
-
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly VehicleHardpointVisualsSystem _hardpointVisuals = default!;
+    [Dependency] private readonly IntelSystem _intel = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
@@ -67,6 +68,7 @@ public sealed class VehicleSupplySystem : EntitySystem
     {
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         SubscribeLocalEvent<VehicleSupplyConsoleComponent, BeforeActivatableUIOpenEvent>(OnConsoleBeforeUiOpen);
+        SubscribeLocalEvent<VehicleSupplyConsoleComponent, MapInitEvent>(OnConsoleMapInit);
         SubscribeLocalEvent<VehicleHardpointVendorComponent, MapInitEvent>(OnVendorMapInit);
         SubscribeLocalEvent<VehicleHardpointVendorComponent, BeforeActivatableUIOpenEvent>(OnVendorBeforeUiOpen);
         SubscribeLocalEvent<VehicleSupplyLiftComponent, MapInitEvent>(OnLiftMapInit);
@@ -276,7 +278,13 @@ public sealed class VehicleSupplySystem : EntitySystem
         if (string.IsNullOrWhiteSpace(ev.Unlock))
             return;
 
+        var tech = EnsureSupplyTech();
         var unlock = Normalize(ev.Unlock);
+        if (!tech.Comp.Unlocked.Contains(unlock))
+        {
+            tech.Comp.Unlocked.Add(unlock);
+            Dirty(tech);
+        }
 
         var liftQuery = EntityQueryEnumerator<VehicleSupplyLiftComponent>();
         while (liftQuery.MoveNext(out var uid, out var lift))
@@ -284,6 +292,10 @@ public sealed class VehicleSupplySystem : EntitySystem
             EnsureVehicleInConsoles((uid, lift), ev.Unlock);
 
             if (GetStoredCount(lift, unlock) > 0 || lift.Deployed.Contains(unlock))
+                continue;
+
+            if (!string.IsNullOrWhiteSpace(lift.PendingVehicle) &&
+                Normalize(lift.PendingVehicle) == unlock)
                 continue;
 
             AddStored(lift, unlock);
@@ -296,18 +308,39 @@ public sealed class VehicleSupplySystem : EntitySystem
 
     private void OnConsoleBeforeUiOpen(Entity<VehicleSupplyConsoleComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
+        if (TryGetLift(ent.Owner, ent.Comp, out var lift))
+        {
+            SeedStoredFromConsoles(lift);
+        }
+
         SendConsoleState(ent.Owner, ent.Comp);
+    }
+
+    private void OnConsoleMapInit(Entity<VehicleSupplyConsoleComponent> ent, ref MapInitEvent args)
+    {
+        var mapId = _transform.GetMapId(ent.Owner);
+        var liftQuery = EntityQueryEnumerator<VehicleSupplyLiftComponent, TransformComponent>();
+        while (liftQuery.MoveNext(out var uid, out var lift, out var xform))
+        {
+            if (xform.MapID != mapId)
+                continue;
+
+            SeedStoredFromConsoles((uid, lift));
+            Dirty(uid, lift);
+        }
+
+        SendConsoleStateAll();
     }
 
     private void OnLiftMapInit(Entity<VehicleSupplyLiftComponent> ent, ref MapInitEvent args)
     {
         SeedStoredFromConsoles(ent);
-
         Dirty(ent);
     }
 
     private void SeedStoredFromConsoles(Entity<VehicleSupplyLiftComponent> lift)
     {
+        var unlocked = BuildUnlockedSet();
         var mapId = _transform.GetMapId(lift.Owner);
 
         var query = EntityQueryEnumerator<VehicleSupplyConsoleComponent, TransformComponent>();
@@ -318,6 +351,9 @@ public sealed class VehicleSupplySystem : EntitySystem
 
             foreach (var entry in console.Vehicles)
             {
+                if (!IsEntryUnlocked(entry, unlocked))
+                    continue;
+
                 var key = Normalize(entry.Vehicle.Id);
                 if (lift.Comp.Deployed.Contains(key))
                     continue;
@@ -325,9 +361,14 @@ public sealed class VehicleSupplySystem : EntitySystem
                 if (GetStoredCount(lift.Comp, key) > 0)
                     continue;
 
+                if (!string.IsNullOrWhiteSpace(lift.Comp.PendingVehicle) &&
+                    Normalize(lift.Comp.PendingVehicle) == key)
+                    continue;
+
                 AddStored(lift.Comp, key);
             }
         }
+        Dirty(lift);
     }
 
     private void OnVendorBeforeUiOpen(Entity<VehicleHardpointVendorComponent> ent, ref BeforeActivatableUIOpenEvent args)
@@ -793,6 +834,7 @@ public sealed class VehicleSupplySystem : EntitySystem
         if (!Resolve(uid, ref console, logMissing: false))
             return;
 
+        var unlocked = BuildUnlockedSet();
         var available = new List<VehicleSupplyEntryState>();
 
         VehicleSupplyLiftMode? mode = null;
@@ -823,12 +865,16 @@ public sealed class VehicleSupplySystem : EntitySystem
                     overlays = BuildPreviewOverlays(stored);
                 }
 
-                preview = new VehicleSupplyPreviewState(selectedId, layers, overlays);
+                var selectedName = GetVehicleName(selectedId);
+                preview = new VehicleSupplyPreviewState(selectedId, selectedName, layers, overlays);
             }
         }
 
         foreach (var entry in console.Vehicles)
         {
+            if (!IsEntryUnlocked(entry, unlocked))
+                continue;
+
             if (hasLift)
             {
                 var key = Normalize(entry.Vehicle.Id);
@@ -900,6 +946,7 @@ public sealed class VehicleSupplySystem : EntitySystem
         var hasLift = TryGetLiftForVendor(uid, vendor, out var lift);
 
         var catalog = BuildVendorCatalog(uid, vendor);
+        var unlocked = BuildUnlockedSet();
 
         var existingAmounts = new Dictionary<EntProtoId, int>();
         foreach (var section in automated.Sections)
@@ -918,6 +965,8 @@ public sealed class VehicleSupplySystem : EntitySystem
         var sections = new List<CMVendorSection>();
         foreach (var entry in catalog)
         {
+            if (!IsEntryUnlocked(entry, unlocked))
+                continue;
 
             var vehicleKey = Normalize(entry.Vehicle.Id);
             var count = hasLift ? GetVendorAvailableVehicleCount(lift.Comp, vehicleKey) : 0;
@@ -1288,6 +1337,7 @@ public sealed class VehicleSupplySystem : EntitySystem
             console.Vehicles.Add(new VehicleSupplyEntry
             {
                 Vehicle = vehicleId,
+                Unlock = vehicleId,
                 Name = proto.Name,
             });
         }
@@ -1311,6 +1361,7 @@ public sealed class VehicleSupplySystem : EntitySystem
             console.Vehicles.Add(new VehicleSupplyEntry
             {
                 Vehicle = vehicleId,
+                Unlock = vehicleId,
                 Name = proto.Name
             });
 
@@ -1360,7 +1411,6 @@ public sealed class VehicleSupplySystem : EntitySystem
 
         return found;
     }
-
 
     private List<VehicleSupplyEntry> BuildVendorCatalog(EntityUid vendorUid, VehicleHardpointVendorComponent vendor)
     {
@@ -1419,10 +1469,12 @@ public sealed class VehicleSupplySystem : EntitySystem
 
     private string GetEntryName(VehicleSupplyEntry entry)
     {
-        if (!string.IsNullOrWhiteSpace(entry.Name))
-            return entry.Name;
-
         return GetPrototypeName(entry.Vehicle.Id);
+    }
+
+    private string GetVehicleName(string vehicleId)
+    {
+        return GetPrototypeName(vehicleId);
     }
 
     private string GetPrototypeName(string protoId)
@@ -1683,5 +1735,54 @@ public sealed class VehicleSupplySystem : EntitySystem
         }
 
         return null;
+    }
+
+    private HashSet<string> BuildUnlockedSet()
+    {
+        var unlocked = new HashSet<string>();
+        if (!TryGetSupplyTech(out var tech))
+            return unlocked;
+
+        foreach (var id in tech.Comp.Unlocked)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                continue;
+
+            unlocked.Add(Normalize(id));
+        }
+
+        return unlocked;
+    }
+
+    private bool TryGetSupplyTech(out Entity<VehicleSupplyTechComponent> tech)
+    {
+        var query = EntityQueryEnumerator<VehicleSupplyTechComponent>();
+        if (query.MoveNext(out var uid, out var comp))
+        {
+            tech = (uid, comp);
+            return true;
+        }
+
+        tech = default;
+        return false;
+    }
+
+    private static bool IsEntryUnlocked(VehicleSupplyEntry entry, HashSet<string> unlocked)
+    {
+        if (string.IsNullOrWhiteSpace(entry.Unlock))
+            return true;
+
+        return unlocked.Contains(Normalize(entry.Unlock));
+    }
+
+    private Entity<VehicleSupplyTechComponent> EnsureSupplyTech()
+    {
+        var query = EntityQueryEnumerator<VehicleSupplyTechComponent>();
+        if (query.MoveNext(out var uid, out var comp))
+            return (uid, comp);
+
+        var tree = _intel.EnsureTechTree();
+        var tech = EnsureComp<VehicleSupplyTechComponent>(tree.Owner);
+        return (tree.Owner, tech);
     }
 }

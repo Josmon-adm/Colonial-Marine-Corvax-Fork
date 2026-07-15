@@ -410,6 +410,18 @@ public sealed partial class XenoSystem : EntitySystem
         EnsureComp<XenoComponent>(xeno);
     }
 
+    public void SetHealOffWeeds(Entity<XenoRegenComponent?> xeno, bool healOffWeeds) //CMU14
+    {
+        if (!Resolve(xeno, ref xeno.Comp, false) ||
+            xeno.Comp.HealOffWeeds == healOffWeeds)
+        {
+            return;
+        }
+
+        xeno.Comp.HealOffWeeds = healOffWeeds;
+        DirtyField(xeno.Owner, xeno.Comp, nameof(XenoRegenComponent.HealOffWeeds));
+    }
+
     private void OnBeingGibbed(Entity<XenoComponent> xeno, ref BeingGibbedEvent args)
     {
         if (!TryComp<HiveMemberComponent>(xeno, out var member))

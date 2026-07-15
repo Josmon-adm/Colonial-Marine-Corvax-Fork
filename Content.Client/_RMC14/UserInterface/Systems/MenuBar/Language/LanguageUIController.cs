@@ -88,7 +88,7 @@ public sealed class LanguageUIController : UIController, IOnStateEntered<Gamepla
         };
         button.AppendStyleClass = StyleBase.ButtonSquare;
         button.OnPressed += LanguageButtonPressed;
-        if (button.ButtonRoot.Children.FirstOrDefault() is TextureRect icon)
+        if (button.ButtonRoot?.Children.FirstOrDefault() is TextureRect icon)
             icon.TextureScale = new Vector2(1.2f, 1.2f);
 
         topBar.AddChild(button);

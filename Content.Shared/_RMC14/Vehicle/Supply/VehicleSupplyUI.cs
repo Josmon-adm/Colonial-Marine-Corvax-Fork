@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using Content.Shared._RMC14.Vehicle;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._RMC14.Vehicle.Supply;
@@ -93,6 +94,9 @@ public sealed partial class VehicleSupplyPreviewState
     public string VehicleId;
 
     [DataField]
+    public string? VehicleName; // CCM14
+
+    [DataField]
     public List<VehicleHardpointLayerState> Layers;
 
     [DataField]
@@ -101,16 +105,19 @@ public sealed partial class VehicleSupplyPreviewState
     public VehicleSupplyPreviewState()
     {
         VehicleId = string.Empty;
+        VehicleName = string.Empty;
         Layers = new List<VehicleHardpointLayerState>();
         Overlays = new List<VehicleSupplyPreviewOverlay>();
     }
 
     public VehicleSupplyPreviewState(
         string vehicleId,
+        string? vehicleName, // CCM14
         List<VehicleHardpointLayerState> layers,
         List<VehicleSupplyPreviewOverlay> overlays)
     {
         VehicleId = vehicleId;
+        VehicleName = vehicleName; // CCM14
         Layers = layers;
         Overlays = overlays;
     }
@@ -198,3 +205,12 @@ public sealed class VehicleSupplyLiftMsg : BoundUserInterfaceMessage
         Raise = raise;
     }
 }
+
+//CCM14-start
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class VehicleSupplyTechComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public List<string> Unlocked = new();
+}
+//CCM14-end
