@@ -88,6 +88,15 @@
       - id: CMMaskGas
       - id: CMMaskCoif
       - id: RMCMaskRebreather
+# CCM14 Add
+    - name: Вспомог. одежда - Шея
+      choices: { CCMDripNeck: 1 }
+      entries:
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+# CCM14 End
     - name: Инженерное снаряжение # CCM14
       entries:
       - id: CMEntrenchingTool
