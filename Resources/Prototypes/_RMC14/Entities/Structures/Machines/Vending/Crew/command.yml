@@ -212,6 +212,13 @@
       - id: CMMaskGas
       - id: CMMaskCoif
       - id: RMCMaskRebreather
+# CCM14 Add
+      - id: CCMClothingGasMaskFull
+      - id: CCMClothingMercenaryMask
+      - id: CCMClothingGasMask
+      - id: CCMClothingGlassGasMask
+      - id: CCMClothingSpecialGasMask
+# CCM14 End
     - name: Разное # CCM14
       entries:
       - id: RMCVisorWelding
@@ -554,6 +561,13 @@
       - id: CMMaskGas
       - id: CMMaskCoif
       - id: RMCMaskRebreather
+# CCM14 Add
+      - id: CCMClothingGasMaskFull
+      - id: CCMClothingMercenaryMask
+      - id: CCMClothingGasMask
+      - id: CCMClothingGlassGasMask
+      - id: CCMClothingSpecialGasMask
+# CCM14 End
     - name: Разное # CCM14
       entries:
       - id: RMCPatchFallingFalcons
@@ -927,7 +941,6 @@
       - id: CMHeadCapPeakedService
       - id: RMCHeadCapFlippable # TODO: Port Patrol Cap
       - id: CMHeadCapOfficer
-# CCM14 Add
     - name: Вспомог. одежда - Шея
       choices: { CCMDripNeck: 1 }
       entries:
@@ -1232,6 +1245,13 @@
       - id: CMMaskGas
       - id: CMMaskCoif
       - id: RMCMaskRebreather
+# CCM14 Add
+      - id: CCMClothingGasMaskFull
+      - id: CCMClothingMercenaryMask
+      - id: CCMClothingGasMask
+      - id: CCMClothingGlassGasMask
+      - id: CCMClothingSpecialGasMask
+# CCM14 End
     - name: Основное вооружение # CCM14
       jobs:
       - CMChiefEngineer
