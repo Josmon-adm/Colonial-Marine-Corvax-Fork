@@ -486,6 +486,12 @@ public abstract class SharedWeaponMountSystem : EntitySystem
             return false;
         }
 
+        if (HasComp<VehicleInteriorOccupantComponent>(user))
+        {
+            _popup.PopupClient(Loc.GetString("emplacement-mount-deploy-vehicle"), user, user, PopupType.SmallCaution);
+            return false;
+        }
+
         if (TryComp(user, out EntityTurnInvisibleComponent? invisible))
         {
             if (invisible.Enabled || invisible.UncloakTime + invisible.UncloakWeaponLock > _timing.CurTime)

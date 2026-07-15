@@ -900,7 +900,7 @@
       - CMExecutiveOfficer
       choices: { CMHat: 1 }
       entries:
-      - id: RMCHeadBeret # TODO: Port Officer Beret
+      - id: RMCHeadBeretChiefOfficer
       - id: CMHeadCapPeakedService
       - id: RMCHeadCapFlippable # TODO: Port Patrol Cap
       - id: CMHeadCapOfficer
@@ -1345,12 +1345,19 @@
       entries:
       - id: CMJumpsuitCMO
         recommended: true
-      - id: CMScrubsGreen
+      - id: RMCScrubsCMO
+        recommended: true
+      - id: RMCJumpsuitDoctor
       - id: CMScrubsBlue
       - id: RMCScrubsLightBlue
+      - id: CMScrubsGreen
+      - id: RMCScrubsPharm
       - id: CMScrubsPurple
       - id: RMCScrubsOlive
       - id: RMCScrubsGrey
+      - id: RMCScrubsBrown
+      - id: RMCScrubsWhite
+      - id: RMCScrubsBlack
     - name: Спецодежда # CCM14
       jobs:
       - CMCMO
@@ -1359,18 +1366,39 @@
       - id: RMCLabcoatCMO
         recommended: true
       - id: RMCLabcoat
-        recommended: true
+      - id: RMCLabcoatPharm
+      - id: RMCLabcoatShort
+        name: High-Cut Labcoat
+      - id: RMCLabcoatLong
+        name: Low-Cut Labcoat
       - id: RMCMedicalApron
+    - name: Snow gear (Snow use only)
+      jobs:
+      - CMCMO
+      takeAll: CMSnowgear
+      entries:
+      - id: RMCCoatSnow
+      - id: RMCMaskBalaclava
+      - id: RMCMaskTornScarfBlack
+        name: Snow Scarf 
     - name: Головные уборы # CCM14
       jobs:
       - CMCMO
       choices: { CMHelmet: 1 }
       entries:
       - id: CMHeadCapCMO
-      - id: CMHeadCapSurgOrange
+        recommended: true
+      - id: CMHeadCapSurgCMO
+        recommended: true
       - id: CMHeadCapSurgBlue
-      - id: CMHeadCapSurgPurple
       - id: CMHeadCapSurgGreen
+      - id: CMHeadCapSurgPharm
+      - id: CMHeadCapSurgPurple
+      - id: CMHeadCapSurgOlive
+      - id: CMHeadCapSurgGrey
+      - id: CMHeadCapSurgBrown
+      - id: CMHeadCapSurgWhite
+      - id: CMHeadCapSurgBlack
     - name: Рюкзаки # CCM14
       jobs:
       - CMCMO
@@ -1389,8 +1417,10 @@
       entries:
       - id: CMBeltMedicBagFilled
         name: медицинский пояс M276 (Заполненный) # CCM14
+        recommended: true
       - id: CMBeltMedicalFilled
         name: пояс для медэкипировки M276 (Заполненный) # CCM14
+        recommended: true
     - name: Личное оружие # CCM14
       jobs:
       - CMCMO
@@ -1441,7 +1471,9 @@
         name: подсумок первой помощи (таблетки) # CCM14
       - id: RMCPouchFirstResponder
       - id: RMCPouchMedical
+        recommended: true
       - id: RMCPouchMedkit
+        recommended: true
       - id: RMCPouchReagentCanisterBicaridine
         recommended: true
         name: подсумок канистры сжатых реагентов\n(Бикаридин) # CCM14
@@ -1482,7 +1514,7 @@
       - id: CMHeadsetMedical
         amount: 15
       - id: CMHeadsetResearcher
-        amount: 15
+        amount: 30
       - id: RMCCPRDummy
         amount: 5
     # ////////////////////////////////////

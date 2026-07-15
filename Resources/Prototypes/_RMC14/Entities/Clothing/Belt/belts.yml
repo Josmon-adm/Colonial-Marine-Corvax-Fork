@@ -406,6 +406,8 @@
       - RMCPenlight
       - Flare
       - RMCMiniTank
+      - RMCSyringeCase
+      - CMSurgicalCase
       #      - # TODO RMC14 reagent analyzer
       #      - # TODO RMC14 plant analyzer
       components:
