@@ -22,6 +22,28 @@
     extinguishAmount: 13
 
 - type: entity
+  parent: XenoAcidSprayWeak
+  id: CCMXenoAcidSprayScatterShotSpitter
+  name: splatter
+  description: It burns! It burns!
+  components:
+  - type: Sprite
+    layers:
+    - state: acid2
+  - type: DamageOnCollide
+    paralyze: 0
+    damage:
+      types:
+        Heat: 37.65
+    chainDamage:
+      types:
+        Heat: 20.45
+  - type: TimedDespawn
+    lifetime: 1.1
+  - type: SprayExtinguishTileFire
+    extinguishAmount: 45
+
+- type: entity
   id: CCMXenoBurrowerImpalerSpike #technically, this shi is acid
   name: spike
   description: My leg!

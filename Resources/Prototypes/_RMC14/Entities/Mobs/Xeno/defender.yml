@@ -137,6 +137,7 @@
   - type: XenoEvolution
     strains:
     - CMXenoDefenderSteelcrest
+    - CCMXenoDefenderBodyguard #CCM14 Add
   - type: RMCActionOrder
     id: CMXenoDefender
 

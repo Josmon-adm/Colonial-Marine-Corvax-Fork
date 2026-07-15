@@ -52,6 +52,53 @@
     amount: 5
 
 - type: entity
+  id: CCMXenoSpitterScatterShotSpit
+  parent: XenoBaseProjectile
+  name: acidic scattered spit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+  - type: ProjectileMaxRange
+    max: 3.79
+  - type: Projectile
+    impactEffect: XenoProjectileImpactEffect
+    damage:
+      types:
+        Heat: 17.5 # TODO RMC14 damage fall-off and higher at close range
+  - type: CMArmorPiercing
+    amount: 10
+
+- type: entity
+  id: CCMXenoSpitterScatterShotShrapnel
+  parent: XenoBaseProjectile
+  name: acidic shrapnel spit
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 8
+  - type: Projectile
+    impactEffect: XenoProjectileImpactEffect
+    damage:
+      types:
+        Heat: 20 # TODO RMC14 damage fall-off and higher at close range
+  - type: CMArmorPiercing
+    amount: 10
+  - type: AutoAssignHive
+
+- type: entity
   parent: [ XenoSpitImpactSounds, XenoBaseProjectile ]
   id: CCMXenoSpitProjectileSniper
   name: spit
