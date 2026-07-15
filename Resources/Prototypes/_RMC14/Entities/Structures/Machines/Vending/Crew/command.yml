@@ -105,6 +105,16 @@
       entries:
       - id: CCMGuitarBagFilled
     # CCM14-end
+# CCM14 Add
+    - name: Вспомог. одежда - Шея
+      choices: { CCMDripNeck: 1 }
+      entries:
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+      - id: CCMCapeCaseScarf
+# CCM14 End
 
 # Armoury Vend
 
@@ -202,6 +212,13 @@
       - id: CMMaskGas
       - id: CMMaskCoif
       - id: RMCMaskRebreather
+# CCM14 Add
+      - id: CCMClothingGasMaskFull
+      - id: CCMClothingMercenaryMask
+      - id: CCMClothingGasMask
+      - id: CCMClothingGlassGasMask
+      - id: CCMClothingSpecialGasMask
+# CCM14 End
     - name: Разное # CCM14
       entries:
       - id: RMCVisorWelding
@@ -544,6 +561,13 @@
       - id: CMMaskGas
       - id: CMMaskCoif
       - id: RMCMaskRebreather
+# CCM14 Add
+      - id: CCMClothingGasMaskFull
+      - id: CCMClothingMercenaryMask
+      - id: CCMClothingGasMask
+      - id: CCMClothingGlassGasMask
+      - id: CCMClothingSpecialGasMask
+# CCM14 End
     - name: Разное # CCM14
       entries:
       - id: RMCPatchFallingFalcons
@@ -562,6 +586,19 @@
       entries:
       - id: CCMGuitarBagFilled
     # CCM14-end
+# CCM14 Add
+    - name: Вспомог. одежда - Шея
+      choices: { CCMDripNeck: 1 }
+      entries:
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+      - id: CCMCapeCaseGeist
+      - id: CCMCapeCaseGhille
+      - id: CCMCapeCaseShredded
+      - id: CCMCapeCaseScarf
+# CCM14 End
 
 # Weapon Vend
 - type: entity
@@ -904,6 +941,16 @@
       - id: CMHeadCapPeakedService
       - id: RMCHeadCapFlippable # TODO: Port Patrol Cap
       - id: CMHeadCapOfficer
+    - name: Вспомог. одежда - Шея
+      choices: { CCMDripNeck: 1 }
+      entries:
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+      - id: CCMCapeCaseShredded
+      - id: CCMCapeCaseScarf
+# CCM14 End
     # ////////////////////////////////////
     # Chief MP
     # ////////////////////////////////////
@@ -1198,6 +1245,13 @@
       - id: CMMaskGas
       - id: CMMaskCoif
       - id: RMCMaskRebreather
+# CCM14 Add
+      - id: CCMClothingGasMaskFull
+      - id: CCMClothingMercenaryMask
+      - id: CCMClothingGasMask
+      - id: CCMClothingGlassGasMask
+      - id: CCMClothingSpecialGasMask
+# CCM14 End
     - name: Основное вооружение # CCM14
       jobs:
       - CMChiefEngineer

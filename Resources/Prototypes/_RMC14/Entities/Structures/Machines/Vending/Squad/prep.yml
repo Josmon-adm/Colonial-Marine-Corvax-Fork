@@ -326,6 +326,18 @@
         amount: 10
       - id: RMCMaskRebreather
         amount: 10
+# CCM14 ADD
+      - id: CCMClothingGasMaskFull
+        amount: 10
+      - id: CCMClothingGasMask
+        amount: 10
+      - id: CCMClothingMercenaryMask
+        amount: 3
+      - id: CCMClothingSpecialGasMask
+        amount: 3
+      - id: CCMClothingGlassGasMask
+        amount: 1
+# CCM14 END
     - name: Разное # CCM14
       entries:
       - id: RMCGogglesBallistic
@@ -443,27 +455,17 @@
         name: Повязка (Серая) #Band grey
       - id: RMCHeadUNMCHeadset
     - name: Вспомог. одежда - Шея #Neck clothing - scarf & other
-      choices: { CCMDripNeck: 2 }
+      choices: { CCMDripNeck: 1 }
       entries:
 # Neck 
-      - id: ClothingNeckTieDet
-        name: Чёрный галстук #Black tie
-      - id: ClothingNeckTieSci
-        name: Фиолетовый галстук #Puprle tie
-      - id: ClothingNeckTieRed
-      - id: ClothingNeckScarfStripedLesbianLong
-        name: Длинный разноцветный шарф #Bacon like
-      - id: ClothingNeckScarfStripedAroace
-        name: Полосатый сине-жёлтый шарф #Atmos like
-      - id: ClothingNeckScarfStripedGreen
-      - id: ClothingNeckScarfStripedRed
-      - id: ClothingNeckScarfStripedBrown
-      - id: ClothingNeckScarfStripedOrange
-      - id: ClothingNeckScarfStripedPurple
-      - id: ClothingNeckScarfStripedLightBlue
-      - id: ClothingNeckScarfStripedBlue
-      - id: ClothingNeckScarfStripedBlack
-      - id: ClothingNeckStoleChaplain
+      - id: CCMCapeCaseBase
+      - id: CCMCapeCaseFull
+      - id: CCMCapeCaseGeist
+      - id: CCMCapeCaseGhille
+      - id: CCMCapeCaseHalf
+      - id: CCMCapeCaseRapier
+      - id: CCMCapeCaseScarf
+      - id: CCMCapeCaseShredded
     - name: Вспомог. одежда - Внешняя #Outer clothing - Coats, Jackets, Windbreakers
       choices: { CCMDripOuter: 1 }
       entries:
