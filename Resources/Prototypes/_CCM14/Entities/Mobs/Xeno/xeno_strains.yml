@@ -160,28 +160,28 @@
   - type: XenoHidden
   - type: XenoPunch
     effect: CCMEffectStarsInEyes
-    range: 2
+    range: 4
     damage:
       types:
-        Blunt: 60
+        Blunt: 75
   - type: XenoFling
     effect: CCMEffectBrokenBones
-    range: 6
+    range: 8
     paralyzeTime: 1
     slowTime: 3
     dazeTime: 3
     throwSpeed: 12
     damage:
       groups:
-        Brute: 30
+        Brute: 45
   - type: XenoTailJab
     slowdownTime: 6
-    throwRange: 4
+    throwRange: 6
     attackEffect: CCMEffectBrokenLegs
     sound: /Audio/_RMC14/Xeno/alien_claw_block.ogg
     damage:
       groups:
-        Brute: 45
+        Brute: 55
 # // CCM Xeno Strain - Effects
 - type: entity
   parent: RMCBaseEffect
@@ -227,7 +227,7 @@
     prototypes:
       - CCMEffectStunBasher
     chance: 1
-    intervalSeconds: 4
+    intervalSeconds: 3
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
 
@@ -266,7 +266,7 @@
     prototypes:
       - CCMEffectStunBasher
     chance: 1
-    intervalSeconds: 2
+    intervalSeconds: 1.2
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
 
@@ -389,7 +389,7 @@
   - type: XenoPlasma
     plasma: 300
     maxPlasma: 300
-    plasmaRegenOnWeeds: 2
+    plasmaRegenOnWeeds: 1.5
   - type: CMArmor
     xenoArmor: 20
     explosionArmor: 35
@@ -401,16 +401,21 @@
     otherArmorDuration: 6
     enrageColor: "#66443B"
   - type: XenoCrest
-    armor: 20
+    armor: 25
     speedMultiplier: 0.5
-  - type: XenoFling # TODO RMC14 target head
-    range: 2
-    paralyzeTime: 2
-    slowTime: 4
-    throwSpeed: 12
-    damage:
-      groups:
-        Brute: 25
+  - type: XenoTailLash
+    stunTime: 2
+    effect: RMCEffectXenoTelegraphRedEmpower
+    effectEdge: RMCEffectXenoTelegraphInvisible
+    windup: 0.75
+    width: 2
+    cost: 100
+  - type: XenoEnergy
+    max: 100
+    gain: 1 #CCM Change | Base = 1
+    gainAttack: -5
+    gainAttackDowned: -5
+    ignoreLateInfected: true
 # // CCM Xeno Strain - Bodyguard Defender
 
 # // CCM Xeno Strain - Melee & Ranger Sentinels
