@@ -135,7 +135,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 1.4
+    lifetime: 1.25
   - type: Sprite
     color: "#A50824"
   - type: SpawnOnTerminate
