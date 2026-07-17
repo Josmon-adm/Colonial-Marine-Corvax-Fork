@@ -115,9 +115,9 @@
 
 - type: entity
   id: CCMActionXenoBodyGuardGuard
-  parent: ActionXenoFling
+  parent: ActionXenoTailLash
   name: GUARD (100)
-  description: Flings the targeted enemy a few tiles, knocking them down, slowing and damaging them.
+  description: Charge a strong tail fling and fling enemy in 2x2 box (maybe bigger sometimes)
   components:
   - type: Action
     itemIconStyle: NoItem
