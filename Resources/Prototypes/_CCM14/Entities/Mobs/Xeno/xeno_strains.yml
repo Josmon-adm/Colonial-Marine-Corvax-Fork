@@ -394,7 +394,7 @@
     xenoArmor: 20
     explosionArmor: 35
   - type: XenoTantrum
-    furyCost: 0
+    furyCost: 60
     selfArmorBoost: 0
     selfArmorDuration: 0
     otherSpeedDuration: 0
@@ -412,7 +412,7 @@
     cost: 100
   - type: XenoEnergy
     max: 100
-    gain: 1 #CCM Change | Base = 1
+    gain: 2 #CCM Change | Base = 1
     gainAttack: -5
     gainAttackDowned: -5
     ignoreLateInfected: true
