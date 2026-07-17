@@ -38,7 +38,7 @@
     maxRage: 999
     armorPerRage: 0
     speedBuffPerRage: 0.05
-    attackSpeedPerRage: 0.25
+    attackSpeedPerRage: 0.165
     healAmount: 0
   - type: XenoEvolution
     max: 500
