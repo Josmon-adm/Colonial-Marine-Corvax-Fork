@@ -53,7 +53,7 @@
 
 - type: entity
   id: CCMXenoSpitterScatterShotSpit
-  parent: XenoBaseProjectile
+  parent: XenoSpitProjectile
   name: acidic scattered spit
   categories: [ HideSpawnMenu ]
   components:
@@ -76,7 +76,7 @@
 
 - type: entity
   id: CCMXenoSpitterScatterShotShrapnel
-  parent: XenoBaseProjectile
+  parent: XenoSpitProjectile
   name: acidic shrapnel spit
   categories: [ HideSpawnMenu ]
   components:
