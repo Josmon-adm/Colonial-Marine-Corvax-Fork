@@ -682,7 +682,7 @@
   - type: DamageOnCollide
     damage:
       types:
-        Heat: 300
+        Heat: 375
     chainDamage:
       types:
         Heat: 0
