@@ -241,7 +241,7 @@
   - type: RMCPlanetMapPrototype
     map: /Maps/_RMC14/prison.yml
     camouflage: Classic
-    minPlayers: 25 # CCM14-mappool
+    minPlayers: 50 # CCM14-mappool
     announcement: "Пехота! Был получен автоматический сигнал бедствия из приграничной тюрьмы строгого режима. Должен сказать, что я крайне удивлён, что такие заведения вообще работают чуть ли не в упор к фронту, но, видимо, они уже за это поплатились.
       Для общего понимания,
       Обозначение - орбитальная тюрьма общего режима.
@@ -298,7 +298,8 @@
   name: Trijent Dam
   components:
   - type: RMCPlanetMapPrototype
-    map: /Maps/_CCM14/Planets/Z-level/Trijent/devtrijent/devtrijent0.yml
+    inRotation: false # CCM14
+    map: /Maps/_RMC14/trijent.yml
     camouflage: Desert
     announcement: "Пехота! Была потеряна связь с корпоративной колонией на планете Райджин. Видимо, туда наш путь теперь и проложен. Хех, удачи!
             Для общего понимания,
@@ -308,7 +309,7 @@
       Биосканирование Выдаёт ошибку.
 
       Авторизовано: капитан Леон Гранц."
-    minPlayers: 25 # CCM14-mappool
+    minPlayers: 50 # CCM14-mappool
     #smallHostVariants:
       #RMCMobSmallHostStok
     nightmareScenarios:
@@ -559,7 +560,7 @@
       scenarioProbability: 0.3
     - scenarioName: none
       scenarioProbability: 0.7
-    minPlayers: 30 # CCM14-mappool
+    minPlayers: 50 # CCM14-mappool
     survivorJobVariants:
       CMSurvivor:
       - RMCSurvivorHybrisaCivilian: -1
