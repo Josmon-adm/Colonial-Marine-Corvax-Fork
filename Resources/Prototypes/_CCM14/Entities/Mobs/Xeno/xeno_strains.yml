@@ -619,9 +619,7 @@
   - type: DamageOnCollide
     damage:
       types:
-        Heat: -200
-      groups:
-        Brute: -200
+        Heat: 300
     chainDamage:
       types:
         Heat: 0
