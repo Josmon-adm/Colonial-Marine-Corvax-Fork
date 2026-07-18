@@ -47,7 +47,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
-      state: fling
+      state: mark_attack
     useDelay: 30
   - type: ActionSharedCooldown
     id: CCMActionXenoBasherLegsOff
@@ -66,7 +66,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
-      state: fling
+      state: prae_crush
     useDelay: 30
   - type: ActionSharedCooldown
     id: ActionXenoCleaveRoot
@@ -85,7 +85,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: _RMC14/Actions/xeno_actions.rsi
-      state: fling
+      state: prae_pierce
     useDelay: 30
   - type: ActionSharedCooldown
     id: CCMActionXenoBasherCrushingDaBones
