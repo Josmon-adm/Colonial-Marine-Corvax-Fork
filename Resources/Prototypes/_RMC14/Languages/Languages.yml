@@ -1,7 +1,7 @@
 - type: language
   id: English
-  name: "English"
-  description: "The standard galactic English language."
+  name: "Общегалактический"
+  description: "Транслит, на котором говорят все!"
   isVisibleLanguage: true
   typefaceId: Default
   textSize: null
@@ -15,7 +15,7 @@
   expectedVocabularySize: 150
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["uh", "eh", "hm", "mm", "huh", "erm", "..."]
+    replacement: ["Koyl", "ro", "endur", "mili", "dica", "holi", "san", "just", "got", "vonj"]
     minSyllables: 1
     maxSyllables: 3
   speechOverride:
@@ -25,8 +25,8 @@
 
 - type: language
   id: Xeno
-  name: "Xenonid"
-  description: "The alien language of the Xenonids."
+  name: "Язык Ксеноморфов"
+  description: "Инопланетный язык ксеноморфов."
   isVisibleLanguage: true
   typefaceId: null
   textSize: null
@@ -55,8 +55,8 @@
 
 - type: language
   id: French
-  name: "French"
-  description: "An old Earth language."
+  name: "Транслит Ноократии Эранта"
+  description: "Транслит научной и художественной элиты общества."
   isVisibleLanguage: true
   typefaceId: DefaultItalic
   textSize: null
@@ -69,7 +69,7 @@
   expectedVocabularySize: 120
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["le", "de", "un", "ce", "ne", "se", "que", "qui", "son", "une"]
+    replacement: ["cava", "sac", "pi", "aves", "ave", "ket", "pret", "solo", "epas", "enst", "rest"]
     minSyllables: 1
     maxSyllables: 3
   speechOverride:
@@ -79,8 +79,8 @@
 
 - type: language
   id: Spanish
-  name: "Spanish"
-  description: "An old Earth language."
+  name: "Транслит Великой Империи Нотда"
+  description: "Язык многих аристократических родов ВИН, локально распространён среди беженцев из ВИН."
   isVisibleLanguage: true
   typefaceId: DefaultItalic
   textSize: null
@@ -93,7 +93,7 @@
   expectedVocabularySize: 120
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["el", "la", "de", "que", "los", "las", "por", "con", "una", "para"]
+    replacement: ["Koyl", "ro", "endur", "mili", "dica", "holi", "san", "just", "got", "vonj"]
     minSyllables: 1
     maxSyllables: 3
   speechOverride:
@@ -103,8 +103,8 @@
 
 - type: language
   id: Japanese
-  name: "Japanese"
-  description: "An old Earth language."
+  name: "Транслит Империи Миртана"
+  description: "То, на чём говорят сыны и дочери Императора Миртана."
   isVisibleLanguage: true
   typefaceId: NotoSansDisplay
   textSize: null
@@ -117,7 +117,7 @@
   expectedVocabularySize: 140
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no"]
+    replacement: ["santa", "holai", "caes", "yro", "kali", "milit", "knif", "yrob", "kor", "asus"]
     minSyllables: 2
     maxSyllables: 5
   speechOverride:
@@ -127,8 +127,8 @@
 
 - type: language
   id: Chinese
-  name: "Chinese"
-  description: "An old Earth language."
+  name: "Советский разговорный"
+  description: "На этом диалекте говорит весь народ СССП."
   isVisibleLanguage: true
   typefaceId: NotoSansDisplay
   textSize: null
@@ -141,7 +141,7 @@
   expectedVocabularySize: 140
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["ni", "hao", "shi", "de", "wo", "men", "zhe", "na", "ma", "le", "qing", "xie", "zai", "guo"]
+    replacement: ["leni", "troa", "vso", "grup", "gayp", "kty", "fay", "gui", "ki"]
     minSyllables: 1
     maxSyllables: 4
   speechOverride:
@@ -151,8 +151,8 @@
 
 - type: language
   id: Russian
-  name: "Russian"
-  description: "An old Earth language."
+  name: "Советский официальный"
+  description: "На этом диалекте говорит вся номенклатура и гос.органы."
   isVisibleLanguage: true
   typefaceId: DefaultBold
   textSize: null
@@ -165,7 +165,7 @@
   expectedVocabularySize: 130
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["да", "нет", "что", "как", "где", "кто", "все", "это", "был", "она"]
+    replacement: ["leni", "troa", "vso", "grup", "gayp", "kty", "fay", "gui", "ki"]
     minSyllables: 1
     maxSyllables: 4
   speechOverride:
@@ -175,8 +175,8 @@
 
 - type: language
   id: German
-  name: "German"
-  description: "An old Earth language."
+  name: "Транслит Умпорской Федерации"
+  description: "Транслит, на котором говорят верные труженники Федерации."
   isVisibleLanguage: true
   typefaceId: DefaultBold
   textSize: null
@@ -189,7 +189,7 @@
   expectedVocabularySize: 125
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["der", "die", "das", "ein", "ist", "und", "mit", "von", "auf", "für"]
+    replacement: ["leni", "troa", "vso", "grup", "gayp", "kty", "fay", "gui", "ki"]
     minSyllables: 1
     maxSyllables: 3
   speechOverride:
@@ -199,8 +199,8 @@
 
 - type: language
   id: Scandinavian
-  name: "Scandinavian"
-  description: "An old Earth language."
+  name: "Фронтирский диалект"
+  description: "Это диалект, свойственный жителям корпоративной зоны Большой Пятёрки и других областей Фронтира. Является диалектом общегалактического."
   isVisibleLanguage: true
   typefaceId: DefaultBold
   textSize: null
@@ -213,7 +213,7 @@
   expectedVocabularySize: 140
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["de", "vin", "meg", "og", "vi", "en", "nei", "ing", "gen", "et", "pur", "ke", "er", "nei", "hjort", "tysk", "de", "kjae", "en", "stein", "ja", "ull", "sil", "pa", "hun", "kjo", "erg", "ba", "re", "ol", "kyll", "menn", "esk", "gul", "gronn", "natt", "makt", "to", "fi", "re", "dag", "god", "jul", "ild", "fem", "jeg", "deg", "bjor", "en", "russ", "land", "sve", "rig", "nor", "ge", "dan", "is"]
+    replacement: ["Koyl", "ro", "endur", "mili", "dica", "holi", "san", "just", "got", "vonj"]
     minSyllables: 2
     maxSyllables: 4
   speechOverride:
@@ -223,8 +223,8 @@
 
 - type: language
   id: SignLanguage
-  name: "Sign Language"
-  description: "A visual language using hand gestures and body movements."
+  name: "Язык жестов"
+  description: "Язык состоящий из движений руками и телом."
   isVisibleLanguage: true
   typefaceId: DefaultItalic
   textSize: null
@@ -236,14 +236,14 @@
   expectedVocabularySize: 100
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["*waves*", "*gestures*", "*points*", "*nods*", "*shakes head*", "*thumbs up*", "*claps*", "*motions*", "*indicates*", "*signals*"]
+    replacement: ["*машет рукой*", "*жестикулирует*", "*указывает*", "*кивает*", "*качает головой*", "*хлопает*"]
     minSyllables: 1
     maxSyllables: 1
 
 - type: language
   id: Primitive
-  name: "Primitive"
-  description: "A primitive animal language made up of screeches, hoots, and emphatic gestures."
+  name: "Примитивный язык"
+  description: "Примитивный язык животных, состоящий из различных звуков."
   isVisibleLanguage: true
   typefaceId: DefaultItalic
   textSize: null
@@ -256,7 +256,7 @@
   expectedVocabularySize: 40
   obfuscationMethod:
     !type:SyllableObfuscation
-    replacement: ["ook", "eek", "aa", "hoo", "ooka", "kee", "rah", "ik", "uh", "chit"]
+    replacement: ["уук", "еек", "аа", "хуу", "уука", "кии", "рах", "ик", "ах"]
     minSyllables: 1
     maxSyllables: 3
   speechOverride:
