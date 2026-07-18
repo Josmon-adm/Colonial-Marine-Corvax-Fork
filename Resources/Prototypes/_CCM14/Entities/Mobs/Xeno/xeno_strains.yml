@@ -619,9 +619,9 @@
   - type: DamageOnCollide
     damage:
       types:
-        Heat: -200
+        Heat: -100
       groups:
-        Brute: -200
+        Brute: -100
     chainDamage:
       types:
         Heat: 0
@@ -679,6 +679,31 @@
     capacity: 24
     spreadAngle: 360
   - type: TriggerOnSpawn
+  - type: DamageOnCollide
+    damage:
+      types:
+        Heat: 375
+    chainDamage:
+      types:
+        Heat: 0
+    whitelist:
+      components:
+      - XenoChargeSpit
+  - type: Transform
+  - type: IgnorePredictionHit
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        mask:
+        - FullTileLayer
+        layer:
+        - FullTileLayer
 # // CCM Charge Spit - Scattershot Effect
 # // CCM Xeno Strain - Scattershot Spitter
 
