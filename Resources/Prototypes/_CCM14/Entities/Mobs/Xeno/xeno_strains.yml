@@ -58,6 +58,8 @@
     maxEffect: CCMBoxerEffectHealing
     maxHeal: 0
     minHeal: 0
+  - type: RMCActionOrder
+    id: CCMXenoWarriorBoxer
 # // CCM Xeno Punch Attack Effect
 - type: entity
   parent: [WeaponArcClaw, RMCBaseEffect]
@@ -182,6 +184,8 @@
     damage:
       groups:
         Brute: 55
+  - type: RMCActionOrder
+    id: CCMXenoWarriorBasher
 # // CCM Xeno Strain - Effects
 - type: entity
   parent: RMCBaseEffect
@@ -416,6 +420,8 @@
     gainAttack: -5
     gainAttackDowned: -5
     ignoreLateInfected: true
+  - type: RMCActionOrder
+    id: CCMXenoDefenderBodyguard
 # // CCM Xeno Strain - Bodyguard Defender
 
 # // CCM Xeno Strain - Melee & Ranger Sentinels
@@ -482,6 +488,8 @@
     critHealMultiplier: 0.5  # 5% increased regeneration
     standHealingMultiplier: 0.8
     restHealMultiplier: 1.777
+  - type: RMCActionOrder
+    id: CCMXenoSentinelMelee
 
 - type: entity
   parent: CMXenoSentinel
@@ -530,6 +538,8 @@
       380: Critical
       480: Dead
   - type: XenoHidden
+  - type: RMCActionOrder
+    id: CCMXenoSentinelRanger
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 
 # // CCM Xeno Strain - Scattershot Spitter
@@ -584,6 +594,8 @@
     - CMXenoBoiler
     - CMXenoPraetorian
     strains: []
+  - type: RMCActionOrder
+    id: CCMXenoSpitterScattershot
 # // CCM Charge Spit - Scattershot Effect
 - type: entity
   parent: RMCBaseEffect
@@ -654,7 +666,7 @@
   - type: RequireProjectileTarget
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Radioactive
+    explosionType: RMC
     totalIntensity: 1
     intensitySlope: 5
     maxIntensity: 1
@@ -743,6 +755,8 @@
     offsetLength: 3
     speed: 0.8
     doAfter: 0.5
+  - type: RMCActionOrder
+    id: CCMXenoSpitterSniper
 # // CCM Xeno Strain - Sniper Spitter
 
 # // CCM Xeno Strain - Burrower Impaler
@@ -814,6 +828,8 @@
       0: Alive
       375: Critical
       475: Dead
+  - type: RMCActionOrder
+    id: CCMXenoBurrowerImpaler
   - type: RemoveComponents
     components:
     - type: CanBeLarvaQueued
