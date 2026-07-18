@@ -489,7 +489,7 @@
     standHealingMultiplier: 0.8
     restHealMultiplier: 1.777
   - type: RMCActionOrder
-    id: CCMXenoSentinelMelee
+    id: CCMXenoMeleeSentinel
 
 - type: entity
   parent: CMXenoSentinel
@@ -539,7 +539,7 @@
       480: Dead
   - type: XenoHidden
   - type: RMCActionOrder
-    id: CCMXenoSentinelRanger
+    id: CCMXenoRangerSentinel
 # // CCM Xeno Strain - Melee & Ranger Sentinels
 
 # // CCM Xeno Strain - Scattershot Spitter
@@ -595,7 +595,7 @@
     - CMXenoPraetorian
     strains: []
   - type: RMCActionOrder
-    id: CCMXenoSpitterScattershot
+    id: CCMXenoScatterShotSpitter
 # // CCM Charge Spit - Scattershot Effect
 - type: entity
   parent: RMCBaseEffect
@@ -756,7 +756,7 @@
     speed: 0.8
     doAfter: 0.5
   - type: RMCActionOrder
-    id: CCMXenoSpitterSniper
+    id: CCMXenoSniperSpitter
 # // CCM Xeno Strain - Sniper Spitter
 
 # // CCM Xeno Strain - Burrower Impaler
