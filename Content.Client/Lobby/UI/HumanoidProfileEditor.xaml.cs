@@ -334,6 +334,7 @@ namespace Content.Client.Lobby.UI
             };
 
             BackgroundInfoButton.OnPressed += _ => OpenBackgroundInfoWindow();
+            
             BackgroundCommendationsButton.OnPressed += _ => OpenCommendationsWindow();
             // CCM rework lobby - end
 
